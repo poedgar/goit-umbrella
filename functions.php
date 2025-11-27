@@ -127,6 +127,13 @@ add_action(
 
 add_filter('theme_page_templates', 'bathe_add_page_templates');
 function bathe_add_page_templates($templates) {
-    $templates['page-templates/test.php'] = 'Test';
+    $templates['page-templates/homepage.php'] = 'Homepage';
     return $templates;
 }
+
+require_once get_template_directory() . '/inc/custom-post-types/sites.php';
+require_once get_template_directory() . '/inc/menus/primary.php';
+
+require_once get_template_directory() . '/inc/metaboxes/homepage/collaboration.php';
+require_once get_template_directory() . '/inc/metaboxes/homepage/initiatives.php';
+require_once get_template_directory() . '/inc/metaboxes/media-upload.php';
