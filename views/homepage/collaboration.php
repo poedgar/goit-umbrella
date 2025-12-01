@@ -1,10 +1,10 @@
 <?php
-// Retrieve values from MetaBoxes
-$show_section = get_post_meta(get_the_ID(), 'show_collaboration_section', true);
-$title        = get_post_meta(get_the_ID(), 'team_section_title', true) ?: 'СПІВПРАЦЯ З НАМИ';
-$team_members = get_post_meta(get_the_ID(), 'team_team_members', true) ?: [];
+// ACF field values
+$show_section = get_field('show_collaboration_section');
+$title        = get_field('team_section_title') ?: 'СПІВПРАЦЯ З НАМИ';
+$team_members = get_field('team_members'); // repeater array
 
-// Don't render if section disabled or empty
+// Don't render if disabled or empty
 if (!$show_section || empty($team_members)) return;
 ?>
 
@@ -18,9 +18,10 @@ if (!$show_section || empty($team_members)) return;
 
         <!-- Team Members Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
             <?php foreach ($team_members as $member):
 
-                $photo    = $member['photo'] ?? '';      // direct URL from meta
+                $photo    = $member['photo'] ?? '';   // URL from ACF
                 $name     = $member['name'] ?? '';
                 $position = $member['position'] ?? '';
                 $email    = $member['email'] ?? '';
@@ -40,6 +41,7 @@ if (!$show_section || empty($team_members)) return;
                     <p class="text-gray-600 text-sm mb-4"><?= esc_html($position); ?></p>
 
                     <div class="flex gap-3">
+
                         <?php if ($email): ?>
                         <a href="mailto:<?= esc_attr($email); ?>"
                             class="w-9 h-9 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
@@ -61,11 +63,13 @@ if (!$show_section || empty($team_members)) return;
                             </svg>
                         </a>
                         <?php endif; ?>
+
                     </div>
                 </div>
 
             </div>
             <?php endforeach; ?>
+
         </div>
     </div>
 </section>

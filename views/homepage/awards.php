@@ -1,8 +1,8 @@
 <?php
-// Retrieve values from MetaBoxes
-$show_section = get_post_meta(get_the_ID(), 'show_awards_section', true);
-$title        = get_post_meta(get_the_ID(), 'awards_section_title', true) ?: 'НАШІ НАГОРОДИ';
-$awards_items = get_post_meta(get_the_ID(), 'awards_items', true) ?: [];
+// ACF fields
+$show_section = get_field('show_awards_section');
+$title        = get_field('awards_section_title') ?: 'НАШІ НАГОРОДИ';
+$awards_items = get_field('awards_items');
 
 // Don't render if section disabled or empty
 if (!$show_section || empty($awards_items)) return;
@@ -43,6 +43,5 @@ if (!$show_section || empty($awards_items)) return;
             </div>
             <?php endforeach; ?>
         </div>
-
     </div>
 </section>
