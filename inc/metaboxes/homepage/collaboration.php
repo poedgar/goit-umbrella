@@ -1,10 +1,20 @@
 <?php
 /**
  * Collaboration / Team — метабокс без ACF
- * Файл: inc/metaboxes/team-metabox.php
  */
 
 defined('ABSPATH') || exit;
+
+$post_id = 0;
+
+if (isset($_GET['post'])) {
+	$post_id = (int) $_GET['post'];
+}
+
+$allowed_template = 'page-templates/homepage.php';
+
+if (get_page_template_slug($post_id) !== $allowed_template)
+	return;
 
 add_action('add_meta_boxes', function () {
     add_meta_box(
