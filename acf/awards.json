@@ -1,0 +1,68 @@
+{
+  "key": "group_awards_section",
+  "title": "Awards",
+  "fields": [
+    {
+      "key": "field_show_awards_section",
+      "label": "Показувати секцію",
+      "name": "show_awards_section",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_awards_section_title",
+      "label": "Заголовок секції",
+      "name": "awards_section_title",
+      "type": "text",
+      "default_value": "НАШІ НАГОРОДИ"
+    },
+    {
+      "key": "field_awards_items",
+      "label": "Логотипи / Нагороди",
+      "name": "awards_items",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "+ Додати логотип",
+      "sub_fields": [
+        {
+          "key": "field_award_image",
+          "label": "Логотип",
+          "name": "image",
+          "type": "image",
+          "return_format": "url",
+          "preview_size": "medium",
+          "library": "all"
+        },
+        {
+          "key": "field_award_title",
+          "label": "Назва / опис",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_award_link",
+          "label": "Посилання (опційно)",
+          "name": "link",
+          "type": "url"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/homepage.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "description": "Секція нагород з логотипами"
+}

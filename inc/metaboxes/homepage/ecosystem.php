@@ -1,6 +1,10 @@
 <?php
 /**
  * Ecosystem / Better Ed — метабокс без ACF
+ *
+ * This version proxies uploads for dynamically added items to an existing
+ * upload button that the project's centralized uploader already bound to.
+ * That allows uploads to work without touching the centralized uploader.
  */
 
 defined('ABSPATH') || exit;
@@ -69,6 +73,7 @@ function render_ecosystem_metabox_callback($post)
         <input type="hidden" name="ecosystem_left_image" class="photo-url-input"
             value="<?php echo esc_attr($left_image); ?>">
         <div class="photo-actions" style="margin-top:8px;">
+            <!-- keep real upload button here so centralized uploader will bind to something on initial load -->
             <button type="button" class="button upload-photo-btn">Завантажити</button>
             <button type="button" class="button remove-photo-btn" style="color:#a00;">Видалити</button>
         </div>
@@ -88,6 +93,7 @@ function render_ecosystem_metabox_callback($post)
             <input type="hidden" name="ecosystem_right_images[<?php echo $i; ?>]" class="photo-url-input"
                 value="<?php echo esc_attr($ri); ?>">
             <div style="margin-top:6px;">
+                <!-- existing saved items keep real upload button class so they remain bound -->
                 <button type="button" class="button upload-photo-btn">Завантажити</button>
                 <button type="button" class="button remove-photo-btn" style="color:#a00;">Видалити</button>
                 <button type="button" class="button remove-right-image" style="margin-left:6px;">Видалити блок</button>
@@ -114,6 +120,7 @@ function render_ecosystem_metabox_callback($post)
             <input type="text" name="ecosystem_logos[<?php echo $i; ?>][alt]" placeholder="alt / label"
                 value="<?php echo esc_attr($lg['alt'] ?? ''); ?>" style="flex:1;">
             <div>
+                <!-- existing saved items keep real upload button class so they remain bound -->
                 <button type="button" class="button upload-photo-btn">Завантажити</button>
                 <button type="button" class="button remove-photo-btn" style="color:#a00;">Видалити</button>
                 <button type="button" class="button remove-ecosystem-logo" style="margin-left:6px;">Видалити
@@ -127,7 +134,11 @@ function render_ecosystem_metabox_callback($post)
 
 <script>
 (function() {
-    // Use DOM creation for new items to ensure class structure matches centralized uploader expectations.
+    // Create new items using proxy upload buttons (upload-photo-proxy).
+    // Proxy finds an existing bound upload button on the page, moves it
+    // into the new item, triggers a click and restores the original button.
+    // This avoids touching the centralized uploader.
+
     function makeRightImageItem(index) {
         var root = document.createElement('div');
         root.className = 'right-image-item';
@@ -146,10 +157,11 @@ function render_ecosystem_metabox_callback($post)
         var controls = document.createElement('div');
         controls.style = 'margin-top:6px;';
 
-        var upBtn = document.createElement('button');
-        upBtn.type = 'button';
-        upBtn.className = 'button upload-photo-btn';
-        upBtn.textContent = 'Завантажити';
+        // proxy button (not bound by centralized uploader)
+        var proxy = document.createElement('button');
+        proxy.type = 'button';
+        proxy.className = 'button upload-photo-proxy';
+        proxy.textContent = 'Завантажити';
 
         var remBtn = document.createElement('button');
         remBtn.type = 'button';
@@ -163,7 +175,7 @@ function render_ecosystem_metabox_callback($post)
         delBlock.style.marginLeft = '6px';
         delBlock.textContent = 'Видалити блок';
 
-        controls.appendChild(upBtn);
+        controls.appendChild(proxy);
         controls.appendChild(remBtn);
         controls.appendChild(delBlock);
 
@@ -198,10 +210,10 @@ function render_ecosystem_metabox_callback($post)
 
         var ctrlWrap = document.createElement('div');
 
-        var upBtn = document.createElement('button');
-        upBtn.type = 'button';
-        upBtn.className = 'button upload-photo-btn';
-        upBtn.textContent = 'Завантажити';
+        var proxy = document.createElement('button');
+        proxy.type = 'button';
+        proxy.className = 'button upload-photo-proxy';
+        proxy.textContent = 'Завантажити';
 
         var remBtn = document.createElement('button');
         remBtn.type = 'button';
@@ -215,7 +227,7 @@ function render_ecosystem_metabox_callback($post)
         delBlock.style.marginLeft = '6px';
         delBlock.textContent = 'Видалити блок';
 
-        ctrlWrap.appendChild(upBtn);
+        ctrlWrap.appendChild(proxy);
         ctrlWrap.appendChild(remBtn);
         ctrlWrap.appendChild(delBlock);
 
@@ -227,6 +239,127 @@ function render_ecosystem_metabox_callback($post)
         return root;
     }
 
+    // Find a "real" upload button that centralized uploader bound to.
+    // Prefer one outside our dynamic containers (e.g. the left image upload).
+    function findRealUploadButton() {
+        // prefer a button within .photo-actions (left image) or any existing upload-photo-btn
+        var sel = '.photo-actions .upload-photo-btn, .upload-photo-btn';
+        var nodes = document.querySelectorAll(sel);
+        for (var i = 0; i < nodes.length; i++) {
+            var n = nodes[i];
+            // ignore proxy buttons if any
+            if (n.classList.contains('upload-photo-proxy')) continue;
+            // ensure it is visible and in DOM
+            if (!document.body.contains(n)) continue;
+            return n;
+        }
+        return null;
+    }
+
+    // Proxy click handler: move real button into target, trigger click, restore when input changes.
+    function handleProxyClick(e) {
+        if (!e.target.classList || !e.target.classList.contains('upload-photo-proxy')) return;
+        e.preventDefault();
+
+        var proxyBtn = e.target;
+        // target container is closest item
+        var container = proxyBtn.closest('.right-image-item, .ecosystem-logo-item');
+        if (!container) return;
+
+        var input = container.querySelector('.photo-url-input');
+        var preview = container.querySelector('.photo-preview');
+
+        var realBtn = findRealUploadButton();
+        if (!realBtn) {
+            // fallback to prompt
+            var url = prompt('Image URL');
+            if (url) {
+                if (input) input.value = url;
+                if (preview) preview.innerHTML = '<img src="' + url +
+                    '" style="width:100%;height:100%;object-fit:cover;display:block;">';
+            }
+            return;
+        }
+
+        // Save original location to restore later
+        var originalParent = realBtn.parentNode;
+        var originalNext = realBtn.nextSibling;
+
+        // CRITICAL FIX: Wrap container in a temporary .photo-wrapper div
+        // so the centralized uploader can find it with $(currentBtn).closest('.photo-wrapper')
+        var tempWrapper = document.createElement('div');
+        tempWrapper.className = 'photo-wrapper';
+        tempWrapper.style.display = 'contents'; // doesn't affect layout
+
+        // Wrap the container
+        container.parentNode.insertBefore(tempWrapper, container);
+        tempWrapper.appendChild(container);
+
+        // Move realBtn into our container's controls so centralized uploader uses this context
+        var controls = proxyBtn.parentNode;
+        controls.insertBefore(realBtn, proxyBtn);
+        // hide proxy while uploader is open
+        proxyBtn.style.display = 'none';
+
+        var restored = false;
+
+        function restore() {
+            if (restored) return;
+            restored = true;
+
+            // Unwrap the temporary .photo-wrapper
+            if (tempWrapper.parentNode) {
+                tempWrapper.parentNode.insertBefore(container, tempWrapper);
+                tempWrapper.remove();
+            }
+
+            // restore real button to original place
+            if (originalParent) {
+                if (originalNext) originalParent.insertBefore(realBtn, originalNext);
+                else originalParent.appendChild(realBtn);
+            }
+            // show proxy again
+            proxyBtn.style.display = '';
+            // cleanup listeners
+            if (input) {
+                input.removeEventListener('change', onChange);
+            }
+            if (observer) observer.disconnect();
+            clearTimeout(timeoutId);
+        }
+
+        function onChange() {
+            // small delay to ensure preview was updated by centralized uploader
+            setTimeout(restore, 50);
+        }
+
+        // use MutationObserver on input.value in case central uploader sets value without dispatching 'change'
+        var observer = null;
+        if (input) {
+            observer = new MutationObserver(function(mutations) {
+                for (var i = 0; i < mutations.length; i++) {
+                    if (mutations[i].attributeName === 'value') {
+                        // attribute 'value' changed
+                        restore();
+                        return;
+                    }
+                }
+            });
+            observer.observe(input, {
+                attributes: true,
+                attributeFilter: ['value']
+            });
+            input.addEventListener('change', onChange);
+        }
+
+        // safety fallback: restore after 12s if nothing happens
+        var timeoutId = setTimeout(restore, 12000);
+
+        // trigger click on the real (bound) button
+        realBtn.click();
+    }
+
+    // global click handler for metabox controls
     document.addEventListener('click', function(e) {
         if (!e.target) return;
 
@@ -243,12 +376,13 @@ function render_ecosystem_metabox_callback($post)
             var idx = wrapper.querySelectorAll('.right-image-item').length;
             var node = makeRightImageItem(idx);
             wrapper.appendChild(node);
-            // optional notify (central uploader uses delegated handlers so not required)
+            // do not add 'upload-photo-btn' class here; we use proxy to reuse existing bound button
             document.dispatchEvent(new CustomEvent('uploader:element-added', {
                 detail: {
                     element: node
                 }
             }));
+            return;
         }
 
         // add logo
@@ -262,6 +396,7 @@ function render_ecosystem_metabox_callback($post)
                     element: node
                 }
             }));
+            return;
         }
 
         // remove blocks
@@ -276,7 +411,11 @@ function render_ecosystem_metabox_callback($post)
             return;
         }
 
-        // other remove-photo-btn and upload-photo-btn are handled by centralized uploader (delegated)
+        // proxy upload click
+        if (e.target.classList && e.target.classList.contains('upload-photo-proxy')) {
+            handleProxyClick(e);
+            return;
+        }
     });
 })();
 </script>

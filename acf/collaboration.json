@@ -1,0 +1,79 @@
+{
+  "key": "group_collaboration_team",
+  "title": "Collaboration / Team",
+  "fields": [
+    {
+      "key": "field_show_collaboration_section",
+      "label": "Показувати секцію «Команда»",
+      "name": "show_collaboration_section",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_team_section_title",
+      "label": "Заголовок секції",
+      "name": "team_section_title",
+      "type": "text",
+      "default_value": "СПІВПРАЦЯ З НАМИ",
+      "wrapper": {
+        "width": ""
+      }
+    },
+    {
+      "key": "field_team_members",
+      "label": "Учасники команди",
+      "name": "team_members",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "+ Додати учасника",
+      "sub_fields": [
+        {
+          "key": "field_team_member_photo",
+          "label": "Фото",
+          "name": "photo",
+          "type": "image",
+          "return_format": "url",
+          "preview_size": "thumbnail"
+        },
+        {
+          "key": "field_team_member_name",
+          "label": "Ім’я",
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "key": "field_team_member_position",
+          "label": "Посада",
+          "name": "position",
+          "type": "text"
+        },
+        {
+          "key": "field_team_member_email",
+          "label": "Email",
+          "name": "email",
+          "type": "email"
+        },
+        {
+          "key": "field_team_member_linkedin",
+          "label": "LinkedIn",
+          "name": "linkedin",
+          "type": "url"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/homepage.php"
+      }
+    ]
+  ],
+  "position": "normal",
+  "style": "default",
+  "active": 1,
+  "description": "Replaces custom metabox Collaboration section"
+}

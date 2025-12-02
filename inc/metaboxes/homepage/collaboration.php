@@ -123,3 +123,50 @@ add_action('save_post_page', function ($post_id) {
     }
     update_post_meta($post_id, 'team_members', $clean);
 });
+
+add_action('admin_footer', function () {
+	$screen = get_current_screen();
+	if ($screen->id !== 'page') return; // тільки для сторінок ?>
+
+<script>
+jQuery(function($) {
+    // === toggle секції ===
+    $('#show-team').on('change', function() {
+        $('#team-fields').toggle(this.checked);
+    });
+
+    // === add new member ===
+    $('#add-team-member').on('click', function() {
+
+        const i = $('#team-members-wrapper .team-member-item').length;
+
+        const html = `
+        <div class="team-member-item" style="margin:15px 0;padding:15px;border:1px solid #ccc;background:#fff;">
+            <div class="photo-wrapper" style="margin-bottom:15px;">
+                <strong>Фото</strong><br>
+                <div class="photo-preview" style="width:100px;height:100px;border:2px dashed #ccc;overflow:hidden;background:#f9f9f9;"></div>
+                <input type="hidden" name="team_members[${i}][photo]" class="photo-url-input" value="">
+                <div class="photo-actions" style="margin-top:8px;">
+                    <button type="button" class="button upload-photo-btn">Завантажити</button>
+                    <button type="button" class="button remove-photo-btn" style="color:#a00;">Видалити</button>
+                </div>
+            </div>
+
+            <p><input type="text" name="team_members[${i}][name]" placeholder="Ім’я" style="width:100%"></p>
+            <p><input type="text" name="team_members[${i}][position]" placeholder="Посада" style="width:100%"></p>
+            <p><input type="email" name="team_members[${i}][email]" placeholder="Email" style="width:100%"></p>
+            <p><input type="url" name="team_members[${i}][linkedin]" placeholder="LinkedIn" style="width:100%"></p>
+
+            <button type="button" class="button button-link-delete remove-team-member">Видалити учасника</button>
+        </div>`;
+
+        $('#team-members-wrapper').append(html);
+    });
+
+    // === remove member ===
+    $(document).on('click', '.remove-team-member', function() {
+        $(this).closest('.team-member-item').remove();
+    });
+});
+</script>
+<?php });
