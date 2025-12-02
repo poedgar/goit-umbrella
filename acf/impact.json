@@ -1,0 +1,112 @@
+{
+  "key": "group_impact_section",
+  "title": "Impact / Від знань до впливу",
+  "fields": [
+    {
+      "key": "field_show_impact_section",
+      "label": "Показувати секцію",
+      "name": "show_impact_section",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_impact_section_title",
+      "label": "Заголовок",
+      "name": "impact_section_title",
+      "type": "text",
+      "default_value": "ВІД ЗНАНЬ ДО ВПЛИВУ",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_impact_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_impact_section_description",
+      "label": "Опис / підзаголовок",
+      "name": "impact_section_description",
+      "type": "textarea",
+      "rows": 4,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_impact_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_impact_image",
+      "label": "Зображення (ліворуч)",
+      "name": "impact_image",
+      "type": "image",
+      "return_format": "url",
+      "preview_size": "large",
+      "library": "all",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_impact_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_impact_button_label",
+      "label": "Текст кнопки",
+      "name": "impact_button_label",
+      "type": "text",
+      "placeholder": "Наприклад: ДИВИТИСЯ",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_impact_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_impact_button_link",
+      "label": "Посилання кнопки",
+      "name": "impact_button_link",
+      "type": "url",
+      "placeholder": "https://example.com",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_impact_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/homepage.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "description": ""
+}
