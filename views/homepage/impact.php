@@ -11,40 +11,36 @@ $btn_link     = get_field('impact_button_link');
 if (!$show_section) return;
 ?>
 
-<section class="py-16 px-4 bg-gray-100">
-    <div class="container mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+<section class="section">
+	<div class="container">
+		<div class="bg-white p-5 borded-[8px] grid gap-5 md:gap-8 xl:flex">
+			<div class="flex flex-col gap-5 md:gap-8 xl:order-1 xl:items-center xl:justify-center">
+				<?php if ($title): ?>
+					<h2 class="section-title">
+						<?= esc_html($title); ?></h2>
+				<?php endif; ?>
 
-            <!-- Left: Image with centered overlay button -->
-            <div class="relative flex justify-center">
-                <?php if ($image): ?>
-                <div class="rounded-lg overflow-hidden" style="width:100%;max-width:720px;">
-                    <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($title); ?>"
-                        style="width:100%;height:100%;object-fit:cover;display:block;">
+				<?php if ($description): ?>
+					<p class="text-[20px]/[28px] font-medium uppercase md:text-[24px]/[32px] text-center"><?= esc_html($description); ?></h2>
+					</p>
+				<?php endif; ?>
+			</div>
 
-                    <?php if ($btn_label): ?>
-                    <a href="<?= esc_url($btn_link ?: '#'); ?>" class="absolute"
-                        style="left:50%;top:50%;transform:translate(-50%,-50%);background:#111;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;">
-                        <?= esc_html($btn_label); ?>
-                    </a>
-                    <?php endif; ?>
-                </div>
-                <?php else: ?>
-                <div style="width:100%;max-width:720px;height:360px;background:#eee;border-radius:10px;"></div>
-                <?php endif; ?>
-            </div>
+			<a href="" class="cursor-pointer rounded-[8px] bg-accent overflow-hidden relative xl:order-0 xl:shrink-0"
+				rel="noopener noreferrer nofollow" target="_blank">
+				<div class="relative bg-red-500">
+					<img class="rounded-[8px] w-full h-full md:h-[450px] xl:w-[800px]" alt="" height="498" loading="lazy"
+						src="" width="280"
+						class="" title="">
 
-            <!-- Right: Title + Description -->
-            <div class="text-right lg:text-left">
-                <?php if ($title): ?>
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"><?= esc_html($title); ?></h2>
-                <?php endif; ?>
-
-                <?php if ($description): ?>
-                <div class="text-gray-600 text-lg"><?= wp_kses_post(wpautop($description)); ?></div>
-                <?php endif; ?>
-            </div>
-
-        </div>
-    </div>
+					<button
+						class="absolute btn btn-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 shrink-0 hover:scale-[1.1] focus:scale-[1.1] active:scale-[1.1]"
+						type="button" aria-label="кнопка відкриття модального вікна з відео"
+						tabindex="0">
+						дивитися
+					</button>
+				</div>
+			</a>
+		</div>
+	</div>
 </section>

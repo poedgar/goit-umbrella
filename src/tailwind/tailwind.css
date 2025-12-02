@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	html {
+		@apply min-w-0 scroll-smooth;
+	}
+
+	body {
+		@apply bg-body font-inter text-[16px]/[24px] font-normal text-black;
+	}
+}
+
+@layer utilities {
+	.section {
+		@apply py-10 xl:py-16;
+	}
+
+	.section-title {
+		@apply font-unbounded text-[32px]/[36px] font-black uppercase text-center md:text-[48px]/[1];
+	}
+
+	.low-section-title {
+		@apply text-center text-[20px]/[28px] font-medium uppercase text-gray md:text-[32px]/[36px];
+	}
+
+	.btn {
+		@apply flex min-h-11 w-fit items-center justify-center rounded-[4px] px-4  py-2 text-center text-[20px]/[28px] lowercase duration-300;
+	}
+	.btn-black {
+		@apply bg-black text-white hover:bg-[#F2F1EE] focus:bg-[#F2F1EE] active:bg-[#F2F1EE] hover:text-black focus:text-black active:text-black;
+	}
+	.btn-transparent {
+		@apply text-black border-2 border-black hover:border-none focus:border-none active:border-none hover:bg-[#F2F1EE] focus:bg-[#F2F1EE] active:bg-[#F2F1EE];
+	}
+
+	.scroll-hidden {
+		@apply overflow-hidden;
+	}
+}
