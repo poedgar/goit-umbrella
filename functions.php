@@ -131,5 +131,5 @@ function bathe_add_page_templates($templates) {
     return $templates;
 }
 
-require_once get_template_directory() . '/inc/custom-post-types/sites.php';
+require_once get_template_directory() . '/inc/custom-post-types/companies.php';
 require_once get_template_directory() . '/inc/menus/primary.php';
