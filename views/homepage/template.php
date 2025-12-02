@@ -1,32 +1,3 @@
-<!-- {{--video section --}} -->
-<section class="section">
-	<div class="container">
-		<div class="bg-white p-5 borded-[8px] grid gap-5 md:gap-8 xl:flex">
-			<div class="flex flex-col gap-5 md:gap-8 xl:order-1 xl:items-center xl:justify-center">
-				<h2 class="section-title">Від знань до впливу</h2>
-
-				<p class="text-[20px]/[28px] font-medium uppercase md:text-[24px]/[32px] text-center">Ми віримо: освіта не має віку. Вона не починається з диплома. Вона починається з рішучості.</p>
-			</div>
-
-			<a href="" class="cursor-pointer rounded-[8px] bg-accent overflow-hidden relative xl:order-0 xl:shrink-0"
-				rel="noopener noreferrer nofollow" target="_blank">
-				<div class="relative bg-red-500">
-					<img class="rounded-[8px] w-full h-full md:h-[450px] xl:w-[800px]" alt="" height="498" loading="lazy"
-						src="" width="280"
-						class="" title="">
-
-					<button
-						class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 py-2 bg-black rounded-[4px] z-20 shrink-0 hover:scale-[1.1] focus:scale-[1.1] active:scale-[1.1]"
-						type="button" aria-label="кнопка відкриття модального вікна з відео"
-						tabindex="0">
-						дивитися
-					</button>
-				</div>
-			</a>
-		</div>
-	</div>
-</section>
-
 <!-- {{--about section --}} -->
 <section class="section">
 	<div class="container">

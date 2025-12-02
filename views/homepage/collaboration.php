@@ -1,75 +1,79 @@
 <?php
 // ACF field values
 $show_section = get_field('show_collaboration_section');
-$title        = get_field('team_section_title') ?: 'СПІВПРАЦЯ З НАМИ';
+$title        = get_field('team_section_title');
 $team_members = get_field('team_members'); // repeater array
 
 // Don't render if disabled or empty
 if (!$show_section || empty($team_members)) return;
 ?>
 
-<section class="py-16 px-4 bg-gray-100">
-    <div class="container mx-auto max-w-7xl">
+<section class="section">
+	<div class="container">
 
-        <!-- Section Title -->
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 md:mb-16">
-            <?= esc_html($title); ?>
-        </h2>
+		<!-- Section Title -->
+		<?php if ($title): ?>
+			<h2 class="section-title">
+				<?= esc_html($title); ?>
+			</h2>
+		<?php endif; ?>
 
-        <!-- Team Members Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+		<!-- Team Members Grid -->
+		<ul class="mt-5 md:mt-16 flex smOnly:flex-col gap-5 md:gap-8">
 
-            <?php foreach ($team_members as $member):
+			<?php foreach ($team_members as $member):
 
-                $photo    = $member['photo'] ?? '';   // URL from ACF
-                $name     = $member['name'] ?? '';
-                $position = $member['position'] ?? '';
-                $email    = $member['email'] ?? '';
-                $linkedin = $member['linkedin'] ?? '';
+				$photo    = $member['photo']['url'];
+				$name     = $member['name'];
+				$position = $member['position'];
+				$email    = $member['email'];
+				$linkedin = $member['linkedin'];
 
-            ?>
-            <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+			?>
+				<li class="flex flex-1 flex-col gap-5 xl:gap-8 bg-white md:first:bg-transparent md:last:bg-transparent rounded-[8px] p-5 xl:p-8">
 
-                <?php if ($photo): ?>
-                <div class="aspect-square overflow-hidden">
-                    <img src="<?= esc_url($photo); ?>" alt="<?= esc_attr($name); ?>" class="w-full h-full object-cover">
-                </div>
-                <?php endif; ?>
+					<?php if ($photo): ?>
+						<div class="aspect-square overflow-hidden w-full rounded-[8px]">
+							<img src="<?= esc_url($photo); ?>" alt="<?= esc_attr($name); ?>" class="w-full  h-full object-cover">
+						</div>
+					<?php endif; ?>
 
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-black mb-2 uppercase"><?= esc_html($name); ?></h3>
-                    <p class="text-gray-600 text-sm mb-4"><?= esc_html($position); ?></p>
+					<?php if ($name): ?>
+						<h3 class="text-[20px]/[28px] grow font-medium uppercase"><?= esc_html($name); ?></h3>
+					<?php endif; ?>
 
-                    <div class="flex gap-3">
+					<?php if ($position): ?>
+						<p class=""><?= esc_html($position); ?></p>
+					<?php endif; ?>
 
-                        <?php if ($email): ?>
-                        <a href="mailto:<?= esc_attr($email); ?>"
-                            class="w-9 h-9 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
-                            aria-label="Email">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                            </svg>
-                        </a>
-                        <?php endif; ?>
+					<!-- social links -->
+					<div class="flex gap-4 md:gap-2 justify-start items-center">
+						<?php if ($email): ?>
+							<a href="mailto:<?= esc_attr($email); ?>"
+								class="size-11 md:size-7 flex items-center justify-center bg-white hover:scale-[1.2] duration-300 rounded-[8px] border-2 border-black"
+								aria-label="Email">
+								<svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M4.81395 0C3.46189 0 2.23924 0.349085 1.35181 1.20035C0.455961 2.05969 0 3.33583 0 4.97297V11.027C0 12.6642 0.455961 13.9403 1.35181 14.7997C2.23924 15.6509 3.46189 16 4.81395 16H13.186C14.5381 16 15.7608 15.6509 16.6482 14.7997C17.5441 13.9403 18 12.6642 18 11.027V4.97297C18 3.33583 17.5441 2.05969 16.6482 1.20035C15.7608 0.349085 14.5381 0 13.186 0H4.81395ZM15.0518 4.85388C15.3261 4.63485 15.3767 4.22748 15.1646 3.94401C14.9526 3.66053 14.5583 3.6083 14.2839 3.82735L9.6398 7.53436C9.26297 7.83524 8.73695 7.83524 8.36004 7.53436L3.71604 3.82735C3.44162 3.6083 3.04729 3.66053 2.83525 3.94401C2.62321 4.22748 2.67377 4.63485 2.94818 4.85388L7.59223 8.56095C8.4214 9.22275 9.57851 9.22275 10.4077 8.56095L15.0518 4.85388Z" fill="black" />
+								</svg>
 
-                        <?php if ($linkedin): ?>
-                        <a href="<?= esc_url($linkedin); ?>" target="_blank" rel="noopener noreferrer"
-                            class="w-9 h-9 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
-                            aria-label="LinkedIn">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                <path
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                            </svg>
-                        </a>
-                        <?php endif; ?>
+							</a>
+						<?php endif; ?>
 
-                    </div>
-                </div>
+						<?php if ($linkedin): ?>
+							<a href="<?= esc_url($linkedin); ?>" target="_blank" rel="noopener noreferrer"
+								class="size-11 md:size-7 flex items-center justify-center bg-white hover:scale-[1.2] duration-300 rounded-[8px] border-2 border-black"
+								aria-label="LinkedIn">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M3.47331 16H0.0569397V4.57143H3.47331V16ZM16 16H12.5836V9.89486C12.5836 8.304 12.0188 7.512 10.8994 7.512C10.0122 7.512 9.44968 7.95543 9.16726 8.84343C9.16726 10.2857 9.16726 16 9.16726 16H5.75089C5.75089 16 5.79644 5.71429 5.75089 4.57143H8.44754L8.65594 6.85714H8.72655C9.4269 5.71429 10.5463 4.93943 12.0814 4.93943C13.2487 4.93943 14.1927 5.26514 14.9136 6.08343C15.639 6.90286 16 8.00229 16 9.54629V16Z" fill="black" />
+									<path d="M1.76512 3.42857C2.73998 3.42857 3.53025 2.66106 3.53025 1.71429C3.53025 0.767512 2.73998 0 1.76512 0C0.790273 0 0 0.767512 0 1.71429C0 2.66106 0.790273 3.42857 1.76512 3.42857Z" fill="black" />
+								</svg>
+							</a>
+						<?php endif; ?>
 
-            </div>
-            <?php endforeach; ?>
+					</div>
+				</li>
+			<?php endforeach; ?>
 
-        </div>
-    </div>
+		</ul>
+	</div>
 </section>
