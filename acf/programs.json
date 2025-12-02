@@ -1,0 +1,135 @@
+{
+  "key": "group_programs_section",
+  "title": "Programs / Blocks",
+  "fields": [
+    {
+      "key": "field_show_programs_section",
+      "label": "Показувати секцію",
+      "name": "show_programs_section",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 1
+    },
+    {
+      "key": "field_programs_section_title",
+      "label": "Заголовок секції",
+      "name": "programs_section_title",
+      "type": "text",
+      "default_value": "СТВОРЮЄМО НОВУ КУЛЬТУРУ ОСВІТИ"
+    },
+    {
+      "key": "field_programs_items",
+      "label": "Блоки / Картки",
+      "name": "programs_items",
+      "type": "repeater",
+      "button_label": "+ Додати блок",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_programs_item_image",
+          "label": "Ілюстрація",
+          "name": "image",
+          "type": "image",
+          "return_format": "url",
+          "preview_size": "medium"
+        },
+        {
+          "key": "field_programs_item_style",
+          "label": "Тип блоку",
+          "name": "style",
+          "type": "select",
+          "choices": {
+            "text": "Опис",
+            "stats": "Статистика (кольорова картка)"
+          },
+          "default_value": "text",
+          "ui": 1,
+          "allow_null": 0
+        },
+        {
+          "key": "field_programs_item_small_title",
+          "label": "Маленький заголовок",
+          "name": "small_title",
+          "type": "text"
+        },
+        {
+          "key": "field_programs_item_subtitle",
+          "label": "Заголовок",
+          "name": "subtitle",
+          "type": "text"
+        },
+        {
+          "key": "field_programs_item_content",
+          "label": "Опис / контент",
+          "name": "content",
+          "type": "wysiwyg",
+          "tabs": "visual",
+          "media_upload": 0,
+          "toolbar": "basic"
+        },
+        {
+          "key": "field_programs_item_stat_big",
+          "label": "Велика цифра",
+          "name": "stat_big",
+          "type": "text"
+        },
+        {
+          "key": "field_programs_item_stat_left_value",
+          "label": "Ліва цифра",
+          "name": "stat_left_value",
+          "type": "text"
+        },
+        {
+          "key": "field_programs_item_stat_right_value",
+          "label": "Права цифра",
+          "name": "stat_right_value",
+          "type": "text"
+        },
+        {
+          "key": "field_programs_item_stat_left_label",
+          "label": "Ліва підпись",
+          "name": "stat_left_label",
+          "type": "text"
+        },
+        {
+          "key": "field_programs_item_stat_right_label",
+          "label": "Права підпись",
+          "name": "stat_right_label",
+          "type": "text"
+        },
+        {
+          "key": "field_programs_item_bg_color",
+          "label": "Колір картки",
+          "name": "bg_color",
+          "type": "color_picker",
+          "default_value": "#F5A623"
+        },
+        {
+          "key": "field_programs_item_cta_label",
+          "label": "Текст кнопки",
+          "name": "cta_label",
+          "type": "text"
+        },
+        {
+          "key": "field_programs_item_cta_link",
+          "label": "Посилання кнопки",
+          "name": "cta_link",
+          "type": "url"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/homepage.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "active": 1
+}

@@ -1,0 +1,147 @@
+{
+  "key": "group_ecosystem_section",
+  "title": "Ecosystem / Better Ed",
+  "fields": [
+    {
+      "key": "field_show_ecosystem_section",
+      "label": "Показувати секцію «Ecosystem / Better Ed»",
+      "name": "show_ecosystem_section",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_ecosystem_title_big",
+      "label": "Великий заголовок",
+      "name": "ecosystem_title_big",
+      "type": "text",
+      "default_value": "BETTER ED",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_ecosystem_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_ecosystem_subtitle",
+      "label": "Підзаголовок / опис",
+      "name": "ecosystem_subtitle",
+      "type": "textarea",
+      "rows": 3,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_ecosystem_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_ecosystem_left_image",
+      "label": "Ліве велике зображення",
+      "name": "ecosystem_left_image",
+      "type": "image",
+      "return_format": "url",
+      "preview_size": "large",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_ecosystem_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_ecosystem_right_images",
+      "label": "Праворуч — стопка картинок (вертикально)",
+      "name": "ecosystem_right_images",
+      "type": "repeater",
+      "collapsed": "",
+      "min": 0,
+      "layout": "row",
+      "button_label": "+ Додати картинку",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_ecosystem_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "sub_fields": [
+        {
+          "key": "field_ecosystem_right_image",
+          "label": "Зображення",
+          "name": "image",
+          "type": "image",
+          "return_format": "url",
+          "preview_size": "medium"
+        }
+      ]
+    },
+    {
+      "key": "field_ecosystem_logos",
+      "label": "Логотипи внизу",
+      "name": "ecosystem_logos",
+      "type": "repeater",
+      "collapsed": "",
+      "layout": "row",
+      "min": 0,
+      "button_label": "+ Додати логотип",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_ecosystem_section",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ],
+      "sub_fields": [
+        {
+          "key": "field_ecosystem_logo_image",
+          "label": "Логотип",
+          "name": "image",
+          "type": "image",
+          "return_format": "url",
+          "preview_size": "medium"
+        },
+        {
+          "key": "field_ecosystem_logo_alt",
+          "label": "ALT / label",
+          "name": "alt",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "page"
+      },
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/homepage.php"
+      }
+    ]
+  ],
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "description": ""
+}

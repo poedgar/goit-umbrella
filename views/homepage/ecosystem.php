@@ -1,13 +1,13 @@
 <?php
-// Retrieve values from MetaBoxes
-$show_section   = get_post_meta(get_the_ID(), 'show_ecosystem_section', true);
-$title_big      = get_post_meta(get_the_ID(), 'ecosystem_title_big', true) ?: 'BETTER ED';
-$subtitle       = get_post_meta(get_the_ID(), 'ecosystem_subtitle', true);
-$left_image     = get_post_meta(get_the_ID(), 'ecosystem_left_image', true);
-$right_images   = get_post_meta(get_the_ID(), 'ecosystem_right_images', true) ?: [];
-$logos          = get_post_meta(get_the_ID(), 'ecosystem_logos', true) ?: [];
+// Retrieve values from ACF
+$show_section   = get_field('show_ecosystem_section');
+$title_big      = get_field('ecosystem_title_big') ?: 'BETTER ED';
+$subtitle       = get_field('ecosystem_subtitle');
+$left_image     = get_field('ecosystem_left_image');
+$right_images   = get_field('ecosystem_right_images') ?: [];
+$logos          = get_field('ecosystem_logos') ?: [];
 
-// don't render if disabled
+// Don't render if disabled
 if (!$show_section) return;
 ?>
 
@@ -22,14 +22,17 @@ if (!$show_section) return;
                 <?php endif; ?>
             </div>
 
-            <!-- Right: stacked images and small label -->
+            <!-- Right: stacked images -->
             <div class="flex flex-col items-center lg:items-end gap-4">
                 <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
                     <?php if (!empty($right_images)): ?>
-                    <?php foreach ($right_images as $ri): if (!$ri) continue; ?>
+                    <?php foreach ($right_images as $ri):
+                            $image_url = $ri['image'] ?? '';
+                            if (!$image_url) continue;
+                        ?>
                     <div
                         style="width:260px;height:56px;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,0.06);">
-                        <img src="<?= esc_url($ri); ?>" alt=""
+                        <img src="<?= esc_url($image_url); ?>" alt=""
                             style="width:100%;height:100%;object-fit:cover;display:block;">
                     </div>
                     <?php endforeach; ?>
@@ -40,13 +43,10 @@ if (!$show_section) return;
                     <div style="width:200px;height:56px;border-radius:8px;background:#eee;"></div>
                     <?php endif; ?>
                 </div>
-                <?php if ($left_image): ?>
-                <div class="mt-6" style="display:none;"></div> <!-- spacing for layout parity -->
-                <?php endif; ?>
             </div>
         </div>
 
-        <?php if (!empty($left_image)): ?>
+        <?php if ($left_image): ?>
         <div class="mt-12 flex justify-center">
             <div style="width:100%;max-width:1200px;border-radius:12px;overflow:hidden;">
                 <img src="<?= esc_url($left_image); ?>" alt="<?= esc_attr($title_big); ?>"
@@ -59,10 +59,10 @@ if (!$show_section) return;
         <div class="mt-12">
             <div class="flex flex-wrap items-center justify-center gap-8">
                 <?php foreach ($logos as $lg):
-                        $image = $lg['image'] ?? '';
-                        $alt   = $lg['alt'] ?? '';
-                        if (!$image) continue;
-                    ?>
+                    $image = $lg['image'] ?? '';
+                    $alt   = $lg['alt'] ?? '';
+                    if (!$image) continue;
+                ?>
                 <div class="flex items-center" style="max-width:160px;">
                     <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($alt); ?>"
                         style="max-height:48px;width:auto;display:block;object-fit:contain;">

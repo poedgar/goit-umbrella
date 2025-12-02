@@ -1,8 +1,8 @@
 <?php
 // Retrieve values from MetaBoxes
-$show_section = get_post_meta(get_the_ID(), 'show_timeline_section', true);
-$title        = get_post_meta(get_the_ID(), 'timeline_section_title', true) ?: 'НАШ ШЛЯХ';
-$items        = get_post_meta(get_the_ID(), 'timeline_items', true) ?: [];
+$show_section = get_field('show_timeline_section');
+$title        = get_field('timeline_section_title') ?: 'НАШ ШЛЯХ';
+$items        = get_field('timeline_items') ?: [];
 
 // Don't render if section disabled or empty
 if (!$show_section || empty($items)) return;
@@ -16,31 +16,29 @@ if (!$show_section || empty($items)) return;
             <?= esc_html($title); ?>
         </h2>
 
-        <!-- Nav -->
+        <!-- Carousel Nav -->
         <div class="flex justify-between items-center mb-6">
-            <button class="timeline-prev button">назад</button>
-            <button class="timeline-next button">вперед</button>
+            <button class="timeline-prev px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">назад</button>
+            <button class="timeline-next px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition">вперед</button>
         </div>
 
-        <!-- Timeline carousel (horizontal scroll) -->
-        <div class="timeline-track"
-            style="display:flex;gap:24px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:8px;">
+        <!-- Timeline Carousel -->
+        <div class="timeline-track flex gap-6 overflow-x-auto scroll-smooth pb-4">
             <?php foreach ($items as $item):
                 $image   = $item['image'] ?? '';
                 $year    = $item['year'] ?? '';
                 $heading = $item['heading'] ?? '';
                 $content = $item['content'] ?? '';
             ?>
-            <article class="timeline-card"
-                style="flex:0 0 720px; background:#fff;border-radius:10px; overflow:hidden; display:flex;">
+            <article class="timeline-card flex-shrink-0 w-[720px] bg-white rounded-xl overflow-hidden flex">
                 <?php if ($image): ?>
-                <div style="width:45%;min-width:260px;max-width:360px;">
+                <div class="w-2/5 min-w-[260px] max-w-[360px]">
                     <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading ?: $year); ?>"
-                        style="width:100%;height:100%;object-fit:cover;display:block;">
+                        class="w-full h-full object-cover block">
                 </div>
                 <?php endif; ?>
 
-                <div style="padding:32px;flex:1;">
+                <div class="p-8 flex-1">
                     <?php if ($year): ?>
                     <div class="text-5xl font-bold mb-4"><?= esc_html($year); ?></div>
                     <?php endif; ?>
@@ -62,28 +60,26 @@ if (!$show_section || empty($items)) return;
 
 <script>
 (function() {
-    var track = document.querySelector('.timeline-track');
+    const track = document.querySelector('.timeline-track');
     if (!track) return;
-    var cardWidth = function() {
-        return track.querySelector('.timeline-card') ? track.querySelector('.timeline-card')
-            .getBoundingClientRect().width + 24 : 720;
+
+    const getCardWidth = () => {
+        const card = track.querySelector('.timeline-card');
+        return card ? card.getBoundingClientRect().width + 24 : 720;
     };
 
-    document.querySelectorAll('.timeline-next').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            track.scrollBy({
-                left: cardWidth(),
-                behavior: 'smooth'
-            });
-        });
-    });
-    document.querySelectorAll('.timeline-prev').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            track.scrollBy({
-                left: -cardWidth(),
-                behavior: 'smooth'
-            });
-        });
-    });
+    document.querySelectorAll('.timeline-next').forEach(btn =>
+        btn.addEventListener('click', () => track.scrollBy({
+            left: getCardWidth(),
+            behavior: 'smooth'
+        }))
+    );
+
+    document.querySelectorAll('.timeline-prev').forEach(btn =>
+        btn.addEventListener('click', () => track.scrollBy({
+            left: -getCardWidth(),
+            behavior: 'smooth'
+        }))
+    );
 })();
 </script>

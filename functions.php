@@ -133,12 +133,3 @@ function bathe_add_page_templates($templates) {
 
 require_once get_template_directory() . '/inc/custom-post-types/sites.php';
 require_once get_template_directory() . '/inc/menus/primary.php';
-
-require_once get_template_directory() . '/inc/metaboxes/homepage/ecosystem.php';
-require_once get_template_directory() . '/inc/metaboxes/homepage/impact.php';
-require_once get_template_directory() . '/inc/metaboxes/homepage/programs.php';
-require_once get_template_directory() . '/inc/metaboxes/homepage/timeline.php';
-require_once get_template_directory() . '/inc/metaboxes/homepage/awards.php';
-require_once get_template_directory() . '/inc/metaboxes/homepage/collaboration.php';
-require_once get_template_directory() . '/inc/metaboxes/homepage/initiatives.php';
-require_once get_template_directory() . '/inc/metaboxes/media-upload.php';

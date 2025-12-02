@@ -1,0 +1,82 @@
+{
+  "key": "group_timeline_section",
+  "title": "Timeline / Наш шлях",
+  "fields": [
+    {
+      "key": "field_show_timeline_section",
+      "label": "Показувати секцію",
+      "name": "show_timeline_section",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_timeline_section_title",
+      "label": "Заголовок секції",
+      "name": "timeline_section_title",
+      "type": "text",
+      "default_value": "НАШ ШЛЯХ",
+      "required": 0
+    },
+    {
+      "key": "field_timeline_items",
+      "label": "Кроки / Карточки",
+      "name": "timeline_items",
+      "type": "repeater",
+      "instructions": "Додайте кроки вашого шляху",
+      "sub_fields": [
+        {
+          "key": "field_timeline_image",
+          "label": "Фото / Ілюстрація",
+          "name": "image",
+          "type": "image",
+          "return_format": "url",
+          "preview_size": "medium",
+          "library": "all"
+        },
+        {
+          "key": "field_timeline_year",
+          "label": "Рік",
+          "name": "year",
+          "type": "text"
+        },
+        {
+          "key": "field_timeline_heading",
+          "label": "Заголовок",
+          "name": "heading",
+          "type": "text"
+        },
+        {
+          "key": "field_timeline_content",
+          "label": "Опис",
+          "name": "content",
+          "type": "wysiwyg",
+          "tabs": "all",
+          "toolbar": "basic",
+          "media_upload": 0
+        }
+      ],
+      "min": 0,
+      "max": 0,
+      "layout": "block",
+      "button_label": "Додати крок"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/homepage.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": ""
+}

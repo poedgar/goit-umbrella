@@ -1,0 +1,78 @@
+{
+  "key": "group_initiatives_section",
+  "title": "Ініціативи (Слайдер)",
+  "fields": [
+    {
+      "key": "field_show_initiatives_section",
+      "label": "Показувати секцію",
+      "name": "show_initiatives_section",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_initiatives_section_title",
+      "label": "Заголовок секції",
+      "name": "initiatives_section_title",
+      "type": "text",
+      "required": 0,
+      "default_value": "ВІРИМО В ОСВІТУ, ЩО РУХАЄ ВПЕРЕД"
+    },
+    {
+      "key": "field_initiatives_section_subtitle",
+      "label": "Підзаголовок",
+      "name": "initiatives_section_subtitle",
+      "type": "textarea",
+      "rows": 3,
+      "default_value": "ТОМУ ПІДТРИМУЄМО СОЦІАЛЬНІ ТА ОСВІТНІ ІНІЦІАТИВИ Й ЗАПУСКАЄМО ВЛАСНІ"
+    },
+    {
+      "key": "field_initiatives_list",
+      "label": "Слайди ініціатив",
+      "name": "initiatives_list",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "+ Додати ініціативу",
+      "sub_fields": [
+        {
+          "key": "field_initiative_photo",
+          "label": "Фото",
+          "name": "photo",
+          "type": "image",
+          "return_format": "url",
+          "preview_size": "medium",
+          "library": "all"
+        },
+        {
+          "key": "field_initiative_title",
+          "label": "Заголовок",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_initiative_description",
+          "label": "Опис",
+          "name": "description",
+          "type": "textarea",
+          "rows": 3
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/homepage.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "description": "Секція ініціатив з можливістю створення слайдів"
+}

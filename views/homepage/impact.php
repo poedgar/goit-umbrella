@@ -1,13 +1,13 @@
 <?php
-// Retrieve values from MetaBoxes
-$show_section = get_post_meta(get_the_ID(), 'show_impact_section', true);
-$title        = get_post_meta(get_the_ID(), 'impact_section_title', true) ?: 'ВІД ЗНАНЬ ДО ВПЛИВУ';
-$description  = get_post_meta(get_the_ID(), 'impact_section_description', true);
-$image        = get_post_meta(get_the_ID(), 'impact_image', true);
-$btn_label    = get_post_meta(get_the_ID(), 'impact_button_label', true);
-$btn_link     = get_post_meta(get_the_ID(), 'impact_button_link', true);
+// Retrieve values from ACF
+$show_section = get_field('show_impact_section');
+$title        = get_field('impact_section_title') ?: 'ВІД ЗНАНЬ ДО ВПЛИВУ';
+$description  = get_field('impact_section_description');
+$image        = get_field('impact_image'); // returns URL (per JSON settings)
+$btn_label    = get_field('impact_button_label');
+$btn_link     = get_field('impact_button_link');
 
-// Don't render if disabled or nothing to show
+// Don't render if disabled
 if (!$show_section) return;
 ?>
 
