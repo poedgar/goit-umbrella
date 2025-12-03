@@ -25,28 +25,27 @@ if (!$show || empty($slides)) return;
 		<?php endif; ?>
 
 		<!-- slider container with btns -->
-		<ul class="swiper initiatives-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8">
+		<div class="swiper initiatives-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8">
 			<!-- {{-- Initiatives btns --}} -->
-			<li class="flex items-center justify-between gap-5">
-				<button class="initiatives-button-prev btn btn-transparent w-[150px] md:w-[98px]" type="button" aria-label="до попереднього слайду"
-					style="" aria-disabled="false">
+			<div class="flex items-center justify-between gap-5">
+				<button class="initiatives-button-prev btn btn-transparent w-[150px] md:w-[98px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">
 					назад
 				</button>
 
-				<button class="initiatives-button-next btn btn-black w-[150px] md:w-[98px]" type="button" aria-label="до наступного слайду"
-					style="" aria-disabled="false">
+				<button class="initiatives-button-next btn btn-black w-[150px] md:w-[98px]" type="button" aria-label="до наступного слайду" aria-disabled="false">
 					вперед
 				</button>
-			</li>
+			</div>
 
-			<div class="swiper-wrapper ">
+			<ul class="swiper-wrapper">
 				<!-- Initiatives slides list -->
 				<?php foreach ($slides as $slide):
 					$photo = $slide['photo'];
 					$description = $slide['description'];
 				?>
+
 					<!-- swiper slide -->
-					<div class="swiper-slide smOnly:!w-[320px] h-auto flex flex-col gap-5 md:gap-8 bg-white p-5 rounded-[8px] md:p-8">
+					<li class="swiper-slide smOnly:!w-[320px] h-auto flex flex-col gap-5 md:gap-8 bg-white p-5 rounded-[8px] md:p-8">
 						<?php if ($photo): ?>
 							<img src="<?= esc_url($photo['url']); ?>" alt="декорація"
 								class="shrink-0 w-full h-[218px] rounded-[8px]">
@@ -54,9 +53,9 @@ if (!$show || empty($slides)) return;
 
 
 						<p class="font-medium grow text-[20px]/[28px] uppercase"><?= esc_html($description); ?></p>
-					</div>
+					</li>
 				<?php endforeach; ?>
-			</div>
-		</ul>
+			</ul>
+		</div>
 	</div>
 </section>
