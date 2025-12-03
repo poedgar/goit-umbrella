@@ -28,11 +28,11 @@
 	}
 
 	.swiper-btn {
-		@apply duration-300 hover:fill-[#FFAB87] focus:fill-[#FFAB87] active:fill-[#FF8856];
+		@apply duration-300;
 
-		.swiper-button-disabled & {
-			@apply fill-[#E0DACD];
-		}
+		/* .swiper-button-disabled & {
+			@apply;
+		} */
 	}
 }
 
