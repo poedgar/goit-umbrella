@@ -13,16 +13,14 @@
 }
 
 @layer components {
-	.slider-swiper {
-		@apply h-full w-full overflow-hidden bg-accent-purple;
-
-		& .swiper-wrapper {
-			@apply box-content flex transition-transform;
-		}
-
-		& .swiper-slide {
-			@apply h-full w-full shrink-0;
-		}
+	.swiper {
+		@apply h-full w-full overflow-hidden;
+	}
+	.swiper-wrapper {
+		@apply box-content flex items-stretch transition-transform;
+	}
+	.swiper-slide {
+		@apply h-full w-full shrink-0;
 	}
 
 	.swiper-buttons:has(.swiper-button-lock) {
