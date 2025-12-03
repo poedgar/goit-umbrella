@@ -21,6 +21,14 @@
           "required": 1
         },
         {
+          "key": "field_site_footer_name",
+          "label": "Site Footer Name",
+          "name": "footer_name",
+          "type": "text",
+          "placeholder": "Сайт",
+          "required": 1
+        },
+        {
           "key": "field_site_url",
           "label": "Site URL",
           "name": "url",

@@ -11,61 +11,175 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo('charset'); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-	<?php wp_head(); ?>
+    <meta charset="<?php bloginfo('charset'); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap"
+        rel="stylesheet">
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class('antialiased flex flex-col min-h-screen'); ?>>
-	<?php wp_body_open(); ?>
+    <?php wp_body_open(); ?>
 
-	<header class="bg-gray-100 py-4 px-4 sticky top-0 z-50 shadow-sm">
-		<div class="container mx-auto max-w-7xl">
-			<nav class="flex items-center justify-between">
-				<!-- Logo -->
-				<a href="<?php echo home_url('/'); ?>" class="text-2xl font-bold text-black flex items-center">
-					BETTER <span class="italic ml-1">ED</span>
-				</a>
+    <header class="bg-body sticky top-0 z-50 py-5">
+        <div class="container">
+            <nav class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="<?php echo home_url('/'); ?>" class="w-[168px] h-[28px]">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-black.svg"
+                        alt="BETTER ED" class="">
+                </a>
 
-				<!-- Desktop Navigation Menu -->
-				<div class="hidden md:flex items-center gap-8">
-					<?php
-					wp_nav_menu(array(
-						'theme_location' => 'primary',
-						'container' => false,
-						'items_wrap' => '%3$s',
-						'fallback_cb' => false,
-						'walker' => new Custom_Anchor_Walker()
-					));
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'container' => false,
+                    'items_wrap' => '%3$s',
+                    'fallback_cb' => false,
+                    'walker' => new Custom_Anchor_Walker()
+                ));
+                ?>
+                </div>
+
+                <!-- Desktop Ecosystem Dropdown -->
+                <div class="hidden xl:block relative text-xl/[28px]">
+                    <button id="ecosystem-dropdown-btn"
+                        class="bg-black text-white px-6 py-3 rounded-t flex items-center gap-2 hover:bg-gray-800 transition-colors">
+                        <span id="selected-ecosystem">Наша екосистема</span>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/decoratives/arrow-down-white.svg"
+                            alt="декорація" class="w-3 h-2">
+                    </button>
+                    <?php
+					// Get all companies
+					$companies = get_posts([
+						'post_type' => 'companies',
+						'posts_per_page' => -1,
+						'orderby' => 'title',
+						'order' => 'ASC'
+					]);
+
+					// Collect all sites from all companies
+					$all_sites = [];
+					foreach ($companies as $company) {
+						$sites = get_field('sites', $company->ID);
+
+						if ($sites) {
+							foreach ($sites as $site) {
+								$all_sites[] = [
+									'name' => $site['name'] ?? '',
+									'footer_name' => $site['footer_name'] ?? '',
+									'url' => $site['url'] ?? '#',
+									'company_id' => $company->ID
+								];
+							}
+						}
+					}
 					?>
-				</div>
 
-				<!-- Mobile Menu Button -->
-				<button id="mobile-menu-btn" class="md:hidden text-black">
-					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-							d="M4 6h16M4 12h16M4 18h16" />
-					</svg>
-				</button>
-			</nav>
+                    <div id="ecosystem-dropdown"
+                        class="hidden absolute right-0 w-full bg-white rounded-b shadow-lg border border-gray-200 overflow-hidden">
+                        <?php if (!empty($all_sites)) : ?>
+                        <?php foreach ($all_sites as $index => $site) : ?>
+                        <?php
+							// Determine if this is the last item (no border)
+							$border_class = ($index < count($all_sites) - 1) ? '' : '';
+							?>
+                        <a href="<?php echo esc_url($site['url']); ?>"
+                            class="block text-center px-4 py-2 hover:bg-gray-50 transition-colors <?php echo $border_class; ?>"
+                            target="_blank" rel="noopener noreferrer">
+                            <?php echo esc_html($site['name']); ?>
+                        </a>
+                        <?php endforeach; ?>
+                        <?php else : ?>
+                        <div class="block px-6 py-3 text-gray-500 text-sm">
+                            No sites available
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
 
-			<!-- Mobile Menu -->
-			<div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-				<?php
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn"
+                    class="xl:hidden text-xl/[28px] border-2 border-black px-4 py-2 rounded hover:bg-gray-50 transition-colors">
+                    меню
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-50 xl:hidden">
+        <div class="container bg-body py-5 h-full flex flex-col">
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between">
+                <a href="<?php echo home_url('/'); ?>" class="w-[168px] h-[28px]">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-black.svg"
+                        alt="BETTER ED">
+                </a>
+                <button id="mobile-close-btn"
+                    class="text-xl/[28px] border-2 border-black px-4 py-2 rounded hover:bg-gray-50 transition-colors">
+                    закрити
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Links -->
+            <nav class="flex-1 flex flex-col items-center space-y-5 mt-[60px]">
+                <!-- Mobile Ecosystem Dropdown -->
+                <div class="w-full text-xl/[28px]">
+                    <button id="mobile-ecosystem-btn"
+                        class="w-full bg-black text-white px-4 py-2 rounded-t flex items-center justify-center gap-[10px] hover:bg-gray-800 transition-colors">
+                        <span id="mobile-selected-ecosystem">Наша екосистема</span>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/decoratives/arrow-down-white.svg"
+                            alt="декорація" class="w-3 h-2">
+                    </button>
+
+                    <div id="mobile-ecosystem-dropdown"
+                        class="hidden bg-white rounded-b border border-gray-200 overflow-hidden">
+                        <?php if (!empty($all_sites)) : ?>
+                        <?php foreach ($all_sites as $index => $site) : ?>
+                        <?php
+								// Determine if this is the last item (no border)
+								$border_class = ($index < count($all_sites) - 1) ? '' : '';
+								?>
+                        <a href="<?php echo esc_url($site['url']); ?>"
+                            class="block text-center px-4 py-2 hover:bg-gray-50 transition-colors <?php echo $border_class; ?>"
+                            target="_blank" rel="noopener noreferrer">
+                            <?php echo esc_html($site['name']); ?>
+                        </a>
+                        <?php endforeach; ?>
+                        <?php else : ?>
+                        <div class="block px-6 py-3 text-gray-500 text-sm">
+                            No sites available
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <?php
 				wp_nav_menu(array(
 					'theme_location' => 'primary',
 					'container' => false,
-					'menu_class' => 'space-y-3',
+					'menu_class' => 'space-y-8 text-center text-lg',
 					'fallback_cb' => false,
 					'walker' => new Custom_Mobile_Anchor_Walker()
 				));
 				?>
-			</div>
-		</div>
-	</header>
+            </nav>
 
-	<div class="lg:flex grow">
-		<main id="primary" class="grow p-8" role="main">
+            <!-- Footer -->
+            <div class="">
+                <!-- Footer Text -->
+                <div class="text-center text-gray-400 text-base/[24px]">
+                    Better Ed © 2026
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lg:flex grow">
+        <main id="primary" class="grow p-8" role="main">

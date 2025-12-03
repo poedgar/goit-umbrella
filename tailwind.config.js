@@ -34,13 +34,13 @@ module.exports = {
     extend: {
       backgroundColor: (theme) => ({
         ...theme('colors'),
+        body: '#F2F1EE', // bg-body
         primary: '#456FAB',
         secondary: '#ffffff',
         main: '#f8f8ff',
         checkbox: '#456FAB',
       }),
       colors: {
-        body: '#F2F1EE', // bg-body
         white: {
           DEFAULT: '#ffffff', // *-white
         },

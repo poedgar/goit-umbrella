@@ -40,7 +40,7 @@
 
                 <?php if (have_rows('sites', $post_id)): ?>
                 <?php while (have_rows('sites', $post_id)): the_row();
-                        $name   = get_sub_field('name');
+                        $name   = get_sub_field('footer_name');
                         $url    = get_sub_field('url');
                         $social = get_sub_field('social') ?: [];
                         $has_social = !empty(array_filter($social));
@@ -109,8 +109,8 @@
 
             <a href="/" class="mt-[10px] md:mt-0 xl:ml-8 w-[168px] h-[28px] transition">
                 <!-- Simple icons (SVG) -->
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.svg"
-                    alt="<?php echo $key; ?>" class="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.svg" alt="BETTER ED"
+                    class="">
             </a>
         </div>
     </div>
