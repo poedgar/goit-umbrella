@@ -1,1 +1,2 @@
 import './menus';
+import './swiper';
