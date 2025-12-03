@@ -1,26 +1,49 @@
-import imagemin from '@ixkaito/imagemin';
+import imagemin from 'imagemin';
 import imageminGifsicle from 'imagemin-gifsicle';
 import imageminJpegtran from 'imagemin-jpegtran';
 import imageminOptipng from 'imagemin-optipng';
 import imageminSvgo from 'imagemin-svgo';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import glob from 'glob';
 
-const input = process.argv[2];
-const dest = process.argv[3];
+// Отримуємо __dirname у модулях ES
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-if (!input) throw new Error();
+// Читаємо шляхи з env або дефолтні
+const src =
+  process.env.npm_package_config_image_src ||
+  path.join(__dirname, 'src/images');
+const dist =
+  process.env.npm_package_config_image_dist ||
+  path.join(__dirname, 'dist/images');
+
+// Використовуємо glob для пошуку всіх файлів у src
+const files = glob.sync(`${src}/**/*.{jpg,jpeg,png,gif,svg}`);
 
 (async () => {
-  const files = await imagemin([input], {
-    destination: dest,
-    plugins: [
-      imageminGifsicle(),
-      imageminJpegtran(),
-      imageminOptipng(),
-      imageminSvgo({
-        plugins: [{ removeViewBox: false }],
-      }),
-    ],
-  });
-
-  console.log(`${files.length} images minified`);
+  try {
+    await imagemin(files, {
+      destination: dist,
+      plugins: [
+        imageminGifsicle(),
+        imageminJpegtran(),
+        imageminOptipng(),
+        imageminSvgo({
+          plugins: [
+            { name: 'removeViewBox', active: false },
+            { name: 'removeDimensions', active: true },
+            { name: 'cleanupAttrs', active: true },
+            { name: 'removeDoctype', active: true },
+            { name: 'removeComments', active: true },
+          ],
+        }),
+      ],
+    });
+    console.log('Images optimized successfully!');
+  } catch (err) {
+    console.error('Error during image optimization:', err);
+    process.exit(1);
+  }
 })();
