@@ -90,31 +90,3 @@
 		</div>
 	</div>
 </section>
-
-<!-- {{--People section --}} -->
-<section class="section">
-	<div class="container">
-		<h2 class="section-title">Співпраця з нами</h2>
-
-		<!-- {{-- People list --}} -->
-		<div class="mt-5 md:mt-16 flex smOnly:flex-col gap-5 md:gap-8">
-			<!-- {{-- Articles slides list --}} -->
-			<div class="flex gap-5 md:gap-8">
-				<!-- {{-- Swiper slide --}} -->
-				<div class="bg-white rounded-[8px] p-5 md:w-[336px] md:p-8">
-					<!-- {{-- slide image --}} -->
-					<img class="shrink-0 w-full h-[218px] rounded-[8px] bg-pink-300"
-						src="{{ wp_get_attachment_image_url($slide['image'], 'full') }}"
-						alt="{{ $slide['title'] ?? 'декорація' }}" width="280" height="218"
-						loading="lazy" />
-
-					<!-- {{-- slide title --}} -->
-					<h3 class="mt-5 md:mt-8 font-medium text-[20px]/[28px] uppercase">
-						Зібрали й передали понад 200 000 грн на відбудову шкіл та укриттів у партнерстві з UNITED24
-					</h3>
-				</div>
-				<!-- {{-- other slides --}} -->
-			</div>
-		</div>
-	</div>
-</section>

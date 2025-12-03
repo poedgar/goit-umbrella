@@ -12,6 +12,32 @@
 	}
 }
 
+@layer components {
+	.slider-swiper {
+		@apply h-full w-full overflow-hidden bg-accent-purple;
+
+		& .swiper-wrapper {
+			@apply box-content flex transition-transform;
+		}
+
+		& .swiper-slide {
+			@apply h-full w-full shrink-0;
+		}
+	}
+
+	.swiper-buttons:has(.swiper-button-lock) {
+		@apply hidden;
+	}
+
+	.swiper-btn {
+		@apply duration-300 hover:fill-[#FFAB87] focus:fill-[#FFAB87] active:fill-[#FF8856];
+
+		.swiper-button-disabled & {
+			@apply fill-[#E0DACD];
+		}
+	}
+}
+
 @layer utilities {
 	.section {
 		@apply py-10 xl:py-16;

@@ -1,43 +1,60 @@
 <?php
 // ACF fields
 $show     = get_field('show_initiatives_section');
-$title    = get_field('initiatives_section_title') ?: 'ВІРИМО В ОСВІТУ, ЩО РУХАЄ ВПЕРЕД';
-$subtitle = get_field('initiatives_section_subtitle') ?: 'ТОМУ ПІДТРИМУЄМО СОЦІАЛЬНІ ТА ОСВІТНІ ІНІЦІАТИВИ Й ЗАПУСКАЄМО ВЛАСНІ';
+$title    = get_field('initiatives_section_title');
+$subtitle = get_field('initiatives_section_subtitle');
 $slides   = get_field('initiatives_list');
 
 // Exit if section disabled or empty
 if (!$show || empty($slides)) return;
 ?>
 
-<section id="initiatives" class="py-20 px-4 bg-white">
-    <div class="container mx-auto max-w-7xl">
+<section id="initiatives" class="section">
+	<div class="container">
 
-        <h2 class="text-4xl md:text-5xl font-bold text-center">
-            <?= esc_html($title); ?>
-        </h2>
+		<!-- section title -->
+		<h2 class="section-title">
+			<?= esc_html($title); ?>
+		</h2>
 
-        <?php if ($subtitle): ?>
-        <p class="text-lg md:text-xl text-gray-600 text-center max-w-3xl mx-auto mt-4">
-            <?= esc_html($subtitle); ?>
-        </p>
-        <?php endif; ?>
+		<!-- section description -->
+		<?php if ($subtitle): ?>
+			<p class="low-section-title mt-5 md:mt-8">
+				<?= esc_html($subtitle); ?>
+			</p>
+		<?php endif; ?>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <?php foreach ($slides as $slide):
-                $photo = $slide['photo'] ?? '';
-                $slide_title = $slide['title'] ?? '';
-                $description = $slide['description'] ?? '';
-            ?>
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-                <?php if ($photo): ?>
-                <img src="<?= esc_url($photo); ?>" alt="<?= esc_attr($slide_title); ?>"
-                    class="w-full h-64 object-cover rounded-lg mb-4">
-                <?php endif; ?>
+		<!-- slider wrapper with btns -->
+		<div class="slider-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8">
+			<!-- {{-- Initiatives btns --}} -->
+			<div class="flex items-center justify-between gap-5 text-[20px]/[28px]">
+				<button class="initiatives-prev-btn btn btn-transparent w-[150px] md:w-[98px] h-[44px]
+				" type="button" aria-label="до попереднього слайду"
+					style="" aria-disabled="false">
+					назад
+				</button>
 
-                <h3 class="text-xl font-semibold mb-2"><?= esc_html($slide_title); ?></h3>
-                <p class="text-gray-600"><?= esc_html($description); ?></p>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
+				<button class="initiatives-next-btn btn btn-black w-[150px] md:w-[98px] h-[44px] rounded-[4px]" type="button" aria-label="до наступного слайду"
+					style="" aria-disabled="false">
+					вперед
+				</button>
+			</div>
+
+			<!-- Initiatives slides list -->
+			<?php foreach ($slides as $slide):
+				$photo = $slide['photo'];
+				$description = $slide['description'];
+			?>
+				<div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+					<?php if ($photo): ?>
+						<img src="<?= esc_url($photo); ?>" alt="<?= esc_attr($slide_title); ?>"
+							class="w-full h-64 object-cover rounded-lg mb-4">
+					<?php endif; ?>
+
+					<h3 class="text-xl font-semibold mb-2"><?= esc_html($slide_title); ?></h3>
+					<p class="text-gray-600"><?= esc_html($description); ?></p>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
 </section>
