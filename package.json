@@ -9,7 +9,7 @@
   ],
   "config": {
     "browsersync": {
-      "proxy": "http://localhost:10008/",
+      "proxy": "http://umbrella.local/",
       "port": 3000
     },
     "image": {

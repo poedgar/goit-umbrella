@@ -6,7 +6,7 @@ function createSwiper(swiperContainer, parameters) {
     modules: [Navigation],
     grabCursor: true,
     spaceBetween: 20, // Default: 0 (string | number). Distance between slides in px.
-    // slidesPerView: "1", // Default: 1 (number | 'auto'). Number of slides per view (slides visible at the same time on slider's container).
+    slidesPerView: 'auto', // Default: 1 (number | 'auto'). Number of slides per view (slides visible at the same time on slider's container).
     breakpoints: {
       768: {
         slidesPerView: 2,
@@ -36,3 +36,15 @@ function createSwiper(swiperContainer, parameters) {
 
 //homepage sliders
 createSwiper('.initiatives');
+createSwiper('.timeline', {
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 32,
+    },
+    1280: {
+      slidesPerView: 1.5,
+      spaceBetween: 32,
+    },
+  },
+});

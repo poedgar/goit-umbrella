@@ -182,4 +182,4 @@
 	</div>
 
 	<div class="lg:flex grow">
-		<main id="primary" class="grow p-8" role="main">
+		<main id="primary" class="grow" role="main">
