@@ -1,5 +1,6 @@
 # Maps
 assets/css/*.map
+assets/css/*.css
 
 # Apache
 .htaccess
