@@ -7,165 +7,115 @@
 
 ?>
 </main>
-
 </div>
 
-<footer class="bg-black text-gray-400 py-12 px-4">
-    <div class="container mx-auto max-w-7xl">
-        <!-- Sites Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+<footer class="bg-black text-gray-68 py-5 md:py-8 xl:py-16">
+    <div class="container">
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-20 md:gap-8">
             <?php
-            $sites_query = new WP_Query(array(
-                'post_type' => 'sites',
+            $companies = new WP_Query([
+                'post_type'      => 'companies',
                 'posts_per_page' => -1,
-                'orderby' => 'menu_order',
-                'order' => 'ASC'
-            ));
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+                'post_status'    => 'publish',
+            ]);
 
-            if ($sites_query->have_posts()) :
-                while ($sites_query->have_posts()) : $sites_query->the_post();
-                    $site_url = get_post_meta(get_the_ID(), '_site_url', true);
-                    $facebook = get_post_meta(get_the_ID(), '_site_facebook', true);
-                    $twitter = get_post_meta(get_the_ID(), '_site_twitter', true);
-                    $instagram = get_post_meta(get_the_ID(), '_site_instagram', true);
-                    $linkedin = get_post_meta(get_the_ID(), '_site_linkedin', true);
-                    $youtube = get_post_meta(get_the_ID(), '_site_youtube', true);
+            if ($companies->have_posts()):
+                while ($companies->have_posts()): $companies->the_post();
+                    $post_id = get_the_ID();
             ?>
-                    <div class="space-y-4">
-                        <!-- Site Title -->
-                        <h3 class="text-white text-lg font-semibold uppercase tracking-wide">
-                            <?php the_title(); ?>
-                        </h3>
 
-                        <!-- Description -->
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            <?php echo wp_trim_words(get_the_content(), 30, '...'); ?>
-                        </p>
+            <!-- Company Column -->
+            <div>
+                <!-- Company Title -->
+                <h3 class="text-xl/[28px]">
+                    <?php the_title(); ?>
+                </h3>
 
-                        <!-- Site Link -->
-                        <?php if ($site_url) : ?>
-                            <div>
-                                <a href="<?php echo esc_url($site_url); ?>"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="text-white hover:text-gray-300 underline text-sm uppercase tracking-wide transition-colors">
-                                    Сайт
-                                </a>
-                            </div>
-                        <?php endif; ?>
+                <!-- Description -->
+                <div class="mt-5 md:mt-4 xl:mt-8 text-base/[24px]">
+                    <?php the_excerpt(); ?>
+                </div>
 
-                        <!-- Social Media Icons -->
-                        <div class="flex gap-3 pt-2">
-                            <?php if ($twitter) : ?>
-                                <a href="<?php echo esc_url($twitter); ?>"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
-                                   aria-label="Twitter">
-                                    <svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 24 24">
-                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                                    </svg>
-                                </a>
-                            <?php endif; ?>
+                <?php if (have_rows('sites', $post_id)): ?>
+                <?php while (have_rows('sites', $post_id)): the_row();
+                        $name   = get_sub_field('footer_name');
+                        $url    = get_sub_field('url');
+                        $social = get_sub_field('social') ?: [];
+                        $has_social = !empty(array_filter($social));
+                    ?>
 
-                            <?php if ($linkedin) : ?>
-                                <a href="<?php echo esc_url($linkedin); ?>"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
-                                   aria-label="LinkedIn">
-                                    <svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 24 24">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                    </svg>
-                                </a>
-                            <?php endif; ?>
-
-                            <?php if ($instagram) : ?>
-                                <a href="<?php echo esc_url($instagram); ?>"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
-                                   aria-label="Instagram">
-                                    <svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 24 24">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                    </svg>
-                                </a>
-                            <?php endif; ?>
-
-                            <?php if ($youtube) : ?>
-                                <a href="<?php echo esc_url($youtube); ?>"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
-                                   aria-label="YouTube">
-                                    <svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 24 24">
-                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                    </svg>
-                                </a>
-                            <?php endif; ?>
-
-                            <?php if ($facebook) : ?>
-                                <a href="<?php echo esc_url($facebook); ?>"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
-                                   aria-label="Facebook">
-                                    <svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 24 24">
-                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                                    </svg>
-                                </a>
-                            <?php endif; ?>
-                        </div>
-
-                        <!-- School Site Link (if applicable) -->
-                        <?php
-                        $school_site_url = get_post_meta(get_the_ID(), '_school_site_url', true);
-                        if ($school_site_url) :
-                        ?>
-                            <div class="pt-2">
-                                <a href="<?php echo esc_url($school_site_url); ?>"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="text-gray-400 hover:text-gray-300 text-sm uppercase tracking-wide transition-colors">
-                                    Сайт школи
-                                </a>
-                            </div>
-                        <?php endif; ?>
+                <!-- Site block -->
+                <div class="mt-5 md:mt-4 xl:mt-8 flex items-center gap-5 md:gap-8 xl:gap-8">
+                    <!-- Main link -->
+                    <?php if ($url): ?>
+                    <div class="">
+                        <a href="<?php echo esc_url($url); ?>" target="_blank"
+                            class="text-base/[24px] text-white underline hover:text-white transition">
+                            <?php echo esc_html($name); ?>
+                        </a>
                     </div>
-            <?php
-                endwhile;
-                wp_reset_postdata();
-            endif;
-            ?>
+                    <?php endif; ?>
+
+                    <!-- Social icons -->
+                    <?php if ($has_social): ?>
+                    <div class="flex flex-row gap-2">
+                        <?php foreach ([
+							'mail' => 'mail',
+							'instagram' => 'instagram',
+							'linkedin'  => 'linkedin',
+							'youtube'   => 'youtube',
+							'facebook'  => 'facebook',
+							'twitter'   => 'x',
+						] as $key => $icon): ?>
+
+                        <?php if (!empty($social[$key])): ?>
+                        <a href="<?php echo $key === 'mail' ? 'mailto:' . esc_attr($social[$key]) : esc_url($social[$key]); ?>"
+                            <?php echo $key !== 'mail' ? 'target="_blank"' : ''; ?>
+                            class="w-7 h-7 flex items-center justify-center rounded-md bg-gray-700 hover:bg-gray-500 transition">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/socials/<?php echo $icon; ?>.svg"
+                                alt="<?php echo $key; ?>" class="w-4 h-4 opacity-90">
+                        </a>
+                        <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
+
+            <?php endwhile; endif; wp_reset_postdata(); ?>
         </div>
 
-        <!-- Bottom Bar -->
-        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <!-- Footer Links -->
-            <div class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm">
-                <a href="#" class="text-gray-400 hover:text-gray-300 transition-colors">
-                    Умови користування послугами
-                </a>
-                <a href="#" class="text-gray-400 hover:text-gray-300 transition-colors">
-                    Політика конфіденційності
-                </a>
-                <a href="#" class="text-gray-400 hover:text-gray-300 transition-colors">
-                    Відмова від відповідальності
-                </a>
+        <!-- Footer bottom -->
+        <div
+            class="mt-20 md:mt-16 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start text-center md:text-left text-base/[24px]">
+            <div class="flex flex-col md:flex-row gap-[10px] md:gap-8">
+                <a lang="uk" class="md:max-w-[102px] md:max-w-[230px] hyphens-auto hover:text-white" href="#">Умови
+                    користування
+                    послугами</a>
+                <a lang="uk" class="md:max-w-[102px] md:max-w-[230px] hyphens-auto hover:text-white" href="#">Політика
+                    конфіденційності</a>
+                <a lang="uk" class="md:max-w-[102px] md:max-w-[230px] hyphens-auto hover:text-white" href="#">Відмова
+                    від
+                    відповідальності</a>
             </div>
 
-            <!-- Copyright and Logo -->
-            <div class="flex items-center gap-6">
-                <span class="text-gray-400 text-sm whitespace-nowrap">
-                    Better Ed © <?php echo date('Y'); ?>
-                </span>
-                <div class="text-white text-xl font-bold tracking-wider">
-                    BETTER <span class="italic">ED</span>
-                </div>
+            <div class="md:max-w-[102px] md:max-w-[230px] text-base/[24px] mt-[10px] md:mt-0 xl:ml-8">
+                Better Ed © <?php echo date('Y'); ?>
             </div>
+
+            <a href="/" class="mt-[10px] md:mt-0 xl:ml-8 w-[168px] h-[28px] transition">
+                <!-- Simple icons (SVG) -->
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.svg" alt="BETTER ED"
+                    class="">
+            </a>
         </div>
     </div>
 </footer>
+
 
 <?php wp_footer(); ?>
 </body>
