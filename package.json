@@ -9,7 +9,7 @@
   ],
   "config": {
     "browsersync": {
-      "proxy": "http://umbrella.local/",
+      "proxy": "http://localhost:10008/",
       "port": 3000
     },
     "image": {
@@ -33,7 +33,7 @@
   },
   "scripts": {
     "dev": "npm-run-all -p imagemin css -p browser watch",
-    "browser": "cross-conf-env browser-sync \"$npm_package_config_browsersync_proxy\" -f \"**/*.php\" \"$npm_package_config_css_dist\" \"$npm_package_config_js_output\" \"$npm_package_config_image_dist\" --port $npm_package_config_browsersync_port",
+    "browser": "dotenv -e .env -- sh -lc 'echo PROXY=\"$PROXY\"; browser-sync start --proxy \"$PROXY\" --files \"**/*.php,$npm_package_config_css_dist,$npm_package_config_js_output,$npm_package_config_image_dist\" --port $BROWSERSYNC_PORT'",
     "build": "run-p imagemin css vite",
     "css": "run-p sass tailwind",
     "imagemin": "cross-conf-env node imagemin.mjs \"$npm_package_config_image_src/**/*\" $npm_package_config_image_dist",
@@ -82,6 +82,7 @@
     "autoprefixer": "^10.4.14",
     "browser-sync": "^3.0.2",
     "cross-conf-env": "^1.3.0",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^8.43.0",
     "eslint-plugin-tailwindcss": "^3.12.1",
     "globby": "^13.2.0",
