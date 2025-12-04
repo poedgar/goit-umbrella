@@ -54,8 +54,9 @@ module.exports = {
         },
         accent: {
           DEFAULT: '#FFC72F', // *-accent-yellow
-          secondary: '#FF8856', // *-accent-orange
+          orange: '#FF8856', // *-accent-orange
           purple: '#A472FF', // *-accent-purple
+          purple2: '#5A05F4', // *-accent-purple2
         },
 
         loading: '#000000',
