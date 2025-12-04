@@ -33,3 +33,6 @@ doc/
 
 # VS Code settings
 .vscode/
+
+# .env
+.env
