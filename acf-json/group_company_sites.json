@@ -1,0 +1,382 @@
+{
+    "key": "group_company_sites",
+    "title": "Company Sites",
+    "fields": [
+        {
+            "key": "field_company_sites",
+            "label": "Sites",
+            "name": "sites",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add one or more websites belonging to this company.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "layout": "row",
+            "button_label": "Add Site",
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_site_name",
+                    "label": "Site Name",
+                    "name": "name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "GoIT",
+                    "default_value": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_company_sites"
+                },
+                {
+                    "key": "field_6931572beea49",
+                    "label": "Site Url",
+                    "name": "url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_company_sites"
+                },
+                {
+                    "key": "field_site_footer_name",
+                    "label": "Site Header Name",
+                    "name": "header_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_company_sites"
+                },
+                {
+                    "key": "field_69316be938630",
+                    "label": "Site Header Url",
+                    "name": "header_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_company_sites"
+                },
+                {
+                    "key": "field_69316bc03862f",
+                    "label": "Site Footer Name",
+                    "name": "footer_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_company_sites"
+                },
+                {
+                    "key": "field_69300d927a135",
+                    "label": "Site Subtitle",
+                    "name": "subtitle",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_company_sites"
+                },
+                {
+                    "key": "field_site_url",
+                    "label": "Site Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_company_sites"
+                },
+                {
+                    "key": "field_69300be282df1",
+                    "label": "Site Logo",
+                    "name": "logo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_company_sites"
+                },
+                {
+                    "key": "field_693156be1106e",
+                    "label": "Site Supporter",
+                    "name": "site_supporter",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_693156fe1106f",
+                            "label": "Supporter Image",
+                            "name": "supporter_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium"
+                        }
+                    ],
+                    "parent_repeater": "field_company_sites"
+                },
+                {
+                    "key": "field_social_group",
+                    "label": "Social Media Links",
+                    "name": "social",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_site_mail",
+                            "label": "Mail",
+                            "name": "mail",
+                            "aria-label": "",
+                            "type": "email",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placeholder": "goit@gmail.com",
+                            "default_value": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_site_facebook",
+                            "label": "Facebook",
+                            "name": "facebook",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placeholder": "https:\/\/facebook.com\/yourpage",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_site_twitter",
+                            "label": "Twitter\/X",
+                            "name": "twitter",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placeholder": "https:\/\/twitter.com\/yourhandle",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_site_instagram",
+                            "label": "Instagram",
+                            "name": "instagram",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placeholder": "https:\/\/instagram.com\/yourhandle",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_site_linkedin",
+                            "label": "LinkedIn",
+                            "name": "linkedin",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placeholder": "https:\/\/linkedin.com\/company\/yourcompany",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_site_youtube",
+                            "label": "YouTube",
+                            "name": "youtube",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placeholder": "https:\/\/youtube.com\/@yourchannel",
+                            "default_value": ""
+                        }
+                    ],
+                    "parent_repeater": "field_company_sites"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "companies"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Each company can have one or more websites with social media links.",
+    "show_in_rest": 0,
+    "modified": 1764846604
+}
