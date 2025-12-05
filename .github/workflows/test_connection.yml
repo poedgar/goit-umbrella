@@ -1,7 +1,8 @@
 name: Test SSH Connection
 
 on:
-  workflow_dispatch:  # Allows manual trigger
+  push:
+    branches: [ main ]
 
 jobs:
   test:
