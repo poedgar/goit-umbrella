@@ -93,12 +93,12 @@
         <div
             class="mt-20 md:mt-16 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start text-center md:text-left text-base/[24px]">
             <div class="flex flex-col md:flex-row gap-[10px] md:gap-8">
-                <a lang="uk" class="md:max-w-[102px] md:max-w-[230px] hyphens-auto hover:text-white" href="#">Умови
+                <a lang="uk" class="md:max-w-[102px] xl:max-w-[230px] hyphens-auto hover:text-white" href="#">Умови
                     користування
                     послугами</a>
-                <a lang="uk" class="md:max-w-[102px] md:max-w-[230px] hyphens-auto hover:text-white" href="#">Політика
+                <a lang="uk" class="md:max-w-[102px] xl:max-w-[230px] hyphens-auto hover:text-white" href="#">Політика
                     конфіденційності</a>
-                <a lang="uk" class="md:max-w-[102px] md:max-w-[230px] hyphens-auto hover:text-white" href="#">Відмова
+                <a lang="uk" class="md:max-w-[102px] xl:max-w-[230px] hyphens-auto hover:text-white" href="#">Відмова
                     від
                     відповідальності</a>
             </div>
