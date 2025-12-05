@@ -79,8 +79,9 @@
 					}
 					?>
 
-                    <div id="ecosystem-dropdown"
-                        class="hidden absolute right-0 w-full bg-white rounded-b shadow-lg border border-gray-200 overflow-hidden">
+                    <div id="ecosystem-dropdown" class="absolute right-0 w-full bg-white rounded-b shadow-lg border border-gray-200 overflow-hidden
+           transition-all duration-1200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]
+           opacity-0 invisible scale-95 translate-y-2 origin-top">
                         <?php if (!empty($all_sites)) : ?>
                         <?php foreach ($all_sites as $index => $site) : ?>
                         <?php
@@ -111,8 +112,9 @@
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="hidden fixed inset-0 z-50 xl:hidden">
-        <div class="container bg-body py-5 h-full flex flex-col">
+    <div id="mobile-menu"
+        class="fixed inset-0 z-50 xl:hidden bg-body transition-transform duration-1200 ease-out translate-x-full">
+        <div class="container py-5 h-full flex flex-col">
             <!-- Mobile Menu Header -->
             <div class="flex items-center justify-between">
                 <a href="<?php echo home_url('/'); ?>" class="w-[168px] h-[28px]">
@@ -136,9 +138,9 @@
                             alt="декорація" class="w-3 h-2">
                     </button>
 
-                    <div id="mobile-ecosystem-dropdown"
-                        class="hidden bg-white rounded-b border border-gray-200 overflow-hidden">
-                        <?php if (!empty($all_sites)) : ?>
+                    <div id="mobile-ecosystem-dropdown" class="bg-white rounded-b border border-gray-200 overflow-hidden
+           transition-all duration-1200 ease-in-out
+           max-h-0 opacity-0"> <?php if (!empty($all_sites)) : ?>
                         <?php foreach ($all_sites as $index => $site) : ?>
                         <?php
 								// Determine if this is the last item (no border)
