@@ -12,5 +12,7 @@ You can find the Bathe documentation [on the website](https://ixkaito.github.io/
 
 ## TODO
 
+- Fix caching
+- Create staging
 - Import Olena's ACF groups
 - Retrieve proper images for Programs Section
