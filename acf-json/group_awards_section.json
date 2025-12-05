@@ -110,26 +110,6 @@
                     "parent_repeater": "field_awards_items"
                 }
             ]
-        },
-        {
-            "key": "field_69329cad53ca2",
-            "label": "TEST",
-            "name": "test",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -150,5 +130,5 @@
     "active": true,
     "description": "Секція нагород з логотипами",
     "show_in_rest": 0,
-    "modified": 1764924597
+    "modified": 1764926157
 }

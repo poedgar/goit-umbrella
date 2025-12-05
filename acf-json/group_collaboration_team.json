@@ -170,26 +170,6 @@
                     "parent_repeater": "field_team_members"
                 }
             ]
-        },
-        {
-            "key": "field_69329acd8e28b",
-            "label": "test",
-            "name": "test",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -210,5 +190,5 @@
     "active": true,
     "description": "Replaces custom metabox Collaboration section",
     "show_in_rest": 0,
-    "modified": 1764924122
+    "modified": 1764926148
 }
