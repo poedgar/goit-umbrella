@@ -1,0 +1,244 @@
+{
+    "key": "group_timeline_section",
+    "title": "Timeline \/ Наш шлях",
+    "fields": [
+        {
+            "key": "field_show_timeline_section",
+            "label": "Показувати секцію",
+            "name": "show_timeline_section",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "ui": 1,
+            "default_value": 0,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_timeline_section_title",
+            "label": "Заголовок",
+            "name": "timeline_section_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "НАШ ШЛЯХ",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_693028152b7fb",
+            "label": "Підзаголовок",
+            "name": "timeline_section_subtitle",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_timeline_items",
+            "label": "Слайдер",
+            "name": "timeline_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Додайте кроки вашого шляху",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Додати крок",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_timeline_image",
+                    "label": "Зображення mobile",
+                    "name": "image_mobile",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_timeline_items"
+                },
+                {
+                    "key": "field_69309b10e0f25",
+                    "label": "Зображення tab, desk",
+                    "name": "image_md",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Не потрібно додавати для останнього слайду",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_timeline_items"
+                },
+                {
+                    "key": "field_timeline_year",
+                    "label": "Рік",
+                    "name": "year",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_timeline_items"
+                },
+                {
+                    "key": "field_timeline_heading",
+                    "label": "Текст",
+                    "name": "heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_timeline_items"
+                },
+                {
+                    "key": "field_timeline_content",
+                    "label": "Опис",
+                    "name": "content",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "default_value": "",
+                    "delay": 0,
+                    "parent_repeater": "field_timeline_items"
+                }
+            ]
+        },
+        {
+            "key": "field_69329c0d2038b",
+            "label": "TEST",
+            "name": "test",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/homepage.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1764924451
+}
