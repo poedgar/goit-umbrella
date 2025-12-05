@@ -1,130 +1,127 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Check if we're on XL screen before showing mobile menu
-  function isXLScreen() {
-    return window.innerWidth >= 1280; // Tailwind's XL breakpoint
+  // --- Helper: Toggle Animation Classes ---
+  function toggleClasses(element, isOpen, closedClasses, openClasses) {
+    if (isOpen) {
+      element.classList.remove(...closedClasses);
+      element.classList.add(...openClasses);
+    } else {
+      element.classList.remove(...openClasses);
+      element.classList.add(...closedClasses);
+    }
   }
 
-  // Smooth scroll for anchor links
-  const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+  // ==========================================
+  // 1. DESKTOP DROPDOWN (Fade & Scale)
+  // ==========================================
+  const deskBtn = document.getElementById('ecosystem-dropdown-btn');
+  const deskDropdown = document.getElementById('ecosystem-dropdown');
+  const deskArrow = deskBtn ? deskBtn.querySelector('img') : null;
+  let isDeskOpen = false;
 
-  smoothScrollLinks.forEach((link) => {
-    link.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
+  // Define states matching your HTML initial state
+  const deskClosed = ['opacity-0', 'invisible', 'scale-95', 'translate-y-2'];
+  const deskOpen = ['opacity-100', 'visible', 'scale-100', 'translate-y-0'];
 
-      // Skip if it's just "#" or empty
-      if (!href || href === '#') return;
+  if (deskBtn && deskDropdown) {
+    deskBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent document click from closing immediately
+      isDeskOpen = !isDeskOpen;
 
-      e.preventDefault();
-      const targetElement = document.querySelector(href);
+      toggleClasses(deskDropdown, isDeskOpen, deskClosed, deskOpen);
 
-      if (targetElement) {
-        const headerOffset = 80;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - headerOffset;
+      // Rotate Arrow
+      if (deskArrow)
+        deskArrow.style.transform = isDeskOpen
+          ? 'rotate(180deg)'
+          : 'rotate(0deg)';
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        });
-
-        // Close mobile menu if open
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          document.body.style.overflow = '';
-        }
-      }
-    });
-  });
-
-  // Mobile menu toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', function () {
-      // Don't open mobile menu on XL screens
-      if (isXLScreen()) return;
-
-      const isHidden = mobileMenu.classList.contains('hidden');
-
-      if (isHidden) {
-        mobileMenu.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+      // Toggle Button Rounded corners (Open = rounded-t, Closed = rounded)
+      if (isDeskOpen) {
+        deskBtn.classList.remove('rounded');
+        deskBtn.classList.add('rounded-t');
       } else {
-        mobileMenu.classList.add('hidden');
-        document.body.style.overflow = '';
+        deskBtn.classList.add('rounded');
+        deskBtn.classList.remove('rounded-t');
       }
     });
-  }
 
-  // Mobile menu close button
-  const mobileCloseBtn = document.getElementById('mobile-close-btn');
-  if (mobileCloseBtn && mobileMenu) {
-    mobileCloseBtn.addEventListener('click', function () {
-      mobileMenu.classList.add('hidden');
-      document.body.style.overflow = '';
-    });
-  }
-
-  // Desktop Ecosystem Dropdown
-  const ecosystemBtn = document.getElementById('ecosystem-dropdown-btn');
-  const ecosystemDropdown = document.getElementById('ecosystem-dropdown');
-  const dropdownArrow = document.getElementById('dropdown-arrow');
-
-  if (ecosystemBtn) {
-    ecosystemBtn.addEventListener('click', () => {
-      ecosystemDropdown.classList.toggle('hidden');
-      dropdownArrow.classList.toggle('rotate-180');
-    });
-
-    // Close dropdown when clicking outside
+    // Close when clicking outside
     document.addEventListener('click', (e) => {
       if (
-        !ecosystemBtn.contains(e.target) &&
-        !ecosystemDropdown.contains(e.target)
+        isDeskOpen &&
+        !deskDropdown.contains(e.target) &&
+        !deskBtn.contains(e.target)
       ) {
-        ecosystemDropdown.classList.add('hidden');
-        dropdownArrow.classList.remove('rotate-180');
+        isDeskOpen = false;
+        toggleClasses(deskDropdown, false, deskClosed, deskOpen);
+        if (deskArrow) deskArrow.style.transform = 'rotate(0deg)';
+        deskBtn.classList.add('rounded');
+        deskBtn.classList.remove('rounded-t');
       }
     });
   }
 
-  // Mobile Ecosystem Dropdown
-  const mobileEcosystemBtn = document.getElementById('mobile-ecosystem-btn');
-  const mobileEcosystemDropdown = document.getElementById(
-    'mobile-ecosystem-dropdown'
-  );
-  const mobileDropdownArrow = document.getElementById('mobile-dropdown-arrow');
+  // ==========================================
+  // 2. MOBILE MENU (Slide In)
+  // ==========================================
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileCloseBtn = document.getElementById('mobile-close-btn');
 
-  if (mobileEcosystemBtn) {
-    mobileEcosystemBtn.addEventListener('click', () => {
-      mobileEcosystemDropdown.classList.toggle('hidden');
-      mobileDropdownArrow.classList.toggle('rotate-180');
-    });
+  function toggleMobileMenu(show) {
+    if (!mobileMenu) return;
+
+    if (show) {
+      // Remove translate-x-full to slide in
+      mobileMenu.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden'; // Lock scroll
+    } else {
+      // Add translate-x-full to slide out
+      mobileMenu.classList.add('translate-x-full');
+      document.body.style.overflow = ''; // Unlock scroll
+    }
   }
 
-  // Close mobile menu on ecosystem link click
-  const mobileEcosystemLinks = document.querySelectorAll(
-    '#mobile-ecosystem-dropdown a'
-  );
-  mobileEcosystemLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      document.body.style.overflow = '';
-    });
-  });
+  if (mobileMenuBtn)
+    mobileMenuBtn.addEventListener('click', () => toggleMobileMenu(true));
+  if (mobileCloseBtn)
+    mobileCloseBtn.addEventListener('click', () => toggleMobileMenu(false));
 
-  // Close mobile menu when resizing to XL
-  window.addEventListener('resize', function () {
-    if (
-      isXLScreen() &&
-      mobileMenu &&
-      !mobileMenu.classList.contains('hidden')
-    ) {
-      mobileMenu.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-  });
+  // ==========================================
+  // 3. MOBILE DROPDOWN (Accordion Height)
+  // ==========================================
+  const mobEcoBtn = document.getElementById('mobile-ecosystem-btn');
+  const mobEcoDropdown = document.getElementById('mobile-ecosystem-dropdown');
+  const mobArrow = mobEcoBtn ? mobEcoBtn.querySelector('img') : null;
+
+  if (mobEcoBtn && mobEcoDropdown) {
+    mobEcoBtn.addEventListener('click', () => {
+      // Check current height
+      const isOpen = mobEcoDropdown.style.maxHeight;
+
+      if (isOpen) {
+        // CLOSE
+        mobEcoDropdown.style.maxHeight = null;
+        mobEcoDropdown.classList.remove('opacity-100');
+        mobEcoDropdown.classList.add('opacity-0');
+        if (mobArrow) mobArrow.style.transform = 'rotate(0deg)';
+
+        // Toggle rounded corners
+        mobEcoBtn.classList.add('rounded');
+        mobEcoBtn.classList.remove('rounded-t');
+      } else {
+        // OPEN
+        mobEcoDropdown.classList.remove('opacity-0');
+        mobEcoDropdown.classList.add('opacity-100');
+
+        // Set height to content height
+        mobEcoDropdown.style.maxHeight = mobEcoDropdown.scrollHeight + 'px';
+        if (mobArrow) mobArrow.style.transform = 'rotate(180deg)';
+
+        // Toggle rounded corners
+        mobEcoBtn.classList.remove('rounded');
+        mobEcoBtn.classList.add('rounded-t');
+      }
+    });
+  }
 });
