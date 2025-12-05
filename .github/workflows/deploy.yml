@@ -18,21 +18,30 @@ jobs:
         username: ${{ secrets.HOSTINGER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          echo "=== Deployment started ==="
+          echo "🚀 WordPress Theme Deployment Started"
 
+          # Navigate to theme
           cd /home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella
 
-          # Git
+          # 1. Git: Update code
+          echo "📥 Updating code..."
+          git stash
           git pull origin main
 
-          # Dependencies
+          # 2. npm: Install dependencies
+          echo "📦 Running npm install..."
           npm install
-          composer install
 
-          # Build
+          # 3. Composer: Install PHP dependencies
+          echo "📦 Running composer install..."
+          COMPOSER_ALLOW_SUPERUSER=1 composer install
+
+          # 4. Build: Compile assets
+          echo "🔨 Running npm run build..."
           npm run build
 
-          # Permissions
+          # 5. Permissions: Set WordPress file permissions
+          echo "🔒 Setting file permissions..."
           find . -type d -exec chmod 755 {} \;
           find . -type f -exec chmod 644 {} \;
 
