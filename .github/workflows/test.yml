@@ -1,39 +1,22 @@
-name: Deploy to Hostinger VPS
+name: Final Test
 
-on:
-  push:
-    branches: [ main ]
+on: workflow_dispatch
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Setup SSH Key
-      run: |
-        mkdir -p ~/.ssh
-        # Write the OpenSSH private key
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-
-    - name: Deploy to VPS
-      uses: garygrossgarten/github-action-ssh@release
+    - name: Test SSH Connection
+      uses: appleboy/ssh-action@v0.1.10
       with:
         host: ${{ secrets.HOSTINGER_HOST }}
         username: ${{ secrets.HOSTINGER_USERNAME }}
-        privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
-        command: |
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          echo "🎉 SSH Connection Successful!"
+          echo "Current directory: $(pwd)"
+          echo "Checking theme path..."
           cd /home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella
-          git pull origin main
-
-          npm install
-          composer install
-          npm run build
-
-          find . -type d -exec chmod 755 {} \;
-          find . -type f -exec chmod 644 {} \;
-
-          echo "✅ Theme deployed successfully!"
+          echo "Theme directory contents:"
+          ls -la
