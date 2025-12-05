@@ -16,6 +16,6 @@ jobs:
         username: ${{ secrets.HOSTINGER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          echo "✅ Connected very successfully!"
+          echo "✅ Connected successfully!"
           echo "Current directory: $(pwd)"
           echo "Server time: $(date)"
