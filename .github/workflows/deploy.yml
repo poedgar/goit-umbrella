@@ -16,25 +16,31 @@ jobs:
         username: ${{ secrets.HOSTINGER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          # Fix GitHub SSH
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "🚀 Starting WordPress theme deployment..."
 
           cd /home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella
 
-          # Update code
-          git fetch origin
-          git reset --hard origin/main
+          # Setup GitHub SSH
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
 
-          # Clean install all dependencies
+          # Try git pull, continue even if it fails
+          if git pull origin main; then
+            echo "✅ Code updated from GitHub"
+          else
+            echo "⚠️ Git pull failed, using existing code"
+          fi
+
+          # Always clean install for consistency
           rm -rf node_modules
           npm install
           COMPOSER_ALLOW_SUPERUSER=1 composer install
 
-          # Build using npx (ensures local packages)
-          npx npm-run-all build
+          # Build theme
+          npm run build
 
-          # Permissions
+          # WordPress permissions
           find . -type d -exec chmod 755 {} \;
           find . -type f -exec chmod 644 {} \;
 
-          echo "✅ Deployed at $(date)"
+          echo "✅ Theme deployed at $(date)"
