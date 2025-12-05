@@ -1,0 +1,50 @@
+name: Deploy WordPress Theme
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to Hostinger VPS
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.HOSTINGER_HOST }}
+        username: ${{ secrets.HOSTINGER_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          echo "🚀 Starting WordPress theme deployment..."
+
+          # Navigate to theme directory
+          cd /home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella
+
+          # Git: Pull latest changes
+          echo "📥 Pulling latest code from GitHub..."
+          git pull origin main
+
+          # NPM: Install dependencies
+          echo "📦 Installing npm packages..."
+          npm install
+
+          # Composer: Install PHP dependencies
+          echo "📦 Installing Composer packages..."
+          composer install
+
+          # Build: Compile assets
+          echo "🔨 Building theme assets..."
+          npm run build
+
+          # WordPress: Set correct file permissions
+          echo "🔒 Setting WordPress permissions..."
+          find . -type d -exec chmod 755 {} \;
+          find . -type f -exec chmod 644 {} \;
+
+          # Clear caches (optional)
+          echo "🧹 Clearing caches..."
+          cd /home/user/htdocs/srv1155173.hstgr.cloud
+          wp cache flush 2>/dev/null || echo "WP-CLI not available, skipping cache flush"
+
+          echo "✅ Theme deployed successfully at $(date)"
