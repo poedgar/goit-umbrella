@@ -16,63 +16,37 @@ jobs:
         username: ${{ secrets.HOSTINGER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          #!/bin/bash
-          set -e  # Exit immediately on real errors
-
-          RED='\033[0;31m'
-          GREEN='\033[0;32m'
-          YELLOW='\033[1;33m'
-          NC='\033[0m' # No Color
-
-          echo -e "${GREEN}🚀 Starting WordPress theme deployment...${NC}"
+          echo "🚀 Starting WordPress theme deployment..."
 
           THEME_DIR="/home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella"
-          cd "$THEME_DIR"
+
+          cd $THEME_DIR
 
           # --- SSH FIX ---
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
 
           # --- Update code ---
-          echo -e "${YELLOW}🔄 Pulling latest code...${NC}"
-          if git fetch origin && git reset --hard origin/main; then
-            echo -e "${GREEN}✅ Code synced${NC}"
-          else
-            echo -e "${RED}❌ Git update failed!${NC}"
-            exit 1
-          fi
+          echo "🔄 Pulling latest code..."
+          git fetch origin
+          git reset --hard origin/main
+          echo "✅ Code synced"
 
-          # --- Install NPM dependencies ---
-          echo -e "${YELLOW}📦 Installing NPM dependencies...${NC}"
-          if npm install --no-audit --loglevel=error 2> npm-warnings.log; then
-            echo -e "${GREEN}✅ NPM installed${NC}"
-          else
-            echo -e "${RED}❌ NPM install failed! Check npm-warnings.log${NC}"
-            exit 1
-          fi
+          # --- Install dependencies ---
+          echo "📦 Installing NPM dependencies..."
+          rm -rf node_modules
+          npm install --no-audit --loglevel=error
 
-          # --- Install Composer dependencies ---
-          echo -e "${YELLOW}📦 Installing Composer dependencies...${NC}"
-          if COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --prefer-dist --no-progress --no-interaction 2> composer-warnings.log; then
-            echo -e "${GREEN}✅ Composer installed${NC}"
-          else
-            echo -e "${RED}❌ Composer install failed! Check composer-warnings.log${NC}"
-            exit 1
-          fi
+          echo "📦 Installing Composer dependencies..."
+          COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --prefer-dist --no-progress --no-interaction
 
           # --- Build theme ---
-          echo -e "${YELLOW}🏗 Building theme...${NC}"
-          if npm run build 2> build-warnings.log; then
-            echo -e "${GREEN}✅ Theme built${NC}"
-          else
-            echo -e "${RED}❌ Theme build failed! Check build-warnings.log${NC}"
-            exit 1
-          fi
+          echo "🏗 Building theme..."
+          npm run build
 
           # --- Permissions ---
-          echo -e "${YELLOW}🔧 Fixing permissions...${NC}"
+          echo "🔧 Fixing permissions..."
           find . -type d -exec chmod 755 {} \;
           find . -type f -exec chmod 644 {} \;
 
-          echo -e "${GREEN}🎉 Deployment completed at $(date)${NC}"
-          echo -e "${YELLOW}⚠️ Warnings (if any) saved to npm-warnings.log, composer-warnings.log, build-warnings.log${NC}"
+          echo "🎉 Deployment completed at $(date)"
