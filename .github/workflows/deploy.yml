@@ -31,5 +31,5 @@ jobs:
           find . -type d -exec chmod 755 {} \;
           find . -type f -exec chmod 644 {} \;
 
-          echo "✅ Theme deployed successfully!"
+          echo "✅ Theme deployed very successfully!"
 
