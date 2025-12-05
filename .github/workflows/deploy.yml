@@ -11,40 +11,30 @@ jobs:
     steps:
     - name: Deploy to VPS
       uses: appleboy/ssh-action@v0.1.10
-      env:
-        COMPOSER_ALLOW_SUPERUSER: "1"
       with:
         host: ${{ secrets.HOSTINGER_HOST }}
         username: ${{ secrets.HOSTINGER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          echo "🚀 WordPress Theme Deployment Started"
+          # Fix GitHub SSH
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-          # Navigate to theme
           cd /home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella
 
-          # 1. Git: Update code
-          echo "📥 Updating code..."
-          git stash
-          git pull origin main
+          # Update code
+          git fetch origin
+          git reset --hard origin/main
 
-          # 2. npm: Install dependencies
-          echo "📦 Running npm install..."
+          # Clean install all dependencies
+          rm -rf node_modules
           npm install
-
-          # 3. Composer: Install PHP dependencies
-          echo "📦 Running composer install..."
           COMPOSER_ALLOW_SUPERUSER=1 composer install
 
-          # 4. Build: Compile assets
-          echo "🔨 Running npm run build..."
-          npm run build
+          # Build using npx (ensures local packages)
+          npx npm-run-all build
 
-          # 5. Permissions: Set WordPress file permissions
-          echo "🔒 Setting file permissions..."
+          # Permissions
           find . -type d -exec chmod 755 {} \;
           find . -type f -exec chmod 644 {} \;
 
-          echo "✅ Deployment completed at $(date)"
-
-          
+          echo "✅ Deployed at $(date)"
