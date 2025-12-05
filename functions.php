@@ -114,10 +114,18 @@ add_action(
 add_action(
 	'wp_enqueue_scripts',
 	function () {
-		wp_enqueue_style( 'bathe', get_theme_file_uri( 'assets/css/main.css' ), array(), '3.0.1' );
-		wp_enqueue_style( 'tailwind', get_theme_file_uri( 'assets/css/tailwind.css' ), array(), '3.3.2' );
+		$theme_path = get_template_directory();
+		$theme_uri = get_template_directory_uri();
 
-		wp_enqueue_script( 'bathe', get_theme_file_uri( 'assets/js/main.js' ), array(), '3.0.1', true );
+		// Auto-version based on file modification time
+		$main_css_version = filemtime( $theme_path . '/assets/css/main.css' );
+		$tailwind_version = filemtime( $theme_path . '/assets/css/tailwind.css' );
+		$main_js_version = filemtime( $theme_path . '/assets/js/main.js' );
+
+		wp_enqueue_style( 'bathe', $theme_uri . '/assets/css/main.css', array(), $main_css_version );
+		wp_enqueue_style( 'tailwind', $theme_uri . '/assets/css/tailwind.css', array(), $tailwind_version );
+
+		wp_enqueue_script( 'bathe', $theme_uri . '/assets/js/main.js', array(), $main_js_version, true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
