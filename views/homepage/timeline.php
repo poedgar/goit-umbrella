@@ -9,8 +9,8 @@ $items        = get_field('timeline_items') ?: [];
 if (!$show_section || empty($items)) return;
 ?>
 
-<section id="timeline" class="section">
-	<div class="container">
+<section id="timeline" class="section overflow-hidden">
+	<div class="container overflow-visible">
 
 		<!-- Section Title -->
 		<h2 class="section-title">
@@ -18,19 +18,19 @@ if (!$show_section || empty($items)) return;
 		</h2>
 
 		<!-- Section SubTitle -->
-		<h2 class="low-section-title mt-5 md:mt-8">
+		<p class="low-section-title mt-5 md:mt-8">
 			<?= esc_html($subtitle); ?>
-		</h2>
+		</p>
 
 
-		<div class="swiper timeline-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8">
+		<div class="swiper timeline-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8 overflow-visible">
 			<!-- timeline buttons wrapper -->
 			<div class="flex items-center justify-between gap-5">
 				<button class="timeline-button-prev btn btn-black w-[150px] md:w-[98px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">назад</button>
 				<button class="timeline-button-next btn btn-black w-[150px] md:w-[98px]" type="button" aria-label="до наступного слайду" aria-disabled="false">вперед</button>
 			</div>
 
-			<ul class="swiper-wrapper">
+			<ul class="swiper-wrapper overflow-visible">
 				<!-- Timeline slides list -->
 				<?php foreach ($items as $index => $item):
 					$image_sm   = $item['image_mobile'];
