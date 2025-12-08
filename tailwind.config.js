@@ -1,20 +1,28 @@
 /**
- * @type {import('tailwindcss/tailwind-config').TailwindConfig }
+ * @type {import('tailwindcss/tailwind-config').TailwindConfig}
  */
 module.exports = {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  content: ['./**/*.{php,html,css}', './src/**/*.{js,ts}'],
+
+  content: [
+    './**/*.{php,html,css}',
+    './src/**/*.{js,ts}',
+    '!./node_modules', // ⛔ Exclude node_modules to prevent performance issues
+  ],
+
   theme: {
     screens: {
       sm: '480px',
       md: '768px',
       xl: '1280px',
+
       smOnly: { max: '767.98px' },
       mdOnly: { min: '768px', max: '1279.98px' },
       notXl: { max: '1279.98px' },
     },
+
     container: {
       center: true,
       padding: {
@@ -27,41 +35,44 @@ module.exports = {
       md: '20px',
       xl: '80px',
     },
+
     fontFamily: {
       inter: ['Inter Tight', 'sans-serif'],
       unbounded: ['Unbounded', 'serif'],
     },
+
     extend: {
       backgroundColor: (theme) => ({
         ...theme('colors'),
-        body: '#F2F1EE', // bg-body
+        body: '#F2F1EE',
         primary: '#456FAB',
         secondary: '#ffffff',
         main: '#f8f8ff',
         checkbox: '#456FAB',
       }),
+
       colors: {
         white: {
-          DEFAULT: '#ffffff', // *-white
+          DEFAULT: '#ffffff',
         },
         black: {
-          DEFAULT: '#000000', // *-black
-          61: '#616161', // *-black-61
+          DEFAULT: '#000000',
+          61: '#616161',
         },
         gray: {
-          DEFAULT: '#565656', // *-gray
-          68: '#686868', // *-gray-68
+          DEFAULT: '#565656',
+          68: '#686868',
         },
         accent: {
-          DEFAULT: '#FFC72F', // *-accent-yellow
-          orange: '#FF8856', // *-accent-orange
-          purple: '#A472FF', // *-accent-purple
-          purple2: '#5A05F4', // *-accent-purple2
+          DEFAULT: '#FFC72F',
+          orange: '#FF8856',
+          purple: '#A472FF',
+          purple2: '#5A05F4',
         },
-
         loading: '#000000',
       },
     },
   },
+
   plugins: [],
 };

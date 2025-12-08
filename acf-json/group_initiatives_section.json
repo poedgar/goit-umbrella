@@ -131,26 +131,6 @@
                     "parent_repeater": "field_initiatives_list"
                 }
             ]
-        },
-        {
-            "key": "field_69329c31d3739",
-            "label": "TEST",
-            "name": "test",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -171,5 +151,5 @@
     "active": true,
     "description": "Секція ініціатив з можливістю створення слайдів",
     "show_in_rest": 0,
-    "modified": 1764924471
+    "modified": 1764926225
 }
