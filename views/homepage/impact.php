@@ -1,7 +1,7 @@
 <?php
 // Retrieve values from ACF
 $show_section = get_field('show_impact_section');
-$title        = get_field('impact_section_title') ?: 'ВІД ЗНАНЬ ДО ВПЛИВУ';
+$title        = get_field('impact_section_title');
 $description  = get_field('impact_section_description');
 $video_url       = get_field('impact_video');
 
@@ -11,20 +11,22 @@ if (!$show_section) return;
 
 <section class="section" id="impact">
 	<div class="container">
+		<!-- main wrapper -->
 		<div class="grid gap-5 md:gap-8 xl:flex xl:flex-row-reverse">
+			<!-- text wrapper -->
 			<div class="flex flex-col gap-5 md:gap-8 xl:items-center xl:justify-center">
 				<?php if ($title): ?>
-					<h2 class="section-title">
-						<?= esc_html($title); ?></h2>
+					<h2 class="section-title md:text-left">
+						<?= $title; ?></h2>
 				<?php endif; ?>
 
 				<?php if ($description): ?>
-					<p class="text-[20px]/[28px] font-medium uppercase md:text-[24px]/[32px] text-center"><?= esc_html($description); ?></h2>
+					<p class="text-[20px]/[28px] font-medium uppercase md:text-[24px]/[32px] text-center md:text-left"><?= wp_kses_post($description); ?></h2>
 					</p>
 				<?php endif; ?>
 			</div>
 
-
+			<!-- video wrapper  -->
 			<div class="relative xl:w-[800px] shrink-0">
 				<video
 					id="impactVideo"
