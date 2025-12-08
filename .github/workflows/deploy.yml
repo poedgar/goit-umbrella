@@ -1,0 +1,52 @@
+name: Deploy WordPress Theme
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to VPS
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.HOSTINGER_HOST }}
+        username: ${{ secrets.HOSTINGER_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          echo "🚀 Starting WordPress theme deployment..."
+
+          THEME_DIR="/home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella"
+
+          cd $THEME_DIR
+
+          # --- SSH FIX ---
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+
+          # --- Update code ---
+          echo "🔄 Pulling latest code..."
+          git fetch origin
+          git reset --hard origin/main
+          echo "✅ Code synced"
+
+          # --- Install dependencies ---
+          echo "📦 Installing NPM dependencies..."
+          rm -rf node_modules
+          npm install --no-audit --loglevel=error
+
+          echo "📦 Installing Composer dependencies..."
+          COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --prefer-dist --no-progress --no-interaction
+
+          # --- Build theme ---
+          echo "🏗 Building theme..."
+          npm run build
+
+          # --- Permissions ---
+          echo "🔧 Fixing permissions..."
+          find . -type d -exec chmod 755 {} \;
+          find . -type f -exec chmod 644 {} \;
+
+          echo "🎉 Deployment completed at $(date)"

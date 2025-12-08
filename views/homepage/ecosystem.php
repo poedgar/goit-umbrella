@@ -40,7 +40,7 @@ if (!$show_section) return;
                         <?php endif; ?>
 
                         <?php if ($right_image): ?>
-                        <div class="min-h-20">
+                        <div class="flex items-end min-h-20">
                             <img src="<?= $right_image['url']; ?>" alt="<?= esc_attr($left_image['alt']); ?>"
                                 class="w-full object-cover">
                         </div>
@@ -103,9 +103,9 @@ if (!$show_section) return;
                 <div class="flex gap-[18px] md:gap-6 ml-auto">
                     <!-- RIGHT IMAGE under the ED row -->
                     <?php if ($right_image): ?>
-                    <div class="w-[236px] md:w-[406px] h-[134px] md:h-[232px]">
+                    <div class="w-[236px] md:w-[406px] h-[134px] xl:h-[232px]">
                         <img src="<?= $right_image['url']; ?>" alt="<?= esc_attr($right_image['alt']); ?>"
-                            class="w-full h-full object-cover rounded-md">
+                            class="w-full h-full object-contain rounded-md">
                     </div>
                     <?php endif; ?>
 
@@ -132,7 +132,7 @@ if (!$show_section) return;
                 <!-- Under images text -->
                 <?php if ($subtitle): ?>
                 <div class="flex justify-end mt-1 md:mt-2">
-                    <h2 class="text-gray text-[18px]/[21px] md:text-[32px]/[36px] font-semibold uppercase">
+                    <h2 class="text-gray text-[18px]/[21px] xl:text-[32px]/[36px] font-semibold uppercase">
                         <?= wp_kses_post($subtitle); ?>
                     </h2>
                 </div>
@@ -148,7 +148,7 @@ if (!$show_section) return;
                     $alt   = $lg['alt'] ?? '';
                     if (!$image) continue;
                 ?>
-                <div class="flex items-center w-[20%]">
+                <div class="flex items-center w-[45%]">
                     <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($alt); ?>" class="w-full h-full object-cover">
                 </div>
                 <?php endforeach; ?>

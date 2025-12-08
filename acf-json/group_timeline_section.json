@@ -200,26 +200,6 @@
                     "parent_repeater": "field_timeline_items"
                 }
             ]
-        },
-        {
-            "key": "field_69329c0d2038b",
-            "label": "TEST",
-            "name": "test",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -240,5 +220,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1764924451
+    "modified": 1764926192
 }

@@ -105,26 +105,6 @@
             "min_size": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_69329afcbcbdd",
-            "label": "TEST",
-            "name": "test",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -145,5 +125,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1764924170
+    "modified": 1764926172
 }
