@@ -9,7 +9,7 @@ $awards_items = get_field('awards_items');
 if (!$show_section || empty($awards_items)) return;
 ?>
 
-<section class="section">
+<section id="awards" class="section">
 	<div class="container">
 
 		<!-- Section Title -->
