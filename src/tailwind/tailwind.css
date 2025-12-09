@@ -67,6 +67,10 @@
 		}
 	}
 
+	.nowrap-xl {
+		@apply xl:whitespace-nowrap;
+	}
+
 	.scroll-hidden {
 		@apply overflow-hidden;
 	}

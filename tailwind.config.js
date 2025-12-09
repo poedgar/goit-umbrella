@@ -46,7 +46,6 @@ module.exports = {
         ...theme('colors'),
         body: '#F2F1EE',
         primary: '#456FAB',
-        secondary: '#ffffff',
         main: '#f8f8ff',
         checkbox: '#456FAB',
       }),
