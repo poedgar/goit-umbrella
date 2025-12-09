@@ -31,8 +31,8 @@ if (!$show_section) return;
 
 			<div class="flex justify-between items-end gap-5">
 				<?php if ($subtitle): ?>
-					<h1 class="uppercase font-medium text-[24px]/[36px] text-gray">
-						<?= wp_kses_post(wpautop($subtitle)); ?></h1>
+					<div class="uppercase font-medium text-[24px]/[36px] text-gray">
+						<?= wp_kses_post(wpautop($subtitle)); ?></div>
 				<?php endif; ?>
 
 				<?php if ($right_image): ?>
