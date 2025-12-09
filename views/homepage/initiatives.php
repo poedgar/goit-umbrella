@@ -14,13 +14,13 @@ if (!$show || empty($slides)) return;
 
 		<!-- section title -->
 		<h2 class="section-title">
-			<?= esc_html($title); ?>
+			<?= wp_kses_post($title); ?>
 		</h2>
 
 		<!-- section description -->
 		<?php if ($subtitle): ?>
 			<p class="low-section-title mt-5 md:mt-8">
-				<?= esc_html($subtitle); ?>
+				<?= wp_kses_post($subtitle); ?>
 			</p>
 		<?php endif; ?>
 
@@ -52,7 +52,7 @@ if (!$show || empty($slides)) return;
 						<?php endif; ?>
 
 
-						<p class="font-medium grow text-[20px]/[28px] uppercase"><?= esc_html($description); ?></p>
+						<p class="font-medium grow text-[20px]/[28px] uppercase"><?= wp_kses_post($description); ?></p>
 					</li>
 				<?php endforeach; ?>
 			</ul>
