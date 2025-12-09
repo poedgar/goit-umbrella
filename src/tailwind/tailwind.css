@@ -72,10 +72,10 @@
 	}
 
 	.nowrap-md {
-		@apply md:whitespace-nowrap;
+		@apply md:whitespace-nowrap md:block;
 	}
 	.nowrap-xl {
-		@apply xl:whitespace-nowrap;
+		@apply xl:whitespace-nowrap xl:block;
 	}
 
 	.scroll-hidden {
