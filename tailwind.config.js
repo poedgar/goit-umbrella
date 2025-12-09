@@ -61,6 +61,7 @@ module.exports = {
         gray: {
           DEFAULT: '#565656',
           68: '#686868',
+          34: '#343434',
         },
         accent: {
           DEFAULT: '#FFC72F',
