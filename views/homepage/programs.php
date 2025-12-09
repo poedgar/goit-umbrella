@@ -69,7 +69,7 @@ if (!$show_section || empty($items)) return;
 								$url            = get_sub_field('url');
 								$social         = get_sub_field('social') ?: [];
 							?>
-								<div class="flex flex-col smOnly:items-center gap-5">
+								<div class="flex flex-col smOnly:items-center gap-5 md:gap-4">
 
 									<!-- Mobile logo -->
 									<?php if ($site_logo): ?>
