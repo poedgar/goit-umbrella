@@ -50,7 +50,7 @@
 				<div class="hidden xl:block relative text-xl/[28px]">
 					<button id="ecosystem-dropdown-btn"
 						class="bg-black text-white px-6 py-3 rounded-t flex items-center gap-2 hover:bg-gray-800 transition-colors">
-						<span id="selected-ecosystem">Наша екосистема</span>
+						<span id="selected-ecosystem" class="lowercase">Наша екосистема</span>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/decoratives/arrow-down-white.svg"
 							alt="декорація" class="w-3 h-2">
 					</button>
@@ -175,11 +175,11 @@
 			<div class="">
 				<!-- Footer Text -->
 				<div class="text-center text-gray-400 text-base/[24px]">
-					Better Ed © 2026
+					Better<i>Ed</i> © 2026
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="lg:flex grow">
+	<div class="xl:flex grow">
 		<main id="primary" class="grow" role="main">
