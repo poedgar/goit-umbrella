@@ -77,7 +77,7 @@
 													<a href="<?php echo $key === 'mail' ? 'mailto:' . esc_attr($social[$key]) : esc_url($social[$key]); ?>"
 														<?php echo $key !== 'mail' ? 'target="_blank"' : ''; ?>
 														class="social-link-footer">
-														<img src="<?php echo get_template_directory_uri(); ?>/assets/images/socials/<?php echo $icon; ?>.svg"
+														<img src="<?php echo get_template_directory_uri(); ?>/src/images/socials/<?php echo $icon; ?>.svg"
 															alt="<?php echo $key; ?>" class="">
 													</a>
 												<?php endif; ?>
@@ -109,7 +109,7 @@
 			</div>
 
 			<div class="md:max-w-[102px] xl:max-w-[230px] text-base/[24px] mt-[10px] md:mt-0 xl:ml-8">
-				Better<i>ED</i> © <?php echo date('Y'); ?>
+				Better<i>Ed</i> © <?php echo date('Y'); ?>
 			</div>
 
 			<a href="/" class="mt-[10px] md:mt-0 xl:ml-8 w-[168px] h-[28px] transition">
