@@ -83,7 +83,7 @@ if (!$show_section || empty($items)) return;
 												<p class="text-gray font-medium uppercase text-[20px]/[28px] md:text-[24px]/[32px]"><?= esc_html($site_subtitle); ?></p>
 											<?php endif; ?>
 											<?php if ($supporter_img): ?>
-												<img src="<?= esc_url($supporter_img['url']); ?>" alt="<?= esc_attr($supporter_img['alt']); ?>" class="w-auto h-full">
+												<img src="<?= esc_url($supporter_img['url']); ?>" alt="<?= esc_attr($supporter_img['alt']); ?>" class="w-[178px] h-auto">
 											<?php endif; ?>
 										</div>
 									<?php endif; ?>
@@ -107,7 +107,7 @@ if (!$show_section || empty($items)) return;
 					</div> <!-- END COLUMN -->
 
 					<!-- COLUMN: Statistic Card -->
-					<div class="flex flex-col gap-5 p-5 md:p-8 md:gap-8 justify-center items-center rounded-lg text-center xl:w-[592px]" style="background:<?= esc_attr($bg); ?>; color:#111;">
+					<div class="flex flex-col gap-5 p-5 md:p-8 md:gap-8 justify-center items-center rounded-lg text-center xl:w-[592px]" data-counter-container style="background:<?= esc_attr($bg); ?>; color:#111;">
 
 						<?php
 						$stats = [
@@ -120,7 +120,7 @@ if (!$show_section || empty($items)) return;
 						<?php foreach ($stats as $stat): ?>
 							<div>
 								<?php if ($stat['value']): ?>
-									<div class="text-[32px]/[36px] md:text-[48px]/[1] font-black font-unbounded"><?= esc_html($stat['value']); ?></div>
+									<div class="text-[32px]/[36px] md:text-[48px]/[1] font-black font-unbounded" data-counter="<?= esc_html($stat['value']); ?>"></div>
 								<?php endif; ?>
 								<?php if ($stat['desc']): ?>
 									<div class="text-xl/[28px] font-medium mt-2 uppercase"><?= esc_html($stat['desc']); ?></div>

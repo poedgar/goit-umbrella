@@ -4571,4 +4571,67 @@ document.addEventListener("DOMContentLoaded", function() {
     playButton.style.display = "block";
   });
 });
+function animateCounter(el, end, duration = 1e3) {
+  if (!/\d/.test(end)) {
+    el.textContent = end;
+    return;
+  }
+  if (end.includes("-")) {
+    let step2 = function(timestamp) {
+      if (!startTime2)
+        startTime2 = timestamp;
+      const progress = Math.min((timestamp - startTime2) / duration, 1);
+      const value = Math.round(progress * secondNum);
+      el.textContent = first + "-" + value;
+      if (progress < 1)
+        requestAnimationFrame(step2);
+    };
+    var step = step2;
+    const parts = end.split("-");
+    const first = parts[0];
+    const secondNum = parseFloat(parts[1].replace(",", ".")) || 0;
+    let startTime2;
+    requestAnimationFrame(step2);
+    return;
+  }
+  const match = end.match(/^(\d+(\.\d+)?)(.*)$/);
+  if (!match) {
+    el.textContent = end;
+    return;
+  }
+  const numeric = parseFloat(match[1]);
+  const suffix = match[3] || "";
+  let startTime;
+  function step(timestamp) {
+    if (!startTime)
+      startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    const value = Math.round(progress * numeric);
+    el.textContent = value + suffix;
+    if (progress < 1)
+      requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function initCounters() {
+  const sections = document.querySelectorAll("[data-counter-container]");
+  sections.forEach((section) => {
+    const counters = section.querySelectorAll("[data-counter]");
+    if (!counters.length)
+      return;
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        if (entries[0].isIntersecting) {
+          counters.forEach((c) => animateCounter(c, c.dataset.counter));
+          obs.disconnect();
+        }
+      },
+      {
+        threshold: 0.1
+      }
+    );
+    observer.observe(section);
+  });
+}
+initCounters();
 //# sourceMappingURL=main.js.map
