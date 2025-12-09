@@ -64,7 +64,7 @@ if (!$show_section || empty($items)) return;
 						</li>
 					<?php else: ?>
 						<!-- Всі слайди окрім останнього -->
-						<li class="swiper-slide smOnly:!w-[320px] flex smOnly:flex-col smOnly:gap-5 smOnly:p-5 bg-white rounded-[8px]">
+						<li class="swiper-slide smOnly:!w-[320px] flex smOnly:flex-col smOnly:gap-5 smOnly:p-5 bg-white rounded-[8px] overflow-hidden">
 							<!-- slide image -->
 							<?php if ($image_sm || $image_md): ?>
 								<picture class="shrink-0 w-full md:w-[352px] xl:w-[384px] md:h-[640px] smOnly:rounded-[8px]">
