@@ -175,7 +175,7 @@
 			<div class="">
 				<!-- Footer Text -->
 				<div class="text-center text-gray-400 text-base/[24px]">
-					Better<i>Ed</i> © 2026
+					Better<i>ED</i> © 2026
 				</div>
 			</div>
 		</div>
