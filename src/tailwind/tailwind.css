@@ -67,6 +67,13 @@
 		}
 	}
 
+	.social-link-footer {
+		@apply size-7 flex items-center justify-center bg-white/30 rounded-[8px] duration-300 hover:scale-[1.2] hover:bg-white/60 focus:bg-white/60 active:bg-[#F2F1EE];
+	}
+
+	.nowrap-md {
+		@apply md:whitespace-nowrap;
+	}
 	.nowrap-xl {
 		@apply xl:whitespace-nowrap;
 	}
