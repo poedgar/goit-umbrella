@@ -28,9 +28,9 @@
 		<div class="container">
 			<nav class="flex items-center justify-between">
 				<!-- Logo -->
-				<a href="<?php echo home_url('/'); ?>" class="w-[166px] h-[28px]">
-					<img src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-black.svg"
-						alt="логотип BETTERED" class="">
+				<a href="<?php echo home_url('/'); ?>" class="w-[168px] h-[28px]">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-black.svg"
+						alt="BETTER ED" class="">
 				</a>
 
 				<!-- Desktop Navigation Menu -->
@@ -49,10 +49,10 @@
 				<!-- Desktop Ecosystem Dropdown -->
 				<div class="hidden xl:block relative text-xl/[28px]">
 					<button id="ecosystem-dropdown-btn"
-						class="bg-black text-white px-4 py-2 rounded flex items-center justify-center gap-[10px] hover:bg-gray-800 transition-colors">
+						class="bg-black text-white px-6 py-3 rounded-t flex items-center gap-2 hover:bg-gray-800 transition-colors">
 						<span id="selected-ecosystem" class="lowercase">Наша екосистема</span>
-						<img src="<?php echo get_template_directory_uri(); ?>/src/images/decoratives/arrow-down-white.svg"
-							alt="декорація" class="w-3 h-2" aria-hidden="true">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/decoratives/arrow-down-white.svg"
+							alt="декорація" class="w-3 h-2">
 					</button>
 					<?php
 					// Get all companies
@@ -104,7 +104,7 @@
 
 				<!-- Mobile Menu Button -->
 				<button id="mobile-menu-btn"
-					class="xl:hidden text-xl/[28px] border-2 border-black px-4 py-1 flex items-center justify-center rounded h-[44px] hover:bg-gray-50 transition-colors">
+					class="xl:hidden text-xl/[28px] border-2 border-black px-4 py-2 rounded hover:bg-gray-50 transition-colors">
 					меню
 				</button>
 			</nav>
@@ -118,11 +118,11 @@
 			<!-- Mobile Menu Header -->
 			<div class="flex items-center justify-between">
 				<a href="<?php echo home_url('/'); ?>" class="w-[168px] h-[28px]">
-					<img src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-black.svg"
-						alt="логотип BETTERED">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-black.svg"
+						alt="BETTER ED">
 				</a>
 				<button id="mobile-close-btn"
-					class="text-xl/[28px] border-2 border-black px-4 py-1 flex items-center justify-center h-[44px] rounded hover:bg-gray-50 transition-colors">
+					class="text-xl/[28px] border-2 border-black px-4 py-2 rounded hover:bg-gray-50 transition-colors">
 					закрити
 				</button>
 			</div>
@@ -133,9 +133,9 @@
 				<div class="w-full text-xl/[28px]">
 					<button id="mobile-ecosystem-btn"
 						class="w-full bg-black text-white px-4 py-2 rounded-t flex items-center justify-center gap-[10px] hover:bg-gray-800 transition-colors">
-						<span id="mobile-selected-ecosystem" class="lowercase">Наша екосистема</span>
-						<img src="<?php echo get_template_directory_uri(); ?>/src/images/decoratives/arrow-down-white.svg"
-							alt="декорація" class="w-3 h-2" aria-hidden="true">
+						<span id="mobile-selected-ecosystem">Наша екосистема</span>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/decoratives/arrow-down-white.svg"
+							alt="декорація" class="w-3 h-2">
 					</button>
 
 					<div id="mobile-ecosystem-dropdown" class="bg-white rounded-b border border-gray-200 overflow-hidden
@@ -181,4 +181,5 @@
 		</div>
 	</div>
 
-	<main id="primary" class="grow" role="main">
+	<div class="xl:flex grow">
+		<main id="primary" class="grow" role="main">

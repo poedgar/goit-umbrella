@@ -8,6 +8,7 @@
 
 ?>
 </main>
+</div>
 
 <footer class="bg-black text-gray-68 py-5 md:py-8 xl:py-16">
 	<div class="container">
@@ -77,7 +78,7 @@
 														<?php echo $key !== 'mail' ? 'target="_blank"' : ''; ?>
 														class="social-link-footer">
 														<img src="<?php echo get_template_directory_uri(); ?>/src/images/socials/<?php echo $icon; ?>.svg"
-															alt="<?php echo $key; ?>">
+															alt="<?php echo $key; ?>" class="">
 													</a>
 												<?php endif; ?>
 											<?php endforeach; ?>
@@ -113,7 +114,8 @@
 
 			<a href="/" class="mt-[10px] md:mt-0 xl:ml-8 w-[168px] h-[28px] transition">
 				<!-- Simple icons (SVG) -->
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-white.svg" alt="логотип BetterED" aria-label="На головну">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.svg" alt="BETTER ED"
+					class="">
 			</a>
 		</div>
 	</div>
