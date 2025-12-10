@@ -4555,7 +4555,7 @@ createSwiper(".timeline", {
       spaceBetween: 32
     },
     1280: {
-      slidesPerView: 1.5,
+      slidesPerView: 1.56,
       spaceBetween: 32
     }
   }
