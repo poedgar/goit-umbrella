@@ -72,7 +72,7 @@ if (!$show_section || empty($items)) return;
 										<source srcset="<?= esc_url($image_md['url']); ?>" media="(min-width: 768px)">
 									<?php endif; ?>
 									<?php if ($image_sm): ?>
-										<img class="w-auto h-full object-cover object-center" src="<?= esc_url($image_sm['url']); ?>" alt="">
+										<img class="w-auto h-full object-cover object-center xl:w-full" src="<?= esc_url($image_sm['url']); ?>" alt="">
 									<?php endif; ?>
 								</picture>
 							<?php endif; ?>
