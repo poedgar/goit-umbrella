@@ -77,9 +77,6 @@
 	.nowrap-xl {
 		@apply xl:whitespace-nowrap xl:block;
 	}
-	.custom-capitalize {
-		@apply capitalize;
-	}
 
 	.scroll-hidden {
 		@apply overflow-hidden;

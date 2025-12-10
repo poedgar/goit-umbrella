@@ -95,7 +95,7 @@ if (!$show_section || empty($items)) return;
 
 									<!-- Buttons -->
 									<div class="flex justify-between md:justify-start gap-4 md:gap-8 w-full">
-										<a href="<?= esc_url($url); ?>" class="btn btn-black !w-[130px]">сайт</a>
+										<a href="<?= esc_url($url); ?>" class="btn btn-black !w-[130px]" target="_blank" rel="noopener noreferrer" aria-label="Відкрити cайт у новій вкладці">сайт</a>
 
 										<a href="mailto:<?= esc_attr($social['mail'] ?? ''); ?>" class="btn btn-transparent !w-[130px]">зв'язатися</a>
 									</div>
