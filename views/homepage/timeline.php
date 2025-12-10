@@ -26,8 +26,8 @@ if (!$show_section || empty($items)) return;
 		<div class="swiper timeline-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8 overflow-visible">
 			<!-- timeline buttons wrapper -->
 			<div class="flex items-center justify-between gap-5">
-				<button class="timeline-button-prev btn btn-black w-[150px] md:w-[98px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">назад</button>
-				<button class="timeline-button-next btn btn-black w-[150px] md:w-[98px]" type="button" aria-label="до наступного слайду" aria-disabled="false">вперед</button>
+				<button class="timeline-button-prev btn btn-black smOnly:!w-[150px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">назад</button>
+				<button class="timeline-button-next btn btn-black smOnly:!w-[150px]" type="button" aria-label="до наступного слайду" aria-disabled="false">вперед</button>
 			</div>
 
 			<ul class="swiper-wrapper overflow-visible">
