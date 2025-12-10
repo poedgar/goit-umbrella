@@ -71,7 +71,7 @@ if (!$show_section) return;
 		</div>
 
 		<!-- DESKTOP -->
-		<div class="hidden md:flex flex-col gap-[18px]">
+		<div class="hidden md:flex flex-col gap-8">
 			<!-- LEFT: Better + ED + left/right images -->
 			<div class="flex items-start">
 				<!-- LEFT IMAGE (small vertical block) -->
@@ -85,7 +85,7 @@ if (!$show_section) return;
 
 			<!-- RIGHT COLUMN: stacked 3 images -->
 			<div class="flex flex-col">
-				<div class="flex gap-[18px] md:gap-6 ml-auto">
+				<div class="flex gap-[18px] md:gap-6 xl:gap-8 ml-auto">
 					<!-- RIGHT IMAGE under the ED row -->
 					<?php if ($right_image): ?>
 						<img src="<?= $right_image['url']; ?>" alt="<?= esc_attr($right_image['alt']); ?>"

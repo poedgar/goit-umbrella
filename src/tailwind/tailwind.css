@@ -72,7 +72,7 @@
 	}
 
 	.nowrap-md {
-		@apply md:whitespace-nowrap md:block;
+		@apply md:whitespace-nowrap md:block xl:inline;
 	}
 	.nowrap-xl {
 		@apply xl:whitespace-nowrap xl:block;
