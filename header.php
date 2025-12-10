@@ -148,11 +148,13 @@
 										// Determine if this is the last item (no border)
 										$border_class = ($index < count($all_sites) - 1) ? '' : '';
 								?>
+                        <?php if ($site['url']) : ?>
                         <a href="<?php echo esc_url($site['url']); ?>"
                             class="block text-center px-4 py-2 hover:bg-gray-50 transition-colors <?php echo $border_class; ?>"
                             target="_blank" rel="noopener noreferrer">
                             <?php echo esc_html($site['name']); ?>
                         </a>
+                        <?php endif; ?>
                         <?php endforeach; ?>
                         <?php else : ?>
                         <div class="block px-6 py-3 text-gray-500 text-sm">
