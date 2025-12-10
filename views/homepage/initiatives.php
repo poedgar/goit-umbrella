@@ -28,11 +28,11 @@ if (!$show || empty($slides)) return;
 		<div class="swiper initiatives-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8 overflow-visible">
 			<!-- {{-- Initiatives btns --}} -->
 			<div class="flex items-center justify-between gap-5">
-				<button class="initiatives-button-prev btn btn-black w-[150px] md:w-[98px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">
+				<button class="initiatives-button-prev btn btn-black smOnly:!w-[150px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">
 					назад
 				</button>
 
-				<button class="initiatives-button-next btn btn-black w-[150px] md:w-[98px]" type="button" aria-label="до наступного слайду" aria-disabled="false">
+				<button class="initiatives-button-next btn btn-black smOnly:!w-[150px]" type="button" aria-label="до наступного слайду" aria-disabled="false">
 					вперед
 				</button>
 			</div>
