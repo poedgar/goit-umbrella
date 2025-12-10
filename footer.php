@@ -29,12 +29,12 @@
 					<!-- Company Column -->
 					<div>
 						<!-- Company Title -->
-						<h3 class="text-xl/[28px]">
+						<h3 class="text-xl/[28px] uppercase">
 							<?php the_title(); ?>
 						</h3>
 
 						<!-- Description -->
-						<div class="mt-5 md:mt-4 xl:mt-8 text-base/[24px]">
+						<div class="mt-5 md:mt-4 xl:mt-8 text-base/[24px] xl:min-h-[72px]">
 							<?php the_excerpt(); ?>
 						</div>
 
