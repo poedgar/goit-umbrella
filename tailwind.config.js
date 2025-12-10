@@ -7,8 +7,7 @@ module.exports = {
   },
 
   content: [
-    './**/*.php', // всі PHP файли у темі
-    './**/*.html',
+    './**/*.{php,html,css}',
     './src/**/*.{js,ts}',
     '!./node_modules', // ⛔ Exclude node_modules to prevent performance issues
   ],
