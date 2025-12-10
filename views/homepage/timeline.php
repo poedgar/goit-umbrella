@@ -45,7 +45,7 @@ if (!$show_section || empty($items)) return;
 					<!-- Timeline slide -->
 					<?php if ($is_last): ?>
 						<!-- Останній слайд: -->
-						<li class="swiper-slide flex flex-col gap-5 md:gap-8 bg-black text-white rounded-[8px] !w-[320px] md:!w-[384px] p-5 md:p-8">
+						<li class="swiper-slide flex flex-col gap-5 md:gap-8 bg-black text-white rounded-[8px] !w-[320px] md:!w-[384px] p-5 md:p-8 smOnly:min-h-[508px]">
 							<!-- image -->
 							<?php if ($image_sm): ?>
 								<img src="<?= esc_url($image_sm['url']); ?>" alt="<?= esc_attr($heading); ?>"
@@ -64,7 +64,7 @@ if (!$show_section || empty($items)) return;
 						</li>
 					<?php else: ?>
 						<!-- Всі слайди окрім останнього -->
-						<li class="swiper-slide smOnly:!w-[320px] flex smOnly:flex-col smOnly:gap-5 smOnly:p-5 bg-white rounded-[8px] overflow-hidden">
+						<li class="swiper-slide smOnly:!w-[320px] flex smOnly:flex-col smOnly:gap-5 smOnly:p-5 bg-white rounded-[8px] overflow-hidden smOnly:min-h-[508px]">
 							<!-- slide image -->
 							<?php if ($image_sm || $image_md): ?>
 								<picture class="shrink-0 w-full md:w-[352px] xl:w-[384px] md:h-[640px] smOnly:rounded-[8px]">
