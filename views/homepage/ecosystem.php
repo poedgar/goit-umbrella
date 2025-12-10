@@ -116,7 +116,7 @@ if (!$show_section) return;
 				<!-- Under images text -->
 				<?php if ($subtitle): ?>
 					<div class="flex justify-end mt-1 md:mt-2">
-						<h2 class="text-gray text-[18px]/[21px] tracking-[1px] xl:tracking-[1.6px] xl:text-[32px]/[36px] font-normal uppercase">
+						<h2 class="text-gray text-[18px]/[21px] tracking-[1.565px] xl:tracking-[1.99px] xl:text-[32px]/[36px] font-normal uppercase">
 							<?= wp_kses_post($subtitle); ?>
 						</h2>
 					</div>
