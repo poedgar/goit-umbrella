@@ -20,12 +20,12 @@ if (!$show_section || empty($awards_items)) return;
 		<?php endif; ?>
 
 		<?php if ($description): ?>
-			<p class="mt-5 md:mt-8 text-[20px]/[28px] font-medium uppercase md:text-[24px]/[32px] text-center"><?= esc_html($description); ?></h2>
+			<p class="low-section-title mt-5 md:mt-8"><?= esc_html($description); ?></h2>
 			</p>
 		<?php endif; ?>
 
 		<!-- Awards / Logos Grid -->
-		<ul class="mt-5 md:mt-16 grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-x-4 gap-y-10 md:grid-cols-4 md:gap-8 md:gap-x-7 xl:gap-x-[57px]">
+		<ul class="mt-5 md:mt-16 grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-x-4 gap-y-10 md:grid-cols-4 md:gap-8 md:gap-x-7 xl:gap-x-[57px] xl:gap-y-16">
 			<?php foreach ($awards_items as $award):
 			?>
 				<li class="h-[41px] min-w-[155px] xl:h-[69px] xl:min-w-[261px]">
