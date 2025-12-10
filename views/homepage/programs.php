@@ -80,7 +80,7 @@ if (!$show_section || empty($items)) return;
 									<?php if ($site_subtitle || $supporter_img): ?>
 										<div class="flex flex-col md:flex-row items-center md:justify-between gap-5">
 											<?php if ($site_subtitle): ?>
-												<p class="text-gray font-medium uppercase text-[20px]/[28px] md:text-[24px]/[32px]"><?= esc_html($site_subtitle); ?></p>
+												<p class="text-gray smOnly:text-center font-medium uppercase text-[20px]/[28px] md:text-[24px]/[32px]"><?= wp_kses_post($site_subtitle); ?></p>
 											<?php endif; ?>
 											<?php if ($supporter_img): ?>
 												<img src="<?= esc_url($supporter_img['url']); ?>" alt="<?= esc_attr($supporter_img['alt']); ?>" class="w-[178px] h-auto">
@@ -90,7 +90,7 @@ if (!$show_section || empty($items)) return;
 
 									<!-- Description -->
 									<?php if ($site_desc): ?>
-										<h3 class=""><?= esc_html($site_desc); ?></h3>
+										<h3><?= wp_kses_post($site_desc); ?></h3>
 									<?php endif; ?>
 
 									<!-- Buttons -->
@@ -120,10 +120,10 @@ if (!$show_section || empty($items)) return;
 						<?php foreach ($stats as $stat): ?>
 							<div>
 								<?php if ($stat['value']): ?>
-									<div class="text-[32px]/[36px] md:text-[48px]/[1] font-black font-unbounded" data-counter="<?= esc_html($stat['value']); ?>"></div>
+									<div class="text-[32px]/[24px] md:text-[48px]/[1] font-black font-unbounded" data-counter="<?= wp_kses_post($stat['value']); ?>"></div>
 								<?php endif; ?>
 								<?php if ($stat['desc']): ?>
-									<div class="text-xl/[28px] font-medium mt-2 uppercase"><?= esc_html($stat['desc']); ?></div>
+									<div class="text-xl/[28px] font-medium mt-2 uppercase"><?= wp_kses_post($stat['desc']); ?></div>
 								<?php endif; ?>
 							</div>
 						<?php endforeach; ?>
