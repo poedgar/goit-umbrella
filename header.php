@@ -90,7 +90,7 @@
 								?>
                         <?php if ($site['url']) : ?>
                         <a href="<?php echo esc_url($site['url']); ?>"
-                            class="block text-center px-4 py-2 hover:bg-gray-50 transition-colors <?php echo $border_class; ?>"
+                            class="block text-center px-4 py-2 hover:bg-gray-50 hover:underline underline-offset-4 transition-colors <?php echo $border_class; ?>"
                             target="_blank" rel="noopener noreferrer">
                             <?php echo esc_html($site['name']); ?>
                         </a>
@@ -150,7 +150,7 @@
 								?>
                         <?php if ($site['url']) : ?>
                         <a href="<?php echo esc_url($site['url']); ?>"
-                            class="block text-center px-4 py-2 hover:bg-gray-50 transition-colors <?php echo $border_class; ?>"
+                            class="block text-center px-4 py-2 hover:bg-gray-50 hover:underline underline-offset-4 transition-colors <?php echo $border_class; ?>"
                             target="_blank" rel="noopener noreferrer">
                             <?php echo esc_html($site['name']); ?>
                         </a>
