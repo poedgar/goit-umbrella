@@ -44,6 +44,10 @@
 								$url    = get_sub_field('url');
 								$social = get_sub_field('social') ?: [];
 								$has_social = !empty(array_filter($social));
+
+								// Якщо немає ні назви, ні url, ні соцмереж — пропускаємо блок
+								if (empty($name) && empty($url) && !$has_social) {    continue;
+								}
 							?>
 
 								<!-- Site block -->
