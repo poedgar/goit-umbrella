@@ -38,8 +38,7 @@
 							<?php the_excerpt(); ?>
 						</div>
 
-						<?php if (have_rows('sites', $post_id)): ?>
-							<?php while (have_rows('sites', $post_id)): the_row();
+						<?php while (have_rows('sites', $post_id)): the_row();
 								$name   = get_sub_field('footer_name');
 								$url    = get_sub_field('url');
 								$social = get_sub_field('social') ?: [];
@@ -89,7 +88,6 @@
 									<?php endif; ?>
 								</div>
 							<?php endwhile; ?>
-						<?php endif; ?>
 					</div>
 
 			<?php endwhile;
