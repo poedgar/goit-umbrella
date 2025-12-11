@@ -52,13 +52,16 @@ if (!$show || empty($slides)) return;
 						<?php else : ?>
 							<div class="flex flex-col gap-5 md:gap-8 p-5 md:p-8">
 						<?php endif; ?>
+
 								<?php if ($photo): ?>
-									<img src="<?= esc_url($photo['url']); ?>" alt="декорація" class="shrink-0 w-full h-[218px] rounded-[8px]">
+									<div class="w-full h-[218px]">
+										<img src="<?= esc_url($photo['url']); ?>" alt="декорація" class="w-full h-full object-cover rounded-[8px]">
+									</div>
 								<?php endif; ?>
 
 									<p class="font-medium grow text-[20px]/[28px] uppercase">
-												<?= wp_kses_post($description); ?>
-											</p>
+										<?= wp_kses_post($description); ?>
+									</p>
 						<?php if (!empty($link)) : ?>
 						</a>
 						<?php else : ?>
