@@ -9,52 +9,56 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # --- Checkout your repo ---
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      # --- Checkout repository for reference (optional) ---
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    # --- Deploy to VPS ---
-    - name: Deploy to VPS
-      uses: appleboy/ssh-action@v0.1.10
-      with:
-        host: ${{ secrets.HOSTINGER_HOST }}
-        username: ${{ secrets.HOSTINGER_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          echo "🚀 Starting WordPress theme deployment..."
+      # --- Deploy to VPS ---
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "🚀 Starting WordPress theme deployment..."
 
-          THEME_DIR="/home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella"
+            THEME_DIR="/home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella"
 
-          # --- SSH FIX ---
-          mkdir -p ~/.ssh
-          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+            # --- SSH setup ---
+            mkdir -p ~/.ssh
+            ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
 
-          # --- Remove old theme folder (fresh clone) ---
-          echo "🗑 Removing old theme folder..."
-          rm -rf $THEME_DIR
+            # --- Fix private key permissions ---
+            chmod 600 ~/.ssh/id_rsa
 
-          # --- Clone latest code from GitHub ---
-          echo "📥 Cloning latest theme from GitHub..."
-          git clone --depth=1 git@github.com:YOUR_USERNAME/YOUR_REPO.git $THEME_DIR
-          echo "✅ Code cloned"
+            # --- Remove old theme folder (fresh clone) ---
+            echo "🗑 Removing old theme folder..."
+            rm -rf $THEME_DIR
 
-          cd $THEME_DIR
+            # --- Clone latest code from GitHub ---
+            echo "📥 Cloning latest theme from GitHub..."
+            git clone --depth=1 git@github.com:YOUR_USERNAME/YOUR_REPO.git $THEME_DIR
+            echo "✅ Code cloned"
 
-          # --- Install dependencies ---
-          echo "📦 Installing NPM dependencies..."
-          rm -rf node_modules
-          npm install --no-audit --loglevel=error
+            cd $THEME_DIR
 
-          echo "📦 Installing Composer dependencies..."
-          COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --prefer-dist --no-progress --no-interaction
+            # --- Install NPM dependencies ---
+            echo "📦 Installing NPM dependencies..."
+            rm -rf node_modules
+            npm install --no-audit --loglevel=error
 
-          # --- Build theme ---
-          echo "🏗 Building theme..."
-          npm run build
+            # --- Install Composer dependencies ---
+            echo "📦 Installing Composer dependencies..."
+            COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --prefer-dist --no-progress --no-interaction
 
-          # --- Fix permissions ---
-          echo "🔧 Fixing permissions..."
-          find . -type d -exec chmod 755 {} \;
-          find . -type f -exec chmod 644 {} \;
+            # --- Build theme ---
+            echo "🏗 Building theme..."
+            npm run build
 
-          echo "🎉 Deployment completed at $(date)"
+            # --- Fix permissions ---
+            echo "🔧 Fixing permissions..."
+            find . -type d -exec chmod 755 {} \;
+            find . -type f -exec chmod 644 {} \;
+
+            echo "🎉 Deployment completed at $(date)"
