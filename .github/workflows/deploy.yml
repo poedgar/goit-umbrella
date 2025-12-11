@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # --- Checkout your repo ---
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # --- Deploy to VPS ---
     - name: Deploy to VPS
       uses: appleboy/ssh-action@v0.1.10
       with:
@@ -20,17 +25,20 @@ jobs:
 
           THEME_DIR="/home/user/htdocs/srv1155173.hstgr.cloud/wp-content/themes/goit-umbrella"
 
-          cd $THEME_DIR
-
           # --- SSH FIX ---
           mkdir -p ~/.ssh
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
 
-          # --- Update code ---
-          echo "🔄 Pulling latest code..."
-          git fetch origin
-          git reset --hard origin/main
-          echo "✅ Code synced"
+          # --- Remove old theme folder (fresh clone) ---
+          echo "🗑 Removing old theme folder..."
+          rm -rf $THEME_DIR
+
+          # --- Clone latest code from GitHub ---
+          echo "📥 Cloning latest theme from GitHub..."
+          git clone --depth=1 git@github.com:YOUR_USERNAME/YOUR_REPO.git $THEME_DIR
+          echo "✅ Code cloned"
+
+          cd $THEME_DIR
 
           # --- Install dependencies ---
           echo "📦 Installing NPM dependencies..."
@@ -44,7 +52,7 @@ jobs:
           echo "🏗 Building theme..."
           npm run build
 
-          # --- Permissions ---
+          # --- Fix permissions ---
           echo "🔧 Fixing permissions..."
           find . -type d -exec chmod 755 {} \;
           find . -type f -exec chmod 644 {} \;
