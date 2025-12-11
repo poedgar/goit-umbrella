@@ -29,7 +29,7 @@
 					<!-- Company Column -->
 					<div>
 						<!-- Company Title -->
-						<h3 class="text-xl/[28px] uppercase">
+						<h3 class="text-xl/[28px]">
 							<?php the_title(); ?>
 						</h3>
 
