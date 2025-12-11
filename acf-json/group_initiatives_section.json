@@ -85,7 +85,7 @@
       "sub_fields": [
         {
           "key": "field_6939a266ad31e",
-          "label": "Посилання на ресурс",
+          "label": "Посилання на ресурс.",
           "name": "link",
           "aria-label": "",
           "type": "url",
