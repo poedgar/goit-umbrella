@@ -45,7 +45,7 @@
 								$has_social = !empty(array_filter($social));
 
 								// Якщо немає ні назви, ні url, ні соцмереж — пропускаємо блок
-								if (empty($name) && empty($url) && !$has_social) {    continue;
+								if (empty($name) && !$has_social) {    continue;
 								}
 							?>
 
