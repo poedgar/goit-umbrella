@@ -47,15 +47,23 @@ if (!$show || empty($slides)) return;
 
 					<!-- swiper slide -->
 					<li class="swiper-slide smOnly:!w-[320px] h-auto hover:bg-white rounded-[8px]">
-						<a class="flex flex-col gap-5 md:gap-8  p-5 md:p-8" href="<?= esc_url($link); ?>" target="_blank" rel="noopener noreferrer">
-							
-							<?php if ($photo): ?>
-								<img src="<?= esc_url($photo['url']); ?>" alt="декорація"
-									class="shrink-0 w-full h-[218px] rounded-[8px]">
-							<?php endif; ?>
+						<?php if (!empty($link)) : ?>
+							<a class="flex flex-col gap-5 md:gap-8 p-5 md:p-8" href="<?= esc_url($link); ?>" target="_blank" rel="noopener noreferrer">
+						<?php else : ?>
+							<div class="flex flex-col gap-5 md:gap-8 p-5 md:p-8">
+						<?php endif; ?>
+								<?php if ($photo): ?>
+									<img src="<?= esc_url($photo['url']); ?>" alt="декорація" class="shrink-0 w-full h-[218px] rounded-[8px]">
+								<?php endif; ?>
 
-							<p class="font-medium grow text-[20px]/[28px] uppercase"><?= wp_kses_post($description); ?></p>
+									<p class="font-medium grow text-[20px]/[28px] uppercase">
+												<?= wp_kses_post($description); ?>
+											</p>
+						<?php if (!empty($link)) : ?>
 						</a>
+						<?php else : ?>
+						</div>
+						<?php endif; ?>
 					</li>
 				<?php endforeach; ?>
 			</ul>
