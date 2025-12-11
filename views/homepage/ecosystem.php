@@ -31,7 +31,7 @@ if (!$show_section) return;
 
 			<div class="flex justify-between items-end gap-5">
 				<?php if ($subtitle): ?>
-					<div class="uppercase font-medium text-[24px]/[36px] text-gray">
+					<div class="uppercase font-medium text-[24px]/[36px] text-gray smOnly:mb-[-9px]">
 						<?= wp_kses_post(wpautop($subtitle)); ?></div>
 				<?php endif; ?>
 
