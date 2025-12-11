@@ -4,7 +4,7 @@
   "fields": [
     {
       "key": "field_show_initiatives_section",
-      "label": "Показувати секцію",
+      "label": "Показувати секцію.",
       "name": "show_initiatives_section",
       "aria-label": "",
       "type": "true_false",
