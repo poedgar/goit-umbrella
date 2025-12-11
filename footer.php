@@ -110,7 +110,7 @@
 			</div>
 
 			<div class="md:max-w-[102px] xl:max-w-[230px] text-base/[24px] mt-[10px] md:mt-0 xl:ml-8">
-				Better<i>ED</i> © <?php echo date('Y'); ?>
+				Better<i>ED</i> © 2026
 			</div>
 
 			<a href="/" class="mt-[10px] md:mt-0 xl:ml-8 w-[168px] h-[28px] transition">
