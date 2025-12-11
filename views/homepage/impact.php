@@ -21,7 +21,7 @@ if (!$show_section) return;
 				<?php endif; ?>
 
 				<?php if ($description): ?>
-					<p class="text-[20px]/[28px] font-medium uppercase md:text-[24px]/[32px] text-center md:text-left"><?= wp_kses_post($description); ?></h2>
+					<p class="text-[20px]/[28px] font-medium uppercase md:text-[24px]/[32px] text-center md:text-left text-gray"><?= wp_kses_post($description); ?></h2>
 					</p>
 				<?php endif; ?>
 			</div>
