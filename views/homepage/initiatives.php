@@ -53,7 +53,6 @@ if (!$show || empty($slides)) return;
 									class="shrink-0 w-full h-[218px] rounded-[8px]">
 							<?php endif; ?>
 
-
 							<p class="font-medium grow text-[20px]/[28px] uppercase"><?= wp_kses_post($description); ?></p>
 						</a>
 					</li>
