@@ -88,7 +88,7 @@ if (!$show_section || empty($items)) return;
         }
         </style>
 
-        <div class="bg-white md:bg-transparent pt-[20px] md:pt-0">
+        <div class="bg-white md:bg-transparent pt-[20px] md:pt-0 rounded-[8px] md:rounded-none">
             <div class="mx-auto flex justify-center items-center">
                 <h2 class="section-title">
                     <?= esc_html($section_title); ?>
@@ -96,7 +96,7 @@ if (!$show_section || empty($items)) return;
             </div>
 
             <?php if ($section_subtitle): ?>
-            <p class="low-section-title mt-5 md:mt-8">
+            <p class="low-section-title mx-auto max-w-[280px] md:max-w-[704px] mt-5 md:mt-8">
                 <?= nl2br(html_entity_decode($section_subtitle)); ?>
             </p>
             <?php endif; ?>
@@ -129,19 +129,20 @@ if (!$show_section || empty($items)) return;
             <div class="content-section bg-white mt-[20px] md:mt-8 px-[20px] md:p-8 flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
                 data-content="<?= esc_attr($year); ?>">
                 <div class="md:w-[50%]">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    <h2
+                        class="max-w-[280px] max-w-[304px] font-[500] text-[20px] leading-[28px] md:text-4xl font-[500]">
                         <?= esc_html($heading); ?>
                     </h2>
 
                     <!-- Details Button for Mobile/Tablet -->
                     <button
-                        class="details-button w-full py-3 px-6 rounded-lg hover:bg-gray-800 hover:text-white transition-colors mb-4"
+                        class="details-button pb-12 lowercase underline text-[20px] leading-[28px] font-[500] transition-colors mt-[20px]"
                         data-year="<?= esc_attr($year); ?>">
                         Детальніше
                     </button>
 
                     <!-- Content (hidden on mobile until button click) -->
-                    <div class="timeline-content-details text-lg leading-relaxed space-y-4">
+                    <div class="timeline-content-details text-lg leading-relaxed pt-[20px] pb-4">
                         <?= wp_kses_post($content); ?>
                     </div>
                 </div>
@@ -149,7 +150,7 @@ if (!$show_section || empty($items)) return;
                 <?php if ($image): ?>
                 <div class="md:w-[50%]">
                     <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>"
-                        class="w-full h-full object-cover rounded-lg">
+                        class="w-full h-full object-cover rounded-[8px]">
                 </div>
                 <?php endif; ?>
             </div>
