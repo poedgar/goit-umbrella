@@ -1,101 +1,136 @@
 <?php
-// Retrieve values from MetaBoxes
 $show_section = get_field('show_timeline_section');
-$title        = get_field('timeline_section_title');
-$subtitle        = get_field('timeline_section_subtitle');
-$items        = get_field('timeline_items') ?: [];
+$section_title = get_field('timeline_section_title');
+$section_subtitle = get_field('timeline_section_subtitle');
+$items = get_field('timeline_items') ?: [];
 
-// Don't render if section disabled or empty
 if (!$show_section || empty($items)) return;
 ?>
 
 <section id="timeline" class="section overflow-hidden">
-	<div class="container overflow-visible">
+    <div class="container overflow-visible">
+        <style>
+        .timeline-button {
+            transition: all 0.3s ease;
+        }
 
-		<!-- Section Title -->
-		<h2 class="section-title">
-			<?= wp_kses_post($title); ?>
-		</h2>
+        .timeline-button.active {
+            background-color: #000;
+            color: #fff;
+        }
 
-		<!-- Section SubTitle -->
-		<p class="low-section-title mt-5 md:mt-8">
-			<?= wp_kses_post($subtitle); ?>
-		</p>
+        .timeline-button:not(.active):hover {
+            background-color: #f3f4f6;
+        }
 
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
 
-		<div class="swiper timeline-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8 overflow-visible">
-			<!-- timeline buttons wrapper -->
-			<div class="flex items-center justify-between gap-5">
-				<button class="timeline-button-prev btn btn-black smOnly:!w-[150px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">назад</button>
-				<button class="timeline-button-next btn btn-black smOnly:!w-[150px]" type="button" aria-label="до наступного слайду" aria-disabled="false">вперед</button>
-			</div>
+        .content-section.active {
+            display: block;
+        }
 
-			<ul class="swiper-wrapper overflow-visible">
-				<!-- Timeline slides list -->
-				<?php foreach ($items as $index => $item):
-					$image_sm   = $item['image_mobile'];
-					$image_md   = $item['image_md'];
-					$year    = $item['year'];
-					$heading = $item['heading'];
-					$content = $item['content'];
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-					$is_last = ($index === count($items) - 1);
-				?>
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        </style>
 
-					<!-- Timeline slide -->
-					<?php if ($is_last): ?>
-						<!-- Останній слайд: -->
-						<li class="swiper-slide flex flex-col gap-5 md:gap-8 bg-black text-white rounded-[8px] !w-[320px] md:!w-[384px] p-5 md:p-8 smOnly:min-h-[508px]">
-							<!-- image -->
-							<?php if ($image_sm): ?>
-								<img src="<?= esc_url($image_sm['url']); ?>" alt="<?= esc_attr($heading); ?>"
-									class="w-full rounded-[8px] md:max-h-[312px]">
-							<?php endif; ?>
+        <section class="bg-gray-50">
 
-							<!-- title -->
-							<?php if ($heading): ?>
-								<p class="font-unbounded font-bold text-[20px]/[28px] uppercase md:text-[48px]/[1]"><?= esc_html($heading); ?></p>
-							<?php endif; ?>
+            <!-- HEADER -->
+            <header class="bg-white py-8 px-4">
+                <div class="max-w-6xl mx-auto flex justify-between items-center">
+                    <h1 class="text-4xl md:text-5xl font-black text-gray-900">
+                        <?= esc_html($section_title); ?>
+                    </h1>
+                </div>
 
-							<!-- text -->
-							<?php if ($content): ?>
-								<div class="text-[20px]/[28px] uppercase"><?= wp_kses_post(wpautop($content)); ?></div>
-							<?php endif; ?>
-						</li>
-					<?php else: ?>
-						<!-- Всі слайди окрім останнього -->
-						<li class="swiper-slide smOnly:!w-[320px] flex smOnly:flex-col smOnly:gap-5 smOnly:p-5 bg-white rounded-[8px] overflow-hidden smOnly:min-h-[508px]">
-							<!-- slide image -->
-							<?php if ($image_sm || $image_md): ?>
-								<picture class="shrink-0 w-full md:w-[352px] xl:w-[384px] md:h-[640px] smOnly:rounded-[8px]">
-									<?php if ($image_md): ?>
-										<source srcset="<?= esc_url($image_md['url']); ?>" media="(min-width: 768px)">
-									<?php endif; ?>
-									<?php if ($image_sm): ?>
-										<img class="w-auto h-full object-cover object-center xl:w-full" src="<?= esc_url($image_sm['url']); ?>" alt="">
-									<?php endif; ?>
-								</picture>
-							<?php endif; ?>
+                <?php if ($section_subtitle): ?>
+                <div class="max-w-6xl mx-auto mt-4">
+                    <p class="text-gray-600 text-lg text-center md:text-left">
+                        <?= nl2br(esc_html($section_subtitle)); ?>
+                    </p>
+                </div>
+                <?php endif; ?>
+            </header>
 
-							<!-- slide content -->
-							<div class="flex flex-col h-full gap-5 md:p-8 md:gap-8">
-								<?php if ($year): ?>
-									<h3 class="text-[32px]/[36px] font-unbounded font-extrabold md:text-[48px]/[1]"><?= esc_html($year); ?></h3>
-								<?php endif; ?>
+            <!-- YEAR NAVIGATION -->
+            <div class="bg-white py-6 px-4 sticky top-0 z-50 shadow-sm">
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        <?php foreach ($items as $index => $item):
+                            $year = $item['year'];
+                            $active = $index === 0 ? 'active border-gray-900' : 'border-gray-300';
+                        ?>
+                        <button class="timeline-button <?= $active ?> px-6 py-3 rounded-lg font-semibold border-2"
+                            data-year="<?= esc_attr($year); ?>">
+                            <?= esc_html($year); ?>
+                        </button>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
 
-								<?php if ($heading): ?>
-									<p class="text-[20px]/[28px] uppercase"><?= esc_html($heading); ?></p>
-								<?php endif; ?>
+            <!-- CONTENT -->
+            <main class="max-w-6xl mx-auto px-4 py-12">
+                <?php foreach ($items as $index => $item):
+                    $year = $item['year'];
+                    $title = $item['title'];
+                    $content = $item['content'];
+                    $active = $index === 0 ? 'active' : '';
+                ?>
+                <section class="content-section <?= $active; ?>" data-content="<?= esc_attr($year); ?>">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                            <?= esc_html($title); ?>
+                        </h2>
 
-								<?php if ($content): ?>
-									<div class="smOnly:hidden md:space-y-3 md:grow"><?= wp_kses_post(wpautop($content)); ?></div>
-								<?php endif; ?>
-							</div>
-						</li>
-					<?php endif; ?>
-				<?php endforeach; ?>
-			</ul>
-		</div>
-
-	</div>
+                        <div class="text-gray-700 text-lg leading-relaxed space-y-4">
+                            <?= wp_kses_post($content); ?>
+                        </div>
+                    </div>
+                </section>
+                <?php endforeach; ?>
+            </main>
+        </section>
+    </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.timeline-button');
+    const sections = document.querySelectorAll('.content-section');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const year = button.dataset.year;
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-gray-900');
+                btn.classList.add('border-gray-300');
+            });
+
+            button.classList.add('active');
+            button.classList.remove('border-gray-300');
+            button.classList.add('border-gray-900');
+
+            sections.forEach(section => {
+                section.classList.remove('active');
+                if (section.dataset.content === year) {
+                    section.classList.add('active');
+                }
+            });
+        });
+    });
+});
+</script>
