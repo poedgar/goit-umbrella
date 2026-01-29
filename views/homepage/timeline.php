@@ -2,7 +2,7 @@
 $show_section = get_field('show_timeline_section');
 $section_title = get_field('timeline_section_title');
 $section_subtitle = get_field('timeline_section_subtitle');
-$items = get_field('timeline_items') ?: [];
+$items = array_reverse(get_field('timeline_items') ?: []);
 
 if (!$show_section || empty($items)) return;
 ?>
@@ -62,6 +62,21 @@ if (!$show_section || empty($items)) return;
             .details-button.expanded {
                 display: none;
             }
+
+            /* Fix for image height on tablets */
+            .content-section {
+                align-items: flex-start;
+            }
+
+            .timeline-image-wrapper {
+                height: auto;
+                align-self: flex-start;
+            }
+
+            .timeline-image-wrapper img {
+                height: auto;
+                max-height: none;
+            }
         }
 
         @keyframes slideDown {
@@ -102,15 +117,14 @@ if (!$show_section || empty($items)) return;
             <?php endif; ?>
 
             <!-- YEAR NAVIGATION -->
-            <div class="mt-5 md:mt-16 sticky top-0 z-50 shadow-sm">
-                <div
-                    class="ml-[20px] md:ml-0 flex flex-row-reverse flex-nowrap overflow-x-auto gap-[10px] md:gap-2 justify-center md:justify-start">
+            <div class="mt-5 md:mt-16 sticky top-0 shadow-sm">
+                <div class="pl-[20px] md:pl-0 flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
                     <?php foreach ($items as $index => $item):
                             $year = $item['year'];
                             $active = $index === 0 ? 'active border-gray-900' : 'border-gray-300';
                         ?>
                     <button
-                        class="timeline-button <?= $active ?> w-[78px] md-w-[110px] xl:w-[196px] text-[20px] leading-[28px] px-4 py-2 rounded-[8px] border-2"
+                        class="timeline-button <?= $active ?> w-[78px] md:w-[110px] xl:w-[196px] text-[20px] leading-[28px] px-4 py-2 rounded-[8px] border-2"
                         data-year="<?= esc_attr($year); ?>">
                         <?= esc_html($year); ?>
                     </button>
@@ -130,7 +144,7 @@ if (!$show_section || empty($items)) return;
                 data-content="<?= esc_attr($year); ?>">
                 <div class="md:w-[50%]">
                     <h2
-                        class="max-w-[280px] max-w-[304px] font-[500] text-[20px] leading-[28px] md:text-4xl font-[500]">
+                        class="max-w-[266px] md:max-w-[522px] font-[500] text-[20px] leading-[28px] xl:text-[32px] xl:leading-[36px] font-[500]">
                         <?= esc_html($heading); ?>
                     </h2>
 
@@ -148,7 +162,7 @@ if (!$show_section || empty($items)) return;
                 </div>
 
                 <?php if ($image): ?>
-                <div class="md:w-[50%]">
+                <div class="timeline-image-wrapper md:w-[50%]">
                     <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>"
                         class="w-full h-full object-cover rounded-[8px]">
                 </div>
