@@ -69,6 +69,7 @@ if (!$show_section || empty($items)) return;
                 opacity: 0;
                 max-height: 0;
             }
+
             to {
                 opacity: 1;
                 max-height: 1000px;
@@ -87,80 +88,73 @@ if (!$show_section || empty($items)) return;
         }
         </style>
 
-        <section class="bg-gray-50">
+        <div class="bg-white md:bg-transparent pt-[20px] md:pt-0">
+            <div class="mx-auto flex justify-center items-center">
+                <h2 class="section-title">
+                    <?= esc_html($section_title); ?>
+                </h2>
+            </div>
 
-            <!-- HEADER -->
-            <header class="bg-white py-8 px-4">
-                <div class="max-w-6xl mx-auto flex justify-between items-center">
-                    <h1 class="text-4xl md:text-5xl font-black text-gray-900">
-                        <?= esc_html($section_title); ?>
-                    </h1>
-                </div>
-
-                <?php if ($section_subtitle): ?>
-                <div class="max-w-6xl mx-auto mt-4">
-                    <p class="text-gray-600 text-lg text-center md:text-left">
-                        <?= nl2br(html_entity_decode($section_subtitle)); ?>
-                    </p>
-                </div>
-                <?php endif; ?>
-            </header>
+            <?php if ($section_subtitle): ?>
+            <p class="low-section-title mt-5 md:mt-8">
+                <?= nl2br(html_entity_decode($section_subtitle)); ?>
+            </p>
+            <?php endif; ?>
 
             <!-- YEAR NAVIGATION -->
-            <div class="bg-white py-6 px-4 sticky top-0 z-50 shadow-sm">
-                <div class="max-w-6xl mx-auto">
-                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-                        <?php foreach ($items as $index => $item):
+            <div class="mt-5 md:mt-16 sticky top-0 z-50 shadow-sm">
+                <div
+                    class="ml-[20px] md:ml-0 flex flex-row-reverse flex-nowrap overflow-x-auto gap-[10px] md:gap-2 justify-center md:justify-start">
+                    <?php foreach ($items as $index => $item):
                             $year = $item['year'];
                             $active = $index === 0 ? 'active border-gray-900' : 'border-gray-300';
                         ?>
-                        <button class="timeline-button <?= $active ?> px-6 py-3 rounded-lg font-semibold border-2"
-                            data-year="<?= esc_attr($year); ?>">
-                            <?= esc_html($year); ?>
-                        </button>
-                        <?php endforeach; ?>
-                    </div>
+                    <button
+                        class="timeline-button <?= $active ?> w-[78px] md-w-[110px] xl:w-[196px] text-[20px] leading-[28px] px-4 py-2 rounded-[8px] border-2"
+                        data-year="<?= esc_attr($year); ?>">
+                        <?= esc_html($year); ?>
+                    </button>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
             <!-- CONTENT -->
-            <main class="max-w-6xl mx-auto px-4 py-12">
-                <?php foreach ($items as $index => $item):
+            <?php foreach ($items as $index => $item):
                     $year = $item['year'];
                     $heading = $item['heading'];
                     $content = $item['content'];
 				    $image = $item['image'];
                     $active = $index === 0 ? 'active' : '';
                 ?>
-                <section class="content-section flex flex-col md:flex-row md:gap-8 <?= $active; ?>"
-                    data-content="<?= esc_attr($year); ?>">
-                    <div class="bg-white md:w-[50%] rounded-2xl p-8 shadow-lg">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                            <?= esc_html($heading); ?>
-                        </h2>
+            <div class="content-section bg-white mt-[20px] md:mt-8 px-[20px] md:p-8 flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
+                data-content="<?= esc_attr($year); ?>">
+                <div class="md:w-[50%]">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        <?= esc_html($heading); ?>
+                    </h2>
 
-                        <!-- Details Button for Mobile/Tablet -->
-                        <button class="details-button w-full py-3 px-6 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors mb-4"
-                            data-year="<?= esc_attr($year); ?>">
-                            Детальніше
-                        </button>
+                    <!-- Details Button for Mobile/Tablet -->
+                    <button
+                        class="details-button w-full py-3 px-6 rounded-lg hover:bg-gray-800 hover:text-white transition-colors mb-4"
+                        data-year="<?= esc_attr($year); ?>">
+                        Детальніше
+                    </button>
 
-                        <!-- Content (hidden on mobile until button click) -->
-                        <div class="timeline-content-details text-gray-700 text-lg leading-relaxed space-y-4">
-                            <?= wp_kses_post($content); ?>
-                        </div>
+                    <!-- Content (hidden on mobile until button click) -->
+                    <div class="timeline-content-details text-lg leading-relaxed space-y-4">
+                        <?= wp_kses_post($content); ?>
                     </div>
+                </div>
 
-                    <?php if ($image): ?>
-                    <div class="md:w-[50%]">
-                        <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>"
-                            class="w-full h-full object-cover rounded-lg shadow-md">
-                    </div>
-                    <?php endif; ?>
-                </section>
-                <?php endforeach; ?>
-            </main>
-        </section>
+                <?php if ($image): ?>
+                <div class="md:w-[50%]">
+                    <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>"
+                        class="w-full h-full object-cover rounded-lg">
+                </div>
+                <?php endif; ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </section>
 
@@ -189,7 +183,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (section.dataset.content === year) {
                     section.classList.add('active');
                     // Reset expanded state when switching years
-                    const contentDetails = section.querySelector('.timeline-content-details');
+                    const contentDetails = section.querySelector(
+                        '.timeline-content-details');
                     const detailsBtn = section.querySelector('.details-button');
                     if (contentDetails && detailsBtn) {
                         contentDetails.classList.remove('expanded');
