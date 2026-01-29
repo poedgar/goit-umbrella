@@ -11,7 +11,7 @@
 
 <footer class="bg-black text-gray-68 py-5 md:py-8 xl:py-16">
 	<div class="container">
-		<div class="grid grid-cols-1 xl:grid-cols-3 gap-20 md:gap-8">
+		<div class="grid grid-cols-1 xl:grid-cols-4 gap-20 md:gap-8">
 			<?php
 			$companies = new WP_Query([
 				'post_type'      => 'companies',
@@ -27,67 +27,68 @@
 			?>
 
 					<!-- Company Column -->
-					<div>
+					<div class="flex flex-col gap-5 md:gap-4 xl:gap-8">
 						<!-- Company Title -->
 						<h3 class="text-xl/[28px]">
 							<?php the_title(); ?>
 						</h3>
 
 						<!-- Description -->
-						<div class="mt-5 md:mt-4 xl:mt-8 text-base/[24px] xl:min-h-[72px]">
+						<div class="grow text-base/[24px]">
 							<?php the_excerpt(); ?>
 						</div>
 
 						<?php while (have_rows('sites', $post_id)): the_row();
-								$name   = get_sub_field('footer_name');
-								$url    = get_sub_field('url');
-								$social = get_sub_field('social') ?: [];
-								$has_social = !empty(array_filter($social));
+							$name   = get_sub_field('footer_name');
+							$url    = get_sub_field('url');
+							$social = get_sub_field('social') ?: [];
+							$has_social = !empty(array_filter($social));
 
-								// Якщо немає ні назви, ні url, ні соцмереж — пропускаємо блок
-								if (empty($name) && !$has_social) {    continue;
-								}
-							?>
+							// Якщо немає ні назви, ні url, ні соцмереж — пропускаємо блок
+							if (empty($name) && !$has_social) {
+								continue;
+							}
+						?>
 
-								<!-- Site block -->
-								<div class="mt-5 md:mt-4 xl:mt-8 flex items-center gap-5 md:gap-8 xl:flex-col xl:gap-5 xl:items-start">
-									<!-- Main link -->
-									<?php if ($url): ?>
-										<div class="">
-											<a href="<?php echo esc_url($url); ?>" target="_blank"
-												class="text-base/[24px] text-white underline uppercase hover:text-white transition">
-												<?php echo esc_html($name); ?>
-											</a>
-										</div>
-									<?php endif; ?>
+							<!-- Site block -->
+							<div class="flex items-center gap-5 md:gap-8 xl:flex-col xl:gap-5 xl:items-start">
+								<!-- Main link -->
+								<?php if ($url): ?>
+									<div>
+										<a href="<?php echo esc_url($url); ?>" target="_blank"
+											class="text-base/[24px] text-white underline uppercase hover:text-white transition">
+											<?php echo esc_html($name); ?>
+										</a>
+									</div>
+								<?php endif; ?>
 
-									<!-- Social icons -->
-									<?php if ($has_social): ?>
-										<div class="flex gap-2">
-											<?php foreach (
-												[
-													'mail' => 'mail',
-													'instagram' => 'instagram',
-													'linkedin'  => 'linkedin',
-													'youtube'   => 'youtube',
-													'facebook'  => 'facebook',
-													'twitter'   => 'x',
-												] as $key => $icon
-											): ?>
+								<!-- Social icons -->
+								<?php if ($has_social): ?>
+									<div class="flex gap-2">
+										<?php foreach (
+											[
+												'mail' => 'mail',
+												'instagram' => 'instagram',
+												'linkedin'  => 'linkedin',
+												'youtube'   => 'youtube',
+												'facebook'  => 'facebook',
+												'twitter'   => 'x',
+											] as $key => $icon
+										): ?>
 
-												<?php if (!empty($social[$key])): ?>
-													<a href="<?php echo $key === 'mail' ? 'mailto:' . esc_attr($social[$key]) : esc_url($social[$key]); ?>"
-														<?php echo $key !== 'mail' ? 'target="_blank"' : ''; ?>
-														class="social-link-footer">
-														<img src="<?php echo get_template_directory_uri(); ?>/src/images/socials/<?php echo $icon; ?>.svg"
-															alt="<?php echo $key; ?>">
-													</a>
-												<?php endif; ?>
-											<?php endforeach; ?>
-										</div>
-									<?php endif; ?>
-								</div>
-							<?php endwhile; ?>
+											<?php if (!empty($social[$key])): ?>
+												<a href="<?php echo $key === 'mail' ? 'mailto:' . esc_attr($social[$key]) : esc_url($social[$key]); ?>"
+													<?php echo $key !== 'mail' ? 'target="_blank"' : ''; ?>
+													class="social-link-footer">
+													<img src="<?php echo get_template_directory_uri(); ?>/src/images/socials/<?php echo $icon; ?>.svg"
+														alt="<?php echo $key; ?>">
+												</a>
+											<?php endif; ?>
+										<?php endforeach; ?>
+									</div>
+								<?php endif; ?>
+							</div>
+						<?php endwhile; ?>
 					</div>
 
 			<?php endwhile;
@@ -110,7 +111,7 @@
 			</div>
 
 			<div class="md:max-w-[102px] xl:max-w-[230px] text-base/[24px] mt-[10px] md:mt-0 xl:ml-8">
-				Better<i>ED</i> © 2026
+				BetterED © <?= date('Y'); ?>
 			</div>
 
 			<a href="/" class="mt-[10px] md:mt-0 xl:ml-8 w-[168px] h-[28px] transition">

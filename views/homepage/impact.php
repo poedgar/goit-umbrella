@@ -9,7 +9,7 @@ $video_url       = get_field('impact_video');
 if (!$show_section) return;
 ?>
 
-<section class="section" id="impact">
+<section id="impact" class="section">
 	<div class="container">
 		<!-- main wrapper -->
 		<div class="grid gap-5 md:gap-8 xl:flex xl:flex-row-reverse">
