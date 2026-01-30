@@ -193,7 +193,7 @@ if (!$show_section || empty($items)) return;
 
                         <!-- Details Button for Mobile/Tablet -->
                         <button
-                            class="details-button pb-12 lowercase underline text-[20px] leading-[28px] font-[500] transition-colors mt-[20px]"
+                            class="details-button mb-12 lowercase pb-[1px] border-b border-black text-[20px] leading-[28px] font-[500] transition-colors mt-[20px]"
                             data-year="<?= esc_attr($year); ?>">
                             Детальніше
                         </button>
