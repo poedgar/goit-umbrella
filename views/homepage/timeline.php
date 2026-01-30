@@ -7,9 +7,19 @@ $items = array_reverse(get_field('timeline_items') ?: []);
 if (!$show_section || empty($items)) return;
 ?>
 
-<section id="timeline" class="section overflow-hidden">
-    <div class="container overflow-visible">
+<section id="timeline" class="section">
+    <div class="container">
         <style>
+        /* Ensure parent containers don't block sticky */
+        #timeline {
+            overflow: visible !important;
+        }
+
+        .timeline-wrapper {
+            overflow: clip !important;
+            position: relative;
+        }
+
         .timeline-button {
             transition: all 0.3s ease;
         }
@@ -77,6 +87,32 @@ if (!$show_section || empty($items)) return;
                 height: auto;
                 max-height: none;
             }
+
+            /* Enhanced sticky navigation */
+            .timeline-nav-wrapper {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                z-index: 999;
+                background-color: #ffffff;
+                margin-left: -20px;
+                margin-right: -20px;
+                padding-left: 0;
+                padding-right: 0;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .timeline-nav-wrapper::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ffffff;
+                z-index: -1;
+            }
         }
 
         @keyframes slideDown {
@@ -100,10 +136,16 @@ if (!$show_section || empty($items)) return;
             .details-button {
                 display: none !important;
             }
+
+            .timeline-nav-wrapper {
+                position: static;
+                background-color: transparent;
+                box-shadow: none;
+            }
         }
         </style>
 
-        <div class="bg-white md:bg-transparent pt-[20px] md:pt-0 rounded-[8px] md:rounded-none">
+        <div class="timeline-wrapper bg-white md:bg-transparent pt-[20px] md:pt-0 rounded-[8px] md:rounded-none">
             <div class="mx-auto flex justify-center items-center">
                 <h2 class="section-title">
                     <?= esc_html($section_title); ?>
@@ -117,8 +159,8 @@ if (!$show_section || empty($items)) return;
             <?php endif; ?>
 
             <!-- YEAR NAVIGATION -->
-            <div class="mt-5 md:mt-16 sticky top-0 shadow-sm">
-                <div class="pl-[20px] md:pl-0 flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
+            <div class="timeline-nav-wrapper mt-5 md:mt-16">
+                <div class="pb-[6px] pl-[40px] xl:pl-0 flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
                     <?php foreach ($items as $index => $item):
                             $year = $item['year'];
                             $active = $index === 0 ? 'active border-gray-900' : 'border-gray-300';
@@ -133,42 +175,44 @@ if (!$show_section || empty($items)) return;
             </div>
 
             <!-- CONTENT -->
-            <?php foreach ($items as $index => $item):
-                    $year = $item['year'];
-                    $heading = $item['heading'];
-                    $content = $item['content'];
-				    $image = $item['image'];
-                    $active = $index === 0 ? 'active' : '';
-                ?>
-            <div class="content-section bg-white mt-[20px] md:mt-8 px-[20px] md:p-8 flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
-                data-content="<?= esc_attr($year); ?>">
-                <div class="md:w-[50%]">
-                    <h2
-                        class="max-w-[266px] md:max-w-[522px] font-[500] text-[20px] leading-[28px] xl:text-[32px] xl:leading-[36px] font-[500]">
-                        <?= esc_html($heading); ?>
-                    </h2>
+            <div class="timeline-content-wrapper">
+                <?php foreach ($items as $index => $item):
+                        $year = $item['year'];
+                        $heading = $item['heading'];
+                        $content = $item['content'];
+                        $image = $item['image'];
+                        $active = $index === 0 ? 'active' : '';
+                    ?>
+                <div class="content-section bg-white mt-[14px] md:mt-8 px-[20px] md:p-8 rounded-[8px] flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
+                    data-content="<?= esc_attr($year); ?>">
+                    <div class="md:w-[50%]">
+                        <h2
+                            class="uppercase max-w-[266px] md:max-w-[522px] font-[500] text-[20px] leading-[28px] xl:text-[32px] xl:leading-[36px] font-[500]">
+                            <?= esc_html($heading); ?>
+                        </h2>
 
-                    <!-- Details Button for Mobile/Tablet -->
-                    <button
-                        class="details-button pb-12 lowercase underline text-[20px] leading-[28px] font-[500] transition-colors mt-[20px]"
-                        data-year="<?= esc_attr($year); ?>">
-                        Детальніше
-                    </button>
+                        <!-- Details Button for Mobile/Tablet -->
+                        <button
+                            class="details-button pb-12 lowercase underline text-[20px] leading-[28px] font-[500] transition-colors mt-[20px]"
+                            data-year="<?= esc_attr($year); ?>">
+                            Детальніше
+                        </button>
 
-                    <!-- Content (hidden on mobile until button click) -->
-                    <div class="timeline-content-details text-lg leading-relaxed pt-[20px] pb-4">
-                        <?= wp_kses_post($content); ?>
+                        <!-- Content (hidden on mobile until button click) -->
+                        <div class="timeline-content-details text-lg leading-relaxed pt-[20px] pb-4">
+                            <?= wp_kses_post($content); ?>
+                        </div>
                     </div>
-                </div>
 
-                <?php if ($image): ?>
-                <div class="timeline-image-wrapper md:w-[50%]">
-                    <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>"
-                        class="w-full h-full object-cover rounded-[8px]">
+                    <?php if ($image): ?>
+                    <div class="timeline-image-wrapper md:w-[50%]">
+                        <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>"
+                            class="w-full h-full object-cover rounded-[8px]">
+                    </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
+                <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -207,6 +251,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
+
+            // Scroll to top of timeline section smoothly
+            const timelineNav = document.querySelector('.timeline-nav-wrapper');
+            if (timelineNav && window.innerWidth < 1280) {
+                timelineNav.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
 
