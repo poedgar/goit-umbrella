@@ -19,7 +19,7 @@ if (!$show_section || empty($team_members)) return;
 		<?php endif; ?>
 
 		<!-- Team Members Grid -->
-		<ul class="mt-5 md:mt-16 flex smOnly:flex-col gap-5 md:gap-8">
+		<ul class="mt-5 md:mt-8 flex smOnly:flex-col gap-5 md:gap-8">
 
 			<?php foreach ($team_members as $member):
 
