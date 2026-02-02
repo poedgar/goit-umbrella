@@ -94,32 +94,14 @@ if (!$show_section || empty($items)) return;
                 position: sticky;
                 top: 0;
                 z-index: 999;
-                /* background-color: #ffffff; */
-                margin-left: -20px;
-                margin-right: -20px;
-                padding-left: 0;
-                padding-right: 0;
-                padding-top: 10px;
-                padding-bottom: 10px;
             }
-
-            /* .timeline-nav-wrapper::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: #ffffff;
-                z-index: -1;
-            } */
         }
 
 		@media (max-width: 767.99px){
 			   .timeline-nav-wrapper {
             	background-color: #ffffff;
+				padding-inline: 20px;
             }
-
 		}
 
         @keyframes slideDown {
@@ -165,13 +147,13 @@ if (!$show_section || empty($items)) return;
 
             <!-- YEAR NAVIGATION -->
             <div class="timeline-nav-wrapper mt-5 md:mt-8">
-                <div class="pb-[6px] pl-[40px] xl:pl-0 flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
+                <div class="flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
                     <?php foreach ($items as $index => $item):
                             $year = $item['year'];
-                            $active = $index === 0 ? 'active border-gray-900' : 'border-gray-300';
+                            $active = $index === 0 ? 'active' : '';
                         ?>
                     <button
-                        class="timeline-button <?= $active ?> w-[78px] md:w-[110px] xl:w-[196px] text-[20px] leading-[28px] px-4 py-2 rounded-[8px] border-2"
+                        class="timeline-button <?= $active ?> w-[78px] md:w-[110px] xl:w-[196px] text-[20px]/[28px] px-4 py-2 rounded-[8px] md:rounded-[4px] border-2 border-black"
                         data-year="<?= esc_attr($year); ?>">
                         <?= esc_html($year); ?>
                     </button>
@@ -188,7 +170,7 @@ if (!$show_section || empty($items)) return;
                         $image = $item['image'];
                         $active = $index === 0 ? 'active' : '';
                     ?>
-                <div class="content-section bg-white mt-[14px] md:mt-8 px-[20px] md:p-8 rounded-[8px] flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
+                <div class="content-section bg-white mt-5 md:mt-8 px-[20px] md:p-8 rounded-[8px] flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
                     data-content="<?= esc_attr($year); ?>">
                     <div class="md:w-[50%]">
                         <h2
@@ -234,13 +216,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const year = button.dataset.year;
 
             buttons.forEach(btn => {
-                btn.classList.remove('active', 'border-gray-900');
-                btn.classList.add('border-gray-300');
+                btn.classList.remove('active');
             });
 
             button.classList.add('active');
-            button.classList.remove('border-gray-300');
-            button.classList.add('border-gray-900');
 
             sections.forEach(section => {
                 section.classList.remove('active');
