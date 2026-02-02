@@ -18,7 +18,6 @@ if (!$show_section || empty($items)) return;
         <p class="low-section-title mt-5 md:mt-8"><?= $description ?></p>
 
         <div class="mt-5 md:mt-16 grid gap-5 md:gap-16">
-
             <?php foreach ($items as $index => $item):
 				$reverse = ($index % 2 === 1) ? 'xl:flex-row-reverse' : 'xl:flex-row';
 				$company_id = $item['company']->ID ?? '';
@@ -74,7 +73,7 @@ if (!$show_section || empty($items)) return;
                         <!-- Mobile logo -->
                         <?php if ($site_logo): ?>
                         <img src="<?= esc_url($site_logo['url']); ?>" alt="<?= esc_attr($site_logo['alt']); ?>"
-                            class="md:hidden w-auto h-full <?= ($index === 2 ? 'mb-[60px]' : '') ?>">
+                            class="md:hidden w-auto h-[80px] <?= ($index === 2 ? 'mb-[60px]' : '') ?>">
                         <?php endif; ?>
 
                         <!-- Subtitle & supporter -->
