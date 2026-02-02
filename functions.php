@@ -118,9 +118,13 @@ add_action(
 		$theme_uri = get_template_directory_uri();
 
 		// Auto-version based on file modification time
-		$main_css_version = filemtime( $theme_path . '/assets/css/main.css' );
-		$tailwind_version = filemtime( $theme_path . '/assets/css/tailwind.css' );
-		$main_js_version = filemtime( $theme_path . '/assets/js/main.js' );
+		$main_css_path     = $theme_path . '/assets/css/main.css';
+		$tailwind_css_path = $theme_path . '/assets/css/tailwind.css';
+		$main_js_path      = $theme_path . '/assets/js/main.js';
+
+		$main_css_version = file_exists( $main_css_path ) ? filemtime( $main_css_path ) : null;
+		$tailwind_version = file_exists( $tailwind_css_path ) ? filemtime( $tailwind_css_path ) : null;
+		$main_js_version  = file_exists( $main_js_path ) ? filemtime( $main_js_path ) : null;
 
 		wp_enqueue_style( 'bathe', $theme_uri . '/assets/css/main.css', array(), $main_css_version );
 		wp_enqueue_style( 'tailwind', $theme_uri . '/assets/css/tailwind.css', array(), $tailwind_version );
