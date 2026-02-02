@@ -25,7 +25,7 @@ if (!$show_section || empty($awards_items)) return;
 		<?php endif; ?>
 
 		<!-- Awards / Logos Grid -->
-		<ul class="mt-5 md:mt-8 grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-x-4 gap-y-10 md:grid-cols-4 md:gap-8 md:gap-x-7 xl:gap-x-[57px] xl:gap-y-16">
+		<ul class="mt-5 md:mt-8 grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-x-4 gap-y-10 md:grid-cols-4 md:gap-y-8 md:gap-x-7 xl:gap-x-[57px]">
 			<?php foreach ($awards_items as $award):
 			?>
 				<li class="h-[41px] min-w-[155px] xl:h-[69px] xl:min-w-[261px]">
