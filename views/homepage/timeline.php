@@ -192,7 +192,7 @@ if (!$show_section || empty($items)) return;
                     data-content="<?= esc_attr($year); ?>">
                     <div class="md:w-[50%]">
                         <h2
-                            class="uppercase md:max-w-[522px] text-[20px] leading-[28px] xl:text-[32px] xl:leading-[36px] font-[500]">
+                            class="uppercase text-[20px] leading-[28px] xl:text-[32px] xl:leading-[36px] font-[500]">
                             <?= esc_html($heading); ?>
                         </h2>
 
