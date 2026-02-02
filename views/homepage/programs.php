@@ -41,6 +41,9 @@ if (!$show_section || empty($items)) return;
 				$middle_description = $item['stat_middle_description'] ?? '';
 				$bottom_value       = $item['stat_bottom_value'] ?? '';
 				$bottom_description = $item['stat_bottom_description'] ?? '';
+
+				    // Gap class based on company ID (NeoVersity)
+				$gap_class = ($company_id === 95) ? 'md:gap-4' : 'md:gap-8';
 			?>
 
             <div class="flex flex-col <?= $reverse ?> p-5 md:p-0 gap-20 md:gap-8">
@@ -68,8 +71,7 @@ if (!$show_section || empty($items)) return;
 								$url            = get_sub_field('url');
 								$social         = get_sub_field('social') ?: [];
 							?>
-                    <div class="flex flex-col smOnly:items-center gap-5 md:gap-4">
-
+                    <div class="flex flex-col smOnly:items-center gap-5 <?= esc_attr($gap_class); ?>">
                         <!-- Mobile logo -->
                         <?php if ($site_logo): ?>
                         <img src="<?= esc_url($site_logo['url']); ?>" alt="<?= esc_attr($site_logo['alt']); ?>"
