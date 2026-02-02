@@ -88,13 +88,18 @@ if (!$show_section || empty($items)) return;
                 max-height: none;
             }
 
-            /* Enhanced sticky navigation */
-            .timeline-nav-wrapper {
-                position: -webkit-sticky;
-                position: sticky;
-                top: 0;
-                z-index: 999;
-            }
+           /* Only sticky when .sticky class is added */
+			.timeline-nav-wrapper.sticky {
+				position: -webkit-sticky;
+				position: sticky;
+				top: 84px; /* your fixed header height */
+				z-index: 99;
+			}
+
+			/* Default state is static */
+			.timeline-nav-wrapper {
+				position: static;
+			}
         }
 
 		@media (max-width: 767.99px){
@@ -134,7 +139,7 @@ if (!$show_section || empty($items)) return;
         }
     </style>
 
-        <div class="timeline-wrapper bg-white md:bg-transparent pt-[20px] md:pt-0 rounded-[8px] md:rounded-none">
+        <div class="timeline-wrapper bg-white md:bg-transparent pt-5 pb-5 md:pt-0 rounded-[8px] md:rounded-none">
             <h2 class="section-title mx-auto !text-[48px]/[48px] px-5">
                 <?= esc_html($section_title); ?>
             </h2>
@@ -174,19 +179,19 @@ if (!$show_section || empty($items)) return;
                     data-content="<?= esc_attr($year); ?>">
                     <div class="md:w-[50%]">
                         <h2
-                            class="uppercase text-[20px] leading-[28px] xl:text-[32px] xl:leading-[36px] font-[500]">
+                            class="uppercase text-[20px]/[28px] xl:text-[32px]/[36px] font-[500] min-h-[84px] mt-5">
                             <?= esc_html($heading); ?>
                         </h2>
 
                         <!-- Details Button for Mobile/Tablet -->
                         <button
-                            class="details-button mb-12 lowercase pb-[1px] border-b border-black text-[20px] leading-[28px] font-[500] transition-colors mt-[20px]"
+                            class="details-button my-5 lowercase pb-[1px] border-b border-black text-[20px] leading-[28px] font-[500] transition-colors"
                             data-year="<?= esc_attr($year); ?>">
                             Детальніше
                         </button>
 
                         <!-- Content (hidden on mobile until button click) -->
-                        <div class="timeline-content-details text-[16px]/[24px] leading-relaxed pt-[20px] pb-4">
+                        <div class="timeline-content-details mt-5 xl:mt-[52px] text-[16px]/[24px]">
                             <?= wp_kses_post($content); ?>
                         </div>
                     </div>
@@ -209,35 +214,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.timeline-button');
     const sections = document.querySelectorAll('.content-section');
     const detailsButtons = document.querySelectorAll('.details-button');
+    const timelineNav = document.querySelector('.timeline-nav-wrapper');
+
+    // Function to toggle sticky class
+    function setSticky(isSticky) {
+        if (!timelineNav) return;
+        if (isSticky) {
+            timelineNav.classList.add('sticky');
+        } else {
+            timelineNav.classList.remove('sticky');
+        }
+    }
 
     // Year navigation functionality
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const year = button.dataset.year;
 
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-
+            // Remove active state from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
+            // Show corresponding section and reset details
             sections.forEach(section => {
                 section.classList.remove('active');
                 if (section.dataset.content === year) {
                     section.classList.add('active');
-                    // Reset expanded state when switching years
-                    const contentDetails = section.querySelector(
-                        '.timeline-content-details');
+
+                    const contentDetails = section.querySelector('.timeline-content-details');
                     const detailsBtn = section.querySelector('.details-button');
+
                     if (contentDetails && detailsBtn) {
+                        // Collapse details when switching years
                         contentDetails.classList.remove('expanded');
                         detailsBtn.classList.remove('expanded');
+
+                        // Remove sticky when switching years
+                        setSticky(false);
                     }
                 }
             });
 
-            // Scroll to top of timeline section smoothly
-            const timelineNav = document.querySelector('.timeline-nav-wrapper');
+            // Scroll to top of timeline section smoothly on mobile/tablet
             if (timelineNav && window.innerWidth < 1280) {
                 timelineNav.scrollIntoView({
                     behavior: 'smooth',
@@ -257,11 +275,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 const contentDetails = section.querySelector('.timeline-content-details');
 
                 if (contentDetails) {
+                    // Expand details content
                     contentDetails.classList.add('expanded');
                     this.classList.add('expanded');
+
+                    // Make timeline nav sticky only after opening details
+                    setSticky(true);
                 }
             }
         });
     });
 });
 </script>
+
