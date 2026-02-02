@@ -9,7 +9,7 @@ if (!$show_section || empty($items)) return;
 
 <section id="timeline" class="section">
     <div class="container">
-        <style>
+    <style>
         /* Ensure parent containers don't block sticky */
         #timeline {
             overflow: visible !important;
@@ -94,7 +94,7 @@ if (!$show_section || empty($items)) return;
                 position: sticky;
                 top: 0;
                 z-index: 999;
-                background-color: #ffffff;
+                /* background-color: #ffffff; */
                 margin-left: -20px;
                 margin-right: -20px;
                 padding-left: 0;
@@ -103,7 +103,7 @@ if (!$show_section || empty($items)) return;
                 padding-bottom: 10px;
             }
 
-            .timeline-nav-wrapper::before {
+            /* .timeline-nav-wrapper::before {
                 content: '';
                 position: absolute;
                 top: 0;
@@ -112,8 +112,15 @@ if (!$show_section || empty($items)) return;
                 bottom: 0;
                 background-color: #ffffff;
                 z-index: -1;
-            }
+            } */
         }
+
+		@media (max-width: 767.99px){
+			   .timeline-nav-wrapper {
+            	background-color: #ffffff;
+            }
+
+		}
 
         @keyframes slideDown {
             from {
@@ -143,23 +150,21 @@ if (!$show_section || empty($items)) return;
                 box-shadow: none;
             }
         }
-        </style>
+    </style>
 
         <div class="timeline-wrapper bg-white md:bg-transparent pt-[20px] md:pt-0 rounded-[8px] md:rounded-none">
-            <div class="mx-auto flex justify-center items-center">
-                <h2 class="section-title">
-                    <?= esc_html($section_title); ?>
-                </h2>
-            </div>
+            <h2 class="section-title mx-auto !text-[48px]/[48px] px-5">
+                <?= esc_html($section_title); ?>
+            </h2>
 
             <?php if ($section_subtitle): ?>
-            <p class="low-section-title mx-auto max-w-[280px] md:max-w-[704px] mt-5 md:mt-8">
+            <p class="low-section-title mdOnly:!text-[24px]/[32px] mx-auto max-w-[280px] md:max-w-[704px] mt-5 md:mt-8">
                 <?= nl2br(html_entity_decode($section_subtitle)); ?>
             </p>
             <?php endif; ?>
 
             <!-- YEAR NAVIGATION -->
-            <div class="timeline-nav-wrapper mt-5 md:mt-16">
+            <div class="timeline-nav-wrapper mt-5 md:mt-8">
                 <div class="pb-[6px] pl-[40px] xl:pl-0 flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
                     <?php foreach ($items as $index => $item):
                             $year = $item['year'];
@@ -187,7 +192,7 @@ if (!$show_section || empty($items)) return;
                     data-content="<?= esc_attr($year); ?>">
                     <div class="md:w-[50%]">
                         <h2
-                            class="uppercase max-w-[266px] md:max-w-[522px] font-[500] text-[20px] leading-[28px] xl:text-[32px] xl:leading-[36px] font-[500]">
+                            class="uppercase md:max-w-[522px] text-[20px] leading-[28px] xl:text-[32px] xl:leading-[36px] font-[500]">
                             <?= esc_html($heading); ?>
                         </h2>
 
@@ -199,7 +204,7 @@ if (!$show_section || empty($items)) return;
                         </button>
 
                         <!-- Content (hidden on mobile until button click) -->
-                        <div class="timeline-content-details text-lg leading-relaxed pt-[20px] pb-4">
+                        <div class="timeline-content-details text-[16px]/[24px] leading-relaxed pt-[20px] pb-4">
                             <?= wp_kses_post($content); ?>
                         </div>
                     </div>
