@@ -92,7 +92,6 @@ if (!$show_section || empty($items)) return;
 			.timeline-nav-wrapper.sticky {
 				position: -webkit-sticky;
 				position: sticky;
-				top: 84px; /* your fixed header height */
 				z-index: 99;
 			}
 
@@ -103,10 +102,25 @@ if (!$show_section || empty($items)) return;
         }
 
 		@media (max-width: 767.99px){
-			   .timeline-nav-wrapper {
+			.timeline-nav-wrapper {
             	background-color: #ffffff;
 				padding-inline: 20px;
             }
+
+			    /* Only sticky when .sticky class is added */
+			.timeline-nav-wrapper.sticky {
+				top: 84px; /* your fixed header height */
+			}
+		}
+
+		@media (min-width: 768px){
+			.timeline-nav-wrapper {
+            	background-color: #F2F1EE;
+			}
+		    /* Only sticky when .sticky class is added */
+			.timeline-nav-wrapper.sticky {
+				top: 108px; /* your fixed header height */
+			}
 		}
 
         @keyframes slideDown {
@@ -133,13 +147,12 @@ if (!$show_section || empty($items)) return;
 
             .timeline-nav-wrapper {
                 position: static;
-                background-color: transparent;
                 box-shadow: none;
             }
         }
     </style>
 
-        <div class="timeline-wrapper bg-white md:bg-transparent pt-5 pb-5 md:pt-0 rounded-[8px] md:rounded-none">
+        <div class="timeline-wrapper bg-white md:bg-transparent pt-5 smOnly:pb-5 md:pt-0 rounded-[8px] md:rounded-none">
             <h2 class="section-title mx-auto !text-[48px]/[48px] px-5">
                 <?= esc_html($section_title); ?>
             </h2>
@@ -151,7 +164,7 @@ if (!$show_section || empty($items)) return;
             <?php endif; ?>
 
             <!-- YEAR NAVIGATION -->
-            <div class="timeline-nav-wrapper mt-5 md:mt-8">
+            <div class="timeline-nav-wrapper mt-5 pb-5 md:mt-8">
                 <div class="flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
                     <?php foreach ($items as $index => $item):
                             $year = $item['year'];
@@ -210,7 +223,7 @@ if (!$show_section || empty($items)) return;
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+	document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.timeline-button');
     const sections = document.querySelectorAll('.content-section');
     const detailsButtons = document.querySelectorAll('.details-button');
@@ -224,6 +237,13 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             timelineNav.classList.remove('sticky');
         }
+    }
+
+    // Function to get header offset based on screen width
+    function getHeaderOffset() {
+        if (window.innerWidth < 768) return 84; // mobile header height
+        if (window.innerWidth >= 768 && window.innerWidth < 1280) return 108; // tablet header height
+        return 0; // desktop, no offset needed
     }
 
     // Year navigation functionality
@@ -255,11 +275,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            // Scroll to top of timeline section smoothly on mobile/tablet
+            // Scroll to top of timeline section smoothly with header offset (mobile/tablet)
             if (timelineNav && window.innerWidth < 1280) {
-                timelineNav.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const headerOffset = getHeaderOffset();
+                const navTop = timelineNav.getBoundingClientRect().top + window.scrollY;
+
+                window.scrollTo({
+                    top: navTop - headerOffset,
+                    behavior: 'smooth'
                 });
             }
         });
@@ -281,10 +304,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Make timeline nav sticky only after opening details
                     setSticky(true);
+
+                    // Scroll to nav with header offset
+                    if (timelineNav && window.innerWidth < 1280) {
+                        const headerOffset = getHeaderOffset();
+                        const navTop = timelineNav.getBoundingClientRect().top + window.scrollY;
+
+                        window.scrollTo({
+                            top: navTop - headerOffset,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             }
         });
     });
 });
 </script>
-
