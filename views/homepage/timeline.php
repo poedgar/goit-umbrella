@@ -164,7 +164,7 @@ if (!$show_section || empty($items)) return;
             <?php endif; ?>
 
             <!-- YEAR NAVIGATION -->
-            <div class="timeline-nav-wrapper mt-5 pb-5 md:mt-8">
+            <div class="timeline-nav-wrapper mt-5 md:mt-8 notXl:pb-5">
                 <div class="flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
                     <?php foreach ($items as $index => $item):
                             $year = $item['year'];
@@ -192,7 +192,7 @@ if (!$show_section || empty($items)) return;
                     data-content="<?= esc_attr($year); ?>">
                     <div class="md:w-[50%]">
                         <h2
-                            class="uppercase text-[20px]/[28px] xl:text-[32px]/[36px] font-[500] min-h-[84px] mt-5">
+                            class="uppercase text-[20px]/[28px] xl:text-[32px]/[36px] font-[500] min-h-[84px] notXl:mt-5">
                             <?= esc_html($heading); ?>
                         </h2>
 
