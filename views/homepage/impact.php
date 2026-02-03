@@ -16,7 +16,7 @@ if (!$show_section) return;
 			<!-- text wrapper -->
 			<div class="flex flex-col gap-5 md:gap-8 xl:items-center xl:justify-center">
 				<?php if ($title): ?>
-					<h2 class="section-title md:text-left">
+					<h2 class="section-title xl:text-left">
 						<?= $title; ?></h2>
 				<?php endif; ?>
 
