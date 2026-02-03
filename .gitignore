@@ -38,3 +38,4 @@ doc/
 
 # .env
 .env
+assets/css/tailwind.css
