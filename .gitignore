@@ -1,6 +1,7 @@
 # Maps
 assets/css/*.map
 assets/css/*.css
+assets/css/tailwind.css
 
 # Apache
 .htaccess
