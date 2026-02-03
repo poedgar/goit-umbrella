@@ -28,7 +28,7 @@
 <body <?php body_class('antialiased flex flex-col min-h-screen'); ?>>
     <?php wp_body_open(); ?>
 
-    <header class="bg-body sticky top-0 z-[9999] py-5 md:py-8">
+    <header class="header bg-body sticky top-0 z-[9999] py-5 md:py-8">
         <div class="container">
             <nav class="flex items-center justify-between">
                 <!-- Logo -->
