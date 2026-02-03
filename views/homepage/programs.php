@@ -46,7 +46,7 @@ if (!$show_section || empty($items)) return;
 				$gap_class = ($company_id === 95) ? 'md:gap-4' : 'md:gap-8';
 			?>
 
-            <div class="flex flex-col <?= $reverse ?> p-5 md:p-0 gap-20 md:gap-8">
+            <div class="flex flex-col <?= $reverse ?> p-5 md:p-0 gap-5 md:gap-8">
 
                 <!-- COLUMN: Logos and Site Info -->
                 <div class="grid gap-20 md:gap-8 md:p-8 xl:w-[592px]">
