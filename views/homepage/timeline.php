@@ -83,6 +83,10 @@ if (!$show_section || empty($items)) return;
                 align-self: flex-start;
             }
 
+			.timeline-nav-wrapper .scroll-wrap {
+				padding-bottom: 18px;
+		}
+
             .timeline-image-wrapper img {
                 height: auto;
                 max-height: none;
@@ -109,7 +113,7 @@ if (!$show_section || empty($items)) return;
 
 			    /* Only sticky when .sticky class is added */
 			.timeline-nav-wrapper.sticky {
-				top: 84px; /* your fixed header height */
+				top: 100px; /* your fixed header height */
 			}
 		}
 
@@ -119,7 +123,7 @@ if (!$show_section || empty($items)) return;
 			}
 		    /* Only sticky when .sticky class is added */
 			.timeline-nav-wrapper.sticky {
-				top: 108px; /* your fixed header height */
+				top: 124px; /* your fixed header height */
 			}
 		}
 
@@ -164,8 +168,8 @@ if (!$show_section || empty($items)) return;
             <?php endif; ?>
 
             <!-- YEAR NAVIGATION -->
-            <div class="timeline-nav-wrapper mt-5 md:mt-8 notXl:pb-5">
-                <div class="flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
+            <div class="timeline-nav-wrapper mt-5 md:mt-8 notXl:pb-4">
+                <div class="scroll-wrap flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
                     <?php foreach ($items as $index => $item):
                             $year = $item['year'];
                             $active = $index === 0 ? 'active' : '';
@@ -188,12 +192,12 @@ if (!$show_section || empty($items)) return;
                         $image = $item['image'];
                         $active = $index === 0 ? 'active' : '';
                     ?>
-                <div class="content-section bg-white mt-5 md:mt-8 px-[20px] md:p-8 rounded-[8px] flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
+                <div class="content-section bg-white xl:mt-8 px-[20px] md:p-8 rounded-[8px] flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
                     data-content="<?= esc_attr($year); ?>">
                     <div class="md:w-[50%]">
                         <h2
-                            class="uppercase text-[20px]/[28px] xl:text-[32px]/[36px] font-[500] min-h-[84px] notXl:mt-5">
-                            <?= esc_html($heading); ?>
+                            class="uppercase text-[20px]/[28px] xl:text-[32px]/[36px] font-[500] min-h-[84px]">
+                            <?= wp_kses_post($heading); ?>
                         </h2>
 
                         <!-- Details Button for Mobile/Tablet -->

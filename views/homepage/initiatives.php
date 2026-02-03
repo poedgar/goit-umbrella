@@ -19,7 +19,7 @@ if (!$show || empty($slides)) return;
 
 		<!-- section description -->
 		<?php if ($subtitle): ?>
-			<p class="low-section-title mt-5 md:mt-8">
+			<p class="low-section-title mdOnly:!text-[24px]/[32px] mt-5 md:mt-8">
 				<?= wp_kses_post($subtitle); ?>
 			</p>
 		<?php endif; ?>
