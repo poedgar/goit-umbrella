@@ -113,7 +113,7 @@ if (!$show_section || empty($items)) return;
 
 			    /* Only sticky when .sticky class is added */
 			.timeline-nav-wrapper.sticky {
-				top: 100px; /* your fixed header height */
+				top: 84px; /* your fixed header height */
 			}
 		}
 
@@ -123,7 +123,7 @@ if (!$show_section || empty($items)) return;
 			}
 		    /* Only sticky when .sticky class is added */
 			.timeline-nav-wrapper.sticky {
-				top: 124px; /* your fixed header height */
+				top: 100px; /* your fixed header height */
 			}
 		}
 
@@ -168,7 +168,7 @@ if (!$show_section || empty($items)) return;
             <?php endif; ?>
 
             <!-- YEAR NAVIGATION -->
-            <div class="timeline-nav-wrapper mt-5 md:mt-8 notXl:pb-4">
+            <div class="timeline-nav-wrapper pt-5 md:pt-8 notXl:pb-4">
                 <div class="scroll-wrap flex flex-row flex-nowrap overflow-x-auto gap-[10px] md:gap-2">
                     <?php foreach ($items as $index => $item):
                             $year = $item['year'];
@@ -246,7 +246,7 @@ if (!$show_section || empty($items)) return;
     // Function to get header offset based on screen width
     function getHeaderOffset() {
         if (window.innerWidth < 768) return 84; // mobile header height
-        if (window.innerWidth >= 768 && window.innerWidth < 1280) return 108; // tablet header height
+        if (window.innerWidth >= 768 && window.innerWidth < 1280) return 100; // tablet header height
         return 0; // desktop, no offset needed
     }
 
