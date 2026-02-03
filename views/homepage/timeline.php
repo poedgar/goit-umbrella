@@ -83,10 +83,6 @@ if (!$show_section || empty($items)) return;
                 align-self: flex-start;
             }
 
-			.timeline-nav-wrapper .scroll-wrap {
-				padding-bottom: 18px;
-		}
-
             .timeline-image-wrapper img {
                 height: auto;
                 max-height: none;
@@ -113,7 +109,7 @@ if (!$show_section || empty($items)) return;
 
 			    /* Only sticky when .sticky class is added */
 			.timeline-nav-wrapper.sticky {
-				top: 100px; /* your fixed header height */
+				top: 84px; /* your fixed header height */
 			}
 		}
 
@@ -123,7 +119,7 @@ if (!$show_section || empty($items)) return;
 			}
 		    /* Only sticky when .sticky class is added */
 			.timeline-nav-wrapper.sticky {
-				top: 124px; /* your fixed header height */
+				top: 108px; /* your fixed header height */
 			}
 		}
 
@@ -192,12 +188,12 @@ if (!$show_section || empty($items)) return;
                         $image = $item['image'];
                         $active = $index === 0 ? 'active' : '';
                     ?>
-                <div class="content-section bg-white xl:mt-8 px-[20px] md:p-8 rounded-[8px] flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
+                <div class="content-section bg-white mt-5 md:mt-8 px-[20px] md:p-8 rounded-[8px] flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
                     data-content="<?= esc_attr($year); ?>">
                     <div class="md:w-[50%]">
                         <h2
-                            class="uppercase text-[20px]/[28px] xl:text-[32px]/[36px] font-[500] min-h-[84px]">
-                            <?= wp_kses_post($heading); ?>
+                            class="uppercase text-[20px]/[28px] xl:text-[32px]/[36px] font-[500] min-h-[84px] notXl:mt-5">
+                            <?= esc_html($heading); ?>
                         </h2>
 
                         <!-- Details Button for Mobile/Tablet -->
