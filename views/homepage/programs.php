@@ -49,7 +49,7 @@ if (!$show_section || empty($items)) return;
             <div class="flex flex-col <?= $reverse ?> p-5 md:p-0 gap-5 md:gap-8">
 
                 <!-- COLUMN: Logos and Site Info -->
-                <div class="grid gap-20 md:gap-8 md:p-8 xl:w-[592px]">
+                <div class="grid gap-5 md:gap-8 md:p-8 xl:w-[592px]">
 
                     <!-- Logos for desktop -->
                     <div class="hidden md:flex gap-8 h-20">
