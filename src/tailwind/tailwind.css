@@ -42,7 +42,7 @@
 	}
 
 	.low-section-title {
-		@apply text-center text-[20px]/[28px] font-medium uppercase text-gray md:text-[32px]/[36px];
+		@apply text-center text-[20px]/[28px] font-medium uppercase text-gray md:text-[24px]/[32px] xl:text-[32px]/[36px];
 	}
 
 	.btn {
