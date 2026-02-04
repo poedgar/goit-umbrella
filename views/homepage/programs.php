@@ -75,7 +75,7 @@ if (!$show_section || empty($items)) return;
                         <!-- Mobile logo -->
                         <?php if ($site_logo): ?>
                         <img src="<?= esc_url($site_logo['url']); ?>" alt="<?= esc_attr($site_logo['alt']); ?>"
-                            class="md:hidden w-auto h-[80px] <?= ($index === 2 ? 'mb-[60px]' : '') ?>">
+                            class="md:hidden w-auto h-[80px]">
                         <?php endif; ?>
 
                         <!-- Subtitle & supporter -->
