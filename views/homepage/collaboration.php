@@ -30,7 +30,7 @@ if (!$show_section || empty($team_members)) return;
 				$linkedin = $member['linkedin'];
 
 			?>
-				<li class="flex flex-1 flex-col gap-5 xl:gap-8 hover:bg-white rounded-[8px] p-5 xl:p-8">
+				<li class="flex flex-1 flex-col gap-5 xl:gap-8 hover:bg-white rounded-[8px] notXl:bg-white p-5 xl:p-8">
 
 					<?php if ($photo): ?>
 						<div class="aspect-square overflow-hidden w-full rounded-[8px]">

@@ -11,6 +11,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ==========================================
+  // 0. HEADER SHADOW ON SCROLL
+  // ==========================================
+  const header = document.querySelector('.header.bg-body.sticky');
+  if (header) {
+    const shadowClass = 'shadow-scrolled'; // CSS class to add shadow
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0) {
+        header.classList.add(shadowClass);
+      } else {
+        header.classList.remove(shadowClass);
+      }
+    });
+  }
+
+  // ==========================================
   // 1. DESKTOP DROPDOWN (Fade & Scale)
   // ==========================================
   const deskBtn = document.getElementById('ecosystem-dropdown-btn');

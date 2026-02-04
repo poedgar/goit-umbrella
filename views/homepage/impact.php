@@ -16,13 +16,12 @@ if (!$show_section) return;
 			<!-- text wrapper -->
 			<div class="flex flex-col gap-5 md:gap-8 xl:items-center xl:justify-center">
 				<?php if ($title): ?>
-					<h2 class="section-title md:text-left">
+					<h2 class="section-title xl:text-left">
 						<?= $title; ?></h2>
 				<?php endif; ?>
 
 				<?php if ($description): ?>
 					<p class="text-[20px]/[28px] font-medium uppercase md:text-[24px]/[32px] text-center xl:text-left text-gray xl:text-[32px]/[36px]"><?= wp_kses_post($description); ?></p>
-					</p>
 				<?php endif; ?>
 			</div>
 
