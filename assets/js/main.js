@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
       element.classList.add(...closedClasses);
     }
   }
-  const header = document.querySelector("header.bg-body.sticky");
+  const header = document.querySelector(".header.bg-body.sticky");
   if (header) {
     const shadowClass = "shadow-scrolled";
     window.addEventListener("scroll", () => {
