@@ -9,7 +9,7 @@
 ?>
 </main>
 
-<footer class="bg-black text-gray-68 py-5 md:py-8 xl:py-16">
+<footer class="footer bg-black text-gray-68 py-5 md:py-8 xl:py-16">
 	<div class="container">
 		<div class="grid grid-cols-1 xl:grid-cols-4 gap-20 md:gap-8">
 			<?php
@@ -98,17 +98,10 @@
 
 		<!-- Footer bottom -->
 		<div
-			class="mt-20 md:mt-16 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start text-center md:text-left text-base/[24px] text-gray-34">
-			<div class="flex flex-col md:flex-row gap-[10px] md:gap-8">
-				<a lang="uk" class="md:max-w-[102px] xl:max-w-[230px] hyphens-auto hover:text-white" href="#">Умови
-					користування
-					послугами</a>
-				<a lang="uk" class="md:max-w-[102px] xl:max-w-[230px] hyphens-auto hover:text-white" href="#">Політика
-					конфіденційності</a>
-				<a lang="uk" class="md:max-w-[102px] xl:max-w-[230px] hyphens-auto hover:text-white" href="#">Відмова
-					від
-					відповідальності</a>
-			</div>
+			class="mt-20 md:mt-16 flex flex-col md:flex-row justify-center mdOnly:justify-between items-center md:items-start text-center md:text-left text-base/[24px] text-gray-34">
+			<!-- Agreements links -->
+			<?php get_template_part('template-parts/menus/agreements-menu'); ?>
+
 
 			<div class="md:max-w-[102px] xl:max-w-[230px] text-base/[24px] mt-[10px] md:mt-0 xl:ml-8">
 				BetterED © <?= date('Y'); ?>
