@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // ==========================================
   // 0. HEADER SHADOW ON SCROLL
   // ==========================================
-  const header = document.querySelector('header.bg-body.sticky');
+  const header = document.querySelector('.header.bg-body.sticky');
   if (header) {
-    const shadowClass = 'shadow-scrolled'; // CSS клас для тіні
+    const shadowClass = 'shadow-scrolled'; // CSS class to add shadow
 
     window.addEventListener('scroll', () => {
       if (window.scrollY > 0) {
@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileCloseBtn = document.getElementById('mobile-close-btn');
+  // console.log(mobileCloseBtn);
 
   function toggleMobileMenu(show) {
     if (!mobileMenu) return;
