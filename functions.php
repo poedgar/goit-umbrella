@@ -88,6 +88,11 @@ add_action(
 	0
 );
 
+// Add excerpt support to pages
+add_action( 'after_setup_theme', function() {
+    add_post_type_support( 'page', 'excerpt' );
+} );
+
 /**
  * Register widget area.
  */
@@ -145,3 +150,5 @@ function bathe_add_page_templates($templates) {
 
 require_once get_template_directory() . '/inc/custom-post-types/companies.php';
 require_once get_template_directory() . '/inc/menus/primary.php';
+require_once get_template_directory() . '/inc/menus/agreements.php';
+
