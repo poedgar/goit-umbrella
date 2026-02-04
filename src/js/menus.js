@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileCloseBtn = document.getElementById('mobile-close-btn');
-  // console.log(mobileCloseBtn);
 
   function toggleMobileMenu(show) {
     if (!mobileMenu) return;
