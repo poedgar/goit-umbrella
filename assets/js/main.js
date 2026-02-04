@@ -8,6 +8,17 @@ document.addEventListener("DOMContentLoaded", function() {
       element.classList.add(...closedClasses);
     }
   }
+  const header = document.querySelector(".header.bg-body.sticky");
+  if (header) {
+    const shadowClass = "shadow-scrolled";
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        header.classList.add(shadowClass);
+      } else {
+        header.classList.remove(shadowClass);
+      }
+    });
+  }
   const deskBtn = document.getElementById("ecosystem-dropdown-btn");
   const deskDropdown = document.getElementById("ecosystem-dropdown");
   const deskArrow = deskBtn ? deskBtn.querySelector("img") : null;

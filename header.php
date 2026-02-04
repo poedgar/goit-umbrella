@@ -28,7 +28,7 @@
 <body <?php body_class('antialiased flex flex-col min-h-screen'); ?>>
     <?php wp_body_open(); ?>
 
-    <header class="bg-body sticky top-0 z-[9999] py-5 md:py-8">
+    <header class="header bg-body sticky top-0 z-[9999] py-5 md:py-8">
         <div class="container">
             <nav class="flex items-center justify-between">
                 <!-- Logo -->
@@ -119,8 +119,8 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
-        class="fixed inset-0 z-50 xl:hidden bg-body transition-transform duration-1200 ease-out translate-x-full">
-        <div class="container py-5 h-full flex flex-col">
+        class="fixed inset-0 z-[9999] xl:hidden bg-body transition-transform duration-1200 ease-out translate-x-full">
+        <div class="container py-8 h-full flex flex-col">
             <!-- Mobile Menu Header -->
             <div class="flex items-center justify-between">
                 <a href="<?php echo home_url('/'); ?>" class="w-[168px] h-[28px]">
@@ -183,7 +183,7 @@
             <div class="">
                 <!-- Footer Text -->
                 <div class="text-center text-gray-400 text-base/[24px]">
-                    Better<i>ED</i> © 2026
+                    Better<i>ED</i> © <?php echo date('Y'); ?>
                 </div>
             </div>
         </div>
