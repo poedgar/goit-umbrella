@@ -162,7 +162,7 @@ if (!$show_section || empty($items)) return;
             </h2>
 
             <?php if ($section_subtitle): ?>
-            <p class="low-section-title mdOnly:!text-[24px]/[32px] mx-auto px-5  mt-5 md:mt-8">
+            <p class="low-section-title mx-auto px-5 mt-5 md:mt-8">
                 <?= nl2br(html_entity_decode($section_subtitle)); ?>
             </p>
             <?php endif; ?>
