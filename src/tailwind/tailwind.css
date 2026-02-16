@@ -55,7 +55,7 @@
 		@apply text-black bg-body;
 	}
 	.btn-border-gradient {
-		@apply inline-block rounded-[4px] p-[2px] transition-all duration-300;
+		@apply inline-flex items-center justify-center rounded-[4px] p-[2px] transition-all duration-300;
 		background: black;
 	}
 	.btn-border-gradient:hover {
