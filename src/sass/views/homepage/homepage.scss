@@ -1,1 +1,25 @@
+.animated-card {
+	border-radius: 4px;
+	overflow: hidden;
+	position: relative;
+}
 
+.animated-card .overlay {
+	inset: 0;
+	opacity: 1;
+	position: absolute;
+	transition: opacity 0.3s ease-in-out;
+	z-index: 10;
+}
+
+.card-orange .overlay {
+	background-color: #ff8856;
+}
+
+.card-yellow .overlay {
+	background-color: #ffbd01;
+}
+
+.card-purple .overlay {
+	background-color: #5a05f4;
+}

@@ -52,7 +52,27 @@
 		@apply text-white bg-black hover:bg-accent-purple2 focus:bg-accent-purple2 active:bg-accent-orange;
 	}
 	.btn-transparent {
-		@apply text-black border-2 border-black hover:text-accent-purple2  hover:border-accent-purple2 focus:text-accent-purple2 focus:border-accent-purple2 active:text-accent-orange active:border-accent-orange;
+		@apply text-black bg-body;
+	}
+	.btn-border-gradient {
+		@apply inline-block rounded-[4px] p-[2px] transition-all duration-300;
+		background: black;
+	}
+	.btn-border-gradient:hover {
+		background: linear-gradient(
+			135deg,
+			#5a05f4 0%,
+			#ff8856 50%,
+			#ffc72f 100%
+		);
+	}
+	.btn-border-gradient:active {
+		background: linear-gradient(
+			315deg,
+			#5a05f4 0%,
+			#ff8856 50%,
+			#ffc72f 100%
+		);
 	}
 
 	.social-link {

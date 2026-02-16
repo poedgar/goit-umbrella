@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Bathe functions
  *
@@ -11,11 +12,11 @@
 add_action(
 	'after_setup_theme',
 	function () {
-		load_theme_textdomain( 'bathe', get_theme_file_uri( 'languages' ) );
+		load_theme_textdomain('bathe', get_theme_file_uri('languages'));
 
-		add_theme_support( 'automatic-feed-links' );
-		add_theme_support( 'title-tag' );
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('automatic-feed-links');
+		add_theme_support('title-tag');
+		add_theme_support('post-thumbnails');
 		add_theme_support(
 			'html5',
 			array(
@@ -48,7 +49,7 @@ add_action(
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
 
 		/**
 		 * Add support for core custom logo.
@@ -67,7 +68,7 @@ add_action(
 
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'bathe' ),
+				'primary' => __('Primary Menu', 'bathe'),
 			)
 		);
 	}
@@ -83,15 +84,15 @@ add_action(
 add_action(
 	'after_setup_theme',
 	function () {
-		$GLOBALS['content_width'] = apply_filters( 'bathe_content_width', 960 );
+		$GLOBALS['content_width'] = apply_filters('bathe_content_width', 960);
 	},
 	0
 );
 
 // Add excerpt support to pages
-add_action( 'after_setup_theme', function() {
-    add_post_type_support( 'page', 'excerpt' );
-} );
+add_action('after_setup_theme', function () {
+	add_post_type_support('page', 'excerpt');
+});
 
 /**
  * Register widget area.
@@ -101,7 +102,7 @@ add_action(
 	function () {
 		register_sidebar(
 			array(
-				'name'          => __( 'Sidebar', 'bathe' ),
+				'name'          => __('Sidebar', 'bathe'),
 				'id'            => 'sidebar-1',
 				'description'   => '',
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -127,28 +128,29 @@ add_action(
 		$tailwind_css_path = $theme_path . '/assets/css/tailwind.css';
 		$main_js_path      = $theme_path . '/assets/js/main.js';
 
-		$main_css_version = file_exists( $main_css_path ) ? filemtime( $main_css_path ) : null;
-		$tailwind_version = file_exists( $tailwind_css_path ) ? filemtime( $tailwind_css_path ) : null;
-		$main_js_version  = file_exists( $main_js_path ) ? filemtime( $main_js_path ) : null;
+		$main_css_version = file_exists($main_css_path) ? filemtime($main_css_path) : null;
+		$tailwind_version = file_exists($tailwind_css_path) ? filemtime($tailwind_css_path) : null;
+		$main_js_version  = file_exists($main_js_path) ? filemtime($main_js_path) : null;
 
-		wp_enqueue_style( 'bathe', $theme_uri . '/assets/css/main.css', array(), $main_css_version );
-		wp_enqueue_style( 'tailwind', $theme_uri . '/assets/css/tailwind.css', array(), $tailwind_version );
+		wp_enqueue_style('bathe', $theme_uri . '/assets/css/main.css', array(), $main_css_version);
+		wp_enqueue_style('tailwind', $theme_uri . '/assets/css/tailwind.css', array(), $tailwind_version);
 
-		wp_enqueue_script( 'bathe', $theme_uri . '/assets/js/main.js', array(), $main_js_version, true );
+		wp_enqueue_script('bathe', $theme_uri . '/assets/js/main.js', array(), $main_js_version, true);
 
-		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-			wp_enqueue_script( 'comment-reply' );
+		if (is_singular() && comments_open() && get_option('thread_comments')) {
+			wp_enqueue_script('comment-reply');
 		}
 	}
 );
 
 add_filter('theme_page_templates', 'bathe_add_page_templates');
-function bathe_add_page_templates($templates) {
-    $templates['page-templates/homepage.php'] = 'Homepage';
-    return $templates;
+function bathe_add_page_templates($templates)
+{
+	$templates['page-templates/homepage.php'] = 'Homepage';
+	return $templates;
 }
 
 require_once get_template_directory() . '/inc/custom-post-types/companies.php';
 require_once get_template_directory() . '/inc/menus/primary.php';
 require_once get_template_directory() . '/inc/menus/agreements.php';
-
+require get_template_directory() . '/inc/theme-settings.php';

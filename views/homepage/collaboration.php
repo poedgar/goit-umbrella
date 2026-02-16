@@ -1,11 +1,13 @@
 <?php
 // ACF field values
 $show_section = get_field('show_collaboration_section');
-$title        = get_field('team_section_title');
+$title = get_field('team_section_title');
 $team_members = get_field('team_members'); // repeater array
 
 // Don't render if disabled or empty
-if (!$show_section || empty($team_members)) return;
+if (!$show_section || empty($team_members)) {
+	return;
+}
 ?>
 
 <section id="collaboration" class="section">
@@ -14,7 +16,7 @@ if (!$show_section || empty($team_members)) return;
 		<!-- Section Title -->
 		<?php if ($title): ?>
 			<h2 class="section-title">
-				<?= esc_html($title); ?>
+				<?= esc_html($title) ?>
 			</h2>
 		<?php endif; ?>
 
@@ -23,32 +25,35 @@ if (!$show_section || empty($team_members)) return;
 
 			<?php foreach ($team_members as $member):
 
-				$photo    = $member['photo']['url'];
-				$name     = $member['name'];
+				$photo = $member['photo']['url'];
+				$name = $member['name'];
 				$position = $member['position'];
-				$email    = $member['email'];
+				$email = $member['email'];
 				$linkedin = $member['linkedin'];
-
 			?>
 				<li class="flex flex-1 flex-col gap-5 xl:gap-8 hover:bg-white rounded-[8px] notXl:bg-white p-5 xl:p-8">
 
 					<?php if ($photo): ?>
 						<div class="aspect-square overflow-hidden w-full rounded-[8px]">
-							<img src="<?= esc_url($photo); ?>" alt="<?= esc_attr($name); ?>" class="w-full  h-full object-cover">
+							<img src="<?= esc_url($photo) ?>" alt="<?= esc_attr(
+																		$name,
+																	) ?>" class="w-full  h-full object-cover">
 						</div>
 					<?php endif; ?>
 
 					<?php if ($name): ?>
-						<h3 class="text-[20px]/[28px] grow font-medium uppercase"><?= esc_html($name); ?></h3>
+						<h3 class="text-[20px]/[28px] grow font-medium uppercase"><?= esc_html(
+																						$name,
+																					) ?></h3>
 					<?php endif; ?>
 
 					<?php if ($position): ?>
-						<p class=""><?= esc_html($position); ?></p>
+						<p class=""><?= esc_html($position) ?></p>
 					<?php endif; ?>
 
 					<!-- linkedin link -->
 					<?php if ($linkedin): ?>
-						<a href="<?= esc_url($linkedin); ?>" target="_blank" rel="noopener noreferrer"
+						<a href="<?= esc_url($linkedin) ?>" target="_blank" rel="noopener noreferrer"
 							class="social-link"
 							aria-label="LinkedIn">
 							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,8 +63,23 @@ if (!$show_section || empty($team_members)) return;
 						</a>
 					<?php endif; ?>
 				</li>
-			<?php endforeach; ?>
+			<?php
+			endforeach; ?>
 
 		</ul>
+
+		<!-- MediaKit -->
+		<div class="mt-[80px] mb-10 xl:mt-[128px] xl:mb-16 text-[20px]/[28px] ">
+			<!-- The PDF file should be uploaded to the following directory:
+    /assets/files/  -->
+			<a class="btn btn-transparent !w-[237px] mx-auto" href="<?php echo get_template_directory_uri(); ?>/assets/files/media-kit-examples.pdf" download>
+				завантажити медіакіт
+			</a>
+
+			<p class="mt-8 uppercase text-center font-medium">З питань партнерств і PR:
+				<a class="hover:underline" href="mailto:info@bettered.global"> <?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?>
+				</a>
+			</p>
+		</div>
 	</div>
 </section>
