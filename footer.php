@@ -10,7 +10,7 @@
 </main>
 
 <footer class="footer bg-black text-gray-68 py-5 md:py-8 xl:py-16">
-	<div class="container">
+	<div class="container flex flex-col gap-[80px] md:gap-16">
 		<div class="grid grid-cols-1 xl:grid-cols-4 gap-20 md:gap-8">
 			<?php
 			$companies = new WP_Query([
@@ -96,9 +96,17 @@
 			wp_reset_postdata(); ?>
 		</div>
 
+		<div class="">
+			<a href="/" class="smOnly:mx-auto block w-fit">
+				<img class="h-[28px] w-[168px] md:h-[36px] md:w-[208px]" src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-white.svg" alt="логотип BetterED" aria-label="На головну">
+			</a>
+
+			<p class="mt-4 uppercase text-[20px]/[28px] md:text-[32px]/[28px] text-[#4D4D4D] smOnly:text-center"><?= esc_html(get_theme_mod('footer_slogan')); ?></p>
+		</div>
+
 		<!-- Footer bottom -->
 		<div
-			class="mt-20 md:mt-16 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start text-center md:text-left text-base/[24px] text-gray-68">
+			class="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start text-center md:text-left text-base/[24px] text-gray-68">
 			<!-- Agreements links -->
 			<?php get_template_part('template-parts/menus/agreements-menu'); ?>
 
@@ -109,9 +117,6 @@
 
 			<p class="text-base/[24px] smOnly:mt-[10px]"><?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?></p>
 
-			<!-- <a href="/" class="mt-[10px] md:mt-0 xl:ml-8 w-[168px] h-[28px] transition">
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-white.svg" alt="логотип BetterED" aria-label="На головну">
-			</a> -->
 		</div>
 	</div>
 </footer>
