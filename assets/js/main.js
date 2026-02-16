@@ -4647,4 +4647,35 @@ function initCounters() {
   });
 }
 initCounters();
+document.addEventListener("DOMContentLoaded", () => {
+  const pause = 1500;
+  function animateCards(selector) {
+    const overlays = Array.from(document.querySelectorAll(selector)).slice(
+      0,
+      3
+    );
+    let index = 0;
+    overlays.forEach((o) => o.style.opacity = 1);
+    function nextStep() {
+      if (index < overlays.length) {
+        overlays[index].style.opacity = 0;
+        if (index > 0)
+          overlays[index - 1].style.opacity = 1;
+        index++;
+        setTimeout(nextStep, pause);
+      } else if (index === overlays.length) {
+        overlays.forEach((o) => o.style.opacity = 0);
+        index++;
+        setTimeout(nextStep, pause);
+      } else {
+        overlays.forEach((o) => o.style.opacity = 1);
+        index = 0;
+        setTimeout(nextStep, pause);
+      }
+    }
+    nextStep();
+  }
+  animateCards(".animated-card.mobile .overlay");
+  animateCards(".animated-card.desktop .overlay");
+});
 //# sourceMappingURL=main.js.map

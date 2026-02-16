@@ -1,12 +1,22 @@
 <?php
 // Retrieve values from ACF
 $show_section   = get_field('show_ecosystem_section');
-$top_image_mobile = get_field('ecosystem_top_image_for_mobile');
 $right_image      = get_field('ecosystem_right_image');
 $subtitle       = get_field('ecosystem_subtitle');
 $left_image     = get_field('ecosystem_left_image');
 $right_images   = get_field('ecosystem_right_images') ?: [];
 $logos          = get_field('ecosystem_logos') ?: [];
+
+// Take first image from right_images for top image
+$top_image_mobile = '';
+if (!empty($right_images)) {
+    foreach ($right_images as $ri) {
+        if (!empty($ri['image'])) {
+            $top_image_mobile = $ri['image'];
+            break; // first valid image
+        }
+    }
+}
 
 // Don't render if disabled
 if (!$show_section) return;
@@ -17,10 +27,12 @@ if (!$show_section) return;
 		<!-- MOBILE -->
 		<div class="grid md:hidden items-center justify-center gap-5">
 			<!-- top image -->
-			<?php if ($top_image_mobile): ?>
-				<img src="<?= $top_image_mobile['url']; ?>" alt="<?= $top_image_mobile['alt']; ?>"
-					class="rounded-[4px]">
-			<?php endif; ?>
+			  <?php if ($top_image_mobile): ?>
+				<div class="animated-card card-orange mobile relative w-full h-[120px] mb-2">
+					<img src="<?= esc_url($top_image_mobile); ?>" alt="Обличчя людей" class="w-full h-full object-cover rounded-[4px]">
+					<div class="overlay absolute inset-0"></div>
+				</div>
+    		  <?php endif; ?>
 
 			<!-- logo image with text-->
 			<?php if ($left_image): ?>
@@ -43,30 +55,26 @@ if (!$show_section) return;
 			</div>
 
 			<!-- Right: stacked images -->
-			<?php if (!empty($right_images)): ?>
-				<?php
-				$first = true; // Flag to track the first iteration
+<?php if (!empty($right_images) && count($right_images) > 1): ?>
+    <?php
+    $lower_cards = array_slice($right_images, 1, 2);
+    $colors = ['card-yellow', 'card-purple'];
+    $i = 0;
+    ?>
+    <?php foreach ($lower_cards as $ri): ?>
+        <?php
+        $img = $ri['image'] ?? '';
+        if (!$img) continue;
+        $color_class = $colors[$i] ?? 'card-purple';
+        $i++;
+        ?>
+        <div class="animated-card <?= $color_class ?> mobile relative w-full h-[120px] mb-2">
+            <img src="<?= esc_url($img) ?>" alt="Обличчя людей" class="w-full h-full object-cover rounded-[4px]">
+            <div class="overlay absolute inset-0"></div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
 
-				foreach ($right_images as $ri):
-					// Skip if no image URL
-					$image_url = $ri['image'] ?? '';
-					if (!$image_url) {
-						continue;
-					}
-
-					// Skip the very first valid image
-					if ($first) {
-						$first = false;
-						continue;
-					}
-
-					// Output the image (all except the first one)
-				?>
-					<img src="<?= esc_url($image_url) ?>" alt="Обличчя людей" class="rounded-[4px]">
-				<?php
-				endforeach;
-				?>
-			<?php endif; ?>
 
 		</div>
 
@@ -92,7 +100,7 @@ if (!$show_section) return;
 							class="w-[236px] xl:w-[406px]">
 					<?php endif; ?>
 
-					<div class="flex flex-col gap-1 md:gap-2">
+					<div class="flex colorful-cards flex-col gap-1 md:gap-2 relative">
 						<?php
 						if (!empty($right_images)):
 							$i = 0;
@@ -103,9 +111,12 @@ if (!$show_section) return;
 								// take only 3 for desktop to match design
 								if ($i >= 3) break;
 								$i++;
+
+								 $color_class = $i === 1 ? 'card-orange' : ($i === 2 ? 'card-yellow' : 'card-purple');
 						?>
-								<div class="w-[224px] xl:w-[384px] h-[42px] xl:h-[72px]">
+								<div class="animated-card <?= $color_class ?> desktop relative w-[224px] xl:w-[384px] h-[42px] xl:h-[72px]">
 									<img src="<?= esc_url($img) ?>" alt="" class="w-full h-full object-cover rounded-[4px] xl:rounded-lg">
+									<div class="overlay absolute inset-0"></div>
 								</div>
 
 						<?php endforeach;
