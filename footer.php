@@ -98,19 +98,20 @@
 
 		<!-- Footer bottom -->
 		<div
-			class="mt-20 md:mt-16 flex flex-col md:flex-row justify-center mdOnly:justify-between items-center md:items-start text-center md:text-left text-base/[24px] text-gray-34">
+			class="mt-20 md:mt-16 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start text-center md:text-left text-base/[24px] text-gray-68">
 			<!-- Agreements links -->
 			<?php get_template_part('template-parts/menus/agreements-menu'); ?>
 
 
-			<div class="md:max-w-[102px] xl:max-w-[230px] text-base/[24px] mt-[10px] md:mt-0 xl:ml-8">
+			<div class="xl:max-w-[230px] text-base/[24px] smOnly:mt-[10px] xl:ml-8">
 				BetterED © <?= date('Y'); ?>
 			</div>
 
-			<a href="/" class="mt-[10px] md:mt-0 xl:ml-8 w-[168px] h-[28px] transition">
-				<!-- Simple icons (SVG) -->
+			<p class="text-base/[24px] smOnly:mt-[10px]"><?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?></p>
+
+			<!-- <a href="/" class="mt-[10px] md:mt-0 xl:ml-8 w-[168px] h-[28px] transition">
 				<img src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-white.svg" alt="логотип BetterED" aria-label="На головну">
-			</a>
+			</a> -->
 		</div>
 	</div>
 </footer>
