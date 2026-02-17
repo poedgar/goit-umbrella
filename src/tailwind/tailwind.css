@@ -46,16 +46,18 @@
 	}
 
 	.btn {
-		@apply flex max-h-11 w-fit items-center justify-center rounded-[4px] px-4  py-2 text-center text-[20px]/[28px] lowercase duration-300;
+		@apply flex max-h-11 items-center justify-center rounded-[4px] px-4  py-2 text-center text-[20px]/[28px] duration-300;
+		height: -webkit-fill-available;
 	}
 	.btn-black {
-		@apply text-white bg-black hover:bg-accent-purple2 focus:bg-accent-purple2 active:bg-accent-orange;
+		@apply text-white bg-black hover:bg-[#565656] focus:bg-[#565656]  active:bg-black;
 	}
 	.btn-transparent {
 		@apply text-black bg-body;
 	}
 	.btn-border-gradient {
 		@apply inline-flex items-center justify-center rounded-[4px] p-[2px] transition-all duration-300;
+		height: -webkit-fill-available;
 		background: black;
 	}
 	.btn-border-gradient:hover {
@@ -100,5 +102,12 @@
 
 	.scroll-hidden {
 		@apply overflow-hidden;
+	}
+
+	.underline-dotted {
+		text-decoration-line: underline;
+		text-decoration-style: dotted;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 2px;
 	}
 }
