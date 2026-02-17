@@ -1,4 +1,4 @@
-<div id="cookie-modal" class="fixed py-5 inset-0 z-[99999] flex items-end justify-center bg-body backdrop-blur-sm">
+<div id="cookie-modal" class="fixed py-5 inset-0 z-[99999] flex items-end justify-center bg-black/45 backdrop-blur-sm">
 	<div class="container">
 		<div class="bg-white rounded-[8px] p-5 flex gap-5 md:gap-4 md:p-4 notXl:flex-col xl:items-end xl:justify-between">
 			<div class="flex flex-col gap-5 md:gap-4 xl:gap-0 items-start">
@@ -19,12 +19,13 @@
 			</div>
 
 			<!-- Кнопки -->
-			<div class="flex gap-[10px xl:gap-4 justify-center">
-				<button id="accept-cookies" class="w-[125px] btn btn-black !text-[16px]/[28px] !px-2 mdOnly:w-[331px]">
+			<div class="flex gap-[10px] xl:gap-4 justify-center">
+				<button id="accept-cookies" class="notXl:w-1/2 btn btn-black !text-[16px]/[1]">
 					<?php echo esc_html(get_theme_mod('cookie_accept_text')); ?>
 				</button>
-				<div class="w-[145px] !max-h-[44px] md:w-[331px] xl:w-[150px] btn-border-gradient">
-					<button id="reject-cookies" class="!w-full btn btn-transparent !text-[16px]/[28px] !px-2">
+
+				<div class="notXl:w-1/2 btn-border-gradient">
+					<button id="reject-cookies" class="!w-full btn-transparent !text-[16px]/[1]">
 						<?php echo esc_html(get_theme_mod('cookie_reject_text')); ?>
 					</button>
 				</div>
