@@ -4678,4 +4678,33 @@ document.addEventListener("DOMContentLoaded", () => {
   animateCards(".animated-card.mobile .overlay");
   animateCards(".animated-card.desktop .overlay");
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("cookie-modal");
+  const showMoreBtn = document.getElementById("show-more");
+  const fullText = document.getElementById("cookie-full-text");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const rejectBtn = document.getElementById("reject-cookies");
+  if (localStorage.getItem("cookie-consent") === "accepted") {
+    banner.style.display = "none";
+    document.body.style.overflow = "";
+  } else {
+    banner.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+  if (showMoreBtn && fullText) {
+    showMoreBtn.addEventListener("click", () => {
+      fullText.classList.toggle("hidden");
+      showMoreBtn.style.display = "none";
+    });
+  }
+  acceptBtn.addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "accepted");
+    banner.style.display = "none";
+    document.body.style.overflow = "";
+  });
+  rejectBtn.addEventListener("click", () => {
+    banner.style.display = "none";
+    document.body.style.overflow = "";
+  });
+});
 //# sourceMappingURL=main.js.map
