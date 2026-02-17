@@ -19,6 +19,18 @@ function theme_customize_register($wp_customize)
 		'type' => 'email',
 	]);
 
+	// Media Kit Link
+	$wp_customize->add_setting('media_kit_link', [
+		'default' => '',
+		'sanitize_callback' => 'esc_url_raw',
+	]);
+	$wp_customize->add_control('media_kit_link_control', [
+		'label' => __('Media Kit Link', 'theme-slug'),
+		'section' => 'general_info_settings',
+		'settings' => 'media_kit_link',
+		'type' => 'url',
+	]);
+
 	// Slogan
 	$wp_customize->add_setting('footer_slogan', [
 		'default' => 'ВІД ЗНАНЬ ДО ВПЛИВУ',
