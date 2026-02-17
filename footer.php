@@ -121,6 +121,7 @@
 	</div>
 </footer>
 
+<?php get_template_part('template-parts/global/cookie-banner'); ?>
 
 <?php wp_footer(); ?>
 </body>
