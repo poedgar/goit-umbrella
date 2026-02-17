@@ -4684,27 +4684,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const fullText = document.getElementById("cookie-full-text");
   const acceptBtn = document.getElementById("accept-cookies");
   const rejectBtn = document.getElementById("reject-cookies");
-  if (localStorage.getItem("cookie-consent") === "accepted") {
-    banner.style.display = "none";
-    document.body.style.overflow = "";
-  } else {
+  const CONSENT_KEY = "cookie-consent";
+  function openBanner() {
     banner.style.display = "flex";
     document.body.style.overflow = "hidden";
   }
+  function closeBanner() {
+    banner.style.display = "none";
+    document.body.style.overflow = "";
+  }
+  const consent = localStorage.getItem(CONSENT_KEY);
+  if (!consent) {
+    openBanner();
+  } else {
+    closeBanner();
+  }
   if (showMoreBtn && fullText) {
     showMoreBtn.addEventListener("click", () => {
-      fullText.classList.toggle("hidden");
+      fullText.classList.remove("hidden");
       showMoreBtn.style.display = "none";
     });
   }
-  acceptBtn.addEventListener("click", () => {
-    localStorage.setItem("cookie-consent", "accepted");
-    banner.style.display = "none";
-    document.body.style.overflow = "";
-  });
-  rejectBtn.addEventListener("click", () => {
-    banner.style.display = "none";
-    document.body.style.overflow = "";
-  });
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem(CONSENT_KEY, "accepted");
+      closeBanner();
+    });
+  }
+  if (rejectBtn) {
+    rejectBtn.addEventListener("click", () => {
+      localStorage.setItem(CONSENT_KEY, "rejected");
+      closeBanner();
+    });
+  }
 });
 //# sourceMappingURL=main.js.map

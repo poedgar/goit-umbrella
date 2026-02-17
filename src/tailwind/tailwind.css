@@ -45,19 +45,16 @@
 		@apply text-center text-[20px]/[28px] font-medium uppercase text-gray md:text-[24px]/[32px] xl:text-[32px]/[36px];
 	}
 
-	.btn {
-		@apply flex max-h-11 items-center justify-center rounded-[4px] px-4  py-2 text-center text-[20px]/[28px] duration-300;
-		height: -webkit-fill-available;
-	}
 	.btn-black {
-		@apply text-white bg-black hover:bg-[#565656] focus:bg-[#565656]  active:bg-black;
+		@apply flex max-h-[44px] items-center justify-center rounded-[4px] p-2 text-center text-[20px]/[28px] duration-300 text-white bg-black hover:bg-[#565656] focus:bg-[#565656]  active:bg-black;
 	}
+
 	.btn-transparent {
-		@apply text-black bg-body;
+		@apply flex max-h-[44px] items-center justify-center rounded-[2px] p-2 text-center text-[20px]/[28px] duration-300 text-black bg-body;
 	}
+
 	.btn-border-gradient {
 		@apply inline-flex items-center justify-center rounded-[4px] p-[2px] transition-all duration-300;
-		height: -webkit-fill-available;
 		background: black;
 	}
 	.btn-border-gradient:hover {
@@ -78,11 +75,11 @@
 	}
 
 	.social-link {
-		@apply size-11 md:size-7 flex items-center justify-center bg-white rounded-[4px] border-2 border-black duration-300 hover:scale-[1.2] hover:border-accent-purple2 focus:border-accent-purple2 active:bg-accent-purple2;
+		@apply size-11 md:size-7 flex items-center justify-center bg-white rounded-[4px] border-2 border-black duration-300 hover:scale-[1.2] hover:bg-black focus:bg-black active:bg-black;
 
 		&:hover > svg path,
 		&:focus > svg path {
-			@apply fill-accent-purple2;
+			@apply fill-white;
 		}
 		&:active > svg path {
 			@apply fill-white;
