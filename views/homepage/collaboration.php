@@ -3,6 +3,8 @@
 $show_section = get_field('show_collaboration_section');
 $title = get_field('team_section_title');
 $team_members = get_field('team_members'); // repeater array
+$media_kit_link = get_theme_mod('media_kit_link');
+$contact_email = get_theme_mod('contact_email');
 
 // Don't render if disabled or empty
 if (!$show_section || empty($team_members)) {
@@ -70,18 +72,21 @@ if (!$show_section || empty($team_members)) {
 
 		<!-- MediaKit -->
 		<div class="mt-[80px] text-center mb-10 xl:mt-[128px] xl:mb-16 text-[20px]/[28px] ">
-			<!-- The PDF file should be uploaded to the following directory:
-    /assets/files/  -->
-			<div class="btn-border-gradient !w-[237px]">
-				<a class="btn btn-transparent !w-full" href="<?php echo get_template_directory_uri(); ?>/assets/files/media-kit-examples.pdf" download>
-					завантажити медіакіт
-				</a>
-			</div>
+			<?php if ($media_kit_link): ?>
+				<div class="btn-border-gradient !w-[237px]">
+					<a class="btn btn-transparent !w-full" href="<?= esc_url($media_kit_link) ?>" target="_blank" rel="noopener">
+						завантажити медіакіт
+					</a>
+				</div>
+			<?php endif; ?>
 
-			<p class="mt-8 uppercase text-center font-medium">З питань партнерств і PR:
-				<a class="hover:underline" href="mailto:info@bettered.global"> <?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?>
-				</a>
-			</p>
+			<?php if ($contact_email): ?>
+				<p class="mt-8 uppercase text-center font-medium">З питань партнерств і PR:
+					<a class="hover:underline" href="mailto:info@bettered.global"> <?php echo esc_html($contact_email); ?>
+					</a>
+				</p>
+			<?php endif; ?>
+
 		</div>
 	</div>
 </section>
