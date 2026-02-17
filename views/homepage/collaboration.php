@@ -69,12 +69,14 @@ if (!$show_section || empty($team_members)) {
 		</ul>
 
 		<!-- MediaKit -->
-		<div class="mt-[80px] mb-10 xl:mt-[128px] xl:mb-16 text-[20px]/[28px] ">
+		<div class="mt-[80px] text-center mb-10 xl:mt-[128px] xl:mb-16 text-[20px]/[28px] ">
 			<!-- The PDF file should be uploaded to the following directory:
     /assets/files/  -->
-			<a class="btn btn-transparent !w-[237px] mx-auto" href="<?php echo get_template_directory_uri(); ?>/assets/files/media-kit-examples.pdf" download>
-				завантажити медіакіт
-			</a>
+			<div class="btn-border-gradient !w-[237px]">
+				<a class="btn btn-transparent !w-full" href="<?php echo get_template_directory_uri(); ?>/assets/files/media-kit-examples.pdf" download>
+					завантажити медіакіт
+				</a>
+			</div>
 
 			<p class="mt-8 uppercase text-center font-medium">З питань партнерств і PR:
 				<a class="hover:underline" href="mailto:info@bettered.global"> <?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?>
