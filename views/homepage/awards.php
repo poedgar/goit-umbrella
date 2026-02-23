@@ -46,7 +46,7 @@ if (!$show_section || empty($awards_items)) return;
 						</p>
 
 						<!-- Desktop: tooltip -->
-						<div class="hidden xl:block absolute left-1/2 -translate-x-1/2 bottom-full mb-3 
+						<div class="hidden xl:block absolute left-1/2 -translate-x-1/2  top-full 
 									w-max max-w-[260px] 
 									rounded-xl bg-white shadow-lg 
 									px-4 py-2 text-sm text-gray-800 
