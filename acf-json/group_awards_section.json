@@ -114,7 +114,7 @@
                     "label": "Опис",
                     "name": "desc",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
