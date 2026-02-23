@@ -54,7 +54,7 @@ if (!$show_section || empty($awards_items)) return;
 									transition-all duration-200 
 									group-hover:opacity-100 group-hover:visible
 									z-50">
-							<?= esc_html($award['desc']); ?>
+							<?= wp_kses_post($award['desc']); ?>
 						</div>
 					<?php endif; ?>
 
