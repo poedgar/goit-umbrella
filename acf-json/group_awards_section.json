@@ -108,6 +108,26 @@
                     "mime_types": "",
                     "preview_size": "medium",
                     "parent_repeater": "field_awards_items"
+                },
+                {
+                    "key": "field_award_desc",
+                    "label": "Опис",
+                    "name": "desc",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "test",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         }
