@@ -106,7 +106,7 @@
 
 		<!-- Footer bottom -->
 		<div
-			class="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start text-center md:text-left text-base/[24px] text-gray-68">
+			class="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start xl:gap-[184.67px] text-center md:text-left text-base/[24px] text-gray-68">
 			<!-- Agreements links -->
 			<?php get_template_part('template-parts/menus/agreements-menu'); ?>
 
