@@ -112,7 +112,7 @@
 
 
 			<div class="xl:max-w-[230px] text-base/[24px] smOnly:mt-[10px] xl:ml-8">
-				BetterED © <?= date('Y'); ?>
+				BetterEd © <?= date('Y'); ?>
 			</div>
 
 			<p class="text-base/[24px] smOnly:mt-[10px]"><?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?></p>
