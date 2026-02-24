@@ -12,10 +12,10 @@ $courses      = get_field('ai_base_courses');
 $minicourses  = get_field('ai_base_minicourses');
 ?>
 
-<section id="ai-base" class=" section bg-black text-white">
+<section id="ai-base" class=" section">
   <div class="container max-w-7xl mx-auto">
     <!-- Header -->
-    <div class="text-center mb-16">
+    <div class="bg-black text-white text-center mb-16">
       <h1 class="text-5xl font-extrabold tracking-tight mb-6">
         <?php echo esc_html($main_title); ?>
       </h1>
