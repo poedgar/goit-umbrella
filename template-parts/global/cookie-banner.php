@@ -1,7 +1,7 @@
 <div id="cookie-modal" class="fixed py-5 inset-0 z-[99999] flex items-end justify-center bg-black/45 backdrop-blur-sm">
 	<div class="container">
 		<div class="bg-white rounded-[8px] p-5 flex gap-5 md:gap-4 md:p-4 notXl:flex-col xl:items-end xl:justify-between max-h-[80vh] overflow-y-auto">
-			<div class="flex flex-col gap-5 md:gap-4 xl:gap-0 items-start">
+			<div class="flex flex-col gap-5 md:gap-4 xl:gap-0 items-start xl:max-w-[908px]">
 				<p id="cookie-text" class="text-base">
 					<?php
 					$short = get_theme_mod('cookie_short_text', 'Ми використовуємо cookies для покращення роботи сайту.');
