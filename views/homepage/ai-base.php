@@ -1,6 +1,5 @@
 <section id="ai-base" class="section">
   <div class="container bg-black text-white py-20 px-6">
-
     <?php
     // Get ACF fields
     $show_section = get_field('show_ai_base_section');
