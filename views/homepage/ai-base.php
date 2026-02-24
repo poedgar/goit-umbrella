@@ -13,9 +13,9 @@ $minicourses  = get_field('ai_base_minicourses');
 ?>
 
 <section id="ai-base" class=" section">
-  <div class="container max-w-7xl mx-auto">
+  <div class="container bg-black text-white">
     <!-- Header -->
-    <div class="bg-black text-white text-center mb-16">
+    <div class="text-center mb-16">
       <h1 class="text-5xl font-extrabold tracking-tight mb-6">
         <?php echo esc_html($main_title); ?>
       </h1>
