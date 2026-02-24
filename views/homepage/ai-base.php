@@ -191,9 +191,6 @@ $minicourses  = get_field('ai_base_minicourses');
         </button>
       </div>
       <?php endif; // courses check ?>
-
     </div>
-    
-    <?php endif; // show_section check ?>
   </div>
 </section>
