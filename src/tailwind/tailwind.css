@@ -77,6 +77,10 @@
 	.social-link {
 		@apply size-11 md:size-7 flex items-center justify-center bg-white rounded-[4px] border-2 border-black duration-300 hover:scale-[1.2] hover:bg-black focus:bg-black active:bg-black;
 
+		& svg path {
+			@apply fill-black;
+		}
+
 		&:hover > svg path,
 		&:focus > svg path {
 			@apply fill-white;
