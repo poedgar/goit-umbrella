@@ -105,25 +105,18 @@
 		</div>
 
 		<!-- Footer bottom -->
-		<div class="w-full max-w-[1216px] mx-auto px-4">
-			<div class="grid grid-cols-1 md:grid-cols-3 items-center text-center md:text-left text-base/[24px] text-gray-68">
-				
-				<!-- Agreements links -->
-				<div class="justify-self-center md:justify-self-start">
-					<?php get_template_part('template-parts/menus/agreements-menu'); ?>
-				</div>
+		<div
+			class="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start xl:gap-[156.57px] text-center md:text-left text-base/[24px] text-gray-68">
+			<!-- Agreements links -->
+			<?php get_template_part('template-parts/menus/agreements-menu'); ?>
 
-				<!-- Copyright -->
-				<div class="justify-self-center">
-					BetterED © <?= date('Y'); ?>
-				</div>
 
-				<!-- Email -->
-				<p class="justify-self-center md:justify-self-end">
-					<?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?>
-				</p>
-
+			<div class="xl:max-w-[230px] text-base/[24px] smOnly:mt-[10px] xl:ml-8">
+				BetterED © <?= date('Y'); ?>
 			</div>
+
+			<p class="text-base/[24px] smOnly:mt-[10px]"><?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?></p>
+
 		</div>
 	</div>
 </footer>
