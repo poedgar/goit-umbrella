@@ -12,8 +12,8 @@ $courses      = get_field('ai_base_courses');
 $minicourses  = get_field('ai_base_minicourses');
 ?>
 
-<section class="bg-black text-white py-20 px-6">
-  <div class="max-w-7xl mx-auto">
+<section id="ai-base" class=" section bg-black text-white">
+  <div class="container max-w-7xl mx-auto">
     <!-- Header -->
     <div class="text-center mb-16">
       <h1 class="text-5xl font-extrabold tracking-tight mb-6">
