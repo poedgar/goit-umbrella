@@ -12,7 +12,7 @@
     </div>
 
     <!-- Cards -->
-    <div class="grid gap-10 lg:grid-cols-3">
+    <div class="grid gap-10 xl:grid-cols-3">
 
       <!-- Card 1 -->
       <div class="flex flex-col">
