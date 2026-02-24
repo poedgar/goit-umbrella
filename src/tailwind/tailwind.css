@@ -82,7 +82,7 @@
 			@apply fill-white;
 		}
 		&:active > svg path {
-			@apply fill-white;
+			@apply fill-black;
 		}
 	}
 
