@@ -41,7 +41,7 @@ if (!$show_section || empty($awards_items)) return;
 
 					<?php if (!empty($award['desc'])): ?>
 						<!-- Mobile: visible below image -->
-						<p class="text-center mt-2 text-sm text-gray-600 md:hidden">
+						<p class="text-center mt-2 text-sm text-gray-600 hidden">
 							<?= esc_html($award['desc']); ?>
 						</p>
 
