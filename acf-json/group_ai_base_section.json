@@ -1,369 +1,391 @@
 {
-  "key": "group_ai_base_section",
-  "title": "AI База",
-  "fields": [
-    {
-      "key": "field_show_ai_base_section",
-      "label": "Показувати секцію",
-      "name": "show_ai_base_section",
-      "aria-label": "",
-      "type": "true_false",
-      "instructions": "",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "ui": 1,
-      "default_value": 0,
-      "message": "",
-      "ui_on_text": "",
-      "ui_off_text": ""
-    },
-    {
-      "key": "field_ai_base_main_title",
-      "label": "Головний заголовок",
-      "name": "ai_base_main_title",
-      "aria-label": "",
-      "type": "text",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "default_value": "AI БАЗА",
-      "maxlength": "",
-      "placeholder": "",
-      "prepend": "",
-      "append": ""
-    },
-    {
-      "key": "field_ai_base_subtitle",
-      "label": "Підзаголовок",
-      "name": "ai_base_subtitle",
-      "aria-label": "",
-      "type": "text",
-      "instructions": "",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "default_value": "ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ",
-      "maxlength": "",
-      "placeholder": "",
-      "prepend": "",
-      "append": ""
-    },
-    {
-      "key": "field_ai_base_courses",
-      "label": "Базові курси",
-      "name": "ai_base_courses",
-      "aria-label": "",
-      "type": "repeater",
-      "instructions": "Go!Teens, CoIT, Neoversity",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "layout": "block",
-      "button_label": "+ Додати курс",
-      "min": 0,
-      "max": 0,
-      "rows_per_page": 20,
-      "collapsed": "",
-      "sub_fields": [
+    "key": "group_ai_base_section",
+    "title": "AI База",
+    "fields": [
         {
-          "key": "field_course_title",
-          "label": "Назва курсу",
-          "name": "title",
-          "aria-label": "",
-          "type": "text",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "33",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "maxlength": "",
-          "placeholder": "Go!Teens",
-          "prepend": "",
-          "append": "",
-          "parent_repeater": "field_ai_base_courses"
-        },
-        {
-          "key": "field_course_audience",
-          "label": "Аудиторія",
-          "name": "audience",
-          "aria-label": "",
-          "type": "text",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "33",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "maxlength": "",
-          "placeholder": "для підлітків онлайн",
-          "prepend": "",
-          "append": "",
-          "parent_repeater": "field_ai_base_courses"
-        },
-        {
-          "key": "field_course_lessons",
-          "label": "Кількість уроків",
-          "name": "lessons",
-          "aria-label": "",
-          "type": "text",
-          "instructions": "Можна використовувати число або 'x'",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "34",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "maxlength": "",
-          "placeholder": "5 / x",
-          "prepend": "",
-          "append": "відеоуроків",
-          "parent_repeater": "field_ai_base_courses"
-        }
-      ]
-    },
-    {
-      "key": "field_ai_base_minicourses",
-      "label": "Мінікурси та тест",
-      "name": "ai_base_minicourses",
-      "aria-label": "",
-      "type": "repeater",
-      "instructions": "Три блоки: практичний мінікурс, старт в AI, Knowledge Hub",
-      "required": false,
-      "conditional_logic": false,
-      "wrapper": {
-        "width": "",
-        "class": "",
-        "id": ""
-      },
-      "layout": "block",
-      "button_label": "+ Додати блок",
-      "min": 0,
-      "max": 3,
-      "rows_per_page": 20,
-      "collapsed": "",
-      "sub_fields": [
-        {
-          "key": "field_minicourse_type",
-          "label": "Тип блоку",
-          "name": "type",
-          "aria-label": "",
-          "type": "select",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "50",
-            "class": "",
-            "id": ""
-          },
-          "choices": {
-            "teens": "Мінікурс для підлітків",
-            "start": "Старт в AI",
-            "knowledge": "Knowledge Hub тест"
-          },
-          "default_value": "teens",
-          "allow_null": 0,
-          "multiple": 0,
-          "ui": 1,
-          "ajax": 0,
-          "return_format": "value",
-          "placeholder": "",
-          "parent_repeater": "field_ai_base_minicourses"
-        },
-        {
-          "key": "field_minicourse_title",
-          "label": "Заголовок",
-          "name": "title",
-          "aria-label": "",
-          "type": "text",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "50",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "maxlength": "",
-          "placeholder": "МІНІКУРС «ПРАКТИЧНЕ ЗАСТОСУВАННЯ AI»",
-          "prepend": "",
-          "append": "",
-          "parent_repeater": "field_ai_base_minicourses"
-        },
-        {
-          "key": "field_minicourse_audience",
-          "label": "Аудиторія / підзаголовок",
-          "name": "audience",
-          "aria-label": "",
-          "type": "text",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "maxlength": "",
-          "placeholder": "для підлітків від 12 років",
-          "prepend": "",
-          "append": "",
-          "parent_repeater": "field_ai_base_minicourses"
-        },
-        {
-          "key": "field_minicourse_features",
-          "label": "Особливості / пункти",
-          "name": "features",
-          "aria-label": "",
-          "type": "repeater",
-          "instructions": "Додайте пункти списку",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "layout": "table",
-          "button_label": "+ Додати пункт",
-          "min": 0,
-          "max": 0,
-          "rows_per_page": 20,
-          "collapsed": "",
-          "sub_fields": [
-            {
-              "key": "field_feature_text",
-              "label": "Текст пункту",
-              "name": "text",
-              "aria-label": "",
-              "type": "text",
-              "instructions": "",
-              "required": 0,
-              "conditional_logic": 0,
-              "wrapper": {
+            "key": "field_show_ai_base_section",
+            "label": "Показувати секцію",
+            "name": "show_ai_base_section",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
-              },
-              "default_value": "",
-              "maxlength": "",
-              "placeholder": "Ефективність промптів для будь-яких задач",
-              "prepend": "",
-              "append": "",
-              "parent_repeater": "field_minicourse_features"
-            }
-          ],
-          "parent_repeater": "field_ai_base_minicourses"
+            },
+            "ui": 1,
+            "default_value": 0,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
-          "key": "field_minicourse_button_text",
-          "label": "Текст кнопки",
-          "name": "button_text",
-          "aria-label": "",
-          "type": "text",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "50",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "розпочати",
-          "maxlength": "",
-          "placeholder": "",
-          "prepend": "",
-          "append": "",
-          "parent_repeater": "field_ai_base_minicourses"
+            "key": "field_ai_base_main_title",
+            "label": "Головний заголовок",
+            "name": "ai_base_main_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "AI БАЗА",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-          "key": "field_minicourse_button_link",
-          "label": "Посилання кнопки",
-          "name": "button_link",
-          "aria-label": "",
-          "type": "url",
-          "instructions": "",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "50",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "placeholder": "https://",
-          "parent_repeater": "field_ai_base_minicourses"
+            "key": "field_ai_base_subtitle",
+            "label": "Підзаголовок",
+            "name": "ai_base_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-          "key": "field_minicourse_badge",
-          "label": "Бейдж / мітка",
-          "name": "badge",
-          "aria-label": "",
-          "type": "text",
-          "instructions": "Наприклад: '150 інструментів', '9000+ хвилин'",
-          "required": 0,
-          "conditional_logic": 0,
-          "wrapper": {
-            "width": "",
-            "class": "",
-            "id": ""
-          },
-          "default_value": "",
-          "maxlength": "",
-          "placeholder": "",
-          "prepend": "",
-          "append": "",
-          "parent_repeater": "field_ai_base_minicourses"
+            "key": "field_ai_course_cards",
+            "label": "AI Course Cards",
+            "name": "ai_course_cards",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add AI course cards (maximum 3)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "button_label": "+ Додати картку курсу",
+            "min": 1,
+            "max": 3,
+            "rows_per_page": 3,
+            "collapsed": "field_card_title",
+            "sub_fields": [
+                {
+                    "key": "field_card_title",
+                    "label": "Назва картки",
+                    "name": "card_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Наприклад: GoITeens, GoIT, Neoversity",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "GoITeens",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
+                    "key": "field_card_badge_color",
+                    "label": "Колір бейджа",
+                    "name": "card_badge_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Виберіть колір для бейджа з назвою",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "yellow": "Жовтий (bg-yellow-400)",
+                        "orange": "Помаранчевий (bg-orange-500)",
+                        "purple": "Фіолетовий (bg-purple-600)",
+                        "blue": "Синій (bg-blue-600)",
+                        "green": "Зелений (bg-green-600)",
+                        "red": "Червоний (bg-red-600)"
+                    },
+                    "default_value": "yellow",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": "",
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
+                    "key": "field_card_audience",
+                    "label": "Аудиторія",
+                    "name": "card_audience",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Наприклад: для підлітків, для новачків, для айтіївців",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "для підлітків",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
+                    "key": "field_card_image",
+                    "label": "Зображення картки",
+                    "name": "card_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Рекомендований розмір: 600x400px",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "jpg, jpeg, png, webp",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
+                    "key": "field_card_course_title",
+                    "label": "Заголовок курсу",
+                    "name": "course_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Повний заголовок курсу",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "МІНІКУРС «ПРАКТИЧНЕ ЗАСТОСУВАННЯ AI» ДЛЯ ПІДЛІТКІВ ВІД 12 РОКІВ",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
+                    "key": "field_course_features",
+                    "label": "Особливості курсу",
+                    "name": "course_features",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Додайте пункти списку (максимум 3)",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "button_label": "+ Додати пункт",
+                    "min": 1,
+                    "max": 3,
+                    "rows_per_page": 3,
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_feature_icon",
+                            "label": "Іконка",
+                            "name": "feature_icon",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "Виберіть іконку для пункту",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "20",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "📁": "📁 Папка",
+                                "❤️": "❤️ Серце",
+                                "⚙️": "⚙️ Шестерня",
+                                "💬": "💬 Діалог",
+                                "🖼️": "🖼️ Картина",
+                                "🤖": "🤖 Робот",
+                                "▶️": "▶️ Плей",
+                                "👥": "👥 Люди",
+                                "💻": "💻 Комп'ютер",
+                                "🚀": "🚀 Ракета",
+                                "💡": "💡 Ідея",
+                                "🎓": "🎓 Капелюх"
+                            },
+                            "default_value": "📁",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": "",
+                            "parent_repeater": "field_course_features"
+                        },
+                        {
+                            "key": "field_feature_text",
+                            "label": "Текст пункту",
+                            "name": "feature_text",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "80",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Ефективні промпти для будь-яких задач",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_course_features"
+                        }
+                    ],
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
+                    "key": "field_card_badge_text",
+                    "label": "Текст бейджа (додатковий)",
+                    "name": "card_badge_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Наприклад: '150 інструментів', '9000+ хвилин'",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "150 інструментів AI",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
+                    "key": "field_card_button_text",
+                    "label": "Текст кнопки",
+                    "name": "button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "розпочати",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
+                    "key": "field_card_button_link",
+                    "label": "Посилання кнопки",
+                    "name": "button_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https://",
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
+                    "key": "field_free_badge",
+                    "label": "Показувати бейдж FREE",
+                    "name": "show_free_badge",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "ui": 1,
+                    "default_value": 1,
+                    "message": "",
+                    "ui_on_text": "Так",
+                    "ui_off_text": "Ні",
+                    "parent_repeater": "field_ai_course_cards"
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "location": [
-    [
-      {
-        "param": "page_template",
-        "operator": "==",
-        "value": "page-templates/homepage.php"
-      }
-    ]
-  ],
-  "menu_order": 0,
-  "position": "normal",
-  "style": "default",
-  "label_placement": "top",
-  "instruction_placement": "label",
-  "hide_on_screen": "",
-  "active": true,
-  "description": "Секція AI База з курсами та мінікурсами",
-  "show_in_rest": 0,
-  "modified": 1764926157
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/homepage.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Секція AI курсу з картками",
+    "show_in_rest": 0,
+    "modified": 1764926157
 }
