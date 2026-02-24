@@ -9,7 +9,7 @@ if (has_nav_menu('agreements')) {
 	wp_nav_menu([
 		'theme_location' => 'agreements',
 		'container'      => false,
-		'menu_class'     => 'agreements-menu xl:w-[585px] flex flex-col md:flex-row xl:justify-between gap-[10px] md:gap-4',
+		'menu_class'     => 'agreements-menu xl:w-[585px] flex flex-col md:flex-row xl:justify-between gap-[10px] md:gap-4 xl:gap-[184.67px]',
 		'fallback_cb'    => false,
 	]);
 }
