@@ -1,15 +1,15 @@
 <?php
-// Get ACF fields
 $show_section = get_field('show_ai_base_section');
-if ($show_section) :
-    $main_title = get_field('ai_base_main_title') ?: 'AI БАЗА';
-    $subtitle = get_field('ai_base_subtitle') ?: 'ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ';
-    $courses = get_field('ai_base_courses');
-    $minicourses = get_field('ai_base_minicourses');
 
-else :
-    return; // Don't render if section disabled
-endif;
+if (!$show_section) {
+    return;
+}
+
+// All code below this line only runs when section is enabled
+$main_title   = get_field('ai_base_main_title')   ?: 'AI БАЗА';
+$subtitle     = get_field('ai_base_subtitle')     ?: 'ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ';
+$courses      = get_field('ai_base_courses');
+$minicourses  = get_field('ai_base_minicourses');
 ?>
 
 <section class="bg-black text-white py-20 px-6">
