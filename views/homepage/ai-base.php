@@ -74,22 +74,27 @@
                 </span>
                 
                 <?php if ($card['show_free_badge']) : ?>
-                <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black p-1 rounded-[4px]">free</span>
+                    <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black p-1 rounded-[4px]">
+                        free
+                    </span>
                 <?php endif; ?>
                 
-                <span class="">
+                <span>
                     <?php echo esc_html($card['card_audience']); ?>
                 </span>
 
-                <br class="md:hidden" />
-                
-                <span class="">онлайн</span>
+                <!-- break тільки на mobile -->
+                <div class="w-full md:hidden"></div>
 
-                <br class="md:hidden xl:block" />
+                <span>онлайн</span>
 
-                <span class="">
+                <!-- break mobile + xl -->
+                <div class="w-full md:hidden xl:block"></div>
+
+                <span>
                     <?php echo esc_html($card['card_lectures']) . ' відеоуроків'; ?>
                 </span>
+
             </div>
 
             <!-- Image -->
