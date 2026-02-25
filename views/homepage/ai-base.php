@@ -104,7 +104,7 @@
             </div>
 
             <!-- Title -->
-            <h3 class="uppercase text-[20px]/[28px] md:text-[24px]/[32px] font-medium mb-8">
+            <h3 class="uppercase xl:min-h-[96px] text-[20px]/[28px] md:text-[24px]/[32px] font-medium mb-8">
             <?php echo esc_html($card['course_title']); ?>
             </h3>
 
