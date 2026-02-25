@@ -84,13 +84,11 @@
 	a.btn-border-gradient-ai-base {
 		display: inline-block;
 		padding: 0.5rem 1rem;
-		border: 2px solid !important;
 		text-decoration: none;
 		transition: 0.3s;
 	}
 
 	a.btn-border-gradient-ai-base:hover {
-		border: 2px solid;
 		/* required for border-image */
 		border-image: linear-gradient(135deg, #5A05F4, #FF8856, #FFC72C) 1;
 	}
