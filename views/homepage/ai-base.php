@@ -33,7 +33,7 @@
             <div class="flex mt-8 gap-5 md:gap-4 md:justify-center">
                 <img src="<?php echo get_template_directory_uri(); ?>/src/images/homepage/ai-base/lock.png" alt="декорація" class="w-6 h-6">
                 
-                <p class="text-[#FF8856] text-[16px]/[24px] md:text-[20px]/[28px]">
+                <p class="text-[#FF8856] text-[16px]/[24px] md:text-[20px]/[20px]">
                     Відкритий доступ до навчання протягом березня
                 </p>
             </div>
