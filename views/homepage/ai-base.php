@@ -21,8 +21,7 @@
         </div>
 
         <!-- AI Course Cards -->
-        <div class="grid gap-10 xl:grid-cols-3 mt-10 md:mt-16 xl:mt-8">
-
+        <div class="grid gap-10 md:gap-16 xl:gap-8 xl:grid-cols-3 mt-10 md:mt-16 xl:mt-8">
         <?php 
         // Loop through course cards from ACF
         if ($course_cards) : 
@@ -83,13 +82,13 @@
             </div>
 
             <!-- Title -->
-            <h3 class="text-[24px]/[32px] font-medium mb-8">
+            <h3 class="uppercase text-[20px]/[28px] md:text-[24px]/[32px] font-medium mb-8">
             <?php echo esc_html($card['course_title']); ?>
             </h3>
 
             <!-- Features List -->
             <?php if (!empty($card['course_features'])) : ?>
-            <ul class="space-y-4 text-[16px]/[24px] text-gray-300 mb-8">
+            <ul class="space-y-4 text-[16px]/[24px] text-gray-300 mb-[40px]">
             <?php foreach ($card['course_features'] as $feature) : ?>
             <li class="flex gap-4">
                 <span class="w-6 h-6 flex items-center justify-center"><?php echo $feature['feature_icon']; ?></span>
@@ -109,7 +108,7 @@
 
             <!-- Button -->
             <a href="<?php echo esc_url($button_link); ?>" 
-            class="mt-auto w-[126px] h-[44px] text-white border border-white px-4 py-2 rounded-[4px] hover:bg-white hover:text-black transition text-center inline-block">
+            class="mt-auto w-[126px] h-[44px] text-white text-[20px]/[28px] border border-white px-4 py-2 rounded-[4px] hover:bg-white hover:text-black transition text-center inline-block">
             <?php echo esc_html($button_text); ?>
             </a>
         </div>
