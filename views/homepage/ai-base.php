@@ -114,6 +114,7 @@
         </div>
         <?php 
             endforeach; 
+        ?>
         <?php endif; // course_cards check ?>
         </div>
     </div>
