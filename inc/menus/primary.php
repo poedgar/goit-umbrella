@@ -27,7 +27,7 @@ class Custom_Anchor_Walker extends Walker_Nav_Menu {
             } else {
                 // Check if first menu item (про нас style)
                 $is_first = strpos($output, '<a') === false;
-                $class = $is_first ? 'btn-transparent text-black px-4 py-2 rounded' : 'text-black hover:text-gray-600 transition-colors';
+                $class = $is_first ? 'btn-transparent text-black border border-black px-4 py-2 rounded' : 'text-black hover:text-gray-600 transition-colors';
 
                 $output .= '<a href="' . esc_url($item->url) . '" class="' . $class . '">';
                 $output .= esc_html($item->title);
