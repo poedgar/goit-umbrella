@@ -85,6 +85,10 @@
 		position: relative;
 	}
 
+	.btn-border-gradient-ai-base:hover {
+		border: none;
+	}
+
 	.btn-border-gradient-ai-base::before {
 		content: "";
 		position: absolute;
