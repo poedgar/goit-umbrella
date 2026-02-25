@@ -35,7 +35,7 @@
                         $badge_color = 'bg-[#FFBD01] text-black';
                         break;
                     case 'orange':
-                        $badge_color = 'bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] min-h-[300px] text-black';
+                        $badge_color = 'bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black';
                         break;
                     case 'purple':
                         $badge_color = 'bg-[#A472FF] text-white';
@@ -63,7 +63,7 @@
             </span>
             
             <?php if ($card['show_free_badge']) : ?>
-            <span class="bg-pink-500 px-3 py-1 rounded-full">free</span>
+            <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-[16px]/[24px] p-1 rounded-[4px]">free</span>
             <?php endif; ?>
             
             <span class="bg-gray-700 px-3 py-1 rounded-full">
