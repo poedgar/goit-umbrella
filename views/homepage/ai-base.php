@@ -32,25 +32,16 @@
                 $badge_color = '';
                 switch ($card['card_badge_color']) {
                     case 'yellow':
-                        $badge_color = 'bg-yellow-400 text-black';
+                        $badge_color = 'bg-[#FFBD01] text-black';
                         break;
                     case 'orange':
-                        $badge_color = 'bg-orange-500 text-black';
+                        $badge_color = 'bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] min-h-[300px] text-black';
                         break;
                     case 'purple':
-                        $badge_color = 'bg-purple-600 text-white';
-                        break;
-                    case 'blue':
-                        $badge_color = 'bg-blue-600 text-white';
-                        break;
-                    case 'green':
-                        $badge_color = 'bg-green-600 text-white';
-                        break;
-                    case 'red':
-                        $badge_color = 'bg-red-600 text-white';
+                        $badge_color = 'bg-[#A472FF] text-white';
                         break;
                     default:
-                        $badge_color = 'bg-yellow-400 text-black';
+                        $badge_color = 'bg-[#FFBD01] text-black';
                 }
                 
                 // Get image
