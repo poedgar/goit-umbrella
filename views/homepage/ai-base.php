@@ -7,6 +7,18 @@
         $main_title = get_field('ai_base_main_title') ?: 'AI БАЗА';
         $subtitle = get_field('ai_base_subtitle') ?: 'ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ';
         $course_cards = get_field('ai_course_cards');
+
+        $icon_map = [
+            "📁" => get_template_directory_uri() . "/src/images/homepage/ai-base/0.png",
+            "❤️" => get_template_directory_uri() . "/src/images/homepage/ai-base/1.png",
+            "⚙️" => get_template_directory_uri() . "/src/images/homepage/ai-base/2.png",
+            "💬" => get_template_directory_uri() . "/src/images/homepage/ai-base/3.png",
+            "🖼️" => get_template_directory_uri() . "/src/images/homepage/ai-base/4.png",
+            "🤖" => get_template_directory_uri() . "/src/images/homepage/ai-base/5.png",
+            "▶️" => get_template_directory_uri() . "/src/images/homepage/ai-base/6.png",
+            "👥" => get_template_directory_uri() . "/src/images/homepage/ai-base/7.png",
+            "💻" => get_template_directory_uri() . "/src/images/homepage/ai-base/8.png",
+        ];
     ?>
     <div class="bg-black text-white p-[20px] md:py-8 md:px-8 xl:py-[128px] xl:px-[64px] rounded-[8px]">
         <!-- Header -->
@@ -99,7 +111,16 @@
             <ul class="space-y-4 text-[16px]/[24px] text-gray-300 mb-[40px]">
             <?php foreach ($card['course_features'] as $feature) : ?>
             <li class="flex gap-4">
-                <span class="w-6 h-6 flex items-center justify-center"><?php echo $feature['feature_icon']; ?></span>
+                <span class="w-6 h-6 flex items-center justify-center">
+                    <?php 
+                        $icon = $feature['feature_icon'];
+                        if (isset($icon_map[$icon])) {
+                            echo '<img src="' . esc_url($icon_map[$icon]) . '" alt="" class="w-6 h-6 object-contain">';
+                        } else {
+                            echo esc_html($icon); // fallback if not found
+                        }
+                    ?>
+                </span>                
                 <?php echo esc_html($feature['feature_text']); ?>
             </li>
             <?php endforeach; ?>
