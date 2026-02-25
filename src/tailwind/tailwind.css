@@ -85,11 +85,22 @@
 		display: inline-block;
 	}
 
+	.btn-border-gradient-ai-base {
+		background:
+			black padding-box,
+			transparent border-box;
+		/* no gradient initially */
+
+		border: 2px solid transparent;
+		border-radius: 999px;
+
+		transition: background 0.4s ease;
+	}
+
 	.btn-border-gradient-ai-base:hover {
-		border-color: linear-gradient(135deg,
-				#5A05F4 0%,
-				#ff8856 50%,
-				#ffc72f 100%);
+		background:
+			black padding-box,
+			linear-gradient(135deg, #5A05F4 0%, #ff8856 50%, #ffc72f 100%) border-box;
 	}
 
 	.social-link {
