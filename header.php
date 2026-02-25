@@ -38,7 +38,7 @@
                 </a>
 
                 <!-- Desktop Navigation Menu -->
-                <div class="btn-border-gradient hidden md:flex items-center gap-8 xl:ml-auto xl:mr-4">
+                <div class="btn-border-gradient !hidden md:!flex items-center gap-8 xl:ml-auto xl:mr-4">
                     <?php
 					wp_nav_menu(array(
 						'theme_location' => 'primary',
