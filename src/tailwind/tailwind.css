@@ -10,15 +10,24 @@
 	body {
 		@apply bg-body font-inter text-[16px]/[24px] font-normal text-black;
 	}
+
+	.container {
+		@media (min-width: 1280px) {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
 }
 
 @layer components {
 	.swiper {
 		@apply h-full w-full overflow-hidden;
 	}
+
 	.swiper-wrapper {
 		@apply box-content flex items-stretch transition-transform;
 	}
+
 	.swiper-slide {
 		@apply h-full w-full shrink-0;
 	}
@@ -46,7 +55,7 @@
 	}
 
 	.btn-black {
-		@apply flex max-h-[44px] items-center justify-center rounded-[4px] p-2 text-center text-[20px]/[28px] duration-300 text-white bg-black hover:bg-[#565656] focus:bg-[#565656]  active:bg-black;
+		@apply flex max-h-[44px] items-center justify-center rounded-[4px] p-2 text-center text-[20px]/[28px] duration-300 text-white bg-black hover:bg-[#565656] focus:bg-[#565656] active:bg-black;
 	}
 
 	.btn-transparent {
@@ -57,21 +66,19 @@
 		@apply inline-flex items-center justify-center rounded-[4px] p-[2px] transition-all duration-300;
 		background: black;
 	}
+
 	.btn-border-gradient:hover {
-		background: linear-gradient(
-			135deg,
-			#5a05f4 0%,
-			#ff8856 50%,
-			#ffc72f 100%
-		);
+		background: linear-gradient(135deg,
+				#5a05f4 0%,
+				#ff8856 50%,
+				#ffc72f 100%);
 	}
+
 	.btn-border-gradient:active {
-		background: linear-gradient(
-			315deg,
-			#5a05f4 0%,
-			#ff8856 50%,
-			#ffc72f 100%
-		);
+		background: linear-gradient(315deg,
+				#5a05f4 0%,
+				#ff8856 50%,
+				#ffc72f 100%);
 	}
 
 	.social-link {
@@ -81,11 +88,12 @@
 			@apply fill-black;
 		}
 
-		&:hover > svg path,
-		&:focus > svg path {
+		&:hover>svg path,
+		&:focus>svg path {
 			@apply fill-white;
 		}
-		&:active > svg path {
+
+		&:active>svg path {
 			@apply fill-white;
 		}
 	}
@@ -97,6 +105,7 @@
 	.nowrap-md {
 		@apply md:whitespace-nowrap md:block xl:inline;
 	}
+
 	.nowrap-xl {
 		@apply xl:whitespace-nowrap xl:block;
 	}
