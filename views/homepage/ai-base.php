@@ -76,7 +76,7 @@
                 <br/ class="md:hidden xl:block" />
 
                 <span class="">
-                    <?php echo esc_html($card['card_lectures']) . ' лекцій'; ?>
+                    <?php echo esc_html($card['card_lectures']) . ' відеоуроків'; ?>
                 </span>
             </div>
 
