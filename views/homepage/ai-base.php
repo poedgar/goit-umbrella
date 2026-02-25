@@ -1,7 +1,6 @@
 <section id="ai-base" class="section">
   <div class="container">
     <?php
-    // Get ACF fields
     $show_section = get_field('show_ai_base_section');
     if ($show_section) :
         $main_title = get_field('ai_base_main_title') ?: 'AI БАЗА';
