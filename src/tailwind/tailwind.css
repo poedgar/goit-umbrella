@@ -81,9 +81,13 @@
 				#ffc72f 100%);
 	}
 
+	.btn-border-gradient-ai-base {
+		display: none;
+	}
+
 	.btn-border-gradient-ai-base:hover {
 		border-color: linear-gradient(135deg,
-				#5a05f4 0%,
+				#5A05F4 0%,
 				#ff8856 50%,
 				#ffc72f 100%);
 	}
