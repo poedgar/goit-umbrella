@@ -8,15 +8,16 @@
         $subtitle = get_field('ai_base_subtitle') ?: 'ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ';
         $course_cards = get_field('ai_course_cards');
     ?>
-    <div class="bg-black text-white py-20 px-6">
+    <div class="bg-black text-white xl:py-[64px] xl:px-[128px]">
         <!-- Header -->
-        <div class="text-center mb-16">
-        <h1 class="text-5xl font-extrabold tracking-tight mb-6">
-            <?php echo esc_html($main_title); ?>
-        </h1>
-        <p class="text-2xl text-gray-300">
-            <?php echo esc_html($subtitle); ?>
-        </p>
+        <div class="">
+            <h1 class="section-title">
+                <?php echo esc_html($main_title); ?>
+            </h1>
+
+            <p class="low-section-title mdOnly:text-[32px]/[40px] mt-5 md:mt-8">
+                <?php echo esc_html($subtitle); ?>
+            </p>
         </div>
 
         <!-- AI Course Cards -->
