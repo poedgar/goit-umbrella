@@ -63,7 +63,7 @@
             </span>
             
             <?php if ($card['show_free_badge']) : ?>
-            <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-[16px]/[24px] p-1 rounded-[4px]">free</span>
+            <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black text-[16px]/[24px] p-1 rounded-[4px]">free</span>
             <?php endif; ?>
             
             <span class="bg-gray-700 px-3 py-1 rounded-full">
