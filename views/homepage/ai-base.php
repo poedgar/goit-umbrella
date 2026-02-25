@@ -57,19 +57,27 @@
         <div class="flex flex-col">
             <!-- Badges -->
             <div class="flex flex-wrap gap-2 mb-4 text-[16px]/[24px]">
-            <span class="<?php echo $badge_color; ?> p-1 rounded-[4px]">
-                <?php echo esc_html($card['card_title']); ?>
-            </span>
-            
-            <?php if ($card['show_free_badge']) : ?>
-            <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black p-1 rounded-[4px]">free</span>
-            <?php endif; ?>
-            
-            <span class="">
-                <?php echo esc_html($card['card_audience']); ?>
-            </span>
-            
-            <span class="">онлайн</span>
+                <span class="<?php echo $badge_color; ?> p-1 rounded-[4px]">
+                    <?php echo esc_html($card['card_title']); ?>
+                </span>
+                
+                <?php if ($card['show_free_badge']) : ?>
+                <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black p-1 rounded-[4px]">free</span>
+                <?php endif; ?>
+                
+                <span class="">
+                    <?php echo esc_html($card['card_audience']); ?>
+                </span>
+
+                <br/ class="md:hidden" />
+                
+                <span class="">онлайн</span>
+
+                <br/ class="md:hidden xl:block" />
+
+                <span class="">
+                    <?php echo esc_html($card['card_lectures']) . ' лекцій'; ?>
+                </span>
             </div>
 
             <!-- Image -->
@@ -96,14 +104,6 @@
             </li>
             <?php endforeach; ?>
             </ul>
-            <?php endif; ?>
-
-            <!-- Additional Badge if exists -->
-            <?php if (!empty($card['card_badge_text'])) : ?>
-            <div class="text-sm text-gray-400 mb-4 flex items-center gap-2">
-            <span class="inline-block w-2 h-2 bg-pink-500 rounded-full"></span>
-            <?php echo esc_html($card['card_badge_text']); ?>
-            </div>
             <?php endif; ?>
 
             <!-- Button -->
