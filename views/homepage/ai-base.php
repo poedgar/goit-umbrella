@@ -131,7 +131,7 @@
 
             <!-- Button -->
             <a href="<?php echo esc_url($button_link); ?>" 
-            class="btn-transparent mt-auto w-[126px] h-[44px] text-white text-[20px]/[28px] border border-white px-4 py-2 rounded-[4px] text-center inline-block">
+            class="mt-auto w-[126px] h-[44px] text-white text-[20px]/[28px] border border-white px-4 py-2 rounded-[4px] text-center inline-block">
             <?php echo esc_html($button_text); ?>
             </a>
         </div>
