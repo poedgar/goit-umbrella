@@ -85,24 +85,6 @@
 		display: inline-block;
 	}
 
-	.btn-border-gradient-ai-base {
-		background:
-			black padding-box,
-			transparent border-box;
-		/* no gradient initially */
-
-		border: 2px solid transparent;
-		border-radius: 999px;
-
-		transition: background 0.4s ease;
-	}
-
-	.btn-border-gradient-ai-base:hover {
-		background:
-			black padding-box,
-			linear-gradient(135deg, #5A05F4 0%, #ff8856 50%, #ffc72f 100%) border-box;
-	}
-
 	.social-link {
 		@apply size-11 md:size-7 flex items-center justify-center bg-white rounded-[4px] border-2 border-black duration-300 hover:scale-[1.2] hover:bg-black focus:bg-black active:bg-black;
 
