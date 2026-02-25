@@ -8,7 +8,7 @@
         $subtitle = get_field('ai_base_subtitle') ?: 'ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ';
         $course_cards = get_field('ai_course_cards');
     ?>
-    <div class="bg-black text-white xl:py-[64px] xl:px-[128px]">
+    <div class="bg-black text-white xl:py-[128px] xl:px-[64px] rounded-[8px]">
         <!-- Header -->
         <div class="">
             <h1 class="section-title">
