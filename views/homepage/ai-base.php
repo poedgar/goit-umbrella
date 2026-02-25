@@ -21,7 +21,7 @@
         </div>
 
         <!-- AI Course Cards -->
-        <div class="grid gap-10 xl:grid-cols-3">
+        <div class="grid gap-10 xl:grid-cols-3 mt-10 md:mt-16 xl:mt-8">
 
         <?php 
         // Loop through course cards from ACF
