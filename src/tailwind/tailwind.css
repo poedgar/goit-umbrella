@@ -81,34 +81,22 @@
 				#ffc72f 100%);
 	}
 
-	.btn-border-gradient-ai-base {
-		position: relative;
+	a.btn-border-gradient-ai-base {
+		display: inline-block;
+		border: 2px solid black;
+		/* normal border */
+		border-radius: 8px;
+		padding: 0.5rem 1rem;
+		color: black;
+		text-decoration: none;
+		transition: 0.3s;
+		/* smooth hover */
 	}
 
-	.btn-border-gradient-ai-base:hover {
-		border: none;
-	}
-
-	.btn-border-gradient-ai-base::before {
-		content: "";
-		position: absolute;
-		inset: -2px;
-		border-radius: 2px;
-		padding: 2px;
-		/* border thickness */
-		background: linear-gradient(135deg, #5A05F4, #FF8856, #FFC72C);
-		-webkit-mask:
-			linear-gradient(#000 0 0) content-box,
-			linear-gradient(#000 0 0);
-		-webkit-mask-composite: xor;
-		mask-composite: exclude;
-		opacity: 0;
-		transition: opacity 0.3s ease;
-		pointer-events: none;
-	}
-
-	.btn-border-gradient-ai-base:hover::before {
-		opacity: 1;
+	a.btn-border-gradient-ai-base:hover {
+		border: 2px solid;
+		/* required for border-image */
+		border-image: linear-gradient(135deg, #5A05F4, #FF8856, #FFC72C) 1;
 	}
 
 	.social-link {
