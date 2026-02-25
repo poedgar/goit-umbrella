@@ -82,7 +82,7 @@
 	}
 
 	.btn-border-gradient-ai-base {
-		display: none;
+		display: inline-block;
 	}
 
 	.btn-border-gradient-ai-base:hover {
