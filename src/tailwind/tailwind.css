@@ -83,11 +83,8 @@
 
 	a.btn-border-gradient-ai-base {
 		display: inline-block;
-		border: 2px solid black;
 		/* normal border */
-		border-radius: 8px;
 		padding: 0.5rem 1rem;
-		color: black;
 		text-decoration: none;
 		transition: 0.3s;
 		/* smooth hover */
