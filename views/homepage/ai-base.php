@@ -66,36 +66,24 @@
             <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black text-[16px]/[24px] p-1 rounded-[4px]">free</span>
             <?php endif; ?>
             
-            <span class="bg-gray-700 px-3 py-1 rounded-full">
+            <span class="text-[16px]/[24px]">
                 <?php echo esc_html($card['card_audience']); ?>
             </span>
             
-            <span class="bg-gray-700 px-3 py-1 rounded-full">онлайн</span>
+            <span class="text-[16px]/[24px]">онлайн</span>
             </div>
 
             <!-- Image -->
-            <div class="rounded-2xl overflow-hidden mb-6">
+            <div class="rounded-[8px] overflow-hidden mb-4">
             <?php if ($image_url) : ?>
                 <img src="<?php echo esc_url($image_url); ?>" 
                     alt="<?php echo esc_attr($image_alt); ?>" 
                     class="w-full h-56 object-cover">
-            <?php else : ?>
-                <!-- Fallback gradient with icon -->
-                <div class="w-full h-56 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center text-6xl">
-                <?php 
-                // Different emoji based on card index or title
-                $title_lower = strtolower($card['card_title']);
-                if (strpos($title_lower, 'teen') !== false) echo '📚';
-                elseif (strpos($title_lower, 'goit') !== false) echo '🚀';
-                elseif (strpos($title_lower, 'neoversity') !== false) echo '💡';
-                else echo '🤖';
-                ?>
-                </div>
             <?php endif; ?>
             </div>
 
             <!-- Title -->
-            <h3 class="text-xl font-semibold mb-6 leading-snug">
+            <h3 class="text-[24px]/[32px] font-medium mb-8">
             <?php echo esc_html($card['course_title']); ?>
             </h3>
 
