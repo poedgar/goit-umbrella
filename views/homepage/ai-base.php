@@ -9,15 +9,15 @@
         $course_cards = get_field('ai_course_cards');
 
         $icon_map = [
-            "📁" => get_template_directory_uri() . "/src/images/homepage/ai-base-list/0.png",
-            "❤️" => get_template_directory_uri() . "/src/images/homepage/ai-base-list/1.png",
-            "⚙️" => get_template_directory_uri() . "/src/images/homepage/ai-base-list/2.png",
-            "💬" => get_template_directory_uri() . "/src/images/homepage/ai-base-list/3.png",
-            "🖼️" => get_template_directory_uri() . "/src/images/homepage/ai-base-list/4.png",
-            "🤖" => get_template_directory_uri() . "/src/images/homepage/ai-base-list/5.png",
-            "▶️" => get_template_directory_uri() . "/src/images/homepage/ai-base-list/6.png",
-            "👥" => get_template_directory_uri() . "/src/images/homepage/ai-base-list/7.png",
-            "💻" => get_template_directory_uri() . "/src/images/homepage/ai-base-list/8.png",
+            "📁" => get_template_directory_uri() . "/src/images/homepage/ai-base/0.png",
+            "❤️" => get_template_directory_uri() . "/src/images/homepage/ai-base/1.png",
+            "⚙️" => get_template_directory_uri() . "/src/images/homepage/ai-base/2.png",
+            "💬" => get_template_directory_uri() . "/src/images/homepage/ai-base/3.png",
+            "🖼️" => get_template_directory_uri() . "/src/images/homepage/ai-base/4.png",
+            "🤖" => get_template_directory_uri() . "/src/images/homepage/ai-base/5.png",
+            "▶️" => get_template_directory_uri() . "/src/images/homepage/ai-base/6.png",
+            "👥" => get_template_directory_uri() . "/src/images/homepage/ai-base/7.png",
+            "💻" => get_template_directory_uri() . "/src/images/homepage/ai-base/8.png",
         ];
     ?>
     <div class="bg-black text-white p-[20px] md:py-8 md:px-8 xl:py-[128px] xl:px-[64px] rounded-[8px]">
@@ -30,6 +30,14 @@
             <p class="low-section-title !text-white mdOnly:text-[32px]/[40px] mt-5 md:mt-8">
                 <?php echo esc_html($subtitle); ?>
             </p>
+
+            <div class="flex mt-8 gap-5 md:gap-4 md:justify-center">
+                <img src="<?php echo get_template_directory_uri(); ?>/src/images/homepage/ai-base/lock.png" alt="декорація" class="w-6 h-6">
+                
+                <p class="text-[#FF8856] text-[16px]/[24px] md:text-[20px]/[28px]">
+                    Відкритий доступ до навчання протягом березня
+                </p>
+            </div>
         </div>
 
         <!-- AI Course Cards -->
