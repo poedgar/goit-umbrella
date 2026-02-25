@@ -26,12 +26,12 @@ class Custom_Anchor_Walker extends Walker_Nav_Menu {
                 $output .= '</button>';
             } else {
                 // Check if first menu item (про нас style)
-                $is_first = strpos($output, '<a') === false;
-                $class = $is_first ? 'btn-border-gradient-ai-base text-black px-4 py-2 border-2 border-black rounded' : 'text-black hover:text-gray-600 transition-colors';
+                $is_first = strpos($output, '<div class="btn-border-gradient"><a') === false;
+                $class = $is_first ? 'btn-transparent text-black px-4 py-2 border-2 border-black rounded' : 'text-black hover:text-gray-600 transition-colors';
 
                 $output .= '<a href="' . esc_url($item->url) . '" class="' . $class . '">';
                 $output .= esc_html($item->title);
-                $output .= '</a>';
+                $output .= '</a></div>';
             }
         } else {
             // Dropdown items
