@@ -81,11 +81,11 @@
                     <?php echo esc_html($card['card_audience']); ?>
                 </span>
 
-                <br/ class="md:hidden" />
+                <br class="md:hidden" />
                 
                 <span class="">онлайн</span>
 
-                <br/ class="md:hidden xl:block" />
+                <br class="md:hidden xl:block" />
 
                 <span class="">
                     <?php echo esc_html($card['card_lectures']) . ' відеоуроків'; ?>
