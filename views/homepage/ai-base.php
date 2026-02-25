@@ -57,20 +57,20 @@
         <!-- AI Course Card -->
         <div class="flex flex-col">
             <!-- Badges -->
-            <div class="flex flex-wrap gap-2 mb-4">
-            <span class="<?php echo $badge_color; ?> text-[16px]/[24px] p-1 rounded-[4px]">
+            <div class="flex flex-wrap gap-2 mb-4 text-[16px]/[24px]">
+            <span class="<?php echo $badge_color; ?> p-1 rounded-[4px]">
                 <?php echo esc_html($card['card_title']); ?>
             </span>
             
             <?php if ($card['show_free_badge']) : ?>
-            <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black text-[16px]/[24px] p-1 rounded-[4px]">free</span>
+            <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black p-1 rounded-[4px]">free</span>
             <?php endif; ?>
             
-            <span class="text-[16px]/[24px]">
+            <span class="">
                 <?php echo esc_html($card['card_audience']); ?>
             </span>
             
-            <span class="text-[16px]/[24px]">онлайн</span>
+            <span class="">онлайн</span>
             </div>
 
             <!-- Image -->
@@ -89,10 +89,10 @@
 
             <!-- Features List -->
             <?php if (!empty($card['course_features'])) : ?>
-            <ul class="space-y-4 text-gray-300 mb-8">
+            <ul class="space-y-4 text-[16px]/[24px] text-gray-300 mb-8">
             <?php foreach ($card['course_features'] as $feature) : ?>
-            <li class="flex gap-3">
-                <span><?php echo $feature['feature_icon']; ?></span>
+            <li class="flex gap-4">
+                <span class="w-6 h-6 flex items-center justify-center"><?php echo $feature['feature_icon']; ?></span>
                 <?php echo esc_html($feature['feature_text']); ?>
             </li>
             <?php endforeach; ?>
@@ -109,7 +109,7 @@
 
             <!-- Button -->
             <a href="<?php echo esc_url($button_link); ?>" 
-            class="mt-auto border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-black transition text-center inline-block w-full md:w-auto">
+            class="mt-auto w-[126px] h-[44px] text-white border border-white px-4 py-2 rounded-[4px] hover:bg-white hover:text-black transition text-center inline-block">
             <?php echo esc_html($button_text); ?>
             </a>
         </div>
