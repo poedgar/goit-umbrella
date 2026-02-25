@@ -89,7 +89,7 @@
 		content: "";
 		position: absolute;
 		inset: 0;
-		border-radius: 12px;
+		border-radius: 4px;
 		padding: 2px;
 		/* border thickness */
 		background: linear-gradient(135deg, #5A05F4, #FF8856, #FFC72C);
