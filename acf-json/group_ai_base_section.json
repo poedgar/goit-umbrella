@@ -136,6 +136,27 @@
                     "parent_repeater": "field_ai_course_cards"
                 },
                 {
+                    "key": "field_card_lectures",
+                    "label": "Кількість лекцій",
+                    "name": "card_lectures",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Наприклад: 15 лекцій, 20 лекцій",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "15",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_ai_course_cards"
+                },
+                {
                     "key": "field_card_audience",
                     "label": "Аудиторія",
                     "name": "card_audience",
@@ -283,27 +304,6 @@
                             "parent_repeater": "field_course_features"
                         }
                     ],
-                    "parent_repeater": "field_ai_course_cards"
-                },
-                {
-                    "key": "field_card_badge_text",
-                    "label": "Текст бейджа (додатковий)",
-                    "name": "card_badge_text",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Наприклад: '150 інструментів', '9000+ хвилин'",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "150 інструментів AI",
-                    "prepend": "",
-                    "append": "",
                     "parent_repeater": "field_ai_course_cards"
                 },
                 {
