@@ -81,6 +81,13 @@
 				#ffc72f 100%);
 	}
 
+	.btn-border-gradient-ai-base:hover {
+		border-color: linear-gradient(135deg,
+				#5a05f4 0%,
+				#ff8856 50%,
+				#ffc72f 100%);
+	}
+
 	.social-link {
 		@apply size-11 md:size-7 flex items-center justify-center bg-white rounded-[4px] border-2 border-black duration-300 hover:scale-[1.2] hover:bg-black focus:bg-black active:bg-black;
 
