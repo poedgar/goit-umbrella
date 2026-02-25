@@ -96,7 +96,7 @@
 	a.btn-border-gradient-ai-base::before {
 		content: "";
 		position: absolute;
-		inset: 1px;
+		inset: -1px;
 		padding: 2px;
 		/* border thickness */
 		border-radius: 4px;
