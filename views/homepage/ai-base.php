@@ -57,8 +57,8 @@
         <!-- AI Course Card -->
         <div class="flex flex-col">
             <!-- Badges -->
-            <div class="flex flex-wrap gap-2 mb-4 text-sm">
-            <span class="<?php echo $badge_color; ?> px-3 py-1 rounded-full font-medium">
+            <div class="flex flex-wrap gap-2 mb-4">
+            <span class="<?php echo $badge_color; ?> text-[16px]/[24px] p-1 rounded-[4px]">
                 <?php echo esc_html($card['card_title']); ?>
             </span>
             
