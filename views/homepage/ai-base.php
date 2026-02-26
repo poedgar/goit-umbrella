@@ -40,7 +40,7 @@
         </div>
 
         <!-- AI Course Cards -->
-        <div class="grid gap-10 md:gap-16 xl:gap-8 xl:grid-cols-3 mt-10 md:mt-16 xl:mt-8">
+        <div class="grid gap-10 md:gap-16 xl:gap-8 xl:grid-cols-3 mt-10 md:mt-16">
         <?php 
         // Loop through course cards from ACF
         if ($course_cards) : 
@@ -106,7 +106,7 @@
             <?php if ($image_url) : ?>
                 <img src="<?php echo esc_url($image_url); ?>" 
                     alt="<?php echo esc_attr($image_alt); ?>" 
-                    class="w-full h-56 object-cover">
+                    class="w-full h-[157px] md:h-[360px] xl:h-[192px] object-cover">
             <?php endif; ?>
             </div>
 
@@ -137,7 +137,7 @@
             <?php endif; ?>
 
             <!-- Button -->
-            <a href="<?php echo esc_url($button_link); ?>" 
+            <a target="_blank" href="<?php echo esc_url($button_link); ?>" 
             class="btn-border-gradient-ai-base mt-auto w-[126px] h-[44px] text-white text-[20px]/[28px] border border-white px-4 py-2 rounded-[4px] hover:!bg-black text-center inline-block">
             <?php echo esc_html($button_text); ?>
             </a>
