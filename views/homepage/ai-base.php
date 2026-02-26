@@ -84,19 +84,19 @@
                 <span class="bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black p-1 rounded-[4px]">free</span>
                 <?php endif; ?>
                 
-                <span class="">
+                <span class="bg-neutral-800 p-1 rounded-[4px]">
                     <?php echo esc_html($card['card_audience']); ?>
                 </span>
 
                 <!-- break тільки на mobile -->
                 <div class="w-full md:hidden"></div>
 
-                <span>онлайн</span>
+                <span class="bg-neutral-800 p-1 rounded-[4px]">онлайн</span>
 
                 <!-- break mobile + xl -->
                 <div class="xl:w-full md:hidden xl:block"></div>
 
-                <span class="">
+                <span class="bg-neutral-800 p-1 rounded-[4px]">
                     <?php echo esc_html($card['card_lectures']) . ' відеоуроків'; ?>
                 </span>
             </div>
