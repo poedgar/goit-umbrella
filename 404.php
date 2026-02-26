@@ -4,7 +4,7 @@
             <img src="<?php echo get_template_directory_uri(); ?>/src/images/404.png" alt="404" class="mb-20 md:mb-16 w-full">
             
             <video class="mb-8 w-full max-w-2xl rounded-lg shadow-lg" controls autoplay muted loop>
-                <source src="<?php echo get_template_directory_uri(); ?>/src/videos/.webm" type="video/webm">
+                <source src="<?php echo get_template_directory_uri(); ?>/src/videos/404.webm" type="video/webm">
                 Your browser does not support the video tag.
             </video>
             
