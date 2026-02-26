@@ -120,7 +120,7 @@
             <ul class="space-y-4 text-[16px]/[24px] text-gray-300 mb-[40px]">
             <?php foreach ($card['course_features'] as $feature) : ?>
             <li class="flex gap-4">
-                <span class="w-6 h-6 flex items-center justify-center">
+                <span class="w-6 h-6 flex flex-shrink-0 items-center justify-center">
                     <?php 
                         $icon = $feature['feature_icon'];
                         if (isset($icon_map[$icon])) {
