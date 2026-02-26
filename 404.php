@@ -1,9 +1,9 @@
 <?php get_header(); ?>
     <main>
         <div class="container flex flex-col justify-center items-center min-h-[400px] md:min-h-[600px] xl:min-h-[800px]">
-            <img src="<?php echo get_template_directory_uri(); ?>/src/images/404.png" alt="404" class="mb-20 md:mb-16 w-full">
+            <!-- <img src="<?php echo get_template_directory_uri(); ?>/src/images/404.png" alt="404" class="mb-20 md:mb-16 w-full"> -->
             
-            <video class="mb-8 w-full max-w-2xl rounded-lg shadow-lg" controls autoplay muted loop>
+            <video class="mb-20 md:mb-16 w-full" controls autoplay muted loop>
                 <source src="<?php echo get_template_directory_uri(); ?>/src/videos/404.webm" type="video/webm">
                 Your browser does not support the video tag.
             </video>
