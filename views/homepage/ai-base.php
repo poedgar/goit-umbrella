@@ -53,10 +53,10 @@
                         $badge_color = 'bg-[#FFBD01] text-black';
                         break;
                     case 'orange':
-                        $badge_color = 'bg-[linear-gradient(135deg,#5A05F4,#FF8856,#FFC72F)] text-black';
+                        $badge_color = 'bg-[#FF8856] text-black';
                         break;
                     case 'purple':
-                        $badge_color = 'bg-[#A472FF] text-white';
+                        $badge_color = 'bg-[#A472FF] text-black';
                         break;
                     default:
                         $badge_color = 'bg-[#FFBD01] text-black';
@@ -112,7 +112,7 @@
 
             <!-- Title -->
             <h3 class="uppercase xl:min-h-[96px] text-[20px]/[28px] md:text-[24px]/[32px] font-medium mb-8">
-            <?php echo esc_html($card['course_title']); ?>
+            <?php echo wp_kses_post($card['course_title']); ?>
             </h3>
 
             <!-- Features List -->
