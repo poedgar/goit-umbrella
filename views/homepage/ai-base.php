@@ -59,7 +59,7 @@
                         $badge_color = 'bg-[#A472FF] text-black';
                         break;
                     default:
-                        $badge_color = 'bg-[#FFBD01] text-black';
+                        $badge_color = 'bg-[#FF8856] text-black';
                 }
                 
                 // Get image
@@ -97,7 +97,7 @@
                 <div class="xl:w-full md:hidden xl:block"></div>
 
                 <span class="bg-neutral-800 p-1 rounded-[4px]">
-                    <?php echo esc_html($card['card_lectures']) . ' відеоуроків'; ?>
+                    <?php echo esc_html($card['card_lectures']); ?>
                 </span>
             </div>
 
