@@ -62,7 +62,7 @@
                         $badge_color = 'bg-[#FF8856] text-black';
                 }
 
-                var_dump($color);
+                var_dump($badge_color);
                 
                 // Get image
                 $image = $card['card_image'];
