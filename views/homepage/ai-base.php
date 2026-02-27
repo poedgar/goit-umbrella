@@ -51,6 +51,8 @@
                 switch ($card['card_badge_color']) {
                     case 'yellow':
                         $badge_color = 'bg-[#FFBD01] text-black';
+
+                        var_dump($card['card_badge_color']);
                         break;
                     case 'orange':
                         $badge_color = 'bg-[#FF8856] text-black';
@@ -61,8 +63,6 @@
                     default:
                         $badge_color = 'bg-[#FF8856] text-black';
                 }
-
-                var_dump($badge_color);
                 
                 // Get image
                 $image = $card['card_image'];
