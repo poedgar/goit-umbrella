@@ -61,6 +61,8 @@
                     default:
                         $badge_color = 'bg-[#FF8856] text-black';
                 }
+
+                var_dump($color);
                 
                 // Get image
                 $image = $card['card_image'];
