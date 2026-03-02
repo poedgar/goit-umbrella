@@ -1,4 +1,4 @@
-name: Deploy WordPress Theme
+name: Deploy WordPress Theme – Production
 
 on:
   push:
@@ -7,9 +7,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production           # ← enables protection rules, approvals, etc.
 
     steps:
-    - name: Deploy to VPS
+    - name: Deploy to VPS (Production)
       uses: appleboy/ssh-action@v0.1.10
       with:
         host: ${{ secrets.HOSTINGER_HOST }}
