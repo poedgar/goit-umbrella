@@ -34,7 +34,6 @@ if (!$show_section) return;
 					muted
 					playsinline
 					preload="metadata">
-					<source src="<?= esc_url($video_url['url']); ?>" type="video/mp4" />
 					<source src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.mp4" type="video/mp4">
 					<source src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm">
 				</video>
