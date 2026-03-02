@@ -2,7 +2,7 @@ name: Deploy WordPress Theme
 
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
 
 jobs:
   deploy:
@@ -29,7 +29,7 @@ jobs:
           # --- Update code ---
           echo "🔄 Pulling latest code..."
           git fetch origin
-          git reset --hard origin/main
+          git reset --hard origin/dev
           echo "✅ Code synced"
 
           # --- Install dependencies ---
