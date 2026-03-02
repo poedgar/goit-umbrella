@@ -19,7 +19,7 @@ jobs:
         script: |
           echo "🚀 Starting WordPress theme deployment..."
 
-          THEME_DIR="/home/user/htdocs/bettered.global/wp-content/themes/goit-umbrella"
+          THEME_DIR="/home/user/htdocs/www.bettered.global/wp-content/themes/goit-umbrella"
 
           cd $THEME_DIR
 
