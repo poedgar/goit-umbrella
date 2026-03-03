@@ -40,6 +40,17 @@ if (!$show_section) return;
 					<source id="impactVideoSourceWebm" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm">
 				</video>
 
+				<iframe
+					id="impactVideoIframe"
+					width="560"
+					height="315"
+					src="https://www.youtube.com/embed/WBcaj6zuRyA?rel=0&autoplay=1&mute=1"
+					title="YouTube video player"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen>
+				</iframe>
+
 				<button
 					id="playButton"
 					data-video-url="<?= esc_url($video_url['url']); ?>"
