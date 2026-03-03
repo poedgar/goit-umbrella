@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Switch to second video with sound
     console.log();
 
-    iframe.src = "https://www.youtube.com/embed/GBYrd07HAfQ?autoplay=1&mute=0&rel=0";
+    iframe.src = "https://www.youtube.com/embed/Dn1zS16jhbg?si=h_PYub1HsQaqDb0P&autoplay=1&mute=0&rel=0";
     playButton.style.display = 'none';
   });
 });
