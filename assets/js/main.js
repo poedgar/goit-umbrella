@@ -4584,6 +4584,9 @@ document.addEventListener("DOMContentLoaded", function () {
     source1.src = "<?= esc_url($video_url['url']); ?>";
     source2.src = "<?= esc_url($video_url['url']); ?>";
 
+    console.log(source1.src, "sourc1.src");
+
+
     video.load();
 
     video.play();
