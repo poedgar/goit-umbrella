@@ -22,9 +22,9 @@
 			<div class="bg-black text-white p-[20px] md:py-8 md:px-8 xl:py-[128px] xl:px-[64px] rounded-[8px]">
 				<!-- Header -->
 				<div class="">
-					<h1 class="section-title">
+					<h2 class="section-title">
 						<?php echo esc_html($main_title); ?>
-					</h1>
+					</h2>
 
 					<p class="low-section-title !text-white mdOnly:text-[32px]/[40px] mt-5 md:mt-8">
 						<?php echo esc_html($subtitle); ?>
