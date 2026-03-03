@@ -65,7 +65,7 @@ if (!$show_section) return;
 						></iframe> -->
 
 						<iframe
-						src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&playsinline=1&controls=0&rel=0"
+						src="https://www.youtube.com/embed/yO0d6nJPPsE?autoplay=1&mute=1&playsinline=1&controls=0&rel=0"
 						title="YouTube video"
 						frameborder="0"
 						allow="autoplay; encrypted-media"
