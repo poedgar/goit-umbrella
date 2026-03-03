@@ -53,16 +53,11 @@ if (!$show_section) return;
 
 				<div class="mx-auto w-full max-w-[280px] md:max-w-[704px] xl:max-w-[800px]">
 					<div class="relative pt-[56.25%]">
-						<iframe
-						id="impactVideo"
-						class="absolute inset-0 h-full w-full rounded-lg"
-						src="https://www.youtube.com/embed/yO0d6nJPPsE?si=94kVQVae61V8gVco&autoplay=1&mute=1&rel=0&loop=1&playlist=yO0d6nJPPsE&t&controls=0"
-						title="YouTube video player"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen
-						></iframe>
+						<div class="mx-auto w-full max-w-[280px] md:max-w-[704px] xl:max-w-[800px]">
+						  <div class="relative pt-[56.25%]">
+						    <div id="impactVideo" class="absolute inset-0 h-full w-full rounded-lg"></div>
+						  </div>
+						</div>
 					</div>
 				</div>
 
