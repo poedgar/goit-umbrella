@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     source2.src = "https://www.bettered.global/wp-content/uploads/2025/12/video.webm";
 
     console.log(source1.src, "sourc1.src");
-    console.log(source2.src, "source2.src");
 
     video.load();
 
