@@ -23,7 +23,7 @@ function onYouTubeIframeAPIReady() {
 // });
 
 
-ocument.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   var playButton = document.getElementById('playButton');
   if (!playButton) return;
 
