@@ -40,7 +40,7 @@ if (!$show_section) return;
 					<source id="impactVideoSourceWebm" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm">
 				</video> -->
 
-				<iframe
+				<!-- <iframe
 					id="impactVideoIframe"
 					width="560"
 					height="315"
@@ -49,7 +49,19 @@ if (!$show_section) return;
 					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 					allowfullscreen>
+				</iframe> -->
+
+				<iframe
+				id="impactVideoIframe"
+				src="https://www.youtube.com/embed/GBYrd07HAfQ?si=E_9SxJgulx93KkU4"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			    referrerpolicy="strict-origin-when-cross-origin"
+			    allowfullscreen>
 				</iframe>
+
+				<iframe id="impactVideoIframe" src="https://www.youtube.com/embed/GBYrd07HAfQ?si=E_9SxJgulx93KkU4&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 				<button
 					id="playButton"
