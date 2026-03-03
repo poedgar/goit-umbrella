@@ -7,12 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!video || !playButton) return;
 
   playButton.addEventListener('click', function () {
-    source1.src = "https://www.bettered.global/wp-content/uploads/2025/12/video.mp4";
-    source2.src = "https://www.bettered.global/wp-content/uploads/2025/12/video.webm";
-
-    console.log(source1.src, "sourc1.src ");
+    source1.src = "https://bettered.global/wp-content/themes/goit-global/main-homepage-video.mp4";
+    source2.src = "https://bettered.global/wp-content/themes/goit-global/main-homepage-video.webm";
 
     video.load();
+
+    video.muted = false;
+
+    video.volume = 1.0;
 
     video.play();
     playButton.style.display = 'none';
