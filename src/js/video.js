@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   playButton.addEventListener('click', function () {
     // Switch to second video with sound
 
-    iframe.src = "https://www.youtube-nocookie.com/embed/Dn1zS16jhbg";
+    iframe.src = "https://www.youtube.com/embed/Dn1zS16jhbg";
     playButton.style.display = 'none';
   });
 });
