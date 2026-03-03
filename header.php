@@ -37,6 +37,8 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
 
+        <script src="https://www.youtube.com/iframe_api"></script>
+
     <?php wp_head(); ?>
 </head>
 
