@@ -1,5 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
   // --- Helper: Toggle Animation Classes ---
+  const menu = document.querySelector('.menu-header-menu-1');
+
+  // Classes for open/closed states
+  const closedClasses = ['hidden', 'opacity-0']; // adjust as needed
+  const openClasses = ['block', 'opacity-100'];  // adjust as needed
+
+  // Track menu state
+  let isMenuOpen = false;
+
+  // Toggle function from your code
   function toggleClasses(element, isOpen, closedClasses, openClasses) {
     if (isOpen) {
       element.classList.remove(...closedClasses);
@@ -8,7 +18,20 @@ document.addEventListener('DOMContentLoaded', function () {
       element.classList.remove(...openClasses);
       element.classList.add(...closedClasses);
     }
+    isMenuOpen = isOpen;
   }
+
+  // Example: open menu when some button is clicked
+  document.querySelector('.menu-toggle-button').addEventListener('click', () => {
+    toggleClasses(menu, !isMenuOpen, closedClasses, openClasses);
+  });
+
+  // Close menu if any child is clicked
+  menu.addEventListener('click', (event) => {
+    if (isMenuOpen && event.target !== menu) {
+      toggleClasses(menu, false, closedClasses, openClasses);
+    }
+  });
 
   // ==========================================
   // 0. HEADER SHADOW ON SCROLL
