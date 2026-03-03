@@ -51,9 +51,28 @@ if (!$show_section) return;
 					allowfullscreen>
 				</iframe> -->
 
-				<div class="w-full h-full rounded-[8px] overflow-hidden">
-					<iframe class="w-full h-full" id="impactVideo" src="https://www.youtube.com/embed/GBYrd07HAfQ?si=E_9SxJgulx93KkU4&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<div class="video-container">
+					<iframe class="" id="impactVideo" src="https://www.youtube.com/embed/GBYrd07HAfQ?si=E_9SxJgulx93KkU4&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 				</div>
+
+				<style>
+				  .video-container iframe {
+				    width: 280px;
+				    height: 498px;
+				  }
+				  @media (min-width: 768px) {
+				    .video-container iframe {
+				      width: 704px;
+				      height: 396px;
+				    }
+				  }
+				  @media (min-width: 1280px) {
+				    .video-container iframe {
+				      width: 800px;
+				      height: 450px;
+				    }
+				  }
+				</style>
 
 				<button
 					id="playButton"
