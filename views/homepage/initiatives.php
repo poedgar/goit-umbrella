@@ -28,11 +28,11 @@ if (!$show || empty($slides)) return;
 		<div class="swiper initiatives-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8 overflow-visible">
 			<!-- {{-- Initiatives btns --}} -->
 			<div class="flex items-center justify-between gap-5">
-				<button class="initiatives-button-prev btn btn-black smOnly:!w-[150px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">
+				<button class="initiatives-button-prev btn btn-black md:px-4 smOnly:!w-[150px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">
 					назад
 				</button>
 
-				<button class="initiatives-button-next btn btn-black smOnly:!w-[150px]" type="button" aria-label="до наступного слайду" aria-disabled="false">
+				<button class="initiatives-button-next btn btn-black md:px-4 smOnly:!w-[150px]" type="button" aria-label="до наступного слайду" aria-disabled="false">
 					вперед
 				</button>
 			</div>
@@ -49,9 +49,9 @@ if (!$show || empty($slides)) return;
 					<li class="swiper-slide smOnly:!w-[320px] h-auto hover:bg-white rounded-[8px]">
 						<?php if (!empty($link)) : ?>
 							<a class="flex flex-col gap-5 md:gap-8 p-5 md:p-8" href="<?= esc_url($link); ?>" target="_blank" rel="noopener noreferrer">
-						<?php else : ?>
-							<div class="flex flex-col gap-5 md:gap-8 p-5 md:p-8">
-						<?php endif; ?>
+							<?php else : ?>
+								<div class="flex flex-col gap-5 md:gap-8 p-5 md:p-8">
+								<?php endif; ?>
 
 								<?php if ($photo): ?>
 									<div class="w-full h-[218px]">
@@ -59,17 +59,17 @@ if (!$show || empty($slides)) return;
 									</div>
 								<?php endif; ?>
 
-									<p class="font-medium grow text-[20px]/[28px] uppercase">
-										<?= wp_kses_post($description); ?>
-									</p>
-						<?php if (!empty($link)) : ?>
-						</a>
+								<p class="font-medium grow text-[20px]/[28px] uppercase">
+									<?= wp_kses_post($description); ?>
+								</p>
+								<?php if (!empty($link)) : ?>
+							</a>
 						<?php else : ?>
-						</div>
-						<?php endif; ?>
-					</li>
-				<?php endforeach; ?>
-			</ul>
 		</div>
+	<?php endif; ?>
+	</li>
+<?php endforeach; ?>
+</ul>
+	</div>
 	</div>
 </section>
