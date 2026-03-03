@@ -27,7 +27,7 @@ if (!$show_section) return;
 
 			<!-- video wrapper  -->
 			<div class="relative xl:w-[800px] shrink-0">
-				<video
+				<!-- <video
 					id="impactVideo"
 					class="mx-auto h-auto rounded-[8px] xl:rounded-[8px]"
 					title=""
@@ -38,7 +38,7 @@ if (!$show_section) return;
 					preload="metadata">
 					<source id="impactVideoSourceMp4" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.mp4" type="video/mp4">
 					<source id="impactVideoSourceWebm" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm">
-				</video>
+				</video> -->
 
 				<iframe
 					id="impactVideoIframe"
