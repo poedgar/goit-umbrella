@@ -27,7 +27,7 @@ if (!$show_section) return;
 
 			<!-- video wrapper  -->
 			<div class="relative xl:w-[800px] shrink-0">
-				<video
+				<!-- <video
 					id="impactVideo"
 					class="mx-auto h-auto rounded-[8px] xl:rounded-[8px]"
 					title=""
@@ -38,13 +38,13 @@ if (!$show_section) return;
 					preload="metadata">
 					<source id="impactVideoSourceMp4" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.mp4" type="video/mp4">
 					<source id="impactVideoSourceWebm" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm">
-				</video>
+				</video> -->
 
 				<iframe
 					id="impactVideoIframe"
 					width="560"
 					height="315"
-					src="https://www.youtube.com/embed/WBcaj6zuRyA?rel=0&autoplay=1&mute=1"
+					src="https://www.youtube.com/embed/WBcaj6zuRyA?rel=0"
 					title="YouTube video player"
 					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Close menu if any child is clicked
   menu.addEventListener('click', (event) => {
+    console.log(1);
+
     if (isMenuOpen && event.target !== menu) {
       toggleClasses(menu, false, closedClasses, openClasses);
     }
