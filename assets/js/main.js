@@ -4582,7 +4582,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
 
   playButton.addEventListener("click", function () {
-    const newVideoUrl = playButton.dataset.videoUrl;
+    const newVideoUrl = "https://www.bettered.global/wp-content/uploads/2025/12/video.mp4";
 
     source1.src = newVideoUrl;
     source2.src = newVideoUrl;
