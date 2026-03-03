@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('impactVideo');
   const playButton = document.getElementById('playButton');
   const source1 = document.getElementById("impactVideoSourceMp4");
-  const source2 = document.getElementById("impactVideoSourceWebm");
+  // const source2 = document.getElementById("impactVideoSourceWebm");
 
   if (!video || !playButton) return;
 
