@@ -37,7 +37,7 @@ if (!$show_section) return;
 					playsinline
 					preload="metadata">
 					<source id="impactVideoSourceMp4" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.mp4" type="video/mp4">
-					<source id="impactVideoSourceWebm" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm">
+					<!-- <source id="impactVideoSourceWebm" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm"> -->
 				</video>
 
 				<button

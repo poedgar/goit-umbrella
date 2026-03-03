@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   playButton.addEventListener('click', function () {
     source1.src = "https://bettered.global/wp-content/themes/goit-global/src/videos/main-homepage-video-1.mp4";
-    source2.src = "https://bettered.global/wp-content/themes/goit-global/src/videos/main-homepage-video-1.mp4";
+    // source2.src = "https://bettered.global/wp-content/themes/goit-global/src/videos/main-homepage-video-1.mp4";
 
     video.load();
 
