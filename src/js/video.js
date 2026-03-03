@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   playButton.addEventListener('click', function () {
     // Switch to second video with sound
+    console.log();
+    
     iframe.src = "https://www.youtube.com/embed/GBYrd07HAfQ?autoplay=1&mute=0&rel=0";
     playButton.style.display = 'none';
   });
