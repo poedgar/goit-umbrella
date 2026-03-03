@@ -4589,6 +4589,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     video.load();
 
+    console.log(source1.src, "source1.src");
+
+
     video.play();
 
     playButton.style.display = "none";
