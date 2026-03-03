@@ -27,7 +27,7 @@ if (!$show_section) return;
 
 			<!-- video wrapper  -->
 			<div class="relative xl:w-[800px] shrink-0">
-				<video
+				<!-- <video
 					id="impactVideo"
 					class="mx-auto h-auto rounded-[8px] xl:rounded-[8px]"
 					title=""
@@ -38,7 +38,33 @@ if (!$show_section) return;
 					preload="metadata">
 					<source id="impactVideoSourceMp4" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.mp4" type="video/mp4">
 					<source id="impactVideoSourceWebm" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm">
-				</video>
+				</video> -->
+
+				<!-- <iframe
+					id="impactVideoIframe"
+					width="560"
+					height="315"
+					src="https://www.youtube.com/embed/WBcaj6zuRyA?rel=0"
+					title="YouTube video player"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen>
+				</iframe> -->
+
+				<div class="mx-auto w-full max-w-[280px] md:max-w-[704px] xl:max-w-[800px]">
+					<div class="relative pt-[56.25%]">
+						<iframe
+						id="impactVideo"
+						class="absolute inset-0 h-full w-full rounded-lg"
+						src="https://www.youtube.com/embed/GBYrd07HAfQ?si=E_9SxJgulx93KkU4&autoplay=1&mute=1"
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allowfullscreen
+						></iframe>
+					</div>
+				</div>
 
 				<button
 					id="playButton"
