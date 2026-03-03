@@ -131,8 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (mobArrow) mobArrow.style.transform = 'rotate(0deg)';
 
         // Toggle rounded corners
-        mobEcoBtn.classList.add('rounded');
-        mobEcoBtn.classList.remove('rounded-t');
+        mobEcoBtn.classList.add('rounded-[4px]');
+        mobEcoBtn.classList.remove('rounded-t-[4px]');
       } else {
         // OPEN
         mobEcoDropdown.classList.remove('opacity-0');
@@ -143,8 +143,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (mobArrow) mobArrow.style.transform = 'rotate(180deg)';
 
         // Toggle rounded corners
-        mobEcoBtn.classList.remove('rounded');
-        mobEcoBtn.classList.add('rounded-t');
+        mobEcoBtn.classList.remove('rounded-[4px]');
+        mobEcoBtn.classList.add('rounded-t-[4px]');
       }
     });
   }

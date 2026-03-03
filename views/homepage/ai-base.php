@@ -1,4 +1,4 @@
-<section id="ai-base" class="section">
+<section id="ai-base" class="section scroll-mt-[90px] mdOnly:scroll-mt-[108px]">
 	<div class="container">
 		<?php
 		$show_section = get_field('show_ai_base_section');

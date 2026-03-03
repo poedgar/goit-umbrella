@@ -87,16 +87,16 @@ document.addEventListener("DOMContentLoaded", function() {
         mobEcoDropdown.classList.add("opacity-0");
         if (mobArrow)
           mobArrow.style.transform = "rotate(0deg)";
-        mobEcoBtn.classList.add("rounded");
-        mobEcoBtn.classList.remove("rounded-t");
+        mobEcoBtn.classList.add("rounded-[4px]");
+        mobEcoBtn.classList.remove("rounded-t-[4px]");
       } else {
         mobEcoDropdown.classList.remove("opacity-0");
         mobEcoDropdown.classList.add("opacity-100");
         mobEcoDropdown.style.maxHeight = mobEcoDropdown.scrollHeight + "px";
         if (mobArrow)
           mobArrow.style.transform = "rotate(180deg)";
-        mobEcoBtn.classList.remove("rounded");
-        mobEcoBtn.classList.add("rounded-t");
+        mobEcoBtn.classList.remove("rounded-[4px]");
+        mobEcoBtn.classList.add("rounded-t-[4px]");
       }
     });
   }

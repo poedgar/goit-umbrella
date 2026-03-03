@@ -44,6 +44,11 @@
 							$social = get_sub_field('social') ?: [];
 							$has_social = !empty(array_filter($social));
 
+							// Пропускаємо перший блок для NEOVERSITY з пустим ім'ям
+							if (get_the_title() === 'NEOVERSITY' && empty($name)) {
+								continue;
+							}
+
 							// Якщо немає ні назви, ні url, ні соцмереж — пропускаємо блок
 							if (empty($name) && !$has_social) {
 								continue;
@@ -115,7 +120,7 @@
 				BetterED © <?= date('Y'); ?>
 			</div>
 
-			<!-- Клікабельний email -->
+			<!--  email -->
 			<p class="text-base/[24px] smOnly:mt-[10px]">
 				<a href="mailto:<?= esc_attr(get_theme_mod('contact_email', 'info@bettered.global')); ?>"
 					class="hover:text-white transition">
