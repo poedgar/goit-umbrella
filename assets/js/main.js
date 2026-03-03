@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   function toggleClasses(element, isOpen, closedClasses, openClasses) {
     if (isOpen) {
       element.classList.remove(...closedClasses);
@@ -3512,24 +3512,24 @@ function addClasses() {
   const suffixes = prepareClasses(["initialized", params.direction, {
     "free-mode": swiper.params.freeMode && params.freeMode.enabled
   }, {
-    "autoheight": params.autoHeight
-  }, {
-    "rtl": rtl
-  }, {
-    "grid": params.grid && params.grid.rows > 1
-  }, {
-    "grid-column": params.grid && params.grid.rows > 1 && params.grid.fill === "column"
-  }, {
-    "android": device.android
-  }, {
-    "ios": device.ios
-  }, {
-    "css-mode": params.cssMode
-  }, {
-    "centered": params.cssMode && params.centeredSlides
-  }, {
-    "watch-progress": params.watchSlidesProgress
-  }], params.containerModifierClass);
+      "autoheight": params.autoHeight
+    }, {
+      "rtl": rtl
+    }, {
+      "grid": params.grid && params.grid.rows > 1
+    }, {
+      "grid-column": params.grid && params.grid.rows > 1 && params.grid.fill === "column"
+    }, {
+      "android": device.android
+    }, {
+      "ios": device.ios
+    }, {
+      "css-mode": params.cssMode
+    }, {
+      "centered": params.cssMode && params.centeredSlides
+    }, {
+      "watch-progress": params.watchSlidesProgress
+    }], params.containerModifierClass);
   classNames.push(...suffixes);
   el.classList.add(...classNames);
   swiper.emitContainerClasses();
@@ -4571,26 +4571,38 @@ createSwiper(".timeline", {
     }
   }
 });
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const video = document.getElementById("impactVideo");
   const playButton = document.getElementById("playButton");
+  const source1 = document.getElementById("impactVideoSourceMp4");
+  const source2 = document.getElementById("impactVideoSourceWebm");
+
   if (!video || !playButton)
     return;
-  playButton.addEventListener("click", function() {
+
+  playButton.addEventListener("click", function () {
+    source1.src = "<?= esc_url($video_url['url']); ?>";
+    source2.src = "<?= esc_url($video_url['url']); ?>";
+
+    video.load();
+
     video.play();
+
     playButton.style.display = "none";
   });
-  video.addEventListener("ended", function() {
+
+  video.addEventListener("ended", function () {
     playButton.style.display = "block";
   });
 });
+
 function animateCounter(el, end, duration = 1e3) {
   if (!/\d/.test(end)) {
     el.textContent = end;
     return;
   }
   if (end.includes("-")) {
-    let step2 = function(timestamp) {
+    let step2 = function (timestamp) {
       if (!startTime2)
         startTime2 = timestamp;
       const progress = Math.min((timestamp - startTime2) / duration, 1);
