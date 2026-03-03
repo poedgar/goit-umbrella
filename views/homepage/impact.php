@@ -51,12 +51,12 @@ if (!$show_section) return;
 					allowfullscreen>
 				</iframe> -->
 
-				<!-- <div class="mx-auto w-full max-w-[280px] md:max-w-[704px] xl:max-w-[800px]">
+				<div class="mx-auto w-full max-w-[280px] md:max-w-[704px] xl:max-w-[800px]">
 					<div class="relative pt-[56.25%]">
 						<iframe
 						id="impactVideo"
 						class="absolute inset-0 h-full w-full rounded-lg"
-						src="https://www.youtube.com/embed/yO0d6nJPPsE?&autoplay=1&mute=1&rel=0&loop=1&playlist=GBYrd07HAfQ"
+						src="https://www.youtube.com/embed/yO0d6nJPPsE?&autoplay=1&mute=1&rel=0&loop=1&playlist=yO0d6nJPPsE"
 						title="YouTube video player"
 						frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -64,31 +64,7 @@ if (!$show_section) return;
 						allowfullscreen
 						></iframe>
 					</div>
-				</div> -->
-
-				<div class="mx-auto w-full max-w-[280px] md:max-w-[704px] xl:max-w-[800px]">
-					<div class="relative pt-[56.25%]">
-						<iframe
-						id="impactVideo"
-						class="absolute inset-0 h-full w-full rounded-lg"
-						src="https://www.youtube-nocookie.com/embed/yO0d6nJPPsE?autoplay=1&mute=1&rel=0&loop=1&playlist=yO0d6nJPPsE"
-						title="YouTube video player"
-						frameborder="0"
-						allow="autoplay; encrypted-media; picture-in-picture"
-						allowfullscreen
-						></iframe>
-
-						<button
-							id="playButton"
-							data-video-url="<?= esc_url($video_url['url']); ?>"
-							class="absolute btn btn-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 shrink-0 hover:scale-[1.1] focus:scale-[1.1] active:scale-[1.1]"
-							type="button" aria-label="кнопка відкриття модального вікна з відео"
-							tabindex="0">
-							дивитися
-						</button>
-
-					</div>
-					</div>
+				</div>
 			</div>
 		</div>
 	</div>
