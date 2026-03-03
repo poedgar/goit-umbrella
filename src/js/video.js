@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!video || !playButton) return;
 
   playButton.addEventListener('click', function () {
-    source1.src = "https://bettered.global/wp-content/themes/goit-global/main-homepage-video.mp4";
-    source2.src = "https://bettered.global/wp-content/themes/goit-global/main-homepage-video.webm";
+    source1.src = "https://bettered.global/wp-content/themes/goit-global/src/videos/main-homepage-video.mp4";
+    source2.src = "https://bettered.global/wp-content/themes/goit-global/src/videos/main-homepage-video.webm";
 
     video.load();
 
