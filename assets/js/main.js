@@ -4582,8 +4582,10 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
 
   playButton.addEventListener("click", function () {
-    source1.src = "<?= esc_url($video_url['url']); ?>";
-    source2.src = "<?= esc_url($video_url['url']); ?>";
+    const newVideoUrl = playButton.dataset.videoUrl;
+
+    source1.src = newVideoUrl;
+    source2.src = newVideoUrl;
 
     video.load();
 
