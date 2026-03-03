@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: production           # ← enables protection rules, approvals, etc..
+    environment: production           # ← enables protection rules, approvals, etc.
 
     steps:
     - name: Deploy to VPS (Production)
