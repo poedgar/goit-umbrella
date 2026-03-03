@@ -103,6 +103,14 @@ document.addEventListener('DOMContentLoaded', function () {
   if (mobileCloseBtn)
     mobileCloseBtn.addEventListener('click', () => toggleMobileMenu(false));
 
+  const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      toggleMobileMenu(false);
+    });
+  });
+
   // ==========================================
   // 3. MOBILE DROPDOWN (Accordion Height)
   // ==========================================
