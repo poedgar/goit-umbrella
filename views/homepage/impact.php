@@ -53,7 +53,7 @@ if (!$show_section) return;
 
 				<div class="mx-auto w-full max-w-[280px] md:max-w-[704px] xl:max-w-[800px]">
 					<div class="relative pt-[56.25%]">
-						<!-- <iframe
+						<iframe
 						id="impactVideo"
 						class="absolute inset-0 h-full w-full rounded-lg"
 						src="https://www.youtube.com/embed/yO0d6nJPPsE?&autoplay=1&mute=1&rel=0&loop=1&playlist=GBYrd07HAfQ"
@@ -62,15 +62,7 @@ if (!$show_section) return;
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						referrerpolicy="strict-origin-when-cross-origin"
 						allowfullscreen
-						></iframe> -->
-
-						<iframe
-						src="https://www.youtube.com/embed/yO0d6nJPPsE?autoplay=1&mute=1&playsinline=1&controls=0&rel=0"
-						title="YouTube video"
-						frameborder="0"
-						allow="autoplay; encrypted-media"
-						allowfullscreen>
-						</iframe>
+						></iframe>
 					</div>
 				</div>
 
