@@ -112,10 +112,16 @@
 
 
 			<div class="xl:max-w-[230px] text-base/[24px] smOnly:mt-[10px] xl:ml-8">
-				BetterEd © <?= date('Y'); ?>
+				BetterED © <?= date('Y'); ?>
 			</div>
 
-			<p class="text-base/[24px] smOnly:mt-[10px]"><?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?></p>
+			<!-- Клікабельний email -->
+			<p class="text-base/[24px] smOnly:mt-[10px]">
+				<a href="mailto:<?= esc_attr(get_theme_mod('contact_email', 'info@bettered.global')); ?>"
+					class="underline hover:text-white transition">
+					<?= esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?>
+				</a>
+			</p>
 		</div>
 	</div>
 </footer>
