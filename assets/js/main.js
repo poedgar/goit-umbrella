@@ -4571,6 +4571,7 @@ createSwiper(".timeline", {
     }
   }
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   const video = document.getElementById("impactVideo");
   const playButton = document.getElementById("playButton");
