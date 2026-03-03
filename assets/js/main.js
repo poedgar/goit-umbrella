@@ -4582,10 +4582,15 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
 
   playButton.addEventListener("click", function () {
-    source1.src = "<?= esc_url($video_url['url']); ?>";
-    source2.src = "<?= esc_url($video_url['url']); ?>";
+    const newVideoUrl = "https://www.bettered.global/wp-content/uploads/2025/12/video.mp4";
+
+    source1.src = newVideoUrl;
+    source2.src = newVideoUrl;
 
     video.load();
+
+    console.log(source1.src, "source1.src");
+
 
     video.play();
 
