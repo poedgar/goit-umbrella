@@ -56,7 +56,7 @@ if (!$show_section) return;
 						<iframe
 						id="impactVideo"
 						class="absolute inset-0 h-full w-full rounded-lg"
-						src="https://www.youtube.com/embed/yO0d6nJPPsE?si=94kVQVae61V8gVco&autoplay=1&mute=1&rel=0&loop=1&playlist=GBYrd07HAfQ"
+						src="https://www.youtube.com/embed/yO0d6nJPPsE?&autoplay=1&mute=1&rel=0&loop=1&playlist=GBYrd07HAfQ"
 						title="YouTube video player"
 						frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
