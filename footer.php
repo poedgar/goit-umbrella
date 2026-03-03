@@ -118,7 +118,7 @@
 			<!-- Клікабельний email -->
 			<p class="text-base/[24px] smOnly:mt-[10px]">
 				<a href="mailto:<?= esc_attr(get_theme_mod('contact_email', 'info@bettered.global')); ?>"
-					class="underline hover:text-white transition">
+					class="hover:text-white transition">
 					<?= esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?>
 				</a>
 			</p>
