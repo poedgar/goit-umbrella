@@ -46,7 +46,7 @@
         if ($course_cards) : 
             foreach ($course_cards as $card) : 
                 
-                // Define badge color class
+                // Define badge color class..
                 $badge_color = '';
                 switch ($card['card_badge_color']) {
                     case 'yellow':

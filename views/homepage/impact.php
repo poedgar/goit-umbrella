@@ -32,11 +32,13 @@ if (!$show_section) return;
 					class="mx-auto h-auto rounded-[8px] xl:rounded-[8px]"
 					title=""
 					muted
+					autoplay
 					playsinline
 					preload="metadata">
-					<source src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.mp4" type="video/mp4">
-					<source src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm">
+					<source id="impactVideoSourceMp4" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.mp4" type="video/mp4">
+					<source id="impactVideoSourceWebm" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.webm" type="video/webm">
 				</video>
+
 				<button
 					id="playButton"
 					class="absolute btn btn-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 shrink-0 hover:scale-[1.1] focus:scale-[1.1] active:scale-[1.1]"
@@ -44,8 +46,6 @@ if (!$show_section) return;
 					tabindex="0">
 					дивитися
 				</button>
-
-
 			</div>
 		</div>
 	</div>
