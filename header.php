@@ -30,7 +30,7 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-W9T2GNKL');</script>
         <!-- End Google Tag Manager -->
-        2. Вставьте этот код сразу же после открывающего тега <body> :
+
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9T2GNKL"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
