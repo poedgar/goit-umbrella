@@ -33,6 +33,7 @@ if (!$show_section) return;
 					title=""
 					muted
 					autoplay
+					loop
 					playsinline
 					preload="metadata">
 					<source id="impactVideoSourceMp4" src="<?php echo get_template_directory_uri(); ?>/src/videos/homepage-video.mp4" type="video/mp4">
