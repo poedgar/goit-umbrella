@@ -1,22 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
   const video = document.getElementById('impactVideo');
   const playButton = document.getElementById('playButton');
-  const source1 = document.getElementById("impactVideoSourceMp4");
-  // const source2 = document.getElementById("impactVideoSourceWebm");
+  const iframe = document.getElementById("impactVideo");
 
   if (!video || !playButton) return;
 
   playButton.addEventListener('click', function () {
-    source1.src = "https://bettered.global/wp-content/themes/goit-global/src/videos/main-homepage-video-1.mp4";
-    // source2.src = "https://bettered.global/wp-content/themes/goit-global/src/videos/main-homepage-video-1.mp4";
+    iframe.src = "https://www.youtube.com/embed/GBYrd07HAfQ?rel=0&autoplay=1";
 
-    video.load();
-
-    video.muted = false;
-
-    video.volume = 1.0;
-
-    video.play();
     playButton.style.display = 'none';
   });
 
