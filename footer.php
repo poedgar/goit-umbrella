@@ -44,6 +44,11 @@
 							$social = get_sub_field('social') ?: [];
 							$has_social = !empty(array_filter($social));
 
+							// Пропускаємо перший блок для NEOVERSITY з пустим ім'ям
+							if (get_the_title() === 'NEOVERSITY' && empty($name)) {
+								continue;
+							}
+
 							// Якщо немає ні назви, ні url, ні соцмереж — пропускаємо блок
 							if (empty($name) && !$has_social) {
 								continue;
