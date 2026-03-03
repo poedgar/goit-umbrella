@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!video || !playButton) return;
 
   playButton.addEventListener('click', function () {
-    source1.src = "<?= esc_url($video_url['url']); ?>";
-    source2.src = "<?= esc_url($video_url['url']); ?>";
+    source1.src = "https://www.bettered.global/wp-content/uploads/2025/12/video.mp4";
+    source2.src = "https://www.bettered.global/wp-content/uploads/2025/12/video.webm";
 
     console.log(source1.src, "sourc1.src");
+    console.log(source2.src, "source2.src");
 
     video.load();
 
