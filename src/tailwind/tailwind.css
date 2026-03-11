@@ -55,11 +55,11 @@
 	}
 
 	.btn-black {
-		@apply flex max-h-[44px] items-center justify-center rounded-[4px] p-2 text-center text-[20px]/[28px] duration-300 text-white bg-black hover:bg-[#565656] focus:bg-[#565656] active:bg-black;
+		@apply flex h-[44px] items-center justify-center rounded-[4px] p-2 text-center text-[20px]/[28px] duration-300 text-white bg-black hover:bg-[#565656] focus:bg-[#565656] active:bg-black;
 	}
 
 	.btn-transparent {
-		@apply flex max-h-[44px] items-center justify-center rounded-[2px] p-2 text-center text-[20px]/[28px] duration-300 text-black bg-body;
+		@apply flex h-[44px] items-center justify-center rounded-[2px] p-2 text-center text-[20px]/[28px] duration-300 text-black bg-body;
 	}
 
 	.btn-border-gradient {
@@ -68,17 +68,21 @@
 	}
 
 	.btn-border-gradient:hover {
-		background: linear-gradient(135deg,
-				#5a05f4 0%,
-				#ff8856 50%,
-				#ffc72f 100%);
+		background: linear-gradient(
+			135deg,
+			#5a05f4 0%,
+			#ff8856 50%,
+			#ffc72f 100%
+		);
 	}
 
 	.btn-border-gradient:active {
-		background: linear-gradient(315deg,
-				#5a05f4 0%,
-				#ff8856 50%,
-				#ffc72f 100%);
+		background: linear-gradient(
+			315deg,
+			#5a05f4 0%,
+			#ff8856 50%,
+			#ffc72f 100%
+		);
 	}
 
 	a.btn-border-gradient-ai-base {
@@ -97,13 +101,13 @@
 
 	/* Pseudo-element for gradient border */
 	a.btn-border-gradient-ai-base::before {
-		content: "";
+		content: '';
 		position: absolute;
 		inset: -1px;
 		padding: 2px;
 		/* border thickness */
 		border-radius: 4px;
-		background: linear-gradient(135deg, #5A05F4, #FF8856, #FFC72C);
+		background: linear-gradient(135deg, #5a05f4, #ff8856, #ffc72c);
 		-webkit-mask:
 			linear-gradient(#000 0 0) content-box,
 			linear-gradient(#000 0 0);
@@ -125,18 +129,22 @@
 			@apply fill-black;
 		}
 
-		&:hover>svg path,
-		&:focus>svg path {
+		&:hover > svg path,
+		&:focus > svg path {
 			@apply fill-white;
 		}
 
-		&:active>svg path {
+		&:active > svg path {
 			@apply fill-white;
 		}
 	}
 
 	.social-link-footer {
 		@apply size-7 flex items-center justify-center bg-white/30 rounded-[4px] duration-300 hover:scale-[1.2] hover:bg-white/60 focus:bg-white/60 active:bg-[#F2F1EE];
+	}
+
+	.agreements-menu a {
+		@apply hover:text-white transition-colors;
 	}
 
 	.nowrap-md {

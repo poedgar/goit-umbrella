@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   function toggleClasses(element, isOpen, closedClasses, openClasses) {
     if (isOpen) {
       element.classList.remove(...closedClasses);
@@ -69,6 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileMenuBtn.addEventListener("click", () => toggleMobileMenu(true));
   if (mobileCloseBtn)
     mobileCloseBtn.addEventListener("click", () => toggleMobileMenu(false));
+  const mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      toggleMobileMenu(false);
+    });
+  });
   const mobEcoBtn = document.getElementById("mobile-ecosystem-btn");
   const mobEcoDropdown = document.getElementById("mobile-ecosystem-dropdown");
   const mobArrow = mobEcoBtn ? mobEcoBtn.querySelector("img") : null;
@@ -81,16 +87,16 @@ document.addEventListener("DOMContentLoaded", function () {
         mobEcoDropdown.classList.add("opacity-0");
         if (mobArrow)
           mobArrow.style.transform = "rotate(0deg)";
-        mobEcoBtn.classList.add("rounded");
-        mobEcoBtn.classList.remove("rounded-t");
+        mobEcoBtn.classList.add("rounded-[4px]");
+        mobEcoBtn.classList.remove("rounded-t-[4px]");
       } else {
         mobEcoDropdown.classList.remove("opacity-0");
         mobEcoDropdown.classList.add("opacity-100");
         mobEcoDropdown.style.maxHeight = mobEcoDropdown.scrollHeight + "px";
         if (mobArrow)
           mobArrow.style.transform = "rotate(180deg)";
-        mobEcoBtn.classList.remove("rounded");
-        mobEcoBtn.classList.add("rounded-t");
+        mobEcoBtn.classList.remove("rounded-[4px]");
+        mobEcoBtn.classList.add("rounded-t-[4px]");
       }
     });
   }
@@ -3512,24 +3518,24 @@ function addClasses() {
   const suffixes = prepareClasses(["initialized", params.direction, {
     "free-mode": swiper.params.freeMode && params.freeMode.enabled
   }, {
-      "autoheight": params.autoHeight
-    }, {
-      "rtl": rtl
-    }, {
-      "grid": params.grid && params.grid.rows > 1
-    }, {
-      "grid-column": params.grid && params.grid.rows > 1 && params.grid.fill === "column"
-    }, {
-      "android": device.android
-    }, {
-      "ios": device.ios
-    }, {
-      "css-mode": params.cssMode
-    }, {
-      "centered": params.cssMode && params.centeredSlides
-    }, {
-      "watch-progress": params.watchSlidesProgress
-    }], params.containerModifierClass);
+    "autoheight": params.autoHeight
+  }, {
+    "rtl": rtl
+  }, {
+    "grid": params.grid && params.grid.rows > 1
+  }, {
+    "grid-column": params.grid && params.grid.rows > 1 && params.grid.fill === "column"
+  }, {
+    "android": device.android
+  }, {
+    "ios": device.ios
+  }, {
+    "css-mode": params.cssMode
+  }, {
+    "centered": params.cssMode && params.centeredSlides
+  }, {
+    "watch-progress": params.watchSlidesProgress
+  }], params.containerModifierClass);
   classNames.push(...suffixes);
   el.classList.add(...classNames);
   swiper.emitContainerClasses();
@@ -4571,44 +4577,32 @@ createSwiper(".timeline", {
     }
   }
 });
-
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   const video = document.getElementById("impactVideo");
   const playButton = document.getElementById("playButton");
   const source1 = document.getElementById("impactVideoSourceMp4");
   const source2 = document.getElementById("impactVideoSourceWebm");
-
   if (!video || !playButton)
     return;
-
-  playButton.addEventListener("click", function () {
-    const newVideoUrl = "https://www.bettered.global/wp-content/uploads/2025/12/video.mp4";
-
-    source1.src = newVideoUrl;
-    source2.src = newVideoUrl;
-
+  playButton.addEventListener("click", function() {
+    source1.src = "https://www.bettered.global/wp-content/uploads/2025/12/video.mp4";
+    source2.src = "https://www.bettered.global/wp-content/uploads/2025/12/video.webm";
+    console.log(source1.src, "sourc1.src");
     video.load();
-
-    console.log(source1.src, "source1.src");
-
-
     video.play();
-
     playButton.style.display = "none";
   });
-
-  video.addEventListener("ended", function () {
+  video.addEventListener("ended", function() {
     playButton.style.display = "block";
   });
 });
-
 function animateCounter(el, end, duration = 1e3) {
   if (!/\d/.test(end)) {
     el.textContent = end;
     return;
   }
   if (end.includes("-")) {
-    let step2 = function (timestamp) {
+    let step2 = function(timestamp) {
       if (!startTime2)
         startTime2 = timestamp;
       const progress = Math.min((timestamp - startTime2) / duration, 1);

@@ -105,7 +105,7 @@ if (!$show_section || empty($items)) return;
 
 										<div class="btn-border-gradient">
 											<a href="mailto:<?= esc_attr($social['mail'] ?? ''); ?>"
-												class="btn-transparent">зв'язатися</a>
+												class="!h-10 btn-transparent">зв'язатися</a>
 										</div>
 									</div>
 
