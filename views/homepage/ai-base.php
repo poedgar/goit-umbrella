@@ -68,7 +68,7 @@
 							$image_alt = $image ? $image['alt'] : $card['card_title'];
 
 							// Get button text and link
-							$button_text = !empty($card['button_text']) ? $card['button_text'] : 'розпочати';
+							$button_text = !empty($card['button_text']) ? $card['button_text'] : __('розпочати', 'umbrella');
 							$button_link = !empty($card['button_link']) ? $card['button_link'] : '#';
 					?>
 
