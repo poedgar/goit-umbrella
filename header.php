@@ -51,7 +51,8 @@
 				<!-- Logo -->
 				<a href="<?php echo home_url('/'); ?>" class="w-[166px] h-[28px]">
 					<img src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-black.svg"
-						alt="логотип BETTERED" class="">
+						alt="<?= esc_attr(__('логотип BETTERED', 'umbrella')); ?>"
+						class="">
 				</a>
 
 				<!-- Desktop Navigation Menu -->
@@ -73,7 +74,7 @@
 						class="bg-black text-white px-4 py-2 rounded flex items-center justify-center gap-[10px] hover:bg-gray-800 transition-colors">
 						<span id="selected-ecosystem" class="lowercase">Наша екосистема</span>
 						<img src="<?php echo get_template_directory_uri(); ?>/src/images/decoratives/arrow-down-white.svg"
-							alt="декорація" class="w-3 h-2" aria-hidden="true">
+							alt="<?= esc_attr(__('декорація', 'umbrella')); ?>" class="w-3 h-2" aria-hidden="true">
 					</button>
 					<?php
 					// Get all companies
@@ -142,7 +143,7 @@
 			<div class="flex items-center justify-between">
 				<a href="<?php echo home_url('/'); ?>" class="w-[168px] h-[28px]">
 					<img src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-black.svg"
-						alt="логотип BETTERED">
+						alt="<?= esc_attr(__('логотип BETTERED', 'umbrella')); ?>">
 				</a>
 				<button id="mobile-close-btn"
 					class="text-xl/[28px] border-2 border-black px-4 py-1 flex items-center justify-center h-[44px] rounded hover:bg-gray-50 transition-colors">
@@ -158,7 +159,7 @@
 						class="w-full bg-black text-white px-4 py-2 rounded-[4px] flex items-center justify-center gap-[10px] hover:bg-gray-800 transition">
 						<span id="mobile-selected-ecosystem" class="lowercase">Наша екосистема</span>
 						<img src="<?php echo get_template_directory_uri(); ?>/src/images/decoratives/arrow-down-white.svg"
-							alt="декорація" class="w-3 h-2" aria-hidden="true">
+							alt="<?= esc_attr(__('декорація', 'umbrella')); ?>" class="w-3 h-2" aria-hidden="true">
 					</button>
 
 					<div id="mobile-ecosystem-dropdown" class="bg-white rounded-b border border-gray-200 overflow-hidden

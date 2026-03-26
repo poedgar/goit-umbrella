@@ -35,7 +35,7 @@ if (!$show_section) {
 				<div class="animated-card card-orange mobile relative w-full h-[120px] mb-2">
 					<img src="<?= esc_url(
 									$top_image_mobile,
-								) ?>" alt="Обличчя людей" class="w-full h-full object-cover rounded-[4px]">
+								) ?>" alt="<?= esc_attr(__('Обличчя людей', 'umbrella')); ?>" class="w-full h-full object-cover rounded-[4px]">
 					<div class="overlay absolute inset-0"></div>
 				</div>
 			<?php endif; ?>
@@ -81,7 +81,7 @@ if (!$show_section) {
 					<div class="animated-card <?= $color_class ?> mobile relative w-full h-[120px] mb-2">
 						<img src="<?= esc_url(
 										$img,
-									) ?>" alt="Обличчя людей" class="w-full h-full object-cover rounded-[4px]">
+									) ?>" alt="<?= esc_attr(__('Обличчя людей', 'umbrella')); ?>" class="w-full h-full object-cover rounded-[4px]">
 						<div class="overlay absolute inset-0"></div>
 					</div>
 				<?php endforeach; ?>
