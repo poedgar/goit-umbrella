@@ -75,7 +75,7 @@ if (!$show_section || empty($team_members)) {
 			<?php if ($media_kit_link): ?>
 				<div class="btn-border-gradient !w-[237px]">
 					<a class="btn btn-transparent !w-full" href="<?= esc_url($media_kit_link) ?>" target="_blank" rel="noopener">
-						__('завантажити media kit', 'umbrella')
+						<?php echo __('завантажити media kit', 'umbrella'); ?>
 					</a>
 				</div>
 			<?php endif; ?>
