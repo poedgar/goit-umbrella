@@ -29,11 +29,11 @@ if (!$show || empty($slides)) return;
 			<!-- {{-- Initiatives btns --}} -->
 			<div class="flex items-center justify-between gap-5">
 				<button class="initiatives-button-prev btn btn-black md:px-4 smOnly:!w-[150px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">
-					__('назад', 'umbrella')
+					<?php echo	__('назад', 'umbrella'); ?>
 				</button>
 
 				<button class="initiatives-button-next btn btn-black md:px-4 smOnly:!w-[150px]" type="button" aria-label="до наступного слайду" aria-disabled="false">
-					__('вперед', 'umbrella')
+					<?php echo __('вперед', 'umbrella'); ?>
 				</button>
 			</div>
 

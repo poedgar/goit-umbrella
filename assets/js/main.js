@@ -4577,25 +4577,6 @@ createSwiper(".timeline", {
     }
   }
 });
-document.addEventListener("DOMContentLoaded", function() {
-  const video = document.getElementById("impactVideo");
-  const playButton = document.getElementById("playButton");
-  const source1 = document.getElementById("impactVideoSourceMp4");
-  const source2 = document.getElementById("impactVideoSourceWebm");
-  if (!video || !playButton)
-    return;
-  playButton.addEventListener("click", function() {
-    source1.src = "https://www.bettered.global/wp-content/uploads/2025/12/video.mp4";
-    source2.src = "https://www.bettered.global/wp-content/uploads/2025/12/video.webm";
-    console.log(source1.src, "sourc1.src");
-    video.load();
-    video.play();
-    playButton.style.display = "none";
-  });
-  video.addEventListener("ended", function() {
-    playButton.style.display = "block";
-  });
-});
 function animateCounter(el, end, duration = 1e3) {
   if (!/\d/.test(end)) {
     el.textContent = end;
@@ -4730,4 +4711,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+(function() {
+  const COOKIE_NAME = "bettered_utm";
+  const COOKIE_LIFETIME_DAYS = 30;
+  function parseQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    const utms = {};
+    [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_content",
+      "utm_term",
+      "gclid"
+    ].forEach((key) => {
+      if (params.has(key))
+        utms[key] = params.get(key);
+    });
+    return Object.keys(utms).length ? utms : null;
+  }
+  function setCookieUrl(name, value, days) {
+    const date = /* @__PURE__ */ new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1e3);
+    document.cookie = `${name}=${encodeURIComponent(
+      JSON.stringify(value)
+    )};path=/;expires=${date.toUTCString()}`;
+  }
+  function getCookieUrl(name) {
+    const match = document.cookie.match(
+      new RegExp("(^| )" + name + "=([^;]+)")
+    );
+    return match ? JSON.parse(decodeURIComponent(match[2])) : null;
+  }
+  const urlUTMs = parseQueryParams();
+  if (urlUTMs) {
+    setCookieUrl(COOKIE_NAME, urlUTMs, COOKIE_LIFETIME_DAYS);
+  }
+  document.addEventListener("click", function(e) {
+    const link = e.target.closest("a");
+    if (!link)
+      return;
+    const cookieUTMs = getCookieUrl(COOKIE_NAME);
+    if (!cookieUTMs)
+      return;
+    const url = new URL(link.href);
+    for (const [key, val] of Object.entries(cookieUTMs)) {
+      if (url.searchParams.has(key)) {
+        url.searchParams.set(key, val);
+      } else {
+        url.searchParams.set(key, val);
+      }
+    }
+    link.href = url.toString();
+  });
+})();
 //# sourceMappingURL=main.js.map
