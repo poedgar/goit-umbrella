@@ -29,7 +29,7 @@ if (!$show_section) return;
 					type="button"
 					aria-label="<?php echo esc_attr(__('кнопка відкриття модального вікна з відео', 'umbrella')); ?>"
 					tabindex=" 0">
-					<?php echo	__('дивитися', 'umbrella'); ?>
+					<?php echo esc_html__('дивитися', 'umbrella'); ?>
 				</button>
 			</div>
 		</div>
