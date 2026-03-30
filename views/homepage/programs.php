@@ -101,13 +101,14 @@ if (!$show_section || empty($items)) return;
 									<!-- Buttons -->
 									<div class="flex justify-between md:justify-start gap-4 md:gap-8 w-full">
 										<a href="<?= esc_url($url); ?>" class="btn-black !w-[130px]" target="_blank"
-											rel="noopener noreferrer" aria-label="Відкрити cайт у новій вкладці">
+											rel="noopener noreferrer" aria-label="
+											<?php echo esc_attr(__('Відкрити cайт у новій вкладці', 'umbrella')); ?>">
 											<?= esc_html(__('сайт', 'umbrella')); ?>
 										</a>
 
 										<div class="btn-border-gradient">
 											<a href="mailto:<?= esc_attr($social['mail'] ?? ''); ?>"
-                                                class="!h-10 btn-transparent"><?= esc_html(__('зв\'язатися', 'umbrella')); ?></a>
+												class="!h-10 btn-transparent"><?= esc_html(__('зв\'язатися', 'umbrella')); ?></a>
 										</div>
 									</div>
 
