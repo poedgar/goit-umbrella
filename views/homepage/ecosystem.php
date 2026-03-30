@@ -28,7 +28,7 @@ if (!$show_section) {
 	<div class="container">
 		<!-- sr Only -->
 		<h1 class="sr-only">
-			<?= esc_attr(__('BetterED - екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT & AI професії та навички для всіх поколінь.', 'umbrella')); ?>
+			<?php echo esc_attr(__('BetterED - екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT & AI професії та навички для всіх поколінь.', 'umbrella')); ?>
 		</h1>
 		<!-- MOBILE -->
 		<div class="grid md:hidden items-center justify-center gap-5">

@@ -31,10 +31,10 @@
 					</p>
 
 					<div class="flex mt-8 gap-5 md:gap-4 md:justify-center">
-						<img src="<?php echo get_template_directory_uri(); ?>/src/images/homepage/ai-base/lock.png" alt="<?= esc_attr__('декорація', 'umbrella'); ?>" class="w-6 h-6">
+						<img src="<?php echo get_template_directory_uri(); ?>/src/images/homepage/ai-base/lock.png" alt="<?php echo esc_attr__('декорація', 'umbrella'); ?>" class="w-6 h-6">
 
 						<p class="text-[#FF8856] text-[16px]/[24px] md:text-[20px]/[20px]">
-							<?= esc_html__('Відкритий доступ до навчання протягом березня', 'umbrella'); ?>
+							<?php echo esc_html__('Відкритий доступ до навчання протягом березня', 'umbrella'); ?>
 						</p>
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 									<div class="w-full md:hidden"></div>
 
 									<span class="bg-neutral-800 p-1 rounded-[4px]">
-										<?= esc_html__('онлайн', 'umbrella'); ?>
+										<?php echo esc_html__('онлайн', 'umbrella'); ?>
 									</span>
 
 									<!-- break mobile + xl -->
