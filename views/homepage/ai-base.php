@@ -3,8 +3,8 @@
 		<?php
 		$show_section = get_field('show_ai_base_section');
 		if ($show_section) :
-			$main_title = get_field('ai_base_main_title') ?: 'AI БАЗА';
-			$subtitle = get_field('ai_base_subtitle') ?: 'ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ';
+			$main_title = get_field('ai_base_main_title') ?: esc_html__('AI БАЗА', 'umbrella');
+			$subtitle = get_field('ai_base_subtitle') ?: esc_html__('ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ', 'umbrella');
 			$course_cards = get_field('ai_course_cards');
 
 			$icon_map = [
@@ -31,10 +31,10 @@
 					</p>
 
 					<div class="flex mt-8 gap-5 md:gap-4 md:justify-center">
-						<img src="<?php echo get_template_directory_uri(); ?>/src/images/homepage/ai-base/lock.png" alt="декорація" class="w-6 h-6">
+						<img src="<?php echo get_template_directory_uri(); ?>/src/images/homepage/ai-base/lock.png" alt="<?php echo esc_attr__('декорація', 'umbrella'); ?>" class="w-6 h-6">
 
 						<p class="text-[#FF8856] text-[16px]/[24px] md:text-[20px]/[20px]">
-							Відкритий доступ до навчання протягом березня
+							<?php echo esc_html__('Відкритий доступ до навчання протягом березня', 'umbrella'); ?>
 						</p>
 					</div>
 				</div>
@@ -91,7 +91,9 @@
 									<!-- break тільки на mobile -->
 									<div class="w-full md:hidden"></div>
 
-									<span class="bg-neutral-800 p-1 rounded-[4px]">онлайн</span>
+									<span class="bg-neutral-800 p-1 rounded-[4px]">
+										<?php echo esc_html__('онлайн', 'umbrella'); ?>
+									</span>
 
 									<!-- break mobile + xl -->
 									<div class="xl:w-full md:hidden xl:block"></div>

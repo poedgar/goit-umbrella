@@ -27,7 +27,9 @@ if (!$show_section) {
 <section id="ecosystem" class="section !pt-[60px] md:!pt-8">
 	<div class="container">
 		<!-- sr Only -->
-		<h1 class="sr-only">BetterED - екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT & AI професії та навички для всіх поколінь.</h1>
+		<h1 class="sr-only">
+			<?php echo esc_attr(__('BetterED - екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT & AI професії та навички для всіх поколінь.', 'umbrella')); ?>
+		</h1>
 		<!-- MOBILE -->
 		<div class="grid md:hidden items-center justify-center gap-5">
 			<!-- top image -->
