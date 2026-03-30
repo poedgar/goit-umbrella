@@ -84,7 +84,7 @@
 					<button id="ecosystem-dropdown-btn"
 						class="bg-black text-white px-4 py-2 rounded flex items-center justify-center gap-[10px] hover:bg-gray-800 transition-colors">
 						<span id="selected-ecosystem" class="lowercase">
-							<?= esc_html__('Наша екосистема', 'umbrella'); ?>
+							<?php echo esc_html__('Наша екосистема', 'umbrella'); ?>
 						</span>
 						<img src="<?php echo get_template_directory_uri(); ?>/src/images/decoratives/arrow-down-white.svg"
 							alt="<?= esc_attr(__('декорація', 'umbrella')); ?>" class="w-3 h-2" aria-hidden="true">
@@ -170,7 +170,9 @@
 				<div class="w-full text-xl/[28px]">
 					<button id="mobile-ecosystem-btn"
 						class="w-full bg-black text-white px-4 py-2 rounded-[4px] flex items-center justify-center gap-[10px] hover:bg-gray-800 transition">
-						<span id="mobile-selected-ecosystem" class="lowercase">Наша екосистема</span>
+						<span id="mobile-selected-ecosystem" class="lowercase">
+							<?php echo esc_html__('Наша екосистема', 'umbrella'); ?>
+						</span>
 						<img src="<?php echo get_template_directory_uri(); ?>/src/images/decoratives/arrow-down-white.svg"
 							alt="<?= esc_attr(__('декорація', 'umbrella')); ?>" class="w-3 h-2" aria-hidden="true">
 					</button>
