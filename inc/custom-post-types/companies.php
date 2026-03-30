@@ -34,9 +34,7 @@ function create_companies_post_type()
 		'show_in_admin_bar' => true,
 		'show_in_rest' => true,
 		'has_archive' => true,
-		'rewrite' => array('slug' => 'companies'),
-		'publicly_queryable' => true,
-		'query_var' => true,
+		'rewrite' => array('slug' => 'companies')
 	);
 
 	register_post_type('companies', $args);
