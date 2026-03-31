@@ -3,7 +3,7 @@
 	class="bg-white rounded-b border border-gray-200 overflow-hidden
 		transition-all duration-300 ease-in-out">
 	перемикач мови
-	<?php if (function_exists('icl_get_languages')) : ?>
+	<?php if (function_exists('icl_get_languages') && false) : ?>
 
 		<?php
 		$languages = icl_get_languages('skip_missing=0&orderby=custom&order=asc');
