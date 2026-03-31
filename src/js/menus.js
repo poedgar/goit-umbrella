@@ -153,30 +153,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // 4. MOBILE LANGUAGE SWITCHER (Slide & Fade)
   // ==========================================
   const toggle = document.getElementById('mobile-language-toggle');
-  const dropdown = document.getElementById('mobile-language-dropdown');
+	const dropdown = document.getElementById('mobile-language-dropdown');
 
-  if (!toggle || !dropdown) return;
+	if (!toggle || !dropdown) return;
 
-  let isOpen = false;
+	toggle.addEventListener('click', function (e) {
+		e.stopPropagation();
+		dropdown.classList.toggle('hidden');
+	});
 
-  toggle.addEventListener('click', function () {
-    isOpen = !isOpen;
-
-    if (isOpen) {
-      dropdown.classList.remove('max-h-0', 'opacity-0');
-      dropdown.classList.add('max-h-40', 'opacity-100');
-    } else {
-      dropdown.classList.remove('max-h-40', 'opacity-100');
-      dropdown.classList.add('max-h-0', 'opacity-0');
-    }
-  });
-
-  // optional: close on outside click
-  document.addEventListener('click', function (e) {
-    if (!dropdown.contains(e.target) && !toggle.contains(e.target)) {
-      dropdown.classList.remove('max-h-40', 'opacity-100');
-      dropdown.classList.add('max-h-0', 'opacity-0');
-      isOpen = false;
-    }
-  });
+	document.addEventListener('click', function (e) {
+		if (!dropdown.contains(e.target)) {
+			dropdown.classList.add('hidden');
+		}
+	});
 });
