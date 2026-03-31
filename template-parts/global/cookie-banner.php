@@ -14,7 +14,9 @@
 				</p>
 
 				<?php if (!empty($full)): ?>
-					<button id="show-more" class="underline-dotted notXl:self-end text-[#8e8e8e] text-sm">Читати більше</button>
+					<button id="show-more" class="underline-dotted notXl:self-end text-[#8e8e8e] text-sm">
+						<?php _e('Читати більше', 'umbrella'); ?>
+					</button>
 				<?php endif; ?>
 			</div>
 
