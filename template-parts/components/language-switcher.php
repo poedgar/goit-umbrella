@@ -1,10 +1,12 @@
 <!-- DROPDOWN = ІНШІ МОВИ -->
 <div id="mobile-language-dropdown"
 	class="bg-white rounded-b border border-gray-200 overflow-hidden
-		transition-all duration-300 ease-in-out">
-	перемикач мови
+		transition-all duration-300 ease-in-out max-h-0 opacity-0">
+	<button id="mobile-language-toggle" class="px-4 py-2">
+		🌐 
+	</button>
+	
 	<?php if (function_exists('icl_get_languages')) : ?>
-
 		<?php
 		$languages = icl_get_languages('skip_missing=0&orderby=custom&order=asc');
 		// активна мова
@@ -15,7 +17,6 @@
 		?>
 
 		<?php foreach ($languages as $lang) : ?>
-
 			<?php
 			$lang_code = $lang['language_code'] ?? '';
 
@@ -38,9 +39,6 @@
 					<?= esc_html($name); ?>
 				</a>
 			<?php endif; ?>
-
 		<?php endforeach; ?>
-
 	<?php endif; ?>
-
 </div>
