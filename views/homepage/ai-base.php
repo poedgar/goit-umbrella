@@ -140,8 +140,10 @@
 
 								<!-- Button -->
 								<a target="_blank" href="<?php echo esc_url($button_link); ?>"
-									class="btn-border-gradient-ai-base inline-flex items-center justify-center mt-auto w-[126px] h-[44px] text-white text-[20px]/[1] border border-white px-4 py-2 rounded-[4px] hover:!bg-black">
-									<?php echo esc_html($button_text); ?>
+									class="btn-border-gradient-ai-base inline-flex items-center justify-center mt-auto w-fit h-[44px] text-white text-[20px]/[1] border border-white px-4 py-2 rounded-[4px] hover:!bg-black">
+
+									Get started
+									<!-- <?php echo esc_html($button_text); ?> -->
 								</a>
 							</div>
 						<?php
