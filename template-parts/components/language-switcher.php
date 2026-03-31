@@ -3,9 +3,10 @@
 	class="bg-white rounded-b border border-gray-200 overflow-hidden
 		transition-all duration-300 ease-in-out">
 	перемикач мови
-	<?php if (!empty($languages)) : ?>
+	<?php if (function_exists('icl_get_languages')) : ?>
 
 		<?php
+		$languages = icl_get_languages('skip_missing=0&orderby=custom&order=asc');
 		// активна мова
 		$active_lang_code = $current_lang['language_code'] ?? '';
 
