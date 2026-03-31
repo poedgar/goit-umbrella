@@ -82,7 +82,7 @@
 
 				<div class="hidden xl:block">
 					<!-- language switcher -->
-					<?php // get_template_part('template-parts/components/language-switcher'); ?>
+					<?php get_template_part('template-parts/components/language-switcher'); ?>
 				</div>
 
 
@@ -173,7 +173,7 @@
 
 			<!-- language switcher -->
 			<div class="mt-[60px]">
-				<?php // get_template_part('template-parts/components/language-switcher'); ?>
+				<?php get_template_part('template-parts/components/language-switcher'); ?>
 			</div>
 
 			<!-- Mobile Navigation Links -->
