@@ -79,6 +79,13 @@
 					?>
 				</div>
 
+
+				<div class="hidden xl:block">
+					<!-- language switcher -->
+					<?php get_template_part('template-parts/components/language-switcher'); ?>
+				</div>
+
+
 				<!-- Desktop Ecosystem Dropdown -->
 				<div class="hidden xl:block relative text-xl/[28px]">
 					<button id="ecosystem-dropdown-btn"
@@ -164,8 +171,14 @@
 				</button>
 			</div>
 
+			<!-- language switcher -->
+			<div class="mt-[60px]">
+				<?php get_template_part('template-parts/components/language-switcher'); ?>
+			</div>
+
 			<!-- Mobile Navigation Links -->
-			<nav class="flex-1 flex flex-col items-center space-y-5 mt-[60px]">
+			<nav class="flex-1 flex flex-col items-center space-y-5 mt-5">
+
 				<!-- Mobile Ecosystem Dropdown -->
 				<div class="w-full text-xl/[28px]">
 					<button id="mobile-ecosystem-btn"
@@ -212,7 +225,7 @@
 				?>
 			</nav>
 
-			<!-- Footer -->
+			<!-- Footer-row in menu -->
 			<div class="">
 				<!-- Footer Text -->
 				<div class="text-center text-gray-400 text-base/[24px]">
