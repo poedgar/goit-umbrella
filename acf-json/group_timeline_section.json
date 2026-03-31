@@ -30,7 +30,7 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": false,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -43,25 +43,46 @@
             "append": ""
         },
         {
+            "key": "field_69ca7c49286b7",
+            "label": "Підзаголовок секції",
+            "name": "timeline_section_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_timeline_items",
             "label": "Кроки \/ Карточки",
             "name": "timeline_items",
             "aria-label": "",
             "type": "repeater",
             "instructions": "Додайте кроки вашого шляху",
-            "required": false,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
+            "layout": "block",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "block",
+            "collapsed": "",
             "button_label": "Додати крок",
             "rows_per_page": 20,
-            "collapsed": "",
             "sub_fields": [
                 {
                     "key": "field_timeline_image",
@@ -173,5 +194,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1769676563
+    "modified": 1774877819
 }

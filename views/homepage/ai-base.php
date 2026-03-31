@@ -26,19 +26,19 @@ if (!$show_section) return;
 			<div class="bg-black text-white p-[20px] md:py-8 md:px-8 xl:py-[128px] xl:px-[64px] rounded-[8px]">
 				<!-- Header -->
 				<div class="">
-					<h1 class="section-title">
+					<h2 class="section-title">
 						<?php echo esc_html($main_title); ?>
-					</h1>
+					</h2>
 
 					<p class="low-section-title !text-white mdOnly:text-[32px]/[40px] mt-5 md:mt-8">
 						<?php echo esc_html($subtitle); ?>
 					</p>
 
 					<div class="flex mt-8 gap-5 md:gap-4 md:justify-center">
-						<img src="<?php echo get_template_directory_uri(); ?>/src/images/homepage/ai-base/lock.png" alt="декорація" class="w-6 h-6">
+						<img src="<?php echo get_template_directory_uri(); ?>/src/images/homepage/ai-base/lock.png" alt="<?php echo esc_attr__('декорація', 'umbrella'); ?>" class="w-6 h-6">
 
 						<p class="text-[#FF8856] text-[16px]/[24px] md:text-[20px]/[20px]">
-							Відкритий доступ до навчання протягом березня
+							<?php echo esc_html__('Відкритий доступ до навчання протягом березня', 'umbrella'); ?>
 						</p>
 					</div>
 				</div>
@@ -72,7 +72,7 @@ if (!$show_section) return;
 							$image_alt = $image ? $image['alt'] : $card['card_title'];
 
 							// Get button text and link
-							$button_text = !empty($card['button_text']) ? $card['button_text'] : 'розпочати';
+							$button_text = !empty($card['button_text']) ? $card['button_text'] : __('розпочати', 'umbrella');
 							$button_link = !empty($card['button_link']) ? $card['button_link'] : '#';
 					?>
 
@@ -95,7 +95,9 @@ if (!$show_section) return;
 									<!-- break тільки на mobile -->
 									<div class="w-full md:hidden"></div>
 
-									<span class="bg-neutral-800 p-1 rounded-[4px]">онлайн</span>
+									<span class="bg-neutral-800 p-1 rounded-[4px]">
+										<?php echo esc_html__('онлайн', 'umbrella'); ?>
+									</span>
 
 									<!-- break mobile + xl -->
 									<div class="xl:w-full md:hidden xl:block"></div>
@@ -142,7 +144,7 @@ if (!$show_section) return;
 
 								<!-- Button -->
 								<a target="_blank" href="<?php echo esc_url($button_link); ?>"
-									class="btn-border-gradient-ai-base mt-auto w-[126px] h-[44px] text-white text-[20px]/[28px] border border-white px-4 py-2 rounded-[4px] hover:!bg-black text-center inline-block">
+									class="btn-border-gradient-ai-base inline-flex items-center justify-center mt-auto w-fit h-[44px] text-white text-[20px]/[1] border border-white px-4 py-2 rounded-[4px] hover:!bg-black">
 									<?php echo esc_html($button_text); ?>
 								</a>
 							</div>

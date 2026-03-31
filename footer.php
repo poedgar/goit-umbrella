@@ -44,6 +44,11 @@
 							$social = get_sub_field('social') ?: [];
 							$has_social = !empty(array_filter($social));
 
+							// Пропускаємо перший блок для NEOVERSITY з пустим ім'ям
+							if (get_the_title() === 'NEOVERSITY' && empty($name)) {
+								continue;
+							}
+
 							// Якщо немає ні назви, ні url, ні соцмереж — пропускаємо блок
 							if (empty($name) && !$has_social) {
 								continue;
@@ -98,7 +103,9 @@
 
 		<div class="">
 			<a href="/" class="smOnly:mx-auto block w-fit">
-				<img class="h-[28px] w-[168px] md:h-[36px] md:w-[208px]" src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-white.svg" alt="логотип BetterED" aria-label="На головну">
+				<img class="h-[28px] w-[168px] md:h-[36px] md:w-[208px]" src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-white.svg"
+					alt="<?php echo esc_attr__('логотип BetterED', 'umbrella'); ?>"
+					aria-label="<?php echo esc_attr__('На головну', 'umbrella'); ?>">
 			</a>
 
 			<p class="mt-4 uppercase text-[20px]/[28px] md:text-[32px]/[28px] text-[#4D4D4D] smOnly:text-center"><?= esc_html(get_theme_mod('footer_slogan')); ?></p>
@@ -112,10 +119,16 @@
 
 
 			<div class="xl:max-w-[230px] text-base/[24px] smOnly:mt-[10px] xl:ml-8">
-				BetterEd © <?= date('Y'); ?>
+				BetterED © <?= date('Y'); ?>
 			</div>
 
-			<p class="text-base/[24px] smOnly:mt-[10px]"><?php echo esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?></p>
+			<!--  email -->
+			<p class="text-base/[24px] smOnly:mt-[10px]">
+				<a href="mailto:<?= esc_attr(get_theme_mod('contact_email', 'info@bettered.global')); ?>"
+					class="hover:text-white transition">
+					<?= esc_html(get_theme_mod('contact_email', 'info@bettered.global')); ?>
+				</a>
+			</p>
 		</div>
 	</div>
 </footer>

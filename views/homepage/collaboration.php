@@ -75,14 +75,15 @@ if (!$show_section || empty($team_members)) {
 			<?php if ($media_kit_link): ?>
 				<div class="btn-border-gradient !w-[237px]">
 					<a class="btn btn-transparent !w-full" href="<?= esc_url($media_kit_link) ?>" target="_blank" rel="noopener">
-						завантажити media kit
+						<?php echo __('завантажити media kit', 'umbrella'); ?>
 					</a>
 				</div>
 			<?php endif; ?>
 
 			<?php if ($contact_email): ?>
-				<p class="mt-8 uppercase text-center font-medium">З питань партнерств і PR:
-					<a class="hover:underline" href="mailto:info@bettered.global"> <?php echo esc_html($contact_email); ?>
+				<p class="mt-8 uppercase text-center font-medium">
+					<?= esc_html(__('З питань партнерств і PR:', 'umbrella')); ?>
+					<a class="hover:underline" href="mailto:info@bettered.global"> <?= esc_html($contact_email); ?>
 					</a>
 				</p>
 			<?php endif; ?>
