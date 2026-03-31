@@ -1,8 +1,22 @@
 <!-- DROPDOWN = ІНШІ МОВИ -->
+<?php
+$current_lang_code = $current_lang['language_code'] ?? 'uk';
+
+// map full → short
+$lang_labels = [
+	'uk' => 'Укр',
+	'en' => 'Eng',
+];
+
+// fallback if something unexpected
+$current_label = $lang_labels[$current_lang_code] ?? strtoupper($current_lang_code);
+?>
+
 <div class="relative inline-block text-left">
 	<button id="mobile-language-toggle"
 		class="flex items-center gap-1 bg-gray-200 px-3 py-1 text-sm">
-		Укр
+		<span><?= esc_html($current_label); ?></span>
+		
 		<svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
 			<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
 		</svg>
