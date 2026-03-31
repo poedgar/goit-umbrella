@@ -108,9 +108,7 @@
 					aria-label="<?php echo esc_attr__('На головну', 'umbrella'); ?>">
 			</a>
 
-			<p class="mt-4 uppercase text-[20px]/[28px] md:text-[32px]/[28px] text-[#4D4D4D] smOnly:text-center">
-				<?php echo esc_html( __( get_theme_mod('footer_slogan'), 'umbrella' ) ); ?>
-			</p>
+			<p class="mt-4 uppercase text-[20px]/[28px] md:text-[32px]/[28px] text-[#4D4D4D] smOnly:text-center"><?= esc_html(get_theme_mod('footer_slogan')); ?></p>
 		</div>
 
 		<!-- Footer bottom -->
