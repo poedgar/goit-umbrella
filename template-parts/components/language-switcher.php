@@ -13,19 +13,18 @@ $lang_labels = [
 $current_label = $lang_labels[$current_lang_code] ?? strtoupper($current_lang_code);
 ?>
 
-<div class="relative inline-block text-left">
+<div class="relative inline-block text-left xl:mr-4">
 	<button id="mobile-language-toggle"
-		class="flex items-center gap-1 bg-gray-200 px-3 py-1 text-sm">
+		class="flex justify-center items-center gap-[10px] px-4 py-2 xl:text-[20px]/[28px]">
 		<span><?= esc_html($current_label); ?></span>
 
-		<svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+		<svg class="w-3 h-2" viewBox="0 0 20 20" fill="currentColor">
 			<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
 		</svg>
 	</button>
 
 	<div id="mobile-language-dropdown"
 		class="absolute left-0 mt-1 w-full bg-white shadow-md text-sm hidden">
-		
 		<?php if (function_exists('icl_get_languages')) : ?>
 			<?php
 			$languages = icl_get_languages('skip_missing=0&orderby=custom&order=asc');
