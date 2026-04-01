@@ -325,11 +325,10 @@ function isNode(node) {
 }
 function extend(...args) {
   const to = Object(args[0]);
-  const noExtend = ["__proto__", "constructor", "prototype"];
   for (let i = 1; i < args.length; i += 1) {
     const nextSource = args[i];
     if (nextSource !== void 0 && nextSource !== null && !isNode(nextSource)) {
-      const keysArray = Object.keys(Object(nextSource)).filter((key) => noExtend.indexOf(key) < 0);
+      const keysArray = Object.keys(Object(nextSource)).filter((key) => key !== "__proto__" && key !== "constructor" && key !== "prototype");
       for (let nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
         const nextKey = keysArray[nextIndex];
         const desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
@@ -944,6 +943,10 @@ function updateSlides() {
     setCSSProperty(wrapperEl, "--swiper-centered-offset-before", "");
     setCSSProperty(wrapperEl, "--swiper-centered-offset-after", "");
   }
+  if (params.cssMode) {
+    setCSSProperty(wrapperEl, "--swiper-slides-offset-before", `${offsetBefore}px`);
+    setCSSProperty(wrapperEl, "--swiper-slides-offset-after", `${offsetAfter}px`);
+  }
   const gridEnabled = params.grid && params.grid.rows > 1 && swiper.grid;
   if (gridEnabled) {
     swiper.grid.initSlides(slides);
@@ -1061,18 +1064,45 @@ function updateSlides() {
     swiper.grid.updateWrapperSize(slideSize, snapGrid);
   }
   if (!params.centeredSlides) {
+    const isFractionalSlidesPerView = params.slidesPerView !== "auto" && params.slidesPerView % 1 !== 0;
+    const shouldSnapToSlideEdge = params.snapToSlideEdge && !params.loop && (params.slidesPerView === "auto" || isFractionalSlidesPerView);
+    let lastAllowedSnapIndex = snapGrid.length;
+    if (shouldSnapToSlideEdge) {
+      let minVisibleSlides;
+      if (params.slidesPerView === "auto") {
+        minVisibleSlides = 1;
+        let accumulatedSize = 0;
+        for (let i = slidesSizesGrid.length - 1; i >= 0; i -= 1) {
+          accumulatedSize += slidesSizesGrid[i] + (i < slidesSizesGrid.length - 1 ? spaceBetween : 0);
+          if (accumulatedSize <= swiperSize) {
+            minVisibleSlides = slidesSizesGrid.length - i;
+          } else {
+            break;
+          }
+        }
+      } else {
+        minVisibleSlides = Math.floor(params.slidesPerView);
+      }
+      lastAllowedSnapIndex = Math.max(slidesLength - minVisibleSlides, 0);
+    }
     const newSlidesGrid = [];
     for (let i = 0; i < snapGrid.length; i += 1) {
       let slidesGridItem = snapGrid[i];
       if (params.roundLengths)
         slidesGridItem = Math.floor(slidesGridItem);
-      if (snapGrid[i] <= swiper.virtualSize - swiperSize) {
+      if (shouldSnapToSlideEdge) {
+        if (i <= lastAllowedSnapIndex) {
+          newSlidesGrid.push(slidesGridItem);
+        }
+      } else if (snapGrid[i] <= swiper.virtualSize - swiperSize) {
         newSlidesGrid.push(slidesGridItem);
       }
     }
     snapGrid = newSlidesGrid;
     if (Math.floor(swiper.virtualSize - swiperSize) - Math.floor(snapGrid[snapGrid.length - 1]) > 1) {
-      snapGrid.push(swiper.virtualSize - swiperSize);
+      if (!shouldSnapToSlideEdge) {
+        snapGrid.push(swiper.virtualSize - swiperSize);
+      }
     }
   }
   if (isVirtual && params.loop) {
@@ -1128,9 +1158,8 @@ function updateSlides() {
       allSlidesSize += slideSizeValue + (spaceBetween || 0);
     });
     allSlidesSize -= spaceBetween;
-    const offsetSize = (offsetBefore || 0) + (offsetAfter || 0);
-    if (allSlidesSize + offsetSize < swiperSize) {
-      const allSlidesOffset = (swiperSize - allSlidesSize - offsetSize) / 2;
+    if (allSlidesSize < swiperSize) {
+      const allSlidesOffset = (swiperSize - allSlidesSize) / 2;
       snapGrid.forEach((snap, snapIndex) => {
         snapGrid[snapIndex] = snap - allSlidesOffset;
       });
@@ -1422,13 +1451,13 @@ const processLazyPreloader = (swiper, imageEl) => {
         requestAnimationFrame(() => {
           if (slideEl.shadowRoot) {
             lazyEl = slideEl.shadowRoot.querySelector(`.${swiper.params.lazyPreloaderClass}`);
-            if (lazyEl)
+            if (lazyEl && !lazyEl.lazyPreloaderManaged)
               lazyEl.remove();
           }
         });
       }
     }
-    if (lazyEl)
+    if (lazyEl && !lazyEl.lazyPreloaderManaged)
       lazyEl.remove();
   }
 };
@@ -1548,8 +1577,12 @@ function updateActiveIndex(newActiveIndex) {
   }
   const gridEnabled = swiper.grid && params.grid && params.grid.rows > 1;
   let realIndex;
-  if (swiper.virtual && params.virtual.enabled && params.loop) {
-    realIndex = getVirtualRealIndex(activeIndex);
+  if (swiper.virtual && params.virtual.enabled) {
+    if (params.loop) {
+      realIndex = getVirtualRealIndex(activeIndex);
+    } else {
+      realIndex = activeIndex;
+    }
   } else if (gridEnabled) {
     const firstSlideInColumn = swiper.slides.find((slideEl) => slideEl.column === activeIndex);
     let activeSlideIndex = parseInt(firstSlideInColumn.getAttribute("data-swiper-slide-index"), 10);
@@ -3188,7 +3221,8 @@ function onResize() {
   swiper.updateSlidesClasses();
   const isVirtualLoop = isVirtual && params.loop;
   if ((params.slidesPerView === "auto" || params.slidesPerView > 1) && swiper.isEnd && !swiper.isBeginning && !swiper.params.centeredSlides && !isVirtualLoop) {
-    swiper.slideTo(swiper.slides.length - 1, 0, false, true);
+    const slides = isVirtual ? swiper.virtual.slides : swiper.slides;
+    swiper.slideTo(slides.length - 1, 0, false, true);
   } else {
     if (swiper.params.loop && !isVirtual) {
       swiper.slideToLoop(swiper.realIndex, 0, false, true);
@@ -3640,6 +3674,7 @@ var defaults = {
   // in px
   normalizeSlideIndex: true,
   centerInsufficientSlides: false,
+  snapToSlideEdge: false,
   // Disable swiper and hide navigation when container not overflow
   watchOverflow: true,
   // Round length
@@ -3791,7 +3826,11 @@ class Swiper {
     swiper.eventsAnyListeners = [];
     swiper.modules = [...swiper.__modules__];
     if (params.modules && Array.isArray(params.modules)) {
-      swiper.modules.push(...params.modules);
+      params.modules.forEach((mod) => {
+        if (typeof mod === "function" && swiper.modules.indexOf(mod) < 0) {
+          swiper.modules.push(mod);
+        }
+      });
     }
     const allModulesParams = {};
     swiper.modules.forEach((mod) => {
@@ -4576,6 +4615,26 @@ createSwiper(".timeline", {
       spaceBetween: 32
     }
   }
+});
+document.addEventListener("DOMContentLoaded", function() {
+  const video = document.getElementById("impactVideo");
+  const playButton = document.getElementById("playButton");
+  const source1 = document.getElementById("impactVideoSourceMp4");
+  const source2 = document.getElementById("impactVideoSourceWebm");
+  if (!video || !playButton)
+    return;
+  playButton.addEventListener("click", function() {
+    source1.src = "https://bettered.global/wp-content/themes/goit-global/src/videos/main-homepage-video.mp4";
+    source2.src = "https://bettered.global/wp-content/themes/goit-global/src/videos/main-homepage-video.webm";
+    video.load();
+    video.muted = false;
+    video.volume = 1;
+    video.play();
+    playButton.style.display = "none";
+  });
+  video.addEventListener("ended", function() {
+    playButton.style.display = "block";
+  });
 });
 function animateCounter(el, end, duration = 1e3) {
   if (!/\d/.test(end)) {
