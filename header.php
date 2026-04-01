@@ -80,7 +80,7 @@
 				</div>
 
 
-				<div class="hidden">
+				<div class="">
 					<!-- language switcher -->
 					<?php get_template_part('template-parts/components/language-switcher'); ?>
 				</div>
@@ -172,7 +172,7 @@
 			</div>
 
 			<!-- language switcher -->
-			<div class="mt-[60px] hidden">
+			<div class="mt-[60px]">
 				<?php get_template_part('template-parts/components/language-switcher'); ?>
 			</div>
 
