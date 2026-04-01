@@ -152,13 +152,21 @@ document.addEventListener('DOMContentLoaded', function () {
   // ==========================================
   // 4. MOBILE LANGUAGE SWITCHER (Slide & Fade)
   // ==========================================
-     const toggle = document.getElementById('mobile-language-toggle');
+  const toggle = document.getElementById('mobile-language-toggle');
 	const dropdown = document.getElementById('mobile-language-dropdown');
   const arrowBlack = document.getElementById('mobile-language-toggle--arrow-black');
   const arrowWhite = document.getElementById('mobile-language-toggle--arrow-white');
-	// if (!toggle || !dropdown) return;
+	
+  console.log(1);
+  
+  if (!toggle || !dropdown) return;
+
+  console.log(2);
+  
 
 	toggle.addEventListener('click', function (e) {
+    console.log(3);
+    
 		e.stopPropagation();
     if (dropdown.classList.contains('hidden')) {
       toggle.style.background = 'black';

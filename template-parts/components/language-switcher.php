@@ -13,7 +13,7 @@ $lang_labels = [
 $current_label = $lang_labels[$current_lang_code] ?? strtoupper($current_lang_code);
 ?>
 
-<div class="relative flex justify-center text-left xl:mr-4">
+<div class="relative flex justify-center xl:inline-block text-left xl:mr-4">
 	<button id="mobile-language-toggle"
 		class="flex justify-center items-center gap-[10px] px-4 py-2 xl:text-[20px]/[28px] rounded-t">
 		<span><?= esc_html($current_label); ?></span>
