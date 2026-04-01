@@ -154,17 +154,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // ==========================================
      const toggle = document.getElementById('mobile-language-toggle');
 	const dropdown = document.getElementById('mobile-language-dropdown');
-  const arrow = document.getElementById('mobile-language-toggle--arrow');
-
+  const arrowBlack = document.getElementById('mobile-language-toggle--arrow-black');
+  const arrowWhite = document.getElementById('mobile-language-toggle--arrow-white');
 	// if (!toggle || !dropdown) return;
 
 	toggle.addEventListener('click', function (e) {
 		e.stopPropagation();
     toggle.style.background = 'black';
     toggle.style.color = 'white';
-    if (arrow) {
-      arrow.style.transform = 'rotate(180deg)';
-    }
+    arrowWhite.style.display = 'block';;
+    arrowBlack.style.display = 'none';
 		dropdown.classList.toggle('hidden');
 	});
 
@@ -172,9 +171,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (!dropdown.contains(e.target)) {
       toggle.style.background = 'transparent';
       toggle.style.color = 'black';
-      if (arrow) {
-        arrow.style.transform = 'rotate(0deg)';
-      }
+      arrowWhite.style.display = 'none';
+      arrowBlack.style.display = 'block';
 			dropdown.classList.add('hidden');
 		}
 	});
