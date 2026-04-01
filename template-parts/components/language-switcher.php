@@ -28,7 +28,7 @@ $current_label = $lang_labels[$current_lang_code] ?? strtoupper($current_lang_co
 	</button>
 
 	<div id="mobile-language-dropdown"
-		class="mobile-language-dropdown absolute left-0 mt-1 w-full bg-white shadow-md text-sm hidden rounded-b">
+		class="mobile-language-dropdown xl:absolute left-0 mt-1 w-full bg-white shadow-md text-sm hidden rounded-b">
 		<?php if (function_exists('icl_get_languages')) : ?>
 			<?php
 			$languages = icl_get_languages('skip_missing=0&orderby=custom&order=asc');
