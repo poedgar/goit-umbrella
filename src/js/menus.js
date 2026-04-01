@@ -152,26 +152,29 @@ document.addEventListener('DOMContentLoaded', function () {
   // ==========================================
   // 4. MOBILE LANGUAGE SWITCHER (Slide & Fade)
   // ==========================================
-  const toggle = document.getElementById('mobile-language-toggle');
+     const toggle = document.getElementById('mobile-language-toggle');
 	const dropdown = document.getElementById('mobile-language-dropdown');
   const arrow = document.getElementById('mobile-language-toggle--arrow');
 
-	if (!toggle || !dropdown) return;
+	// if (!toggle || !dropdown) return;
 
 	toggle.addEventListener('click', function (e) {
 		e.stopPropagation();
-    toggle.classList.add('bg-white text-black');
+    toggle.style.background = 'black';
+    toggle.style.color = 'white';
     if (arrow) {
-      const isOpen = dropdown.classList.contains('hidden');
-      arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+      arrow.style.transform = 'rotate(180deg)';
     }
 		dropdown.classList.toggle('hidden');
 	});
 
 	document.addEventListener('click', function (e) {
 		if (!dropdown.contains(e.target)) {
-      toggle.classList.remove('bg-white', 'text-black');
-      if (arrow) arrow.style.transform = 'rotate(0deg)';
+      toggle.style.background = 'white';
+      toggle.style.color = 'black';
+      if (arrow) {
+        arrow.style.transform = 'rotate(0deg)';
+      }
 			dropdown.classList.add('hidden');
 		}
 	});
