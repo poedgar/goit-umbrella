@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	toggle.addEventListener('click', function (e) {
 		e.stopPropagation();
-    toggle.classList.toggle('bg-white text-black');
+    toggle.classList.add('bg-white text-black');
     if (arrow) {
       const isOpen = dropdown.classList.contains('hidden');
       arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
