@@ -1,10 +1,14 @@
-<section id="ai-base" class="section scroll-mt-[90px] mdOnly:scroll-mt-[108px]">
+<?php
+$show_section = get_field('show_ai_base_section');
+if (!$show_section) return;
+?>
+
+<section id="ai-base" class="section">
 	<div class="container">
 		<?php
-		$show_section = get_field('show_ai_base_section');
 		if ($show_section) :
-			$main_title = get_field('ai_base_main_title') ?: esc_html__('AI БАЗА', 'umbrella');
-			$subtitle = get_field('ai_base_subtitle') ?: esc_html__('ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ', 'umbrella');
+			$main_title = get_field('ai_base_main_title') ?: 'AI БАЗА';
+			$subtitle = get_field('ai_base_subtitle') ?: 'ОСНОВИ AI-ГРАМОТНОСТІ ДЛЯ ВСІХ ПОКОЛІНЬ';
 			$course_cards = get_field('ai_course_cards');
 
 			$icon_map = [
