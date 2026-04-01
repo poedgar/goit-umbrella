@@ -28,8 +28,7 @@ $current_label = $lang_labels[$current_lang_code] ?? strtoupper($current_lang_co
 		<?php if (function_exists('icl_get_languages')) : ?>
 			<?php
 			$languages = icl_get_languages('skip_missing=0&orderby=custom&order=asc');
-			var_dump($current_lang);
-			$active_lang_code = $current_lang['language_code'] ?? '';
+			$active_lang_code = $current_label ?? '';
 			$allowed_langs = ['uk', 'en'];
 			?>
 
@@ -38,6 +37,7 @@ $current_label = $lang_labels[$current_lang_code] ?? strtoupper($current_lang_co
 				$lang_code = $lang['language_code'] ?? '';
 				if (!in_array($lang_code, $allowed_langs, true)) continue;
 				if ($lang_code === $active_lang_code) return;
+
 
                 $name = $lang_labels[$lang_code] ?? ($lang['native_name'] ?? strtoupper($lang_code));
 				?>
