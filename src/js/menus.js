@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	document.addEventListener('click', function (e) {
 		if (!dropdown.contains(e.target)) {
-      toggle.style.background = 'white';
+      toggle.style.background = 'transparent';
       toggle.style.color = 'black';
       if (arrow) {
         arrow.style.transform = 'rotate(0deg)';
