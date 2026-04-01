@@ -154,16 +154,24 @@ document.addEventListener('DOMContentLoaded', function () {
   // ==========================================
   const toggle = document.getElementById('mobile-language-toggle');
 	const dropdown = document.getElementById('mobile-language-dropdown');
+  const arrow = document.getElementById('mobile-language-toggle--arrow');
 
 	if (!toggle || !dropdown) return;
 
 	toggle.addEventListener('click', function (e) {
 		e.stopPropagation();
+    toggle.classList.toggle('bg-white text-black');
+    if (arrow) {
+      const isOpen = dropdown.classList.contains('hidden');
+      arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
 		dropdown.classList.toggle('hidden');
 	});
 
 	document.addEventListener('click', function (e) {
 		if (!dropdown.contains(e.target)) {
+      toggle.classList.remove('bg-white', 'text-black');
+      if (arrow) arrow.style.transform = 'rotate(0deg)';
 			dropdown.classList.add('hidden');
 		}
 	});
