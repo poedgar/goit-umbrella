@@ -152,39 +152,67 @@ document.addEventListener('DOMContentLoaded', function () {
   // ==========================================
   // 4. MOBILE LANGUAGE SWITCHER (Slide & Fade)
   // ==========================================
-  const toggle = document.getElementById('mobile-language-toggle');
-	const dropdown = document.getElementById('mobile-language-dropdown');
-  const arrowBlack = document.getElementById('mobile-language-toggle--arrow-black');
-  const arrowWhite = document.getElementById('mobile-language-toggle--arrow-white');
-	
-  console.log(1);
-  
-  if (!toggle || !dropdown) return;
+  document.querySelectorAll('.mobile-language-toggle').forEach(toggle => {
+    const wrapper = toggle.closest('.relative');
+    const dropdown = wrapper.querySelector('.mobile-language-dropdown');
+    const arrowBlack = toggle.querySelector('.mobile-language-toggle--arrow-black');
+    const arrowWhite = toggle.querySelector('.mobile-language-toggle--arrow-white');
 
-  console.log(2);
-  
+    if (!dropdown) return;
 
-	toggle.addEventListener('click', function (e) {
-    console.log(3);
-    
-		e.stopPropagation();
-    if (dropdown.classList.contains('hidden')) {
-      toggle.style.background = 'black';
-      toggle.style.color = 'white';
-      arrowWhite.style.display = 'block';;
-      arrowBlack.style.display = 'none';
-      dropdown.classList.toggle('hidden');
-    }
-	});
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
 
-	document.addEventListener('click', function (e) {
-		if (!dropdown.contains(e.target)) {
-      if (dropdown.classList.contains('hidden')) return; // Already closed
-      toggle.style.background = 'transparent';
-      toggle.style.color = 'black';
-      arrowWhite.style.display = 'none';
-      arrowBlack.style.display = 'block';
-			dropdown.classList.add('hidden');
-		}
-	});
+      const isClosed = dropdown.classList.contains('hidden');
+
+      // Close all other dropdowns (important if multiple exist)
+      document.querySelectorAll('.mobile-language-dropdown').forEach(d => {
+        d.classList.add('hidden');
+      });
+
+      document.querySelectorAll('.mobile-language-toggle').forEach(t => {
+        t.style.background = 'transparent';
+        t.style.color = 'black';
+
+        const ab = t.querySelector('.mobile-language-toggle--arrow-black');
+        const aw = t.querySelector('.mobile-language-toggle--arrow-white');
+
+        if (ab) ab.style.display = 'block';
+        if (aw) aw.style.display = 'none';
+      });
+
+      if (isClosed) {
+        dropdown.classList.remove('hidden');
+        toggle.style.background = 'black';
+        toggle.style.color = 'white';
+
+        if (arrowWhite) arrowWhite.style.display = 'block';
+        if (arrowBlack) arrowBlack.style.display = 'none';
+      }
+    });
+  });
+
+
+  // Click outside → close all
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.mobile-language-toggle').forEach(toggle => {
+      const wrapper = toggle.closest('.relative');
+      const dropdown = wrapper.querySelector('.mobile-language-dropdown');
+
+      if (!wrapper.contains(e.target)) {
+        if (!dropdown.classList.contains('hidden')) {
+          dropdown.classList.add('hidden');
+
+          toggle.style.background = 'transparent';
+          toggle.style.color = 'black';
+
+          const arrowBlack = toggle.querySelector('.mobile-language-toggle--arrow-black');
+          const arrowWhite = toggle.querySelector('.mobile-language-toggle--arrow-white');
+
+          if (arrowWhite) arrowWhite.style.display = 'none';
+          if (arrowBlack) arrowBlack.style.display = 'block';
+        }
+      }
+    });
+  });
 });
