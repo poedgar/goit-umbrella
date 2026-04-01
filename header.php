@@ -80,7 +80,7 @@
 				</div>
 
 
-				<div class="">
+				<div class="hidden xl:block">
 					<!-- language switcher -->
 					<?php get_template_part('template-parts/components/language-switcher'); ?>
 				</div>

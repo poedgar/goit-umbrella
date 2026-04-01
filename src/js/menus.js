@@ -160,15 +160,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	toggle.addEventListener('click', function (e) {
 		e.stopPropagation();
-    toggle.style.background = 'black';
-    toggle.style.color = 'white';
-    arrowWhite.style.display = 'block';;
-    arrowBlack.style.display = 'none';
-		dropdown.classList.toggle('hidden');
+    if (dropdown.classList.contains('hidden')) {
+      toggle.style.background = 'black';
+      toggle.style.color = 'white';
+      arrowWhite.style.display = 'block';;
+      arrowBlack.style.display = 'none';
+      dropdown.classList.toggle('hidden');
+    }
 	});
 
 	document.addEventListener('click', function (e) {
 		if (!dropdown.contains(e.target)) {
+      if (dropdown.classList.contains('hidden')) return; // Already closed
       toggle.style.background = 'transparent';
       toggle.style.color = 'black';
       arrowWhite.style.display = 'none';
