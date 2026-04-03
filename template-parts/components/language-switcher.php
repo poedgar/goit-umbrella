@@ -9,13 +9,18 @@ $lang_labels = [
 	'en' => 'Eng',
 ];
 
+$lang_labels_mobile = [
+	'uk' => 'Українська',
+	'en' => 'Engish',
+];
+
 // fallback if something unexpected
 $current_label = $lang_labels[$current_lang_code] ?? strtoupper($current_lang_code);
 ?>
 
 <div class="relative flex flex-col justify-center xl:inline-block text-left xl:mr-4">
 	<button id="mobile-language-toggle"
-		class="mobile-language-toggle flex justify-center items-center gap-[10px] px-4 py-2 xl:text-[20px]/[28px] rounded-t">
+		class="mobile-language-toggle flex justify-center items-center gap-[10px] px-4 py-2 text-[20px]/[28px] rounded-t">
 		<span><?= esc_html($current_label); ?></span>
 
 		<svg id="mobile-language-toggle--arrow-black" class="mobile-language-toggle--arrow-black" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="currentColor">
@@ -28,7 +33,7 @@ $current_label = $lang_labels[$current_lang_code] ?? strtoupper($current_lang_co
 	</button>
 
 	<div id="mobile-language-dropdown"
-		class="mobile-language-dropdown xl:absolute left-0 mt-1 w-full bg-white shadow-md text-sm hidden rounded-b">
+		class="mobile-language-dropdown xl:absolute left-0 w-full bg-white shadow-md text-sm hidden rounded-b">
 		<?php if (function_exists('icl_get_languages')) : ?>
 			<?php
 			$languages = icl_get_languages('skip_missing=0&orderby=custom&order=asc');
@@ -43,12 +48,18 @@ $current_label = $lang_labels[$current_lang_code] ?? strtoupper($current_lang_co
 				if ($lang_labels[$lang_code] === $active_lang_code) continue;
 
                 $name = $lang_labels[$lang_code] ?? ($lang['native_name'] ?? strtoupper($lang_code));
+				$name_mobile = $lang_labels_mobile[$lang_code] ?? ($lang['native_name'] ?? strtoupper($lang_code));
 				?>
 
 				<?php if (!empty($lang['url'])) : ?>
 					<a href="<?= esc_url($lang['url']); ?>"
-						class="block underline text-[20px]/[28px] px-4 py-2 hover:bg-gray-100 text-center">
+						class="hidden xl:block rounded-b hover:underline transition-all duration-1200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] text-[20px]/[28px] px-4 py-2 hover:bg-gray-100 text-center">
 						<?= esc_html($name); ?>
+					</a>
+
+					<a href="<?= esc_url($lang['url']); ?>"
+						class="w-full flex justify-center xl:hidden rounded-b hover:underline transition-all duration-1200 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] text-[20px]/[28px] px-4 py-2 hover:bg-gray-100 text-center">
+						<?= esc_html($name_mobile); ?>
 					</a>
 				<?php endif; ?>
 			<?php endforeach; ?>
