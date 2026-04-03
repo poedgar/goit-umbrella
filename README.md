@@ -11,8 +11,3 @@ You can find the Bathe documentation [on the website](https://ixkaito.github.io/
 © 2020 the contributors of Bathe under the [GPL version 2.0](https://raw.githubusercontent.com/wp-bathe/bathe/master/LICENSE) or later.
 
 ## TODO
-
-- Fix caching
-- Create staging
-- Import Olena's ACF groups
-- Retrieve proper images for Programs Section
