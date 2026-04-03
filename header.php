@@ -82,7 +82,6 @@
 
 				<div class="hidden">
 					<!-- language switcher -->
-					 
 					<?php get_template_part('template-parts/components/language-switcher'); ?>
 				</div>
 
