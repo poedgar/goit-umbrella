@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
         dropdown.classList.remove('hidden');
         toggle.style.background = 'black';
         toggle.style.color = 'white';
-        toggle.style.transform = 'translateY(180deg)';
+        if (arrowWhite) arrowWhite.style.transform = 'rotate(180deg)';
 
         if (arrowWhite) arrowWhite.style.display = 'block';
         if (arrowBlack) arrowBlack.style.display = 'none';
@@ -206,7 +206,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
           toggle.style.background = 'transparent';
           toggle.style.color = 'black';
-          toggle.style.transform = 'translateY(0deg)';
 
           const arrowBlack = toggle.querySelector('.mobile-language-toggle--arrow-black');
           const arrowWhite = toggle.querySelector('.mobile-language-toggle--arrow-white');
