@@ -28,11 +28,12 @@ if (!$show || empty($slides)) return;
 		<div class="swiper initiatives-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8 overflow-visible">
 			<!-- {{-- Initiatives btns --}} -->
 			<div class="flex items-center justify-between gap-5">
-				<button class="initiatives-button-prev btn btn-black md:px-4 smOnly:!w-[150px]" type="button" aria-label="до попереднього слайду" aria-disabled="false">
+				<button class="initiatives-button-prev btn btn-black md:px-4 smOnly:!w-[150px]" type="button"
+					aria-label="<?php echo esc_attr(__('до попереднього слайду', 'umbrella')); ?>" aria-disabled="false">
 					<?php echo	__('назад', 'umbrella'); ?>
 				</button>
 
-				<button class="initiatives-button-next btn btn-black md:px-4 smOnly:!w-[150px]" type="button" aria-label="до наступного слайду" aria-disabled="false">
+				<button class="initiatives-button-next btn btn-black md:px-4 smOnly:!w-[150px]" type="button" aria-label="<?php echo esc_attr(__('до наступного слайду', 'umbrella')); ?>" aria-disabled="false">
 					<?php echo __('вперед', 'umbrella'); ?>
 				</button>
 			</div>
@@ -55,7 +56,7 @@ if (!$show || empty($slides)) return;
 
 								<?php if ($photo): ?>
 									<div class="w-full h-[218px]">
-										<img src="<?= esc_url($photo['url']); ?>" alt="декорація" class="w-full h-full object-cover rounded-[8px]">
+										<img src="<?= esc_url($photo['url']); ?>" alt="<?php echo esc_attr__('декорація', 'umbrella'); ?>" class="w-full h-full object-cover rounded-[8px]">
 									</div>
 								<?php endif; ?>
 

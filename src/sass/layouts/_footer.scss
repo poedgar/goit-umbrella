@@ -1,7 +1,6 @@
 @use '../global' as *;
 
 .footer .agreements-menu {
-
 	@media (min-width: 767.99px) {
 		gap: 14px;
 	}
@@ -9,6 +8,5 @@
 	@media (min-width: 1279.99px) {
 		gap: 167.67px;
 		justify-content: space-between;
-		width: 585px;
 	}
 }
