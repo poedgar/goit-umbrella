@@ -102,7 +102,7 @@
 		</div>
 
 		<div class="">
-			<a href="/" class="smOnly:mx-auto block w-fit">
+			<a href="<?php echo esc_url(apply_filters('wpml_home_url', home_url('/'))); ?>" class="smOnly:mx-auto block w-fit">
 				<img class="h-[28px] w-[168px] md:h-[36px] md:w-[208px]" src="<?php echo get_template_directory_uri(); ?>/src/images/logo/logo-white.svg"
 					alt="<?php echo esc_attr__('логотип BetterED', 'umbrella'); ?>"
 					aria-label="<?php echo esc_attr__('На головну', 'umbrella'); ?>">
