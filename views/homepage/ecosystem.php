@@ -138,7 +138,7 @@ if (!$show_section) {
 								<div class="animated-card <?= $color_class ?> desktop relative w-[224px] xl:w-[384px] h-[42px] xl:h-[72px]">
 									<img src="<?= esc_url(
 													$img,
-												) ?>" alt="" class="w-full h-full object-cover rounded-[4px] xl:rounded-lg">
+												) ?>" alt="<?= esc_attr(__('Обличчя людей', 'umbrella')); ?>" class="w-full h-full object-cover rounded-[4px] xl:rounded-lg">
 									<div class="overlay absolute inset-0"></div>
 								</div>
 
