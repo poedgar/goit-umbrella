@@ -234,4 +234,4 @@
 		</div>
 	</div>
 
-	<main id="primary" class="grow" role="main">
+	<main id="primary" class="grow">

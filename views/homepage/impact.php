@@ -28,7 +28,7 @@ if (!$show_section) return;
 					class="absolute btn btn-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 shrink-0 hover:scale-[1.1] focus:scale-[1.1] active:scale-[1.1]"
 					type="button"
 					aria-label="<?php echo esc_attr(__('кнопка відкриття модального вікна з відео', 'umbrella')); ?>"
-					tabindex=" 0">
+					tabindex="0">
 					<?php echo esc_html__('дивитися', 'umbrella'); ?>
 				</button>
 			</div>

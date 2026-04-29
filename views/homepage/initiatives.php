@@ -26,7 +26,7 @@ if (!$show || empty($slides)) return;
 
 		<!-- slider container with btns -->
 		<div class="swiper initiatives-swiper mt-5 md:mt-8 flex flex-col-reverse md:flex-col gap-5 md:gap-8 overflow-visible">
-			<!-- {{-- Initiatives btns --}} -->
+			<!-- Initiatives btns -->
 			<div class="flex items-center justify-between gap-5">
 				<button class="initiatives-button-prev btn btn-black md:px-4 smOnly:!w-[150px]" type="button"
 					aria-label="<?php echo esc_attr(__('до попереднього слайду', 'umbrella')); ?>" aria-disabled="false">
