@@ -25,6 +25,8 @@ add_action(
 				'comment-list',
 				'gallery',
 				'caption',
+				'style',
+				'script',
 			)
 		);
 		add_theme_support(
@@ -149,6 +151,21 @@ function bathe_add_page_templates($templates)
 	$templates['page-templates/homepage.php'] = 'Homepage';
 	return $templates;
 }
+
+// Remove trailing slashes from void elements in wp_head() output (HTML5 Info warnings)
+add_action('wp_head', function () {
+	ob_start();
+}, 1);
+add_action('wp_head', function () {
+	$output = ob_get_clean();
+	// Replace self-closing slash on void elements: " />" -> ">"
+	echo preg_replace('/ \/>/i', '>', $output);
+}, PHP_INT_MAX);
+
+// Remove type="text/javascript" from enqueued script tags (HTML5 Warning)
+add_filter('script_loader_tag', function ($tag) {
+	return preg_replace('/\s+type=["\']text\/javascript["\']/', '', $tag);
+}, 10, 1);
 
 require_once get_template_directory() . '/inc/custom-post-types/companies.php';
 require_once get_template_directory() . '/inc/menus/primary.php';

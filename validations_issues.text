@@ -1,0 +1,849 @@
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 5, column 2; to line 5, column 25
+
+↩↩<head>↩	<meta charset="UTF-8" />↩	<met
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 6, column 2; to line 6, column 73
+
+TF-8" />↩	<meta name="viewport" content="width=device-width, initial-scale=1.0" />↩	<met
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 7, column 2; to line 7, column 95
+
+=1.0" />↩	<meta name="google-site-verification" content="rfrp_-lARI1nBB8WoFtM65Y_tzih1RNUj2jznpiSJ9E" />↩	<!--
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 9, column 2; to line 9, column 126
+
+icon -->↩	<link rel="icon" href="https://bettered.global/wp-content/themes/goit-umbrella/src/images/favicon.svg" type="image/x-icon" />↩	<lin
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 10, column 2; to line 10, column 135
+
+icon" />↩	<link rel="shortcut icon" href="https://bettered.global/wp-content/themes/goit-umbrella/src/images/favicon.svg" type="image/x-icon" />↩↩	<li
+
+Error: Bad start tag in iframe in noscript in head.
+
+From line 38, column 12; to line 39, column 63
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9T2GNKL"↩			height="0" width="0" style="display:none;visibility:hidden"></ifra
+
+Error: Element head is missing a required instance of child element title.
+
+From line 38, column 12; to line 39, column 63
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9T2GNKL"↩			height="0" width="0" style="display:none;visibility:hidden"></ifra
+
+Content model for element head:
+If the document is an iframe srcdoc document or if title information is available from a higher-level protocol: Zero or more elements of metadata content, of which no more than one is a title element and no more than one is a base element.
+Otherwise: One or more elements of metadata content, of which exactly one is a title element and no more than one is a base element.
+Error: Stray end tag noscript.
+
+From line 39, column 73; to line 39, column 83
+
+></iframe></noscript>↩	<!--
+
+Error: Element title not allowed as child of element body in this context. (Suppressing further errors from this subtree.)
+
+From line 46, column 1; to line 46, column 7
+
+.com/ -->↩<title>Better
+
+Contexts in which element title may be used:
+In a head element containing no other title elements.
+Content model for element body:
+Flow content.
+Error: Attribute name not allowed on element meta at this point.
+
+From line 47, column 1; to line 47, column 178
+
+m</title>↩<meta name="description" content="BetterED це екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT &amp; AI професії та навички для всіх поколінь."/>↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 47, column 1; to line 47, column 178
+
+m</title>↩<meta name="description" content="BetterED це екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT &amp; AI професії та навички для всіх поколінь."/>↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 47, column 1; to line 47, column 178
+
+m</title>↩<meta name="description" content="BetterED це екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT &amp; AI професії та навички для всіх поколінь."/>↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 48, column 1; to line 48, column 108
+
+олінь."/>↩<meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>↩<link
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 48, column 1; to line 48, column 108
+
+олінь."/>↩<meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>↩<link
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 48, column 1; to line 48, column 108
+
+олінь."/>↩<meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>↩<link
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 49, column 1; to line 49, column 56
+
+:large"/>↩<link rel="canonical" href="https://bettered.global/" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 49, column 1; to line 49, column 56
+
+:large"/>↩<link rel="canonical" href="https://bettered.global/" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 50, column 1; to line 50, column 45
+
+obal/" />↩<meta property="og:locale" content="uk_UA" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 51, column 1; to line 51, column 45
+
+uk_UA" />↩<meta property="og:type" content="website" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 52, column 1; to line 52, column 69
+
+bsite" />↩<meta property="og:title" content="BetterED Educational Ecosystem" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 53, column 1; to line 53, column 186
+
+ystem" />↩<meta property="og:description" content="BetterED це екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT &amp; AI професії та навички для всіх поколінь." />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 54, column 1; to line 54, column 61
+
+лінь." />↩<meta property="og:url" content="https://bettered.global/" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 55, column 1; to line 55, column 51
+
+obal/" />↩<meta property="og:site_name" content="BetterED" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 56, column 1; to line 56, column 71
+
+terED" />↩<meta property="og:updated_time" content="2026-03-31T16:51:35+00:00" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 57, column 1; to line 57, column 108
+
+00:00" />↩<meta property="og:image" content="https://bettered.global/wp-content/uploads/2026/03/OGP-1200x630-1.png" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 58, column 1; to line 58, column 119
+
+1.png" />↩<meta property="og:image:secure_url" content="https://bettered.global/wp-content/uploads/2026/03/OGP-1200x630-1.png" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 59, column 1; to line 59, column 49
+
+1.png" />↩<meta property="og:image:width" content="1200" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 60, column 1; to line 60, column 49
+
+"1200" />↩<meta property="og:image:height" content="630" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 61, column 1; to line 61, column 51
+
+="630" />↩<meta property="og:image:alt" content="Homepage" />↩<m
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 62, column 1; to line 62, column 53
+
+epage" />↩<meta property="og:image:type" content="image/png" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 63, column 1; to line 63, column 78
+
+e/png" />↩<meta property="article:published_time" content="2025-12-02T20:38:00+00:00" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 64, column 1; to line 64, column 77
+
+00:00" />↩<meta property="article:modified_time" content="2026-03-31T16:51:35+00:00" />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 65, column 1; to line 65, column 58
+
+00:00" />↩<meta name="twitter:card" content="summary_large_image" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 65, column 1; to line 65, column 58
+
+00:00" />↩<meta name="twitter:card" content="summary_large_image" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 65, column 1; to line 65, column 58
+
+00:00" />↩<meta name="twitter:card" content="summary_large_image" />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 66, column 1; to line 66, column 70
+
+image" />↩<meta name="twitter:title" content="BetterED Educational Ecosystem" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 66, column 1; to line 66, column 70
+
+image" />↩<meta name="twitter:title" content="BetterED Educational Ecosystem" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 66, column 1; to line 66, column 70
+
+image" />↩<meta name="twitter:title" content="BetterED Educational Ecosystem" />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 67, column 1; to line 67, column 187
+
+ystem" />↩<meta name="twitter:description" content="BetterED це екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT &amp; AI професії та навички для всіх поколінь." />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 67, column 1; to line 67, column 187
+
+ystem" />↩<meta name="twitter:description" content="BetterED це екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT &amp; AI професії та навички для всіх поколінь." />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 67, column 1; to line 67, column 187
+
+ystem" />↩<meta name="twitter:description" content="BetterED це екосистема освіти та карʼєрного розвитку від дитинства до зрілості. Здобувайте IT &amp; AI професії та навички для всіх поколінь." />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 68, column 1; to line 68, column 109
+
+лінь." />↩<meta name="twitter:image" content="https://bettered.global/wp-content/uploads/2026/03/OGP-1200x630-1.png" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 68, column 1; to line 68, column 109
+
+лінь." />↩<meta name="twitter:image" content="https://bettered.global/wp-content/uploads/2026/03/OGP-1200x630-1.png" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 68, column 1; to line 68, column 109
+
+лінь." />↩<meta name="twitter:image" content="https://bettered.global/wp-content/uploads/2026/03/OGP-1200x630-1.png" />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 69, column 1; to line 69, column 49
+
+1.png" />↩<meta name="twitter:label1" content="Написано" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 69, column 1; to line 69, column 49
+
+1.png" />↩<meta name="twitter:label1" content="Написано" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 69, column 1; to line 69, column 49
+
+1.png" />↩<meta name="twitter:label1" content="Написано" />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 70, column 1; to line 70, column 45
+
+исано" />↩<meta name="twitter:data1" content="admin" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 70, column 1; to line 70, column 45
+
+исано" />↩<meta name="twitter:data1" content="admin" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 70, column 1; to line 70, column 45
+
+исано" />↩<meta name="twitter:data1" content="admin" />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 71, column 1; to line 71, column 56
+
+admin" />↩<meta name="twitter:label2" content="Час для читання" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 71, column 1; to line 71, column 56
+
+admin" />↩<meta name="twitter:label2" content="Час для читання" />↩<meta
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 71, column 1; to line 71, column 56
+
+admin" />↩<meta name="twitter:label2" content="Час для читання" />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 72, column 1; to line 72, column 53
+
+тання" />↩<meta name="twitter:data2" content="Менше хвилини" />↩<scri
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 72, column 1; to line 72, column 53
+
+тання" />↩<meta name="twitter:data2" content="Менше хвилини" />↩<scri
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 72, column 1; to line 72, column 53
+
+тання" />↩<meta name="twitter:data2" content="Менше хвилини" />↩<scri
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 76, column 1; to line 76, column 143
+
+ SEO -->↩↩<link rel="alternate" type="application/rss+xml" title="BetterED Educational Ecosystem &raquo; стрічка" href="https://bettered.global/feed/" />↩<link
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 76, column 1; to line 76, column 143
+
+ SEO -->↩↩<link rel="alternate" type="application/rss+xml" title="BetterED Educational Ecosystem &raquo; стрічка" href="https://bettered.global/feed/" />↩<link
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 77, column 1; to line 77, column 161
+
+feed/" />↩<link rel="alternate" type="application/rss+xml" title="BetterED Educational Ecosystem &raquo; Канал коментарів" href="https://bettered.global/comments/feed/" />↩<link
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 77, column 1; to line 77, column 161
+
+feed/" />↩<link rel="alternate" type="application/rss+xml" title="BetterED Educational Ecosystem &raquo; Канал коментарів" href="https://bettered.global/comments/feed/" />↩<link
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 78, column 1; to line 78, column 170
+
+feed/" />↩<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://bettered.global/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbettered.global%2F" />↩<link
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 78, column 1; to line 78, column 170
+
+feed/" />↩<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://bettered.global/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbettered.global%2F" />↩<link
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 79, column 1; to line 79, column 177
+
+al%2F" />↩<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://bettered.global/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbettered.global%2F&#038;format=xml" />↩<styl
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 79, column 1; to line 79, column 177
+
+al%2F" />↩<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://bettered.global/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbettered.global%2F&#038;format=xml" />↩<styl
+
+Error: Element style not allowed as child of element body in this context. (Suppressing further errors from this subtree.)
+
+From line 80, column 1; to line 80, column 65
+
+t=xml" />↩<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>↩img:i
+
+Contexts in which element style may be used:
+Where metadata content is expected.
+In a noscript element that is a child of a head element.
+Content model for element body:
+Flow content.
+Warning: The type attribute for the style element is not needed and should be omitted.
+
+From line 80, column 1; to line 80, column 65
+
+t=xml" />↩<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>↩img:i
+
+Error: CSS: contain-intrinsic-size: Property contain-intrinsic-size doesn't exist.
+
+From line 81, column 73; to line 81, column 78
+
+ze:3000px 1500px}↩/*# 
+
+Error: Element style not allowed as child of element body in this context. (Suppressing further errors from this subtree.)
+
+From line 84, column 1; to line 84, column 55
+
+↩</style>↩<style id='wp-emoji-styles-inline-css' type='text/css'>↩↩	img
+
+Contexts in which element style may be used:
+Where metadata content is expected.
+In a noscript element that is a child of a head element.
+Content model for element body:
+Flow content.
+Warning: The type attribute for the style element is not needed and should be omitted.
+
+From line 84, column 1; to line 84, column 55
+
+↩</style>↩<style id='wp-emoji-styles-inline-css' type='text/css'>↩↩	img
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 99, column 1; to line 99, column 169
+
+↩</style>↩<link rel='stylesheet' id='wp-block-library-css' href='https://bettered.global/wp-includes/css/dist/block-library/style.min.css?ver=6.9.1' type='text/css' media='all' />↩↩<sty
+
+Error: Element style not allowed as child of element body in this context. (Suppressing further errors from this subtree.)
+
+From line 101, column 1; to line 101, column 58
+
+'all' />↩↩<style id='wp-block-paragraph-inline-css' type='text/css'>↩.is-s
+
+Contexts in which element style may be used:
+Where metadata content is expected.
+In a noscript element that is a child of a head element.
+Content model for element body:
+Flow content.
+Warning: The type attribute for the style element is not needed and should be omitted.
+
+From line 101, column 1; to line 101, column 58
+
+'all' />↩↩<style id='wp-block-paragraph-inline-css' type='text/css'>↩.is-s
+
+Error: Element style not allowed as child of element body in this context. (Suppressing further errors from this subtree.)
+
+From line 106, column 1; to line 106, column 60
+
+</style>↩↩<style id='classic-theme-styles-inline-css' type='text/css'>↩/*! T
+
+Contexts in which element style may be used:
+Where metadata content is expected.
+In a noscript element that is a child of a head element.
+Content model for element body:
+Flow content.
+Warning: The type attribute for the style element is not needed and should be omitted.
+
+From line 106, column 1; to line 106, column 60
+
+</style>↩↩<style id='classic-theme-styles-inline-css' type='text/css'>↩/*! T
+
+Error: Element style not allowed as child of element body in this context. (Suppressing further errors from this subtree.)
+
+From line 111, column 1; to line 111, column 53
+
+↩</style>↩<style id='global-styles-inline-css' type='text/css'>↩:root
+
+Contexts in which element style may be used:
+Where metadata content is expected.
+In a noscript element that is a child of a head element.
+Content model for element body:
+Flow content.
+Warning: The type attribute for the style element is not needed and should be omitted.
+
+From line 111, column 1; to line 111, column 53
+
+↩</style>↩<style id='global-styles-inline-css' type='text/css'>↩:root
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 116, column 1; to line 116, column 166
+
+</style>↩↩<link rel='stylesheet' id='bathe-css' href='https://bettered.global/wp-content/themes/goit-umbrella/assets/css/main.css?ver=1775471166' type='text/css' media='all' />↩<link
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 117, column 1; to line 117, column 173
+
+='all' />↩<link rel='stylesheet' id='tailwind-css' href='https://bettered.global/wp-content/themes/goit-umbrella/assets/css/tailwind.css?ver=1775471166' type='text/css' media='all' />↩<scri
+
+Warning: The type attribute is unnecessary for JavaScript resources.
+
+From line 118, column 1; to line 118, column 57
+
+='all' />↩<script type="text/javascript" id="wpml-cookie-js-extra">↩/* <!
+
+Warning: The type attribute is unnecessary for JavaScript resources.
+
+From line 125, column 1; to line 125, column 211
+
+</script>↩<script type="text/javascript" src="https://bettered.global/wp-content/plugins/sitepress-multilingua…s/cookies/language-cookie.js?ver=491900" id="wpml-cookie-js" defer="defer" data-wp-strategy="defer"></scri
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 126, column 1; to line 126, column 73
+
+</script>↩<link rel="https://api.w.org/" href="https://bettered.global/wp-json/" /><link 
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 126, column 1; to line 126, column 73
+
+</script>↩<link rel="https://api.w.org/" href="https://bettered.global/wp-json/" /><link 
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 126, column 74; to line 126, column 188
+
+-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://bettered.global/wp-json/wp/v2/pages/89" /><link 
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 126, column 74; to line 126, column 188
+
+-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://bettered.global/wp-json/wp/v2/pages/89" /><link 
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 126, column 189; to line 126, column 295
+
+ges/89" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://bettered.global/xmlrpc.php?rsd" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 126, column 189; to line 126, column 295
+
+ges/89" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://bettered.global/xmlrpc.php?rsd" />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 127, column 1; to line 127, column 51
+
+p?rsd" />↩<meta name="generator" content="WordPress 6.9.1" />↩<link
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 127, column 1; to line 127, column 51
+
+p?rsd" />↩<meta name="generator" content="WordPress 6.9.1" />↩<link
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 127, column 1; to line 127, column 51
+
+p?rsd" />↩<meta name="generator" content="WordPress 6.9.1" />↩<link
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 128, column 1; to line 128, column 56
+
+6.9.1" />↩<link rel='shortlink' href='https://bettered.global/' />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 128, column 1; to line 128, column 56
+
+6.9.1" />↩<link rel='shortlink' href='https://bettered.global/' />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 129, column 1; to line 129, column 60
+
+obal/' />↩<meta name="generator" content="WPML ver:4.9.2 stt:1,54;" />↩<link
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 129, column 1; to line 129, column 60
+
+obal/' />↩<meta name="generator" content="WPML ver:4.9.2 stt:1,54;" />↩<link
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 129, column 1; to line 129, column 60
+
+obal/' />↩<meta name="generator" content="WPML ver:4.9.2 stt:1,54;" />↩<link
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 130, column 1; to line 130, column 105
+
+1,54;" />↩<link rel="icon" href="https://bettered.global/wp-content/uploads/2026/02/Favicon-1.svg" sizes="32x32" />↩<link
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 130, column 1; to line 130, column 105
+
+1,54;" />↩<link rel="icon" href="https://bettered.global/wp-content/uploads/2026/02/Favicon-1.svg" sizes="32x32" />↩<link
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 131, column 1; to line 131, column 107
+
+32x32" />↩<link rel="icon" href="https://bettered.global/wp-content/uploads/2026/02/Favicon-1.svg" sizes="192x192" />↩<link
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 131, column 1; to line 131, column 107
+
+32x32" />↩<link rel="icon" href="https://bettered.global/wp-content/uploads/2026/02/Favicon-1.svg" sizes="192x192" />↩<link
+
+Error: A link element must not appear as a descendant of a body element unless the link element has an itemprop attribute or has a rel attribute whose value contains dns-prefetch, modulepreload, pingback, preconnect, prefetch, preload, prerender, or stylesheet.
+
+From line 132, column 1; to line 132, column 103
+
+2x192" />↩<link rel="apple-touch-icon" href="https://bettered.global/wp-content/uploads/2026/02/Favicon-1.svg" />↩<meta
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 132, column 1; to line 132, column 103
+
+2x192" />↩<link rel="apple-touch-icon" href="https://bettered.global/wp-content/uploads/2026/02/Favicon-1.svg" />↩<meta
+
+Error: Attribute name not allowed on element meta at this point.
+
+From line 133, column 1; to line 133, column 114
+
+1.svg" />↩<meta name="msapplication-TileImage" content="https://bettered.global/wp-content/uploads/2026/02/Favicon-1.svg" />↩</hea
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Error: Element meta is missing one or more of the following attributes: itemprop, property.
+
+From line 133, column 1; to line 133, column 114
+
+1.svg" />↩<meta name="msapplication-TileImage" content="https://bettered.global/wp-content/uploads/2026/02/Favicon-1.svg" />↩</hea
+
+Attributes for element meta:
+Global attributes
+name — Metadata name
+http-equiv — Pragma directive
+content — Value of the element
+charset — Character encoding declaration
+media — Applicable media
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 133, column 1; to line 133, column 114
+
+1.svg" />↩<meta name="msapplication-TileImage" content="https://bettered.global/wp-content/uploads/2026/02/Favicon-1.svg" />↩</hea
+
+Error: Stray end tag head.
+
+From line 134, column 1; to line 134, column 7
+
+1.svg" />↩</head>↩↩<bod
+
+Error: Start tag body seen but an element of the same type was already open.
+
+From line 136, column 1; to line 136, column 216
+
+↩</head>↩↩<body class="home wp-singular page-template page-template-page-templates page-template-homepage page…emplateshomepage-php page page-id-89 wp-theme-goit-umbrella antialiased flex flex-col min-h-screen">↩	↩	<h
+
+Fatal Error: Cannot recover after last error. Any further errors will be ignored.
+
+From line 136, column 1; to line 136, column 216
+
+↩</head>↩↩<body class="home wp-singular page-template page-template-page-templates page-template-homepage page…emplateshomepage-php page page-id-89 wp-theme-goit-umbrella antialiased flex flex-col min-h-screen">↩	↩	<h
