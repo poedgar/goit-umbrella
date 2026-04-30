@@ -73,7 +73,7 @@ class Custom_Mobile_Anchor_Walker extends Walker_Nav_Menu {
 
             if (!$has_children) {
                 $is_first = strpos($output, '<a') === false;
-                $class = $is_first ? 'block text-black hover:text-gray-600 transition-colors px-4 py-2 border-2 border-black rounded' : 'block text-black hover:text-gray-600 transition-colors py-2';
+                $class = $is_first ? 'block h-[44px] text-black hover:text-gray-600 transition-colors px-4 py-2 border-2 border-black rounded' : 'block h-[44px] text-black hover:text-gray-600 transition-colors py-2';
 
                 $output .= '<li><a href="' . esc_url($item->url) . '" class="' . $class . '">';
                 $output .= esc_html($item->title);
