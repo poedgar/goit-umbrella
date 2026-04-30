@@ -7,7 +7,7 @@ $items = array_reverse(get_field('timeline_items') ?: []);
 if (!$show_section || empty($items)) return;
 ?>
 
-<section id="timeline" class="section">
+<section id="timeline" class="section timeline-section">
 	<div class="container">
 		<div class="timeline-wrapper bg-white md:bg-transparent pt-5 smOnly:pb-5 md:pt-0 rounded-[8px] md:rounded-none">
 			<h2 class="section-title mx-auto !text-[48px]/[48px] px-5">
