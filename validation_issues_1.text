@@ -1,0 +1,302 @@
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 40, column 1; to line 40, column 50
+
+m</title>↩<meta name='robots' content='noindex, nofollow' />↩<link
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 41, column 1; to line 41, column 80
+
+ollow' />↩<link rel="alternate" hreflang="en" href="https://srv1155173.hstgr.cloud/en/" />↩<link
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 42, column 1; to line 42, column 77
+
+d/en/" />↩<link rel="alternate" hreflang="uk" href="https://srv1155173.hstgr.cloud/" />↩<link
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 43, column 1; to line 43, column 84
+
+loud/" />↩<link rel="alternate" hreflang="x-default" href="https://srv1155173.hstgr.cloud/" />↩<link
+
+Error: CSS: contain-intrinsic-size: Property contain-intrinsic-size doesn't exist.
+
+From line 49, column 73; to line 49, column 78
+
+ze:3000px 1500px}↩/*# 
+
+Error: Duplicate ID mobile-language-toggle.
+
+From line 222, column 2; to line 223, column 116
+
+l:mr-4">↩	<button id="mobile-language-toggle"↩		class="mobile-language-toggle flex justify-center items-center gap-[10px] px-4 py-2 text-[20px]/[28px] rounded-t">↩		<sp
+
+Warning: The first occurrence of ID mobile-language-toggle was here.
+
+From line 134, column 2; to line 135, column 116
+
+l:mr-4">↩	<button id="mobile-language-toggle"↩		class="mobile-language-toggle flex justify-center items-center gap-[10px] px-4 py-2 text-[20px]/[28px] rounded-t">↩		<sp
+
+Error: Duplicate ID mobile-language-toggle--arrow-black.
+
+From line 226, column 3; to line 226, column 188
+
+/span>↩↩		<svg id="mobile-language-toggle--arrow-black" class="mobile-language-toggle--arrow-black" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="currentColor">↩		<pa
+
+Warning: The first occurrence of ID mobile-language-toggle--arrow-black was here.
+
+From line 138, column 3; to line 138, column 188
+
+/span>↩↩		<svg id="mobile-language-toggle--arrow-black" class="mobile-language-toggle--arrow-black" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="currentColor">↩		<pa
+
+Error: Duplicate ID mobile-language-toggle--arrow-white.
+
+From line 230, column 3; to line 230, column 195
+
+</svg>↩↩		<svg class="hidden mobile-language-toggle--arrow-white" id="mobile-language-toggle--arrow-white" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="currentColor">↩		<pa
+
+Warning: The first occurrence of ID mobile-language-toggle--arrow-white was here.
+
+From line 142, column 3; to line 142, column 195
+
+</svg>↩↩		<svg class="hidden mobile-language-toggle--arrow-white" id="mobile-language-toggle--arrow-white" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="currentColor">↩		<pa
+
+Error: Duplicate ID mobile-language-dropdown.
+
+From line 235, column 2; to line 236, column 105
+
+button>↩↩	<div id="mobile-language-dropdown"↩		class="mobile-language-dropdown xl:absolute left-0 w-full bg-white shadow-md text-sm hidden rounded-b">↩					
+
+Warning: The first occurrence of ID mobile-language-dropdown was here.
+
+From line 147, column 2; to line 148, column 105
+
+button>↩↩	<div id="mobile-language-dropdown"↩		class="mobile-language-dropdown xl:absolute left-0 w-full bg-white shadow-md text-sm hidden rounded-b">↩					
+
+Warning: The main role is unnecessary for element main.
+
+From line 294, column 2; to line 294, column 45
+
+	</div>↩↩	<main id="primary" class="grow" role="main">↩<sect
+
+Error: Bad value  0 for attribute tabindex on element button: Expected a minus sign or a digit but saw   instead.
+
+From line 401, column 5; to line 407, column 19
+
+/div>↩				<button↩					id="playButton"↩					data-video-url="https://srv1155173.hstgr.cloud/wp-content/uploads/2025/12/video.mp4"↩					class="absolute btn btn-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 shrink-0 hover:scale-[1.1] focus:scale-[1.1] active:scale-[1.1]"↩					type="button"↩					aria-label="кнопка відкриття модального вікна з відео"↩					tabindex=" 0">↩					
+
+Error: Element style not allowed as child of element div in this context. (Suppressing further errors from this subtree.)
+
+From line 836, column 3; to line 836, column 9
+
+ainer">↩		<style>↩			/*
+
+Contexts in which element style may be used:
+Where metadata content is expected.
+In a noscript element that is a child of a head element.
+Content model for element div:
+If the element is a child of a dl element: One or more dt elements followed by one or more dd elements, optionally intermixed with script-supporting elements.
+Otherwise, if the element is a descendant of an option element: Zero or more option element inner content elements.
+Otherwise, if the element is a descendant of an optgroup element: Zero or more optgroup element inner content elements.
+Otherwise, if the element is a descendant of a select element: Zero or more select element inner content elements.
+Otherwise: flow content.
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1040, column 71; to line 1040, column 76
+
+підлітків.<br />↩GoIT 
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1041, column 81; to line 1041, column 86
+
+-продукти.<br />↩Neove
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1066, column 185; to line 1066, column 190
+
+боту в IT.<br />↩Ми зр
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1067, column 213; to line 1067, column 218
+
+пкомпаній.<br />↩Також
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1092, column 261; to line 1092, column 266
+
+eoversity.<br />↩Це пе
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1117, column 162; to line 1117, column 167
+
+ю Україну.<br />↩Розро
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1142, column 187; to line 1142, column 192
+
+ житимуть.<br />↩Ми ві
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1143, column 48; to line 1143, column 53
+
+підлітків.<br />↩У нас
+
+Error: Stray end tag h2.
+
+From line 1290, column 75; to line 1290, column 79
+
+md:mt-8"> </h2>↩			</
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1296, column 6; to line 1296, column 409
+
+x]">↩					<img width="522" height="138" src="https://srv1155173.hstgr.cloud/wp-content/uploads/2025/12/itgen.p…d/wp-content/uploads/2025/12/itgen-300x79.png 300w" sizes="auto, (max-width: 522px) 100vw, 522px" />↩					
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1310, column 70; to line 1310, column 75
+
+eneration <br /> від М
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1314, column 6; to line 1314, column 448
+
+x]">↩					<img width="522" height="140" src="https://srv1155173.hstgr.cloud/wp-content/uploads/2025/12/mincyfr…p-content/uploads/2025/12/mincyfry-300x80.png 300w" sizes="auto, (max-width: 522px) 100vw, 522px" />↩					
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1318, column 6; to line 1318, column 411
+
+x]">↩					<img width="522" height="138" src="https://srv1155173.hstgr.cloud/wp-content/uploads/2026/02/forbs.p…d/wp-content/uploads/2026/02/forbs-300x79.png 300w" sizes="auto, (max-width: 522px) 100vw, 522px" />↩					
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1336, column 6; to line 1336, column 451
+
+x]">↩					<img width="522" height="138" src="https://srv1155173.hstgr.cloud/wp-content/uploads/2025/12/ukraini…/uploads/2025/12/ukrainianitawards-300x79.png 300w" sizes="auto, (max-width: 522px) 100vw, 522px" />↩					
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1350, column 42; to line 1350, column 47
+
+ Awards», <br /> за ви
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1350, column 81; to line 1350, column 86
+
+-навчання <br /> Junio
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1354, column 6; to line 1354, column 425
+
+x]">↩					<img width="522" height="140" src="https://srv1155173.hstgr.cloud/wp-content/uploads/2025/12/product…ontent/uploads/2025/12/producthunt-300x80.png 300w" sizes="auto, (max-width: 522px) 100vw, 522px" />↩					
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1368, column 48; to line 1368, column 53
+
+кт тижня" <br /> на Pr
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1372, column 6; to line 1372, column 412
+
+x]">↩					<img width="522" height="138" src="https://srv1155173.hstgr.cloud/wp-content/uploads/2025/12/diiacit…p-content/uploads/2025/12/diiacity-300x79.png 300w" sizes="auto, (max-width: 522px) 100vw, 522px" />↩					
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1386, column 31; to line 1386, column 36
+
+й EdTech» <br /> від D
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1390, column 6; to line 1390, column 418
+
+x]">↩					<img width="522" height="138" src="https://srv1155173.hstgr.cloud/wp-content/uploads/2025/12/itukrai…-content/uploads/2025/12/itukraine-300x79.png 300w" sizes="auto, (max-width: 522px) 100vw, 522px" />↩					
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1394, column 6; to line 1394, column 463
+
+x]">↩					<img width="522" height="138" src="https://srv1155173.hstgr.cloud/wp-content/uploads/2026/02/narodna…nt/uploads/2026/02/narodnapremia-1-300x79.png 300w" sizes="auto, (max-width: 522px) 100vw, 522px" />↩					
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1408, column 60; to line 1408, column 65
+
+й», 2025. <br /> Перем
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1408, column 112; to line 1408, column 117
+
+018-2025. <br /> Перем
+
+Warning: The document is not mappable to XML 1.0 due to two consecutive hyphens in a comment.
+
+At line 1428, column 13
+
+">↩			<!-- {{-- Initiatives bt
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1853, column 226; to line 1853, column 231
+
+шої згоди.<br />↩<br /
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1854, column 1; to line 1854, column 6
+
+ди.<br />↩<br />↩За Ва
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1855, column 198; to line 1855, column 203
+
+ сервісів.<br />↩
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1855, column 204; to line 1856, column 6
+
+сів.<br />↩<br />↩Надаю
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1857, column 205; to line 1857, column 210
+
+ого Сайту.<br />↩<br /
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1858, column 1; to line 1858, column 6
+
+ту.<br />↩<br />↩Ви мо
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1887, column 42; to line 1894, column 6
+
+          <img↩            class="wpml-ls-flag"↩            src="https://srv1155173.hstgr.cloud/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.svg"↩            alt=""↩            loading="lazy"↩            width=18↩            height=12↩    /><span 
+
+Info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+
+From line 1897, column 42; to line 1904, column 6
+
+          <img↩            class="wpml-ls-flag"↩            src="https://srv1155173.hstgr.cloud/wp-content/plugins/sitepress-multilingual-cms/res/flags/uk.svg"↩            alt=""↩            loading="lazy"↩            width=18↩            height=12↩    /><span 

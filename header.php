@@ -11,12 +11,12 @@
 <html lang="uk-UA" prefix="og: https://ogp.me/ns#">
 
 <head>
-	<meta charset="<?php bloginfo('charset'); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="google-site-verification" content="rfrp_-lARI1nBB8WoFtM65Y_tzih1RNUj2jznpiSJ9E" />
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="rfrp_-lARI1nBB8WoFtM65Y_tzih1RNUj2jznpiSJ9E">
 	<!-- Favicon -->
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/src/images/favicon.svg" type="image/x-icon" />
-	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/src/images/favicon.svg" type="image/x-icon" />
+	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/src/images/favicon.svg" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/src/images/favicon.svg" type="image/x-icon">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,17 +43,16 @@
 	</script>
 	<!-- End Google Tag Manager -->
 
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9T2GNKL"
-			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-
 	<script src="https://www.youtube.com/iframe_api"></script>
 
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class('antialiased flex flex-col min-h-screen'); ?>>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9T2GNKL"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 	<?php wp_body_open(); ?>
 
 	<header class="header bg-body sticky top-0 z-[9999] py-5 md:py-8">
@@ -235,4 +234,4 @@
 		</div>
 	</div>
 
-	<main id="primary" class="grow" role="main">
+	<main id="primary" class="grow">

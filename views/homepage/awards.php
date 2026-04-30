@@ -20,8 +20,7 @@ if (!$show_section || empty($awards_items)) return;
 		<?php endif; ?>
 
 		<?php if ($description): ?>
-			<p class="low-section-title mdOnly:text-[32px]/[40px] mt-5 md:mt-8"><?= esc_html($description); ?></h2>
-			</p>
+			<p class="low-section-title mdOnly:text-[32px]/[40px] mt-5 md:mt-8"><?= esc_html($description); ?></p>
 		<?php endif; ?>
 
 		<!-- Awards / Logos Grid -->

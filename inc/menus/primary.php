@@ -1,17 +1,22 @@
 <?php
+
 /**
  * Custom Walker for Desktop Menu with Dropdown Support
  */
-class Custom_Anchor_Walker extends Walker_Nav_Menu {
-    function start_lvl(&$output, $depth = 0, $args = null) {
+class Custom_Anchor_Walker extends Walker_Nav_Menu
+{
+    function start_lvl(&$output, $depth = 0, $args = null)
+    {
         $output .= '<div class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"><div class="py-2">';
     }
 
-    function end_lvl(&$output, $depth = 0, $args = null) {
+    function end_lvl(&$output, $depth = 0, $args = null)
+    {
         $output .= '</div></div>';
     }
 
-    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
+    {
         $classes = empty($item->classes) ? array() : (array) $item->classes;
         $has_children = in_array('menu-item-has-children', $classes);
 
@@ -44,7 +49,8 @@ class Custom_Anchor_Walker extends Walker_Nav_Menu {
         }
     }
 
-    function end_el(&$output, $item, $depth = 0, $args = null) {
+    function end_el(&$output, $item, $depth = 0, $args = null)
+    {
         $classes = empty($item->classes) ? array() : (array) $item->classes;
         $has_children = in_array('menu-item-has-children', $classes);
 
@@ -57,23 +63,27 @@ class Custom_Anchor_Walker extends Walker_Nav_Menu {
 /**
  * Custom Walker for Mobile Menu
  */
-class Custom_Mobile_Anchor_Walker extends Walker_Nav_Menu {
-    function start_lvl(&$output, $depth = 0, $args = null) {
+class Custom_Mobile_Anchor_Walker extends Walker_Nav_Menu
+{
+    function start_lvl(&$output, $depth = 0, $args = null)
+    {
         $output .= '<div class="border-t pt-3 mt-3"><div class="font-semibold mb-2 text-sm uppercase text-gray-600">наша екосистема</div>';
     }
 
-    function end_lvl(&$output, $depth = 0, $args = null) {
+    function end_lvl(&$output, $depth = 0, $args = null)
+    {
         $output .= '</div>';
     }
 
-    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
+    {
         if ($depth === 0) {
             $classes = empty($item->classes) ? array() : (array) $item->classes;
             $has_children = in_array('menu-item-has-children', $classes);
 
             if (!$has_children) {
                 $is_first = strpos($output, '<a') === false;
-                $class = $is_first ? 'block text-black hover:text-gray-600 transition-colors px-4 py-2 border-2 border-black rounded' : 'block text-black hover:text-gray-600 transition-colors py-2';
+                $class = $is_first ? 'block h-[44px] text-black hover:text-gray-600 transition-colors px-4 py-2 border-2 border-black rounded' : 'block h-[44px] text-black hover:text-gray-600 transition-colors py-2';
 
                 $output .= '<li><a href="' . esc_url($item->url) . '" class="' . $class . '">';
                 $output .= esc_html($item->title);
@@ -88,7 +98,8 @@ class Custom_Mobile_Anchor_Walker extends Walker_Nav_Menu {
         }
     }
 
-    function end_el(&$output, $item, $depth = 0, $args = null) {
+    function end_el(&$output, $item, $depth = 0, $args = null)
+    {
         if ($depth === 0) {
             $classes = empty($item->classes) ? array() : (array) $item->classes;
             $has_children = in_array('menu-item-has-children', $classes);
@@ -104,10 +115,10 @@ class Custom_Mobile_Anchor_Walker extends Walker_Nav_Menu {
  * Register Navigation Menu
  * Add this to your theme's functions.php
  */
-function register_header_menu() {
+function register_header_menu()
+{
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'theme-textdomain')
     ));
 }
 add_action('after_setup_theme', 'register_header_menu');
-?>
