@@ -45,7 +45,7 @@ if (!$show_section || empty($items)) return;
 					$image = $item['image'];
 					$active = $index === 0 ? 'active' : '';
 				?>
-					<div class="content-section bg-white xl:mt-8 px-[20px] md:p-8 rounded-[8px] flex flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
+					<div class="content-section bg-white xl:mt-8 px-[20px] md:p-8 rounded-[8px] flex-col-reverse md:flex-row md:gap-8 <?= $active; ?>"
 						data-content="<?= esc_attr($year); ?>">
 						<div class="md:w-[50%]">
 							<h2
@@ -68,7 +68,7 @@ if (!$show_section || empty($items)) return;
 
 						<?php if ($image): ?>
 							<div class="timeline-image-wrapper md:w-[50%]">
-								<img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>"
+								<img src="<?= esc_url($image); ?>" alt="<?= esc_attr(wp_strip_all_tags($heading)); ?>"
 									class="w-full h-full object-cover rounded-[8px]">
 							</div>
 						<?php endif; ?>
