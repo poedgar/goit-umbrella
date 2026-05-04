@@ -68,7 +68,7 @@ if (!$show_section || empty($items)) return;
 
 						<?php if ($image): ?>
 							<div class="timeline-image-wrapper md:w-[50%]">
-								<img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>"
+								<img src="<?= esc_url($image); ?>" alt="<?= esc_attr(wp_strip_all_tags($heading)); ?>"
 									class="w-full h-full object-cover rounded-[8px]">
 							</div>
 						<?php endif; ?>
