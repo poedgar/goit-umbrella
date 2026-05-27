@@ -44,9 +44,9 @@ if (!$show_section || empty($team_members)) {
 					<?php endif; ?>
 
 					<?php if ($name): ?>
-						<h3 class="text-[20px]/[28px] grow font-medium uppercase"><?= esc_html(
-																						$name,
-																					) ?></h3>
+						<h3 class="text-[20px]/[28px] grow font-medium uppercase">
+							<?= esc_html($name) ?>
+						</h3>
 					<?php endif; ?>
 
 					<?php if ($position): ?>
@@ -65,9 +65,7 @@ if (!$show_section || empty($team_members)) {
 						</a>
 					<?php endif; ?>
 				</li>
-			<?php
-			endforeach; ?>
-
+			<?php endforeach; ?>
 		</ul>
 
 		<!-- MediaKit -->
@@ -87,6 +85,9 @@ if (!$show_section || empty($team_members)) {
 					</a>
 				</p>
 			<?php endif; ?>
+			<div class="hidden">
+				Test block
+			</div>
 
 		</div>
 	</div>
